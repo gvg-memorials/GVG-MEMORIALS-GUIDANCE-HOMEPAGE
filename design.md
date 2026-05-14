@@ -254,6 +254,213 @@ Rules:
 - Keep hero headline large and editorial
 - Keep body copy plain, readable, and direct
 
+### Current Implemented Tokens
+
+The current website is a static HTML/CSS/JS implementation. `styles.css` is the source of truth for the implemented visual system.
+
+Core tokens currently defined in `:root`:
+
+```css
+--ink: #17130e;
+--ivory: #f6f1e8;
+--limestone: #ded2bd;
+--sand: #b9a77f;
+--brass: #af8741;
+--olive: #3c472c;
+--white: #fffaf1;
+--shadow: rgba(12, 10, 7, 0.45);
+--serif: "Cormorant Garamond", Georgia, serif;
+--sans: "Inter", Arial, sans-serif;
+```
+
+Implemented layout values:
+
+```css
+section inner width: min(1180px, calc(100% - 40px));
+hero content width: min(980px, calc(100% - 40px));
+section heading max width: 760px;
+main section padding: clamp(76px, 9vw, 130px) 0;
+intro section padding: clamp(72px, 9vw, 130px) 0;
+major grid gap: clamp(42px, 7vw, 96px);
+gallery copy padding: clamp(42px, 6vw, 96px);
+```
+
+Implemented type values:
+
+```css
+hero h1: clamp(54px, 8vw, 124px), line-height 0.91;
+mobile hero h1: clamp(48px, 15vw, 68px);
+section h2: clamp(42px, 5.4vw, 76px), line-height 0.98;
+body section copy: clamp(17px, 1.55vw, 21px), line-height 1.7;
+large note copy: clamp(18px, 1.7vw, 23px), line-height 1.65;
+small UI labels: 11px to 12px, uppercase, Inter, bold;
+```
+
+Implemented interaction values:
+
+```css
+button min-height: 48px;
+button padding: 0 28px;
+button hover transform: translateY(-1px);
+transition duration: 180ms ease;
+```
+
+### Hard-Coded Values To Tokenize Later
+
+The site already looks coherent. These values should eventually become named tokens, but changing them should be a later low-risk cleanup only. Do not change visual output during tokenization.
+
+Dark surfaces:
+
+```css
+#17130e;
+#16130f;
+#0f0e0b;
+```
+
+Warm surfaces:
+
+```css
+#ebe0ce;
+#f5efe4;
+```
+
+Accent and hover values:
+
+```css
+#c59648;
+#f0d18c;
+#f2d28f;
+#5d4928;
+#4d3e25;
+```
+
+Divider values:
+
+```css
+rgba(23, 19, 14, 0.16);
+rgba(23, 19, 14, 0.28);
+rgba(255, 250, 241, 0.16);
+rgba(255, 250, 241, 0.18);
+rgba(255, 250, 241, 0.2);
+rgba(255, 250, 241, 0.24);
+rgba(255, 250, 241, 0.48);
+rgba(255, 250, 241, 0.66);
+```
+
+Text opacity values:
+
+```css
+rgba(23, 19, 14, 0.62);
+rgba(23, 19, 14, 0.68);
+rgba(23, 19, 14, 0.72);
+rgba(23, 19, 14, 0.78);
+rgba(255, 250, 241, 0.72);
+rgba(255, 250, 241, 0.74);
+rgba(255, 250, 241, 0.75);
+rgba(255, 250, 241, 0.84);
+rgba(255, 250, 241, 0.9);
+```
+
+Motion and glow values:
+
+```css
+sun fallback animation: 8s ease-in-out infinite alternate;
+WebGL-ready fallback animation: 12s;
+desktop WebGL canvas opacity: 0.9;
+mobile WebGL canvas opacity: 0.62;
+fallback glow desktop range: 0.46 to 0.72;
+fallback glow WebGL-ready range: 0.16 to 0.28;
+fallback glow mobile range: 0.32 to 0.48;
+fallback glow mobile WebGL-ready range: 0.12 to 0.22;
+```
+
+### Existing Component Primitives
+
+The current site does not use React, Tailwind, Next.js, or a component library. Components exist as static HTML/CSS primitives.
+
+Documented primitive names for future reference:
+
+- `SiteHeader`: fixed transparent header with logo, desktop nav, and phone CTA.
+- `DesktopNav`: uppercase navigation links shown above the mobile breakpoint.
+- `HeaderAction`: outlined phone CTA in the header.
+- `HeroMediaStack`: full-bleed hero image, WebGL canvas, CSS glow fallback, and shade overlay.
+- `SunFlareLayer`: WebGL sun flare plus CSS fallback.
+- `HeroContent`: headline, support copy, and hero CTAs.
+- `HeroTrustStrip`: bottom service strip inside the hero.
+- `Button`: shared CTA base.
+- `ButtonPrimary`: brass filled CTA.
+- `ButtonSecondary`: transparent/dark glass CTA on the hero.
+- `ButtonOutline`: light-section outline CTA.
+- `SectionShell`: full-width section band.
+- `SectionInner`: constrained content wrapper.
+- `SectionHeading`: label, heading, and optional support copy.
+- `SectionLabel`: uppercase brass label.
+- `EditorialGrid`: two-column content grid.
+- `BorderGrid`: repeated grid with 1px dividers.
+- `ProofPillRow`: small uppercase guidance/trust pills.
+- `CredibilityGrid`: four trust-signal cells.
+- `MemorialOptionsGrid`: four memorial option cells.
+- `ProcessSteps`: ordered guidance steps.
+- `ReassuranceNotesGrid`: family reassurance notes.
+- `ResourceList`: stacked resource rows.
+- `AppointmentList`: stacked appointment-prep rows.
+- `GallerySplitBand`: image and local-support copy split section.
+- `ContactPanel`: final contact section with CTAs and address.
+
+### Styling Architecture
+
+Current architecture:
+
+```text
+index.html      static content, SEO, JSON-LD, section order, class structure
+styles.css      tokens, reset, layout, components, responsive rules
+sun-flare.js    WebGL hero animation and motion fallback behavior
+assets/         production logo and hero image assets
+```
+
+The CSS is organized by page flow rather than by formal component groups. That is acceptable for the current static site. Future cleanup can reorganize CSS comments and token naming without changing selectors or rendered appearance.
+
+The current styling approach is:
+
+- CSS custom properties for core brand colors and type.
+- Static semantic section classes.
+- Reusable class patterns for buttons, grids, section wrappers, and labels.
+- Thin borders and grid rhythm instead of cards and shadows.
+- Responsive behavior through two breakpoints: `920px` and `620px`.
+- No framework, build system, utility library, or component runtime.
+
+### Motion System
+
+Motion is brand atmosphere only. It should not compete with the memorial message.
+
+Current motion layers:
+
+- CSS fallback glow on `.sun-flare-fallback`.
+- WebGL shader in `sun-flare.js`.
+- Button hover lift using `translateY(-1px)`.
+- Header/nav hover color transition.
+
+Current WebGL behavior:
+
+- Gets a WebGL context from `.sun-flare`.
+- Uses alpha blending over the hero image.
+- Anchors the sun at `vec2(0.82, 0.84)`.
+- Uses aspect-corrected calculations so the flare holds position across viewport sizes.
+- Uses a warm/cream color mix.
+- Caps alpha at `0.5`.
+- Renders with `requestAnimationFrame`.
+- Sets motion to zero when `prefers-reduced-motion: reduce` is active.
+- Pauses when the hero is offscreen with `IntersectionObserver`.
+- Adds `flare-webgl-unavailable` if WebGL is missing or shader setup fails.
+- Adds `flare-webgl-ready` when WebGL starts.
+
+Rules:
+
+- Keep motion slow and subtle.
+- Keep the flare behind all readable content.
+- Preserve the CSS fallback so the hero still has warmth if WebGL is unavailable.
+- Do not add large animated UI, scroll tricks, or decorative motion that changes the tone.
+
 ## Layout Principles
 
 - The hero is full-viewport and full-bleed.
@@ -379,6 +586,33 @@ Mobile behavior:
 
 The mobile hero can remain left-aligned because it feels more editorial and prevents centered text from colliding with the monument.
 
+Current implemented mobile conventions:
+
+- Header switches from three columns to logo plus phone CTA at `920px`.
+- Desktop nav is hidden at `920px`.
+- Hero trust strip becomes two columns at `920px`.
+- Major layout grids stack to one column at `920px`.
+- Credibility and memorial option grids reduce to two columns at `920px`.
+- At `620px`, the logo becomes `66px` wide and the phone CTA becomes smaller.
+- At `620px`, the hero uses `min-height: max(100svh, 860px)` and starts content from the top with controlled padding.
+- At `620px`, hero content is left-aligned, CTAs are full-width, and the hero image shifts to `object-position: 64% center`.
+- At `620px`, credibility and reassurance grids stack to one column.
+- At `620px`, memorial options stack to one column.
+- At `620px`, process steps become one-column rows.
+- At `620px`, gallery image minimum height becomes `430px`.
+
+### Known Drift Between This Document And Implementation
+
+This document is now aligned with the current implementation, with the following known drift to address later:
+
+- The implementation includes FAQ JSON-LD in `index.html`, but there is no visible FAQ section yet.
+- Some colors documented as tokens are underused in CSS: `--limestone`, `--sand`, and `--olive`.
+- Many repeated hard-coded colors, borders, and text opacity values are not yet formal tokens.
+- The current CSS has strong implicit primitives, but it is not yet grouped with component comments.
+- `contact-detail` uses `!important`, which should eventually be replaced with a cleaner selector or tokenized text style.
+- The stylesheet references cache-busted assets in HTML: `styles.css?v=2` and `sun-flare.js?v=2`.
+- `design.md` is lowercase. Keep this file unless the repo later adopts uppercase `DESIGN.md` as convention.
+
 ## Asset Policy
 
 Keep website-consumed assets inside this repo. Do not reference generated images from `.codex/generated_images` in production code.
@@ -402,6 +636,21 @@ Next design additions should preserve the current mood:
 4. Add real testimonial snippets only with permission.
 5. Add a lightweight contact form or appointment request flow.
 6. Add separate service pages for flat markers, upright monuments, bronze, benches, and Conejo Mountain support.
+
+## Future Low-Risk Cleanup Path
+
+Do not redesign during cleanup. The first implementation passes should preserve the current rendered site.
+
+Recommended order:
+
+1. Add missing token names to `:root` for current hard-coded values.
+2. Replace hard-coded values with equivalent variables without changing colors.
+3. Add CSS section comments around primitives: tokens, base, header, hero, buttons, sections, grids, motion, responsive.
+4. Remove `!important` from `contact-detail` only if the selector can be made equivalent.
+5. Keep `index.html` static unless content growth requires a later component strategy.
+6. Keep `sun-flare.js` isolated and dependency-free.
+7. Verify desktop and 390px mobile after every CSS cleanup pass.
+8. Do not introduce React, Tailwind, Next.js, or libraries unless the project scope changes substantially.
 
 ## Non-Negotiables
 

@@ -7,6 +7,34 @@
   --olive: #3c472c;
   --white: #fffaf1;
   --shadow: rgba(12, 10, 7, 0.45);
+  --surface-dark: #17130e;
+  --surface-dark-soft: #16130f;
+  --surface-dark-deep: #0f0e0b;
+  --surface-warm: #ebe0ce;
+  --surface-warm-light: #f5efe4;
+  --accent-brass-hover: #c59648;
+  --accent-gold-soft: #f0d18c;
+  --accent-gold-link: #f2d28f;
+  --accent-earth: #5d4928;
+  --accent-olive-earth: #4d3e25;
+  --divider-ink: rgba(23, 19, 14, 0.16);
+  --divider-ink-strong: rgba(23, 19, 14, 0.28);
+  --divider-light-faint: rgba(255, 250, 241, 0.16);
+  --divider-light-soft: rgba(255, 250, 241, 0.18);
+  --divider-light: rgba(255, 250, 241, 0.2);
+  --divider-light-strong: rgba(255, 250, 241, 0.24);
+  --divider-light-action: rgba(255, 250, 241, 0.48);
+  --divider-light-action-strong: rgba(255, 250, 241, 0.66);
+  --surface-ink-hover: rgba(23, 19, 14, 0.06);
+  --text-ink-muted: rgba(23, 19, 14, 0.62);
+  --text-ink-soft: rgba(23, 19, 14, 0.68);
+  --text-ink-secondary: rgba(23, 19, 14, 0.72);
+  --text-ink-body: rgba(23, 19, 14, 0.78);
+  --text-light-secondary: rgba(255, 250, 241, 0.72);
+  --text-light-body: rgba(255, 250, 241, 0.74);
+  --text-light-muted: rgba(255, 250, 241, 0.75);
+  --text-light-strong: rgba(255, 250, 241, 0.84);
+  --text-light-high: rgba(255, 250, 241, 0.9);
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Inter", Arial, sans-serif;
 }
@@ -70,12 +98,12 @@ a {
 
 .desktop-nav a:hover,
 .header-action:hover {
-  color: #f0d18c;
+  color: var(--accent-gold-soft);
   opacity: 1;
 }
 
 .header-action {
-  border: 1px solid rgba(255, 250, 241, 0.48);
+  border: 1px solid var(--divider-light-action);
   padding: 11px 15px;
   font-size: 12px;
   font-weight: 700;
@@ -204,7 +232,7 @@ a {
   justify-content: center;
   min-height: 48px;
   padding: 0 28px;
-  border: 1px solid rgba(255, 250, 241, 0.66);
+  border: 1px solid var(--divider-light-action-strong);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0;
@@ -223,8 +251,8 @@ a {
 }
 
 .button-primary:hover {
-  background: #c59648;
-  border-color: #c59648;
+  background: var(--accent-brass-hover);
+  border-color: var(--accent-brass-hover);
 }
 
 .button-secondary {
@@ -234,7 +262,7 @@ a {
 }
 
 .button-secondary:hover {
-  background: rgba(255, 250, 241, 0.16);
+  background: var(--divider-light-faint);
 }
 
 .trust-strip {
@@ -246,7 +274,7 @@ a {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  border-top: 1px solid rgba(255, 250, 241, 0.24);
+  border-top: 1px solid var(--divider-light-strong);
   background: rgba(13, 12, 9, 0.42);
   backdrop-filter: blur(14px);
 }
@@ -256,10 +284,10 @@ a {
   display: grid;
   place-items: center;
   padding: 0 14px;
-  color: rgba(255, 250, 241, 0.9);
+  color: var(--text-light-high);
   font-family: var(--serif);
   font-size: clamp(15px, 1.35vw, 20px);
-  border-left: 1px solid rgba(255, 250, 241, 0.16);
+  border-left: 1px solid var(--divider-light-faint);
   text-align: center;
 }
 
@@ -309,13 +337,17 @@ h2 {
 }
 
 .intro-copy p,
-.section-heading p,
-.gallery-copy p,
-.contact p {
+.section-heading p:not(.section-label),
+.gallery-copy p:not(.section-label),
+.contact p:not(.section-label) {
   margin: 0;
-  color: rgba(23, 19, 14, 0.78);
+  color: var(--text-ink-body);
   font-size: clamp(17px, 1.55vw, 21px);
   line-height: 1.7;
+}
+
+.section-heading p:not(.section-label) {
+  margin-top: 24px;
 }
 
 .proof-row {
@@ -329,7 +361,7 @@ h2 {
   padding: 12px 14px;
   background: rgba(175, 135, 65, 0.12);
   border: 1px solid rgba(175, 135, 65, 0.26);
-  color: #5d4928;
+  color: var(--accent-earth);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -343,14 +375,14 @@ h2 {
 .credibility-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid rgba(23, 19, 14, 0.16);
-  border-bottom: 1px solid rgba(23, 19, 14, 0.16);
+  border-top: 1px solid var(--divider-ink);
+  border-bottom: 1px solid var(--divider-ink);
 }
 
 .credibility article {
   min-height: 188px;
   padding: 26px 24px;
-  border-left: 1px solid rgba(23, 19, 14, 0.16);
+  border-left: 1px solid var(--divider-ink);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -368,14 +400,14 @@ h2 {
 }
 
 .credibility span {
-  color: rgba(23, 19, 14, 0.68);
+  color: var(--text-ink-soft);
   font-size: 14px;
   line-height: 1.55;
 }
 
 .memorials {
   padding: clamp(76px, 9vw, 130px) 0;
-  background: #16130f;
+  background: var(--surface-dark-soft);
   color: var(--white);
 }
 
@@ -387,14 +419,14 @@ h2 {
   margin-top: clamp(42px, 5vw, 72px);
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid rgba(255, 250, 241, 0.18);
-  border-bottom: 1px solid rgba(255, 250, 241, 0.18);
+  border-top: 1px solid var(--divider-light-soft);
+  border-bottom: 1px solid var(--divider-light-soft);
 }
 
 .memorial-list article {
   min-height: 300px;
   padding: 30px 26px;
-  border-left: 1px solid rgba(255, 250, 241, 0.18);
+  border-left: 1px solid var(--divider-light-soft);
 }
 
 .memorial-list article:first-child {
@@ -417,7 +449,7 @@ h2 {
 
 .memorial-list p {
   margin: 0;
-  color: rgba(255, 250, 241, 0.72);
+  color: var(--text-light-secondary);
   font-size: 15px;
   line-height: 1.65;
 }
@@ -428,7 +460,7 @@ h2 {
 
 .families {
   padding: clamp(76px, 9vw, 130px) 0;
-  background: #ebe0ce;
+  background: var(--surface-warm);
 }
 
 .families-grid {
@@ -440,7 +472,7 @@ h2 {
 
 .families-copy p {
   margin: 0;
-  color: rgba(23, 19, 14, 0.78);
+  color: var(--text-ink-body);
   font-size: clamp(18px, 1.7vw, 23px);
   line-height: 1.65;
 }
@@ -450,8 +482,8 @@ h2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
   margin-top: 34px;
-  background: rgba(23, 19, 14, 0.16);
-  border: 1px solid rgba(23, 19, 14, 0.16);
+  background: var(--divider-ink);
+  border: 1px solid var(--divider-ink);
 }
 
 .families-notes span {
@@ -459,8 +491,8 @@ h2 {
   display: grid;
   place-items: center;
   padding: 14px;
-  background: #ebe0ce;
-  color: #4d3e25;
+  background: var(--surface-warm);
+  color: var(--accent-olive-earth);
   font-family: var(--serif);
   font-size: clamp(18px, 1.8vw, 25px);
   text-align: center;
@@ -468,7 +500,7 @@ h2 {
 
 .resources {
   padding: clamp(76px, 9vw, 130px) 0;
-  background: #f5efe4;
+  background: var(--surface-warm-light);
 }
 
 .resources-grid {
@@ -481,12 +513,12 @@ h2 {
 .resource-list {
   display: grid;
   gap: 0;
-  border-top: 1px solid rgba(23, 19, 14, 0.16);
+  border-top: 1px solid var(--divider-ink);
 }
 
 .resource-list article {
   padding: 24px 0;
-  border-bottom: 1px solid rgba(23, 19, 14, 0.16);
+  border-bottom: 1px solid var(--divider-ink);
 }
 
 .resource-list h3 {
@@ -499,14 +531,14 @@ h2 {
 
 .resource-list p {
   margin: 0;
-  color: rgba(23, 19, 14, 0.72);
+  color: var(--text-ink-secondary);
   font-size: 16px;
   line-height: 1.65;
 }
 
 .appointment {
   padding: clamp(76px, 9vw, 130px) 0;
-  background: #17130e;
+  background: var(--surface-dark);
   color: var(--white);
 }
 
@@ -517,10 +549,10 @@ h2 {
   align-items: start;
 }
 
-.appointment p {
+.appointment p:not(.section-label) {
   max-width: 680px;
   margin: 28px 0 0;
-  color: rgba(255, 250, 241, 0.74);
+  color: var(--text-light-body);
   font-size: clamp(17px, 1.55vw, 21px);
   line-height: 1.7;
 }
@@ -528,13 +560,13 @@ h2 {
 .appointment-list {
   display: grid;
   gap: 0;
-  border-top: 1px solid rgba(255, 250, 241, 0.2);
+  border-top: 1px solid var(--divider-light);
 }
 
 .appointment-list span {
   padding: 22px 0;
-  border-bottom: 1px solid rgba(255, 250, 241, 0.2);
-  color: rgba(255, 250, 241, 0.84);
+  border-bottom: 1px solid var(--divider-light);
+  color: var(--text-light-strong);
   font-family: var(--serif);
   font-size: clamp(22px, 2vw, 31px);
   line-height: 1.1;
@@ -544,7 +576,7 @@ h2 {
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid rgba(23, 19, 14, 0.16);
+  border-top: 1px solid var(--divider-ink);
 }
 
 .steps li {
@@ -552,7 +584,7 @@ h2 {
   grid-template-columns: 130px 1fr;
   gap: 26px;
   padding: 26px 0;
-  border-bottom: 1px solid rgba(23, 19, 14, 0.16);
+  border-bottom: 1px solid var(--divider-ink);
 }
 
 .steps strong {
@@ -562,7 +594,7 @@ h2 {
 }
 
 .steps span {
-  color: rgba(23, 19, 14, 0.72);
+  color: var(--text-ink-secondary);
   font-size: 16px;
   line-height: 1.65;
 }
@@ -571,7 +603,7 @@ h2 {
   min-height: 700px;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.8fr);
-  background: #0f0e0b;
+  background: var(--surface-dark-deep);
   color: var(--white);
 }
 
@@ -589,8 +621,8 @@ h2 {
   padding: clamp(42px, 6vw, 96px);
 }
 
-.gallery-copy p {
-  color: rgba(255, 250, 241, 0.75);
+.gallery-copy p:not(.section-label) {
+  color: var(--text-light-muted);
   margin-top: 26px;
 }
 
@@ -599,7 +631,7 @@ h2 {
   margin-top: 32px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--brass);
-  color: #f2d28f;
+  color: var(--accent-gold-link);
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
@@ -607,13 +639,13 @@ h2 {
 
 .contact {
   padding: clamp(76px, 9vw, 130px) 0;
-  background: #ebe0ce;
+  background: var(--surface-warm);
 }
 
 .contact-panel {
   align-items: center;
   padding-top: 64px;
-  border-top: 1px solid rgba(23, 19, 14, 0.16);
+  border-top: 1px solid var(--divider-ink);
 }
 
 .contact .button {
@@ -632,13 +664,13 @@ h2 {
 }
 
 .button-outline {
-  border-color: rgba(23, 19, 14, 0.28);
+  border-color: var(--divider-ink-strong);
   color: var(--ink);
   background: transparent;
 }
 
 .button-outline:hover {
-  background: rgba(23, 19, 14, 0.06);
+  background: var(--surface-ink-hover);
 }
 
 .contact .button-outline {
@@ -647,7 +679,7 @@ h2 {
 
 .contact-detail {
   margin-top: 22px !important;
-  color: rgba(23, 19, 14, 0.62) !important;
+  color: var(--text-ink-muted) !important;
   font-size: 14px !important;
   font-weight: 700;
   letter-spacing: 0;
@@ -804,7 +836,7 @@ h2 {
   .credibility article {
     min-height: 150px;
     border-left: 0;
-    border-top: 1px solid rgba(23, 19, 14, 0.16);
+    border-top: 1px solid var(--divider-ink);
   }
 
   .credibility article:first-child {
@@ -814,7 +846,7 @@ h2 {
   .memorial-list article {
     min-height: 240px;
     border-left: 0;
-    border-top: 1px solid rgba(255, 250, 241, 0.18);
+    border-top: 1px solid var(--divider-light-soft);
   }
 
   .memorial-list article:first-child {
