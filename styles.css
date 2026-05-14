@@ -20,6 +20,7 @@ html {
 }
 
 body {
+  overflow-x: clip;
   margin: 0;
   background: var(--ivory);
   color: var(--ink);
@@ -713,7 +714,9 @@ h2 {
 
 @media (max-width: 620px) {
   .site-header {
+    width: 100%;
     padding: 16px 18px;
+    gap: 14px;
   }
 
   .brand img {
@@ -723,10 +726,12 @@ h2 {
   .header-action {
     padding: 9px 10px;
     font-size: 10px;
+    white-space: nowrap;
   }
 
   .hero {
-    place-items: end center;
+    min-height: max(100svh, 860px);
+    place-items: start center;
   }
 
   .hero-image {
@@ -754,6 +759,7 @@ h2 {
   .hero-content {
     width: calc(100% - 32px);
     margin-top: 0;
+    padding-top: clamp(190px, 30svh, 260px);
     padding-bottom: 140px;
     text-align: left;
   }
@@ -763,8 +769,10 @@ h2 {
   }
 
   .hero p {
+    max-width: 100%;
     margin-left: 0;
     font-size: 19px;
+    text-wrap: pretty;
   }
 
   .hero-actions {
@@ -781,6 +789,7 @@ h2 {
 
   .trust-strip span {
     font-size: 14px;
+    overflow-wrap: normal;
   }
 
   .memorial-list {
