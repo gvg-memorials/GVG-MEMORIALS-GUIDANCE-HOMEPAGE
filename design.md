@@ -152,6 +152,25 @@ Local Care
 
 ## Visual System
 
+### WebGL Sun Flare
+
+The hero includes a subtle WebGL lens flare layer to make the existing golden-hour background feel alive when someone lands on the site.
+
+Implementation:
+
+```text
+sun-flare.js
+```
+
+Rules:
+
+- Keep the flare behind the hero copy and CTAs.
+- The flare should feel like natural sun through trees, not a sci-fi effect.
+- Use slow, subtle motion only.
+- Respect `prefers-reduced-motion` by rendering a still flare.
+- Keep a CSS fallback layer so the sun/lens flare still appears if WebGL is unavailable or a browser handles WebGL alpha blending differently.
+- Do not let the flare reduce headline readability.
+
 ### Photography
 
 The hero image should feel like luxury editorial photography: warm golden-hour California memorial park, rolling hills, mature oak trees, polished blank granite monuments, tasteful flowers, and immaculate landscaping.
@@ -368,6 +387,7 @@ Current production assets:
 assets/gvg-logo-white.png
 assets/gvg-logo.png
 assets/hero-memorial-park.png
+sun-flare.js
 ```
 
 ## Future Improvements
