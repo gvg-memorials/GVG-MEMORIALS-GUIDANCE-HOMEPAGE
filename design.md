@@ -154,7 +154,7 @@ Local Care
 
 ### WebGL Sun Flare
 
-The hero includes a subtle WebGL lens flare layer to make the existing golden-hour background feel alive when someone lands on the site.
+The hero includes a subtle WebGL lens flare layer to make the existing golden-hour background feel alive when someone lands on the site. The effect should behave like warm California sun passing through oak branches: cinematic and premium, but calm enough for a memorial service homepage.
 
 Implementation:
 
@@ -167,8 +167,10 @@ Rules:
 - Keep the flare behind the hero copy and CTAs.
 - The flare should feel like natural sun through trees, not a sci-fi effect.
 - Use slow, subtle motion only.
+- Anchor the sun position to the upper-right light source and use aspect-corrected shader math so the flare does not drift on desktop or mobile.
 - Respect `prefers-reduced-motion` by rendering a still flare.
-- Keep a CSS fallback layer so the sun/lens flare still appears if WebGL is unavailable or a browser handles WebGL alpha blending differently.
+- Use `requestAnimationFrame` for browser-timed motion and pause the loop when the hero is offscreen.
+- Keep a low-opacity CSS glow layer under WebGL as art direction support, and allow it to become the full fallback if WebGL is unavailable.
 - Do not let the flare reduce headline readability.
 
 ### Photography

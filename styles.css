@@ -113,14 +113,16 @@ a {
   display: block;
   pointer-events: none;
   mix-blend-mode: screen;
-  opacity: 0.82;
+  opacity: 0.9;
 }
 
 .sun-flare-fallback {
+  --sun-glow-start: 0.46;
+  --sun-glow-end: 0.72;
   z-index: 1;
   pointer-events: none;
   mix-blend-mode: screen;
-  opacity: 0.64;
+  opacity: var(--sun-glow-start);
   background:
     radial-gradient(circle at 82% 16%, rgba(255, 246, 190, 0.82) 0 2.2%, rgba(255, 190, 82, 0.46) 4.8%, rgba(255, 190, 82, 0.16) 12%, transparent 25%),
     radial-gradient(circle at 62% 31%, rgba(255, 208, 115, 0.18) 0 2.5%, transparent 7%),
@@ -129,14 +131,24 @@ a {
   animation: sun-breathe 8s ease-in-out infinite alternate;
 }
 
+.hero.flare-webgl-ready .sun-flare-fallback {
+  --sun-glow-start: 0.16;
+  --sun-glow-end: 0.28;
+  animation-duration: 12s;
+}
+
+.hero.flare-webgl-unavailable .sun-flare {
+  display: none;
+}
+
 @keyframes sun-breathe {
   from {
-    opacity: 0.46;
+    opacity: var(--sun-glow-start);
     transform: scale(1);
   }
 
   to {
-    opacity: 0.72;
+    opacity: var(--sun-glow-end);
     transform: scale(1.015);
   }
 }
@@ -722,15 +734,21 @@ h2 {
   }
 
   .sun-flare {
-    opacity: 0.52;
+    opacity: 0.62;
   }
 
   .sun-flare-fallback {
-    opacity: 0.42;
+    --sun-glow-start: 0.32;
+    --sun-glow-end: 0.48;
     background:
       radial-gradient(circle at 78% 14%, rgba(255, 242, 190, 0.72) 0 2.4%, rgba(255, 190, 82, 0.32) 5%, rgba(255, 190, 82, 0.11) 13%, transparent 26%),
       radial-gradient(circle at 54% 30%, rgba(255, 208, 115, 0.14) 0 3%, transparent 8%),
       linear-gradient(132deg, transparent 42%, rgba(255, 220, 138, 0.15) 48%, transparent 60%);
+  }
+
+  .hero.flare-webgl-ready .sun-flare-fallback {
+    --sun-glow-start: 0.12;
+    --sun-glow-end: 0.22;
   }
 
   .hero-content {
