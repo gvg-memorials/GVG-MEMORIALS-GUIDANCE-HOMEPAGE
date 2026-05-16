@@ -371,23 +371,111 @@
       </section>
 
       <section id="contact" class="contact">
-        <div class="section-inner contact-panel">
-          <div>
-            <p class="section-label">We Are Here to Help</p>
-            <h2>Start With a Conversation</h2>
-          </div>
-          <div>
-            <p>
-              Tell us who the memorial is for, the cemetery if you know it, and
-              what kind of help you need. We will help you understand the next
-              step without rushing the decision.
-            </p>
-            <div class="contact-actions">
-              <a class="button button-primary" href="tel:+18058893769">Call (805) 889-3769</a>
-              <a class="button button-outline" href="mailto:gvg.memorials@gmail.com">Email GVG Memorials</a>
+        <div class="section-inner">
+          <div class="contact-panel">
+            <div>
+              <p class="section-label">We Are Here to Help</p>
+              <h2>Start With a Conversation</h2>
             </div>
-            <p class="contact-detail">623 S A St, Oxnard, CA 93030</p>
+            <div>
+              <p>
+                Tell us who the memorial is for, the cemetery if you know it,
+                and what kind of help you need. We will help you understand
+                the next step without rushing the decision.
+              </p>
+              <div class="contact-actions">
+                <a class="button button-primary" href="tel:+18058893769">Call (805) 889-3769</a>
+                <a class="button button-outline" href="mailto:gvg.memorials@gmail.com">Email GVG Memorials</a>
+              </div>
+              <p class="contact-detail">623 S A St, Oxnard, CA 93030</p>
+            </div>
           </div>
+
+          <form
+            class="contact-form"
+            name="contact"
+            method="POST"
+            action="/thank-you.html"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            aria-labelledby="contact-form-title"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="contact-form-bot" aria-hidden="true">
+              <label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            </p>
+
+            <div class="contact-form-header">
+              <p class="section-label">Send a Message</p>
+              <h3 id="contact-form-title">We Will Respond With Care</h3>
+              <p class="contact-form-note">
+                You do not need to have everything figured out. A name and a
+                way to reach you is enough to start.
+              </p>
+            </div>
+
+            <div class="contact-form-grid">
+              <label class="field field-required">
+                <span class="field-label">Your Name</span>
+                <input
+                  type="text"
+                  name="name"
+                  autocomplete="name"
+                  required
+                  maxlength="100"
+                />
+              </label>
+
+              <label class="field field-required">
+                <span class="field-label">Phone</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  autocomplete="tel"
+                  required
+                  maxlength="30"
+                  inputmode="tel"
+                />
+              </label>
+
+              <label class="field">
+                <span class="field-label">Email <span class="field-optional">(optional)</span></span>
+                <input
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  maxlength="120"
+                />
+              </label>
+
+              <label class="field">
+                <span class="field-label">Cemetery <span class="field-optional">(if known)</span></span>
+                <input
+                  type="text"
+                  name="cemetery"
+                  autocomplete="off"
+                  maxlength="120"
+                />
+              </label>
+
+              <label class="field field-full">
+                <span class="field-label">How Can We Help? <span class="field-optional">(optional)</span></span>
+                <textarea
+                  name="message"
+                  rows="4"
+                  maxlength="1500"
+                ></textarea>
+              </label>
+            </div>
+
+            <div class="contact-form-actions">
+              <button type="submit" class="button button-primary">Send Message</button>
+              <p class="contact-form-privacy">
+                We use your information only to respond to your message. We
+                never share it.
+              </p>
+            </div>
+          </form>
         </div>
       </section>
     </main>
