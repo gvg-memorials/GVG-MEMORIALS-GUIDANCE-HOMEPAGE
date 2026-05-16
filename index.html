@@ -105,7 +105,26 @@
         <a href="#contact">Contact</a>
       </nav>
       <a class="header-action" href="tel:+18058893769">(805) 889-3769</a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
     </header>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+      <a href="#memorials">Memorials</a>
+      <a href="#process">Our Process</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#resources">Resources</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
@@ -373,5 +392,6 @@
       </section>
     </main>
     <script src="sun-flare.js?v=2"></script>
+    <script src="nav.js?v=1"></script>
   </body>
 </html>

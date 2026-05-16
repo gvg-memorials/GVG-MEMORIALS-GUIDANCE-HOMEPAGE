@@ -111,6 +111,104 @@ a {
   text-transform: uppercase;
 }
 
+.nav-toggle {
+  display: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--divider-light-action);
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--white);
+  transition: border-color 180ms ease;
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus-visible {
+  border-color: var(--divider-light-action-strong);
+  outline: none;
+}
+
+.nav-toggle-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--white);
+  transition: transform 220ms ease, opacity 180ms ease;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 19;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 8px;
+  padding: 96px 28px 48px;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 14, 11, 0.98),
+    rgba(23, 19, 14, 0.98)
+  );
+  color: var(--white);
+  font-family: var(--serif);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.mobile-nav[data-open="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav[hidden] {
+  display: none;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 18px 4px;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--divider-light-faint);
+  transition: color 180ms ease;
+}
+
+.mobile-nav a:last-of-type {
+  border-bottom: 0;
+}
+
+.mobile-nav a:hover,
+.mobile-nav a:focus-visible {
+  color: var(--accent-gold-soft);
+  outline: none;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
 .hero {
   position: relative;
   min-height: 100svh;
@@ -741,7 +839,8 @@ h2 {
 
 @media (max-width: 920px) {
   .site-header {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 12px;
   }
 
   .desktop-nav {
@@ -750,6 +849,10 @@ h2 {
 
   .header-action {
     justify-self: end;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
   }
 
   .hero-content {
