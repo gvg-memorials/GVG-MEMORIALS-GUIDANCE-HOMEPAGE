@@ -75,7 +75,7 @@ When it is time to choose a headstone or monument, we guide your family with cla
 Primary CTA:
 
 ```text
-Plan A Memorial
+DESIGN A MEMORIAL
 ```
 
 Secondary CTA:
