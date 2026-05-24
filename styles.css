@@ -473,6 +473,12 @@ h2 {
   text-transform: uppercase;
 }
 
+.proof-row span:nth-child(3) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 226px;
+}
+
 .credibility {
   padding: 0 0 clamp(76px, 9vw, 120px);
   background: var(--ivory);
@@ -1182,6 +1188,11 @@ h2 {
 
   .proof-row {
     grid-template-columns: 1fr;
+  }
+
+  .proof-row span:nth-child(3) {
+    grid-column: auto;
+    width: 100%;
   }
 
   .memorial-list {
