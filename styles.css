@@ -456,12 +456,19 @@ h2 {
 }
 
 .proof-row span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 190px;
+  min-height: 40px;
   padding: 12px 14px;
   background: rgba(175, 135, 65, 0.12);
   border: 1px solid rgba(175, 135, 65, 0.26);
   color: var(--accent-earth);
   font-size: 12px;
   font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
   text-transform: uppercase;
 }
 
@@ -1170,6 +1177,10 @@ h2 {
   .trust-strip span {
     font-size: 14px;
     overflow-wrap: normal;
+  }
+
+  .proof-row span {
+    width: 100%;
   }
 
   .memorial-list {
