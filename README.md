@@ -20,6 +20,7 @@ The site uses a warm editorial memorial-park hero image, GVG logo assets, and gu
 - `styles.css` - full responsive visual system
 - `nav.js` - mobile navigation behavior
 - `hero-motion.js` - subtle hero scroll and reveal motion
+- `scroll-reveal.js` - soft section and card reveal behavior
 - `sun-flare.js` - subtle hero sun flare effect
 - `thank-you.html` - Netlify form success page
 - `assets/` - GVG logo and homepage hero image
