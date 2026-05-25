@@ -267,6 +267,7 @@ body.nav-open {
   isolation: isolate;
 }
 
+.hero > picture,
 .hero-image,
 .sun-flare,
 .sun-flare-fallback,
@@ -962,6 +963,26 @@ h2 {
   background: radial-gradient(circle at 70% 28%, rgba(175, 135, 65, 0.14), transparent 35%);
   opacity: 0.82;
   transition: opacity 300ms ease, transform 500ms ease;
+}
+
+@supports (background-image: image-set(url("assets/hero-memorial-park.webp") type("image/webp"))) {
+  .breathing::before {
+    background-image:
+      linear-gradient(90deg, rgba(15, 14, 11, 0.32), rgba(15, 14, 11, 0.18)),
+      image-set(
+        url("assets/hero-memorial-park.webp") type("image/webp"),
+        url("assets/hero-memorial-park.png") type("image/png")
+      );
+  }
+
+  .gallery-image::before {
+    background-image:
+      linear-gradient(90deg, rgba(15, 14, 11, 0.08), rgba(15, 14, 11, 0.16)),
+      image-set(
+        url("assets/hero-memorial-park.webp") type("image/webp"),
+        url("assets/hero-memorial-park.png") type("image/png")
+      );
+  }
 }
 
 .gallery-copy {

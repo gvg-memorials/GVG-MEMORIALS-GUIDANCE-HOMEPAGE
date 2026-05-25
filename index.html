@@ -23,7 +23,16 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=2" />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/hero-memorial-park-1280.webp"
+      imagesrcset="assets/hero-memorial-park-960.webp 960w, assets/hero-memorial-park-1280.webp 1280w, assets/hero-memorial-park.webp 1704w"
+      imagesizes="100vw"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <link rel="stylesheet" href="styles.css?v=3" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -95,7 +104,7 @@
   <body>
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="GVG Memorials home">
-        <img src="assets/gvg-logo-white.png" alt="GVG Memorials" />
+        <img src="assets/gvg-logo-white.png" width="500" height="500" alt="GVG Memorials" />
       </a>
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="#memorials">Memorials</a>
@@ -128,15 +137,22 @@
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <img
-          class="hero-image"
-          src="assets/hero-memorial-park.png"
-          width="1704"
-          height="923"
-          alt="Golden-hour memorial park with blank polished granite monuments among rolling hills"
-          fetchpriority="high"
-          decoding="async"
-        />
+        <picture>
+          <source
+            type="image/webp"
+            srcset="assets/hero-memorial-park-960.webp 960w, assets/hero-memorial-park-1280.webp 1280w, assets/hero-memorial-park.webp 1704w"
+            sizes="100vw"
+          />
+          <img
+            class="hero-image"
+            src="assets/hero-memorial-park.png"
+            width="1704"
+            height="923"
+            alt="Golden-hour memorial park with blank polished granite monuments among rolling hills"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
         <canvas class="sun-flare" aria-hidden="true"></canvas>
         <div class="sun-flare-fallback" aria-hidden="true"></div>
         <div class="hero-shade"></div>
