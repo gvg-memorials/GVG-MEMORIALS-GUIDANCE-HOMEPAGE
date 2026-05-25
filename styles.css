@@ -7,6 +7,9 @@
   --olive: #3c472c;
   --white: #fffaf1;
   --shadow: rgba(12, 10, 7, 0.45);
+  --shadow-lift: 0 18px 48px rgba(12, 10, 7, 0.18);
+  --shadow-dark-lift: 0 22px 60px rgba(0, 0, 0, 0.32);
+  --focus-ring: 0 0 0 3px rgba(175, 135, 65, 0.34);
   --surface-dark: #17130e;
   --surface-dark-soft: #16130f;
   --surface-dark-deep: #0f0e0b;
@@ -61,6 +64,15 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 4px;
+  box-shadow: var(--focus-ring);
+}
+
 .site-header {
   position: fixed;
   inset: 0 0 auto;
@@ -98,14 +110,35 @@ a {
 
 .desktop-nav a,
 .header-action {
+  position: relative;
   opacity: 0.92;
-  transition: opacity 180ms ease, color 180ms ease;
+  transition: opacity 180ms ease, color 180ms ease, border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.desktop-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: var(--accent-gold-soft);
+  opacity: 0;
+  transform: scaleX(0.45);
+  transform-origin: center;
+  transition: opacity 220ms ease, transform 260ms ease;
 }
 
 .desktop-nav a:hover,
 .header-action:hover {
   color: var(--accent-gold-soft);
   opacity: 1;
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a:focus-visible::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .header-action {
@@ -135,13 +168,15 @@ a {
   flex-direction: column;
   gap: 5px;
   color: var(--white);
-  transition: border-color 180ms ease;
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 220ms ease, transform 220ms ease;
 }
 
 .nav-toggle:hover,
 .nav-toggle:focus-visible {
   border-color: var(--divider-light-action-strong);
+  background: rgba(255, 250, 241, 0.08);
   outline: none;
+  box-shadow: var(--focus-ring);
 }
 
 .nav-toggle-bar {
@@ -203,7 +238,7 @@ a {
   font-weight: 500;
   letter-spacing: 0.5px;
   border-bottom: 1px solid var(--divider-light-faint);
-  transition: color 180ms ease;
+  transition: color 180ms ease, background 180ms ease, padding-inline 220ms ease;
 }
 
 .mobile-nav a:last-of-type {
@@ -213,6 +248,7 @@ a {
 .mobile-nav a:hover,
 .mobile-nav a:focus-visible {
   color: var(--accent-gold-soft);
+  background: rgba(255, 250, 241, 0.04);
   outline: none;
 }
 
@@ -363,10 +399,15 @@ body.nav-open {
   letter-spacing: 0;
   text-align: center;
   text-transform: uppercase;
-  transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+  box-shadow: 0 0 0 rgba(12, 10, 7, 0);
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 220ms ease, transform 220ms ease;
 }
 
 .button:hover {
+  transform: translateY(-1px);
+}
+
+.button:focus-visible {
   transform: translateY(-1px);
 }
 
@@ -374,6 +415,7 @@ body.nav-open {
   background: var(--brass);
   border-color: var(--brass);
   color: var(--white);
+  box-shadow: 0 12px 34px rgba(12, 10, 7, 0.16);
 }
 
 .button-primary:hover {
@@ -615,6 +657,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: background 240ms ease, box-shadow 260ms ease, transform 260ms ease;
 }
 
 .credibility article:first-child {
@@ -656,6 +699,7 @@ h2 {
   min-height: 300px;
   padding: 30px 26px;
   border-left: 1px solid var(--divider-light-soft);
+  transition: background 260ms ease, box-shadow 260ms ease, transform 260ms ease;
 }
 
 .memorial-list article:first-child {
@@ -778,6 +822,7 @@ h2 {
   font-family: var(--serif);
   font-size: clamp(18px, 1.8vw, 25px);
   text-align: center;
+  transition: background 220ms ease, color 220ms ease, transform 220ms ease;
 }
 
 .resources {
@@ -801,6 +846,7 @@ h2 {
 .resource-list article {
   padding: 24px 0;
   border-bottom: 1px solid var(--divider-ink);
+  transition: background 240ms ease, box-shadow 260ms ease, transform 260ms ease;
 }
 
 .resource-list h3 {
@@ -852,6 +898,7 @@ h2 {
   font-family: var(--serif);
   font-size: clamp(22px, 2vw, 31px);
   line-height: 1.1;
+  transition: color 220ms ease, transform 220ms ease;
 }
 
 .steps {
@@ -890,10 +937,31 @@ h2 {
 }
 
 .gallery-image {
+  position: relative;
   min-height: 620px;
+  overflow: hidden;
+  background: var(--surface-dark-deep);
+}
+
+.gallery-image::before,
+.gallery-image::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.gallery-image::before {
   background:
     linear-gradient(90deg, rgba(15, 14, 11, 0.08), rgba(15, 14, 11, 0.16)),
     url("assets/hero-memorial-park.png") center / cover;
+  transform: scale(1.01);
+  transition: transform 900ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.gallery-image::after {
+  background: radial-gradient(circle at 70% 28%, rgba(175, 135, 65, 0.14), transparent 35%);
+  opacity: 0.82;
+  transition: opacity 300ms ease, transform 500ms ease;
 }
 
 .gallery-copy {
@@ -909,14 +977,27 @@ h2 {
 }
 
 .text-link {
+  position: relative;
   width: max-content;
   margin-top: 32px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--brass);
+  padding-bottom: 9px;
   color: var(--accent-gold-link);
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.text-link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: var(--brass);
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 260ms ease, background 220ms ease;
 }
 
 .contact {
@@ -1046,7 +1127,8 @@ h2 {
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.4;
-  transition: border-color 180ms ease, background 180ms ease;
+  box-shadow: 0 0 0 rgba(175, 135, 65, 0);
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 220ms ease;
 }
 
 .field textarea {
@@ -1065,10 +1147,11 @@ h2 {
   outline: none;
   border-color: var(--brass);
   background: var(--surface-warm-light);
+  box-shadow: var(--focus-ring);
 }
 
-.field input:invalid:not(:placeholder-shown),
-.field textarea:invalid:not(:placeholder-shown) {
+.field input:invalid:not(:placeholder-shown):not(:focus),
+.field textarea:invalid:not(:placeholder-shown):not(:focus) {
   border-color: var(--accent-earth);
 }
 
@@ -1141,6 +1224,104 @@ h2 {
   justify-content: center;
   gap: 14px;
   margin-bottom: 28px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .desktop-nav a:hover {
+    transform: translateY(-1px);
+  }
+
+  .header-action:hover,
+  .nav-toggle:hover {
+    border-color: var(--divider-light-action-strong);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+  }
+
+  .mobile-nav a:hover {
+    padding-inline: 14px;
+  }
+
+  .button:hover {
+    box-shadow: var(--shadow-lift);
+  }
+
+  .button-primary:hover {
+    box-shadow: 0 18px 46px rgba(12, 10, 7, 0.26);
+  }
+
+  .button-secondary:hover,
+  .button-outline:hover {
+    box-shadow: 0 14px 34px rgba(12, 10, 7, 0.14);
+  }
+
+  .credibility article:hover {
+    background: rgba(175, 135, 65, 0.06);
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-2px);
+  }
+
+  .memorial-list article:hover {
+    background: rgba(255, 250, 241, 0.045);
+    box-shadow: var(--shadow-dark-lift);
+    transform: translateY(-3px);
+  }
+
+  .families-notes span:hover {
+    background: var(--surface-warm-light);
+    color: var(--ink);
+    transform: translateY(-1px);
+  }
+
+  .resource-list article:hover {
+    background: rgba(175, 135, 65, 0.07);
+    box-shadow: inset 3px 0 0 rgba(175, 135, 65, 0.42);
+    transform: translateX(4px);
+  }
+
+  .appointment-list span:hover {
+    color: var(--accent-gold-soft);
+    transform: translateX(6px);
+  }
+
+  .gallery:hover .gallery-image::before {
+    transform: scale(1.045);
+  }
+
+  .gallery:hover .gallery-image::after {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+
+  .text-link:hover::after,
+  .text-link:focus-visible::after {
+    background: var(--accent-gold-soft);
+    transform: scaleX(0.72);
+  }
+
+  .field input:hover,
+  .field textarea:hover {
+    background: var(--surface-warm-light);
+  }
+
+  .contact-actions .button:hover,
+  .contact-form-actions .button:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (hover: none) {
+  .button:hover,
+  .desktop-nav a:hover,
+  .header-action:hover,
+  .nav-toggle:hover,
+  .credibility article:hover,
+  .memorial-list article:hover,
+  .families-notes span:hover,
+  .resource-list article:hover,
+  .appointment-list span:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1394,6 +1575,9 @@ h2 {
 
   .gallery-image {
     min-height: 430px;
+  }
+
+  .gallery-image::before {
     background-position: 58% center;
   }
 }
