@@ -449,9 +449,11 @@ h2 {
 }
 
 .proof-row {
+  --proof-chip-width: 298px;
   display: grid;
-  grid-template-columns: repeat(2, 226px);
-  gap: 10px;
+  grid-template-columns: repeat(2, var(--proof-chip-width));
+  justify-content: center;
+  gap: 14px 18px;
   margin-top: 30px;
 }
 
@@ -476,7 +478,7 @@ h2 {
 .proof-row span:nth-child(3) {
   grid-column: 1 / -1;
   justify-self: center;
-  width: 226px;
+  width: var(--proof-chip-width);
 }
 
 .credibility {
