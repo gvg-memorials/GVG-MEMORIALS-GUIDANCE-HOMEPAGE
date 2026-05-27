@@ -47,6 +47,8 @@
 }
 
 html {
+  overflow-x: hidden;
+  overflow-x: clip;
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
 }
@@ -263,6 +265,7 @@ body.nav-open {
   display: grid;
   place-items: center;
   overflow: hidden;
+  contain: paint;
   color: var(--white);
   isolation: isolate;
 }
@@ -738,6 +741,7 @@ h2 {
   display: grid;
   place-items: center;
   overflow: hidden;
+  contain: paint;
   color: var(--white);
   background: var(--surface-dark-deep);
   isolation: isolate;
@@ -941,6 +945,7 @@ h2 {
   position: relative;
   min-height: 620px;
   overflow: hidden;
+  contain: paint;
   background: var(--surface-dark-deep);
 }
 
@@ -1471,15 +1476,15 @@ h2 {
   }
 
   .header-action {
-    min-height: 42px;
+    min-height: 44px;
     padding: 9px 10px;
     font-size: 10px;
     white-space: nowrap;
   }
 
   .nav-toggle {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
   }
 
   .hero {
