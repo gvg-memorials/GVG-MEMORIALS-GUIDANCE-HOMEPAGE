@@ -758,7 +758,7 @@ h2 {
   z-index: -2;
   background:
     linear-gradient(90deg, rgba(15, 14, 11, 0.32), rgba(15, 14, 11, 0.18)),
-    url("assets/hero-memorial-park.png") center 58% / cover;
+    url("assets/low-stone-blue-pearl.jpg") center 58% / cover;
   transform: scale(1.02);
 }
 
@@ -970,16 +970,18 @@ h2 {
   transition: opacity 300ms ease, transform 500ms ease;
 }
 
-@supports (background-image: image-set(url("assets/hero-memorial-park.webp") type("image/webp"))) {
+@supports (background-image: image-set(url("assets/low-stone-blue-pearl.webp") type("image/webp"))) {
   .breathing::before {
     background-image:
       linear-gradient(90deg, rgba(15, 14, 11, 0.32), rgba(15, 14, 11, 0.18)),
       image-set(
-        url("assets/hero-memorial-park.webp") type("image/webp"),
-        url("assets/hero-memorial-park.png") type("image/png")
+        url("assets/low-stone-blue-pearl.webp") type("image/webp"),
+        url("assets/low-stone-blue-pearl.jpg") type("image/jpeg")
       );
   }
+}
 
+@supports (background-image: image-set(url("assets/hero-memorial-park.webp") type("image/webp"))) {
   .gallery-image::before {
     background-image:
       linear-gradient(90deg, rgba(15, 14, 11, 0.08), rgba(15, 14, 11, 0.16)),
@@ -1589,6 +1591,21 @@ h2 {
 
   .breathing {
     min-height: 430px;
+  }
+
+  .breathing::before {
+    background-position: center 60%;
+  }
+
+  @supports (background-image: image-set(url("assets/low-stone-blue-pearl-960.webp") type("image/webp"))) {
+    .breathing::before {
+      background-image:
+        linear-gradient(90deg, rgba(15, 14, 11, 0.32), rgba(15, 14, 11, 0.18)),
+        image-set(
+          url("assets/low-stone-blue-pearl-960.webp") type("image/webp"),
+          url("assets/low-stone-blue-pearl.jpg") type("image/jpeg")
+        );
+    }
   }
 
   .breathing-content {
