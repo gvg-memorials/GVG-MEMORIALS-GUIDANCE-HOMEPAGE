@@ -350,7 +350,7 @@ body.nav-open {
 .hero-content {
   position: relative;
   z-index: 2;
-  width: min(980px, calc(100% - 40px));
+  width: min(1180px, calc(100% - 40px));
   margin-top: 36px;
   text-align: center;
   opacity: calc(1 - (var(--hero-scroll-progress) * 0.42));
@@ -365,7 +365,6 @@ body.nav-open {
   font-weight: 500;
   line-height: 0.91;
   letter-spacing: 0;
-  text-wrap: balance;
   text-shadow: 0 20px 60px var(--shadow);
   animation: hero-content-reveal 1100ms cubic-bezier(0.19, 1, 0.22, 1) 160ms both;
 }
