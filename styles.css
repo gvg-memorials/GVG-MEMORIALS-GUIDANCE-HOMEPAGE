@@ -369,6 +369,15 @@ body.nav-open {
   animation: hero-content-reveal 1100ms cubic-bezier(0.19, 1, 0.22, 1) 160ms both;
 }
 
+.hero-title-desktop,
+.hero-title-mobile {
+  display: block;
+}
+
+.hero-title-mobile {
+  display: none;
+}
+
 .hero p {
   width: min(620px, 100%);
   margin: 30px auto 0;
@@ -1557,28 +1566,25 @@ h2 {
 
   .site-header {
     width: 100%;
-    padding: 14px 16px;
-    gap: 10px;
+    padding: 12px 14px;
+    gap: 8px;
   }
 
   .brand img {
-    width: 94px;
+    width: 86px;
   }
 
   .header-action {
-    min-height: 44px;
-    padding: 9px 10px;
-    font-size: 10px;
-    white-space: nowrap;
+    display: none;
   }
 
   .nav-toggle {
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
   }
 
   .hero {
-    min-height: max(100svh, 740px);
+    min-height: max(100svh, 680px);
     place-items: start center;
   }
 
@@ -1605,33 +1611,47 @@ h2 {
   }
 
   .hero-content {
-    width: calc(100% - 32px);
+    width: calc(100% - 24px);
     margin-top: 0;
-    padding-top: clamp(154px, 24svh, 220px);
-    padding-bottom: 128px;
-    text-align: left;
+    padding-top: clamp(132px, 20svh, 178px);
+    padding-bottom: 116px;
+    text-align: center;
   }
 
   .hero h1 {
-    font-size: clamp(46px, 14vw, 64px);
+    font-size: clamp(32px, 9vw, 42px);
+    line-height: 0.96;
+  }
+
+  .hero-title-desktop {
+    display: none;
+  }
+
+  .hero-title-mobile {
+    display: block;
   }
 
   .hero p {
+    width: min(320px, calc(100% - 24px));
     max-width: 100%;
-    margin-left: 0;
-    font-size: 19px;
+    margin: 20px auto 0;
+    font-size: 16px;
+    line-height: 1.42;
     text-wrap: pretty;
   }
 
   .hero-actions {
-    justify-content: flex-start;
+    justify-content: center;
     gap: 10px;
+    margin-top: 24px;
   }
 
   .button {
     width: 100%;
+    max-width: 360px;
     min-width: 0;
     min-height: 52px;
+    margin-inline: auto;
   }
 
   .trust-strip {
@@ -1660,6 +1680,17 @@ h2 {
     right: 18px;
     bottom: 18px;
     left: 18px;
+  }
+
+  .completed-card figcaption span {
+    margin-bottom: 7px;
+    font-size: 10px;
+  }
+
+  .completed-card figcaption strong {
+    max-width: 100%;
+    font-size: clamp(22px, 6.4vw, 28px);
+    line-height: 1.08;
   }
 
   .credibility-grid,
@@ -1730,13 +1761,21 @@ h2 {
 
 @media (max-width: 420px) {
   .site-header {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .brand img {
+    width: 72px;
   }
 
   .header-action {
+    display: none;
+  }
+
+  .nav-toggle {
     justify-self: end;
-    max-width: 118px;
-    padding-inline: 8px;
+    width: 40px;
+    height: 40px;
   }
 
   .mobile-nav {
@@ -1747,6 +1786,24 @@ h2 {
     min-height: 58px;
     padding-inline: 8px;
     font-size: 13px;
+  }
+
+  .section-inner {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .intro,
+  .memorials,
+  .process,
+  .families,
+  .resources,
+  .appointment,
+  .contact {
+    padding-block: 62px;
+  }
+
+  .completed-gallery {
+    padding-block: 62px;
   }
 }
 
