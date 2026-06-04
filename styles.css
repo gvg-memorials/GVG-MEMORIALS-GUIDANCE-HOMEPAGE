@@ -860,13 +860,17 @@ h2 {
 }
 
 .resource-list article {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.42fr) minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 40px);
+  align-items: baseline;
   padding: 20px 0;
   border-bottom: 1px solid var(--divider-ink);
   transition: background 240ms ease, box-shadow 260ms ease, transform 260ms ease;
 }
 
 .resource-list h3 {
-  margin: 0 0 8px;
+  margin: 0;
   font-family: var(--serif);
   font-size: clamp(26px, 2.4vw, 34px);
   font-weight: 500;
@@ -1819,7 +1823,12 @@ h2 {
   }
 
   .resource-list article {
+    display: block;
     padding: 20px 0;
+  }
+
+  .resource-list h3 {
+    margin-bottom: 8px;
   }
 
   .appointment-list span {
