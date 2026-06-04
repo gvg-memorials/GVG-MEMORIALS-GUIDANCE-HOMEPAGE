@@ -860,15 +860,15 @@ h2 {
 }
 
 .resource-list article {
-  padding: 24px 0;
+  padding: 20px 0;
   border-bottom: 1px solid var(--divider-ink);
   transition: background 240ms ease, box-shadow 260ms ease, transform 260ms ease;
 }
 
 .resource-list h3 {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   font-family: var(--serif);
-  font-size: clamp(28px, 3vw, 38px);
+  font-size: clamp(26px, 2.4vw, 34px);
   font-weight: 500;
   line-height: 1.05;
 }
@@ -876,8 +876,8 @@ h2 {
 .resource-list p {
   margin: 0;
   color: var(--text-ink-secondary);
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 15px;
+  line-height: 1.5;
 }
 
 .appointment {
