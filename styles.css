@@ -894,11 +894,11 @@ h2 {
 }
 
 .appointment p:not(.section-label) {
-  max-width: 680px;
-  margin: 28px 0 0;
+  max-width: 520px;
+  margin: 22px 0 0;
   color: var(--text-light-body);
-  font-size: clamp(17px, 1.55vw, 21px);
-  line-height: 1.7;
+  font-size: clamp(16px, 1.35vw, 18px);
+  line-height: 1.55;
 }
 
 .appointment-list {
@@ -908,11 +908,11 @@ h2 {
 }
 
 .appointment-list span {
-  padding: 22px 0;
+  padding: 18px 0;
   border-bottom: 1px solid var(--divider-light);
   color: var(--text-light-strong);
   font-family: var(--serif);
-  font-size: clamp(22px, 2vw, 31px);
+  font-size: clamp(21px, 1.85vw, 28px);
   line-height: 1.1;
   transition: color 220ms ease, transform 220ms ease;
 }
