@@ -379,7 +379,7 @@ body.nav-open {
 }
 
 .hero p {
-  width: min(620px, 100%);
+  width: min(540px, 100%);
   margin: 30px auto 0;
   font-family: var(--serif);
   font-size: clamp(20px, 2vw, 28px);
