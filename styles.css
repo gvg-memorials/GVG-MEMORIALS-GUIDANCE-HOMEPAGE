@@ -1186,8 +1186,8 @@ h2 {
 }
 
 .contact-form {
-  margin-top: clamp(56px, 7vw, 88px);
-  padding-top: clamp(48px, 6vw, 72px);
+  margin-top: clamp(42px, 5vw, 64px);
+  padding-top: clamp(34px, 4vw, 48px);
   border-top: 1px solid var(--divider-ink);
 }
 
@@ -1201,17 +1201,18 @@ h2 {
 
 .contact-form-header {
   max-width: 640px;
-  margin: 0 0 clamp(28px, 3vw, 42px);
+  margin: 0 0 clamp(18px, 2vw, 26px);
 }
 
 .contact-form-header h3 {
   margin: 0;
-  font-family: var(--serif);
-  font-size: clamp(32px, 3.8vw, 48px);
-  font-weight: 500;
-  line-height: 1.05;
+  color: var(--brass);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
   letter-spacing: 0;
-  text-wrap: balance;
+  text-transform: uppercase;
 }
 
 .contact-form-note {
@@ -1934,8 +1935,8 @@ h2 {
   }
 
   .contact-form {
-    margin-top: 46px;
-    padding-top: 40px;
+    margin-top: 36px;
+    padding-top: 30px;
   }
 
   .contact-form-grid {
