@@ -1747,19 +1747,40 @@ h2 {
     line-height: 1.08;
   }
 
-  .credibility-grid,
   .families-notes {
     grid-template-columns: 1fr;
   }
 
+  .credibility-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .credibility article {
-    min-height: 150px;
+    min-height: 132px;
+    padding: 20px 16px;
     border-left: 0;
     border-top: 1px solid var(--divider-ink);
   }
 
+  .credibility article:nth-child(even) {
+    border-left: 1px solid var(--divider-ink);
+  }
+
   .credibility article:first-child {
     border-top: 0;
+  }
+
+  .credibility article:nth-child(2) {
+    border-top: 0;
+  }
+
+  .credibility strong {
+    font-size: clamp(24px, 7.6vw, 31px);
+  }
+
+  .credibility span {
+    font-size: 12px;
+    line-height: 1.35;
   }
 
   .memorial-list article {
