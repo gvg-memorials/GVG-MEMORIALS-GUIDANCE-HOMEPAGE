@@ -803,15 +803,15 @@ h2 {
 }
 
 .families {
-  padding: clamp(76px, 9vw, 130px) 0;
+  padding: clamp(58px, 6.6vw, 94px) 0;
   background: var(--surface-warm);
 }
 
 .families-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: clamp(42px, 7vw, 96px);
-  align-items: start;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(30px, 5vw, 68px);
+  align-items: center;
 }
 
 .families-notes {
@@ -824,14 +824,14 @@ h2 {
 }
 
 .families-notes span {
-  min-height: 76px;
+  min-height: 64px;
   display: grid;
   place-items: center;
   padding: 14px;
   background: var(--surface-warm);
   color: var(--accent-olive-earth);
   font-family: var(--serif);
-  font-size: clamp(18px, 1.8vw, 25px);
+  font-size: clamp(17px, 1.55vw, 23px);
   text-align: center;
   transition: background 220ms ease, color 220ms ease, transform 220ms ease;
 }
@@ -1705,10 +1705,13 @@ h2 {
   .intro,
   .memorials,
   .process,
-  .families,
   .resources,
   .contact {
     padding-block: 62px;
+  }
+
+  .families {
+    padding-block: 52px;
   }
 
   .appointment {
@@ -1784,6 +1787,10 @@ h2 {
 
   .families-notes {
     grid-template-columns: 1fr;
+  }
+
+  .families-notes span {
+    min-height: 54px;
   }
 
   .credibility-grid {
@@ -1987,10 +1994,13 @@ h2 {
   .intro,
   .memorials,
   .process,
-  .families,
   .resources,
   .contact {
     padding-block: 56px;
+  }
+
+  .families {
+    padding-block: 46px;
   }
 
   .appointment {
