@@ -918,15 +918,21 @@ h2 {
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--divider-ink);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--divider-ink);
+  border: 1px solid var(--divider-ink);
 }
 
 .steps li {
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 26px;
-  padding: 26px 0;
-  border-bottom: 1px solid var(--divider-ink);
+  display: flex;
+  min-height: 154px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+  background: var(--ivory);
 }
 
 .steps strong {
@@ -938,7 +944,7 @@ h2 {
 .steps span {
   color: var(--text-ink-secondary);
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 .completed-gallery {
@@ -1584,12 +1590,12 @@ h2 {
   }
 
   .hero {
-    min-height: max(100svh, 680px);
+    min-height: max(100svh, 660px);
     place-items: start center;
   }
 
   .hero-image {
-    object-position: 68% center;
+    object-position: 64% center;
   }
 
   .sun-flare {
@@ -1611,16 +1617,16 @@ h2 {
   }
 
   .hero-content {
-    width: calc(100% - 24px);
+    width: min(calc(100vw - 48px), 360px);
     margin-top: 0;
-    padding-top: clamp(132px, 20svh, 178px);
-    padding-bottom: 116px;
+    padding-top: clamp(136px, 20svh, 172px);
+    padding-bottom: 104px;
     text-align: center;
   }
 
   .hero h1 {
-    font-size: clamp(32px, 9vw, 42px);
-    line-height: 0.96;
+    font-size: clamp(34px, 8.6vw, 42px);
+    line-height: 0.98;
   }
 
   .hero-title-desktop {
@@ -1632,26 +1638,31 @@ h2 {
   }
 
   .hero p {
-    width: min(320px, calc(100% - 24px));
+    width: min(276px, 100%);
     max-width: 100%;
     margin: 20px auto 0;
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: 1.42;
     text-wrap: pretty;
   }
 
   .hero-actions {
+    width: min(100%, 270px);
+    flex-direction: column;
+    align-items: stretch;
     justify-content: center;
     gap: 10px;
     margin-top: 24px;
+    margin-inline: auto;
   }
 
   .button {
     width: 100%;
-    max-width: 360px;
+    max-width: 270px;
     min-width: 0;
     min-height: 52px;
     margin-inline: auto;
+    padding-inline: 18px;
   }
 
   .trust-strip {
@@ -1659,8 +1670,38 @@ h2 {
   }
 
   .trust-strip span {
+    min-height: 54px;
     font-size: 14px;
     overflow-wrap: normal;
+  }
+
+  .intro,
+  .memorials,
+  .process,
+  .families,
+  .resources,
+  .appointment,
+  .contact {
+    padding-block: 70px;
+  }
+
+  .section-heading {
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: clamp(36px, 10.8vw, 48px);
+    line-height: 1.02;
+  }
+
+  .intro-copy p,
+  .section-heading p:not(.section-label),
+  .gallery-copy p:not(.section-label),
+  .contact p:not(.section-label),
+  .families-copy p,
+  .appointment p:not(.section-label) {
+    font-size: 16.5px;
+    line-height: 1.62;
   }
 
   .memorial-list {
@@ -1674,6 +1715,10 @@ h2 {
   .completed-gallery-grid {
     grid-template-columns: 1fr;
     margin-top: 34px;
+  }
+
+  .completed-card picture {
+    aspect-ratio: 4 / 3;
   }
 
   .completed-card figcaption {
@@ -1709,7 +1754,8 @@ h2 {
   }
 
   .memorial-list article {
-    min-height: 240px;
+    min-height: 220px;
+    padding: 26px 22px;
     border-left: 0;
     border-top: 1px solid var(--divider-light-soft);
   }
@@ -1718,9 +1764,14 @@ h2 {
     border-top: 0;
   }
 
-  .steps li {
+  .steps {
     grid-template-columns: 1fr;
-    gap: 8px;
+  }
+
+  .steps li {
+    min-height: 132px;
+    gap: 18px;
+    padding: 22px;
   }
 
   .breathing {
@@ -1751,11 +1802,28 @@ h2 {
   }
 
   .gallery-image {
-    min-height: 430px;
+    min-height: 380px;
   }
 
   .gallery-image::before {
     background-position: 58% center;
+  }
+
+  .gallery-copy {
+    padding: 48px 20px 64px;
+  }
+
+  .resource-list article {
+    padding: 20px 0;
+  }
+
+  .appointment-list span {
+    padding: 18px 0;
+    font-size: clamp(22px, 7vw, 28px);
+  }
+
+  .contact-panel {
+    padding-top: 48px;
   }
 }
 
@@ -1789,7 +1857,7 @@ h2 {
   }
 
   .section-inner {
-    width: min(100% - 28px, 1180px);
+    width: min(calc(100% - 28px), 1180px);
   }
 
   .intro,
