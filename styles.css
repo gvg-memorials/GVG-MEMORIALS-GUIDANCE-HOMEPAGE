@@ -1199,29 +1199,6 @@ h2 {
   overflow: hidden;
 }
 
-.contact-form-header {
-  max-width: 640px;
-  margin: 0 0 clamp(18px, 2vw, 26px);
-}
-
-.contact-form-header h3 {
-  margin: 0;
-  color: var(--brass);
-  font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
-.contact-form-note {
-  margin: 0 !important;
-  color: var(--text-ink-body) !important;
-  font-size: clamp(15px, 1.3vw, 17px) !important;
-  line-height: 1.6 !important;
-}
-
 .contact-form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
