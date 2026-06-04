@@ -938,24 +938,26 @@ h2 {
 
 .steps li {
   display: flex;
-  min-height: 154px;
+  min-height: 128px;
   flex-direction: column;
   justify-content: space-between;
-  gap: 14px;
-  padding: 20px;
+  gap: 12px;
+  padding: 18px;
   background: var(--ivory);
 }
 
 .steps strong {
   font-family: var(--serif);
-  font-size: 28px;
+  font-size: clamp(25px, 2vw, 28px);
   font-weight: 600;
 }
 
 .steps span {
   color: var(--text-ink-secondary);
-  font-size: 15px;
-  line-height: 1.45;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-transform: uppercase;
 }
 
 .completed-gallery {
@@ -1857,9 +1859,9 @@ h2 {
   }
 
   .steps li {
-    min-height: 104px;
+    min-height: 92px;
     gap: 14px;
-    padding: 20px;
+    padding: 18px;
   }
 
   .breathing {
