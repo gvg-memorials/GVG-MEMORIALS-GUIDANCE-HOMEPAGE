@@ -1624,14 +1624,14 @@ h2 {
   .hero-content {
     width: min(calc(100vw - 48px), 360px);
     margin-top: 0;
-    padding-top: clamp(136px, 20svh, 172px);
+    padding-top: clamp(122px, 18svh, 156px);
     padding-bottom: 104px;
     text-align: center;
   }
 
   .hero h1 {
-    font-size: clamp(34px, 8.6vw, 42px);
-    line-height: 0.98;
+    font-size: clamp(32px, 9.2vw, 42px);
+    line-height: 1;
   }
 
   .hero-title-desktop {
@@ -1643,16 +1643,16 @@ h2 {
   }
 
   .hero p {
-    width: min(276px, 100%);
+    width: min(310px, 100%);
     max-width: 100%;
-    margin: 20px auto 0;
+    margin: 18px auto 0;
     font-size: 15.5px;
     line-height: 1.42;
     text-wrap: pretty;
   }
 
   .hero-actions {
-    width: min(100%, 270px);
+    width: min(100%, 286px);
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
@@ -1663,7 +1663,7 @@ h2 {
 
   .button {
     width: 100%;
-    max-width: 270px;
+    max-width: 286px;
     min-width: 0;
     min-height: 52px;
     margin-inline: auto;
@@ -1675,7 +1675,7 @@ h2 {
   }
 
   .trust-strip span {
-    min-height: 54px;
+    min-height: 50px;
     font-size: 14px;
     overflow-wrap: normal;
   }
@@ -1687,7 +1687,7 @@ h2 {
   .resources,
   .appointment,
   .contact {
-    padding-block: 70px;
+    padding-block: 64px;
   }
 
   .section-heading {
@@ -1759,8 +1759,8 @@ h2 {
   }
 
   .memorial-list article {
-    min-height: 220px;
-    padding: 26px 22px;
+    min-height: 172px;
+    padding: 24px 22px;
     border-left: 0;
     border-top: 1px solid var(--divider-light-soft);
   }
@@ -1774,13 +1774,13 @@ h2 {
   }
 
   .steps li {
-    min-height: 132px;
-    gap: 18px;
-    padding: 22px;
+    min-height: 116px;
+    gap: 14px;
+    padding: 20px;
   }
 
   .breathing {
-    min-height: 430px;
+    min-height: 390px;
   }
 
   .breathing::before {
@@ -1803,11 +1803,11 @@ h2 {
   }
 
   .breathing p:not(.section-label) {
-    font-size: clamp(38px, 12vw, 54px);
+    font-size: clamp(34px, 11vw, 50px);
   }
 
   .gallery-image {
-    min-height: 380px;
+    min-height: 340px;
   }
 
   .gallery-image::before {
@@ -1823,12 +1823,21 @@ h2 {
   }
 
   .appointment-list span {
-    padding: 18px 0;
-    font-size: clamp(22px, 7vw, 28px);
+    padding: 16px 0;
+    font-size: clamp(21px, 6.4vw, 27px);
   }
 
   .contact-panel {
-    padding-top: 48px;
+    padding-top: 42px;
+  }
+
+  .contact-actions {
+    align-items: stretch;
+  }
+
+  .contact-actions .button {
+    width: 100%;
+    max-width: 286px;
   }
 }
 
@@ -1856,7 +1865,7 @@ h2 {
   }
 
   .trust-strip span {
-    min-height: 58px;
+    min-height: 52px;
     padding-inline: 8px;
     font-size: 13px;
   }
@@ -1872,11 +1881,20 @@ h2 {
   .resources,
   .appointment,
   .contact {
-    padding-block: 62px;
+    padding-block: 56px;
   }
 
   .completed-gallery {
-    padding-block: 62px;
+    padding-block: 56px;
+  }
+
+  .hero-content {
+    width: min(calc(100vw - 32px), 360px);
+    padding-top: clamp(116px, 17svh, 144px);
+  }
+
+  .hero h1 {
+    font-size: clamp(31px, 9vw, 38px);
   }
 }
 
