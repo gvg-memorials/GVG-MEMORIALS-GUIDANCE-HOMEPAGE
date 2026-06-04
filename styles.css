@@ -708,9 +708,11 @@ h2 {
 }
 
 .memorial-list article {
-  min-height: 300px;
-  padding: 30px 26px;
+  min-height: 270px;
+  padding: 28px 24px;
   border-left: 1px solid var(--divider-light-soft);
+  display: flex;
+  flex-direction: column;
   transition: background 260ms ease, box-shadow 260ms ease, transform 260ms ease;
 }
 
@@ -725,7 +727,7 @@ h2 {
 }
 
 .memorial-list h3 {
-  margin: 58px 0 18px;
+  margin: auto 0 18px;
   font-family: var(--serif);
   font-size: 31px;
   font-weight: 500;
@@ -735,8 +737,8 @@ h2 {
 .memorial-list p {
   margin: 0;
   color: var(--text-light-secondary);
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .process {
