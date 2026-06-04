@@ -1281,7 +1281,7 @@ h2 {
 .contact-form-actions {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px 28px;
   margin-top: clamp(28px, 3vw, 40px);
 }
@@ -1292,10 +1292,12 @@ h2 {
 
 .contact-form-privacy {
   margin: 0 !important;
-  flex: 1 1 240px;
+  flex: 0 1 260px;
   color: var(--text-ink-muted) !important;
-  font-size: 13px !important;
-  line-height: 1.5 !important;
+  font-size: 12px !important;
+  font-weight: 700;
+  line-height: 1.35 !important;
+  text-transform: uppercase;
 }
 
 .thank-you-page {
