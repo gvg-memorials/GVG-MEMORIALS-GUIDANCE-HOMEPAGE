@@ -880,16 +880,16 @@ h2 {
 }
 
 .appointment {
-  padding: clamp(76px, 9vw, 130px) 0;
+  padding: clamp(56px, 6vw, 86px) 0;
   background: var(--surface-dark);
   color: var(--white);
 }
 
 .appointment-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
-  gap: clamp(42px, 7vw, 96px);
-  align-items: start;
+  grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1.18fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
 }
 
 .appointment p:not(.section-label) {
@@ -902,16 +902,22 @@ h2 {
 
 .appointment-list {
   display: grid;
-  gap: 0;
-  border-top: 1px solid var(--divider-light);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  background: var(--divider-light);
+  border: 1px solid var(--divider-light);
 }
 
 .appointment-list span {
-  padding: 18px 0;
-  border-bottom: 1px solid var(--divider-light);
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 16px 18px;
+  background: var(--surface-dark);
   color: var(--text-light-strong);
   font-family: var(--serif);
-  font-size: clamp(21px, 1.85vw, 28px);
+  font-size: clamp(20px, 1.65vw, 25px);
   line-height: 1.1;
   transition: color 220ms ease, transform 220ms ease;
 }
@@ -1698,9 +1704,12 @@ h2 {
   .process,
   .families,
   .resources,
-  .appointment,
   .contact {
     padding-block: 62px;
+  }
+
+  .appointment {
+    padding-block: 48px;
   }
 
   .intro-grid,
@@ -1892,8 +1901,9 @@ h2 {
   }
 
   .appointment-list span {
-    padding: 16px 0;
-    font-size: clamp(21px, 6.4vw, 27px);
+    min-height: 62px;
+    padding: 14px 16px;
+    font-size: clamp(20px, 6vw, 25px);
   }
 
   .contact-panel {
@@ -1976,13 +1986,24 @@ h2 {
   .process,
   .families,
   .resources,
-  .appointment,
   .contact {
     padding-block: 56px;
   }
 
+  .appointment {
+    padding-block: 44px;
+  }
+
   .completed-gallery {
     padding-block: 56px;
+  }
+
+  .appointment-list {
+    grid-template-columns: 1fr;
+  }
+
+  .appointment-list span {
+    min-height: 54px;
   }
 
   .hero-content {
