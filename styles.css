@@ -930,11 +930,11 @@ h2 {
 
 .steps li {
   display: flex;
-  min-height: 154px;
+  min-height: 132px;
   flex-direction: column;
   justify-content: space-between;
-  gap: 24px;
-  padding: 24px;
+  gap: 18px;
+  padding: 22px;
   background: var(--ivory);
 }
 
@@ -946,8 +946,8 @@ h2 {
 
 .steps span {
   color: var(--text-ink-secondary);
-  font-size: 16px;
-  line-height: 1.55;
+  font-size: 15px;
+  line-height: 1.45;
 }
 
 .completed-gallery {
