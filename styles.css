@@ -618,12 +618,12 @@ h2 {
 }
 
 .proof-row {
-  --proof-chip-width: 298px;
+  --proof-chip-width: 276px;
   display: grid;
   grid-template-columns: repeat(2, var(--proof-chip-width));
   justify-content: center;
-  gap: 14px 18px;
-  margin-top: 30px;
+  gap: 12px 14px;
+  margin-top: 26px;
 }
 
 .proof-row span {
@@ -632,12 +632,12 @@ h2 {
   justify-content: center;
   box-sizing: border-box;
   width: 100%;
-  min-height: 40px;
-  padding: 12px 14px;
+  min-height: 38px;
+  padding: 10px 12px;
   background: rgba(175, 135, 65, 0.12);
   border: 1px solid rgba(175, 135, 65, 0.26);
   color: var(--accent-earth);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   line-height: 1.15;
   text-align: center;
