@@ -663,8 +663,8 @@ h2 {
 }
 
 .credibility article {
-  min-height: 188px;
-  padding: 26px 24px;
+  min-height: 164px;
+  padding: 24px 22px;
   border-left: 1px solid var(--divider-ink);
   display: flex;
   flex-direction: column;
@@ -685,8 +685,8 @@ h2 {
 
 .credibility span {
   color: var(--text-ink-soft);
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 .memorials {
