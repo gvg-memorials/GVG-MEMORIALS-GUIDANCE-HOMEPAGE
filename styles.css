@@ -811,14 +811,6 @@ h2 {
   align-items: start;
 }
 
-.families-copy p {
-  max-width: 620px;
-  margin: 0;
-  color: var(--text-ink-body);
-  font-size: clamp(17px, 1.45vw, 20px);
-  line-height: 1.6;
-}
-
 .families-notes {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
