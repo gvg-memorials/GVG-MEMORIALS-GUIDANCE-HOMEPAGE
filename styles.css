@@ -1189,11 +1189,11 @@ h2 {
 
 .contact-form-header {
   max-width: 640px;
-  margin: 0 0 clamp(36px, 4vw, 56px);
+  margin: 0 0 clamp(28px, 3vw, 42px);
 }
 
 .contact-form-header h3 {
-  margin: 0 0 18px;
+  margin: 0;
   font-family: var(--serif);
   font-size: clamp(32px, 3.8vw, 48px);
   font-weight: 500;
