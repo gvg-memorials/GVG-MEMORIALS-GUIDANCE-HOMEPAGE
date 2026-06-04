@@ -623,7 +623,7 @@ h2 {
   grid-template-columns: repeat(2, var(--proof-chip-width));
   justify-content: center;
   gap: 12px 14px;
-  margin-top: 26px;
+  margin-top: 0;
 }
 
 .proof-row span {
@@ -663,12 +663,13 @@ h2 {
 }
 
 .credibility article {
-  min-height: 164px;
+  min-height: 138px;
   padding: 24px 22px;
   border-left: 1px solid var(--divider-ink);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 22px;
   transition: background 240ms ease, box-shadow 260ms ease, transform 260ms ease;
 }
 
@@ -678,15 +679,17 @@ h2 {
 
 .credibility strong {
   font-family: var(--serif);
-  font-size: clamp(28px, 3vw, 38px);
+  font-size: clamp(26px, 2.7vw, 34px);
   font-weight: 500;
   line-height: 1;
 }
 
 .credibility span {
-  color: var(--text-ink-soft);
-  font-size: 13px;
-  line-height: 1.45;
+  color: var(--text-ink-muted);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-transform: uppercase;
 }
 
 .memorials {
@@ -1774,10 +1777,11 @@ h2 {
   }
 
   .credibility article {
-    min-height: 128px;
+    min-height: 112px;
     padding: 18px 15px;
     border-left: 0;
     border-top: 1px solid var(--divider-ink);
+    gap: 16px;
   }
 
   .credibility article:nth-child(even) {
@@ -1793,11 +1797,11 @@ h2 {
   }
 
   .credibility strong {
-    font-size: clamp(24px, 7.6vw, 31px);
+    font-size: clamp(23px, 7.2vw, 29px);
   }
 
   .credibility span {
-    font-size: 12px;
+    font-size: 10.5px;
     line-height: 1.35;
   }
 
