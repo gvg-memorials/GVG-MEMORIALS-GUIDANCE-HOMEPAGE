@@ -852,7 +852,7 @@ h2 {
 
 .resource-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   background: var(--divider-ink);
   border: 1px solid var(--divider-ink);
@@ -882,49 +882,6 @@ h2 {
   color: var(--text-ink-secondary);
   font-size: 15px;
   line-height: 1.5;
-}
-
-.appointment {
-  padding: clamp(56px, 6vw, 86px) 0;
-  background: var(--surface-dark);
-  color: var(--white);
-}
-
-.appointment-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1.18fr);
-  gap: clamp(32px, 5vw, 72px);
-  align-items: center;
-}
-
-.appointment p:not(.section-label) {
-  max-width: 520px;
-  margin: 22px 0 0;
-  color: var(--text-light-body);
-  font-size: clamp(16px, 1.35vw, 18px);
-  line-height: 1.55;
-}
-
-.appointment-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  overflow: hidden;
-  background: var(--divider-light);
-  border: 1px solid var(--divider-light);
-}
-
-.appointment-list span {
-  min-height: 72px;
-  display: flex;
-  align-items: center;
-  padding: 16px 18px;
-  background: var(--surface-dark);
-  color: var(--text-light-strong);
-  font-family: var(--serif);
-  font-size: clamp(20px, 1.65vw, 25px);
-  line-height: 1.1;
-  transition: color 220ms ease, transform 220ms ease;
 }
 
 .steps {
@@ -1395,11 +1352,6 @@ h2 {
     transform: translateX(4px);
   }
 
-  .appointment-list span:hover {
-    color: var(--accent-gold-soft);
-    transform: translateX(6px);
-  }
-
   .completed-card:hover img {
     filter: saturate(1.03) contrast(1.02);
     transform: scale(1.045);
@@ -1440,8 +1392,7 @@ h2 {
   .memorial-list article:hover,
   .families-notes span:hover,
   .resource-list article:hover,
-  .completed-card:hover img,
-  .appointment-list span:hover {
+  .completed-card:hover img {
     transform: none;
   }
 }
@@ -1508,7 +1459,6 @@ h2 {
   .contact-panel,
   .resources-grid,
   .families-grid,
-  .appointment-grid,
   .gallery {
     grid-template-columns: 1fr;
   }
@@ -1522,6 +1472,10 @@ h2 {
   }
 
   .memorial-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .resource-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1696,16 +1650,11 @@ h2 {
     padding-block: 52px;
   }
 
-  .appointment {
-    padding-block: 48px;
-  }
-
   .intro-grid,
   .process-grid,
   .contact-panel,
   .resources-grid,
-  .families-grid,
-  .appointment-grid {
+  .families-grid {
     gap: 28px;
   }
 
@@ -1722,8 +1671,7 @@ h2 {
   .section-heading p:not(.section-label),
   .gallery-copy p:not(.section-label),
   .contact p:not(.section-label),
-  .families-copy p,
-  .appointment p:not(.section-label) {
+  .families-copy p {
     font-size: 16.5px;
     line-height: 1.58;
   }
@@ -1892,12 +1840,6 @@ h2 {
     margin-bottom: 0;
   }
 
-  .appointment-list span {
-    min-height: 62px;
-    padding: 14px 16px;
-    font-size: clamp(20px, 6vw, 25px);
-  }
-
   .contact-panel {
     padding-top: 40px;
   }
@@ -1985,10 +1927,6 @@ h2 {
     padding-block: 46px;
   }
 
-  .appointment {
-    padding-block: 44px;
-  }
-
   .resource-list {
     grid-template-columns: 1fr;
   }
@@ -1999,14 +1937,6 @@ h2 {
 
   .completed-gallery {
     padding-block: 56px;
-  }
-
-  .appointment-list {
-    grid-template-columns: 1fr;
-  }
-
-  .appointment-list span {
-    min-height: 54px;
   }
 
   .hero-content {
