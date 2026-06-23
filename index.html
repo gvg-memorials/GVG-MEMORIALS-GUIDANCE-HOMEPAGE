@@ -463,10 +463,14 @@
             data-netlify="true"
             netlify-honeypot="bot-field"
             aria-label="Send a message to GVG Memorials"
+            aria-describedby="contact-form-note contact-form-privacy"
           >
             <input type="hidden" name="form-name" value="contact" />
             <p class="contact-form-bot" aria-hidden="true">
               <label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+            </p>
+            <p class="contact-form-note" id="contact-form-note">
+              Name and phone are required so we can respond personally.
             </p>
             <div class="contact-form-grid">
               <label class="field field-required">
@@ -476,6 +480,7 @@
                   name="name"
                   autocomplete="name"
                   required
+                  aria-required="true"
                   maxlength="100"
                 />
               </label>
@@ -487,6 +492,7 @@
                   name="phone"
                   autocomplete="tel"
                   required
+                  aria-required="true"
                   maxlength="30"
                   inputmode="tel"
                 />
@@ -524,7 +530,7 @@
 
             <div class="contact-form-actions">
               <button type="submit" class="button button-primary">Request Guidance</button>
-              <p class="contact-form-privacy">
+              <p class="contact-form-privacy" id="contact-form-privacy">
                 We only use your information to respond.
               </p>
             </div>
