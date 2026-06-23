@@ -588,6 +588,16 @@ body.nav-open {
   }
 }
 
+@keyframes hero-trust-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .section-band {
   background: var(--ivory);
 }
@@ -1756,6 +1766,7 @@ h2 {
     padding: 8px 10px;
     font-size: 13px;
     overflow-wrap: normal;
+    animation-name: hero-trust-fade;
   }
 
   .intro,
