@@ -40,6 +40,8 @@
   --text-light-high: rgba(255, 250, 241, 0.9);
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Inter", Arial, sans-serif;
+  --weight-ui: 700;
+  --weight-label: 600;
 }
 
 * {
@@ -105,7 +107,7 @@ textarea:focus-visible {
   align-items: center;
   gap: clamp(16px, 2vw, 34px);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: var(--weight-ui);
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -151,7 +153,7 @@ textarea:focus-visible {
   border: 1px solid var(--divider-light-action);
   padding: 11px 15px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: var(--weight-ui);
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -406,7 +408,7 @@ body.nav-open {
   padding: 0 28px;
   border: 1px solid var(--divider-light-action-strong);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: var(--weight-ui);
   line-height: 1.1;
   letter-spacing: 0;
   text-align: center;
@@ -588,7 +590,7 @@ body.nav-open {
   margin: 0 0 14px;
   color: var(--brass);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: var(--weight-label);
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -638,7 +640,7 @@ h2 {
   border: 1px solid rgba(175, 135, 65, 0.26);
   color: var(--accent-earth);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: var(--weight-label);
   line-height: 1.15;
   text-align: center;
   text-transform: uppercase;
@@ -687,7 +689,7 @@ h2 {
 .credibility span {
   color: var(--text-ink-muted);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: var(--weight-label);
   line-height: 1.35;
   text-transform: uppercase;
 }
@@ -741,7 +743,7 @@ h2 {
   margin: 0;
   color: var(--text-light-secondary);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: var(--weight-label);
   line-height: 1.35;
   text-transform: uppercase;
 }
@@ -914,7 +916,7 @@ h2 {
 .steps span {
   color: var(--text-ink-secondary);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: var(--weight-label);
   line-height: 1.35;
   text-transform: uppercase;
 }
@@ -984,7 +986,7 @@ h2 {
   margin-bottom: 7px;
   color: var(--accent-gold-link);
   font-size: 10px;
-  font-weight: 800;
+  font-weight: var(--weight-label);
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -1076,7 +1078,7 @@ h2 {
   padding-bottom: 9px;
   color: var(--accent-gold-link);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: var(--weight-label);
   text-transform: uppercase;
 }
 
@@ -1137,7 +1139,7 @@ h2 {
   margin-top: 22px !important;
   color: var(--text-ink-muted) !important;
   font-size: 14px !important;
-  font-weight: 700;
+  font-weight: var(--weight-label);
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -1174,7 +1176,7 @@ h2 {
 
 .field-label {
   font-size: 12px;
-  font-weight: 800;
+  font-weight: var(--weight-label);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--ink);
@@ -1243,7 +1245,7 @@ h2 {
   flex: 0 1 260px;
   color: var(--text-ink-muted) !important;
   font-size: 12px !important;
-  font-weight: 700;
+  font-weight: var(--weight-label);
   line-height: 1.35 !important;
   text-transform: uppercase;
 }
