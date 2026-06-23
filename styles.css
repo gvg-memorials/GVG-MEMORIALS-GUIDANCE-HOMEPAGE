@@ -40,9 +40,9 @@
   --text-light-high: rgba(255, 250, 241, 0.9);
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Inter", Arial, sans-serif;
-  --weight-ui: 700;
+  --weight-ui: 600;
   --weight-label: 600;
-  --weight-support: 500;
+  --weight-support: 400;
 }
 
 * {
