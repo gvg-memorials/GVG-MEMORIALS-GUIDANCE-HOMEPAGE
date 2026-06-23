@@ -1837,9 +1837,14 @@ h2 {
     padding: 52px 20px 68px;
   }
 
+  .resource-list {
+    grid-template-columns: 1fr;
+  }
+
   .resource-list article {
-    min-height: 104px;
-    padding: 16px;
+    min-height: 0;
+    gap: 12px;
+    padding: 18px;
   }
 
   .resource-list h3 {
@@ -1933,12 +1938,8 @@ h2 {
     padding-block: 46px;
   }
 
-  .resource-list {
-    grid-template-columns: 1fr;
-  }
-
   .resource-list article {
-    min-height: 76px;
+    min-height: 0;
   }
 
   .completed-gallery {
