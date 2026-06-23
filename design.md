@@ -293,7 +293,7 @@ mobile hero h1: clamp(48px, 15vw, 68px);
 section h2: clamp(42px, 5.4vw, 76px), line-height 0.98;
 body section copy: clamp(17px, 1.55vw, 21px), line-height 1.7;
 large note copy: clamp(18px, 1.7vw, 23px), line-height 1.65;
-small UI labels: 11px to 12px, uppercase, Inter, bold;
+small UI labels: 11px to 12px, uppercase, Inter, medium weight;
 ```
 
 Implemented interaction values:
