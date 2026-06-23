@@ -78,6 +78,29 @@ textarea:focus-visible {
   box-shadow: var(--focus-ring);
 }
 
+.skip-link {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 100;
+  padding: 10px 14px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: var(--weight-ui);
+  text-transform: uppercase;
+  transform: translateY(-140%);
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+main:focus {
+  outline: none;
+}
+
 .site-header {
   position: fixed;
   inset: 0 0 auto;
