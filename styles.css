@@ -937,7 +937,7 @@ h2 {
 
 .completed-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(18px, 2.4vw, 34px);
   margin-top: clamp(38px, 5vw, 70px);
 }
@@ -1563,6 +1563,7 @@ h2 {
   }
 
   .completed-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
   }
 
