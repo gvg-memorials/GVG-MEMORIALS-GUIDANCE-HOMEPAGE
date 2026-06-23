@@ -19,7 +19,8 @@
     body.classList.add("nav-open");
   }
 
-  function closeNav() {
+  function closeNav(options = {}) {
+    const { restoreFocus = true } = options;
     nav.removeAttribute("data-open");
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-label", "Open menu");
@@ -29,9 +30,10 @@
         nav.hidden = true;
       }
     }, 240);
-    if (previouslyFocused instanceof HTMLElement) {
+    if (restoreFocus && previouslyFocused instanceof HTMLElement) {
       previouslyFocused.focus();
     }
+    previouslyFocused = null;
   }
 
   toggle.addEventListener("click", () => {
@@ -43,7 +45,7 @@
   nav.addEventListener("click", (event) => {
     const target = event.target;
     if (target instanceof HTMLAnchorElement) {
-      closeNav();
+      closeNav({ restoreFocus: false });
     }
   });
 
@@ -77,7 +79,7 @@
   const desktopBreakpoint = window.matchMedia("(min-width: 921px)");
   desktopBreakpoint.addEventListener("change", (event) => {
     if (event.matches && toggle.getAttribute("aria-expanded") === "true") {
-      closeNav();
+      closeNav({ restoreFocus: false });
     }
   });
 })();
