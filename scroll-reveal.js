@@ -39,6 +39,28 @@
 
   document.body.classList.add("reveal-ready");
 
+  const revealAnchorTarget = () => {
+    if (!window.location.hash) return;
+
+    let target;
+    try {
+      target = document.querySelector(window.location.hash);
+    } catch (_) {
+      return;
+    }
+
+    if (!target) return;
+    [target, ...target.querySelectorAll("[data-reveal]")]
+      .filter((element) => element.matches("[data-reveal]"))
+      .forEach((element) => element.classList.add("is-visible"));
+  };
+
+  const scheduleAnchorReveal = () => {
+    revealAnchorTarget();
+    window.requestAnimationFrame(revealAnchorTarget);
+    window.setTimeout(revealAnchorTarget, 240);
+  };
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -54,4 +76,6 @@
   );
 
   elements.forEach((element) => observer.observe(element));
+  scheduleAnchorReveal();
+  window.addEventListener("hashchange", scheduleAnchorReveal);
 })();
