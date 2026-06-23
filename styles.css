@@ -628,6 +628,10 @@ h2 {
   margin-top: 0;
 }
 
+.intro-copy p + .proof-row {
+  margin-top: 28px;
+}
+
 .proof-row span {
   display: inline-flex;
   align-items: center;
