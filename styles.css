@@ -42,7 +42,7 @@
   --sans: "Inter", Arial, sans-serif;
   --weight-ui: 500;
   --weight-label: 500;
-  --weight-support: 400;
+  --weight-support: 500;
 }
 
 * {
@@ -143,10 +143,16 @@ main:focus {
   transition: opacity 180ms ease, color 180ms ease, border-color 180ms ease, background 180ms ease, transform 180ms ease;
 }
 
+.desktop-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
 .desktop-nav a::after {
   position: absolute;
   right: 0;
-  bottom: -7px;
+  bottom: 7px;
   left: 0;
   height: 1px;
   content: "";
@@ -1111,7 +1117,10 @@ h2 {
 
 .text-link {
   position: relative;
+  display: inline-flex;
+  align-items: center;
   width: max-content;
+  min-height: 44px;
   margin-top: 32px;
   padding-bottom: 9px;
   color: var(--accent-gold-link);
@@ -1348,6 +1357,9 @@ h2 {
 
 .footer-nav a,
 .footer-contact a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   transition: color 180ms ease, transform 180ms ease;
 }
 
@@ -1676,8 +1688,8 @@ h2 {
   }
 
   .nav-toggle {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
   }
 
   .hero {
@@ -2047,8 +2059,8 @@ h2 {
 
   .nav-toggle {
     justify-self: end;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
   }
 
   .mobile-nav {
