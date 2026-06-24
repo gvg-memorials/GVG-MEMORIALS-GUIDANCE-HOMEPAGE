@@ -146,9 +146,11 @@ Local Care
    - What affects headstone or marker timing
 
 10. Contact
+    - Common starting points for cemetery requirements, memorial style options, and wording/artwork review
     - Call
     - Email
     - Address
+    - Netlify contact form for families who prefer to begin in writing
 
 ## Visual System
 

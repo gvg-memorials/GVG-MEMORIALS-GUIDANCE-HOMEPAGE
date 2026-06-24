@@ -652,7 +652,7 @@ h2 {
 .intro-copy p,
 .section-heading p:not(.section-label),
 .gallery-copy p:not(.section-label),
-.contact p:not(.section-label):not(.contact-detail):not(.contact-form-note):not(.contact-form-privacy) {
+.contact p:not(.section-label):not(.contact-detail):not(.contact-form-note):not(.contact-form-privacy):not(.contact-path-copy) {
   margin: 0;
   color: var(--text-ink-body);
   font-size: clamp(17px, 1.55vw, 21px);
@@ -1243,6 +1243,52 @@ h2 {
   text-transform: uppercase;
 }
 
+.contact-paths {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: clamp(42px, 5vw, 64px);
+  background: var(--divider-ink);
+  border: 1px solid var(--divider-ink);
+}
+
+.contact-path {
+  min-height: 204px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: clamp(22px, 2.6vw, 32px);
+  background: rgba(255, 250, 241, 0.34);
+  color: var(--ink);
+  transition: transform 260ms ease, background 220ms ease, box-shadow 260ms ease;
+}
+
+.contact-path-number {
+  color: var(--brass);
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: var(--weight-card-title);
+  line-height: 1;
+}
+
+.contact-path strong {
+  max-width: 10ch;
+  font-family: var(--serif);
+  font-size: clamp(27px, 2.5vw, 36px);
+  font-weight: var(--weight-card-title);
+  line-height: 0.98;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.contact-path-copy {
+  margin: auto 0 0;
+  color: var(--text-ink-secondary);
+  font-size: 14.5px;
+  font-weight: var(--weight-body);
+  line-height: 1.55;
+}
+
 .contact-form {
   margin-top: clamp(42px, 5vw, 64px);
   padding-top: clamp(34px, 4vw, 48px);
@@ -1617,6 +1663,12 @@ h2 {
     background: var(--surface-warm-light);
   }
 
+  .contact-path:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 250, 241, 0.56);
+    box-shadow: 0 18px 44px rgba(23, 19, 14, 0.1);
+  }
+
   .contact-actions .button:hover,
   .contact-form-actions .button:hover {
     transform: translateY(-2px);
@@ -1633,6 +1685,7 @@ h2 {
   .families-notes span:hover,
   .resource-list article:hover,
   .faq-list article:hover,
+  .contact-path:hover,
   .completed-card:hover img {
     transform: none;
   }
@@ -1930,7 +1983,7 @@ h2 {
   .intro-copy p,
   .section-heading p:not(.section-label),
   .gallery-copy p:not(.section-label),
-  .contact p:not(.section-label):not(.contact-detail):not(.contact-form-note):not(.contact-form-privacy),
+  .contact p:not(.section-label):not(.contact-detail):not(.contact-form-note):not(.contact-form-privacy):not(.contact-path-copy),
   .families-copy p {
     font-size: 16.5px;
     line-height: 1.58;
@@ -2125,6 +2178,18 @@ h2 {
   .contact-actions .button {
     width: 100%;
     max-width: 304px;
+  }
+
+  .contact-paths {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-path {
+    min-height: 0;
+  }
+
+  .contact-path strong {
+    max-width: none;
   }
 
   .contact-form {
