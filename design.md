@@ -610,8 +610,7 @@ This document is now aligned with the current implementation, with the following
 - Some colors documented as tokens are underused in CSS: `--limestone`, `--sand`, and `--olive`.
 - Many repeated hard-coded colors, borders, and text opacity values are not yet formal tokens.
 - The current CSS has strong implicit primitives, but it is not yet grouped with component comments.
-- `contact-detail` uses `!important`, which should eventually be replaced with a cleaner selector or tokenized text style.
-- The stylesheet references cache-busted assets in HTML: `styles.css?v=2` and `sun-flare.js?v=2`.
+- HTML uses query-string cache busting for changed front-end assets, such as `styles.css?v=70`; keep those versions current when assets change.
 - `design.md` is lowercase. Keep this file unless the repo later adopts uppercase `DESIGN.md` as convention.
 
 ## Asset Policy
@@ -647,7 +646,7 @@ Recommended order:
 1. Add missing token names to `:root` for current hard-coded values.
 2. Replace hard-coded values with equivalent variables without changing colors.
 3. Add CSS section comments around primitives: tokens, base, header, hero, buttons, sections, grids, motion, responsive.
-4. Remove `!important` from `contact-detail` only if the selector can be made equivalent.
+4. Continue removing unnecessary `!important` overrides only when selectors can be made equivalent.
 5. Keep `index.html` static unless content growth requires a later component strategy.
 6. Keep `sun-flare.js` isolated and dependency-free.
 7. Verify desktop and 390px mobile after every CSS cleanup pass.

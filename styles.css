@@ -1227,9 +1227,9 @@ h2 {
 }
 
 .contact-detail {
-  margin-top: 22px !important;
-  color: var(--text-ink-muted) !important;
-  font-size: 14px !important;
+  margin-top: 22px;
+  color: var(--text-ink-muted);
+  font-size: 14px;
   font-weight: var(--weight-support);
   letter-spacing: 0;
   text-transform: uppercase;
@@ -1341,12 +1341,12 @@ h2 {
 }
 
 .contact-form-privacy {
-  margin: 0 !important;
+  margin: 0;
   flex: 0 1 260px;
-  color: var(--text-ink-muted) !important;
-  font-size: 12px !important;
+  color: var(--text-ink-muted);
+  font-size: 12px;
   font-weight: var(--weight-support);
-  line-height: 1.35 !important;
+  line-height: 1.35;
   text-transform: uppercase;
 }
 
