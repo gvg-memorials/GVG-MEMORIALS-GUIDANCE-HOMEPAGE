@@ -75,7 +75,7 @@ We help your family choose a custom headstone or memorial with patience, clarity
 Primary CTA:
 
 ```text
-Begin With Guidance
+Plan a Memorial
 ```
 
 Secondary CTA:
@@ -518,6 +518,7 @@ Avoid weak labels such as:
 - Learn More
 - Click Here
 - Get Started
+- Begin With Guidance
 
 ### Trust Strip
 
