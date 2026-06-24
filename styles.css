@@ -42,7 +42,7 @@
   --sans: "Inter", Arial, sans-serif;
   --weight-ui: 500;
   --weight-label: 500;
-  --weight-support: 500;
+  --weight-support: 400;
 }
 
 * {
@@ -648,7 +648,7 @@ h2 {
 .intro-copy p,
 .section-heading p:not(.section-label),
 .gallery-copy p:not(.section-label),
-.contact p:not(.section-label) {
+.contact p:not(.section-label):not(.contact-detail):not(.contact-form-note):not(.contact-form-privacy) {
   margin: 0;
   color: var(--text-ink-body);
   font-size: clamp(17px, 1.55vw, 21px);
@@ -1863,7 +1863,7 @@ h2 {
   .intro-copy p,
   .section-heading p:not(.section-label),
   .gallery-copy p:not(.section-label),
-  .contact p:not(.section-label),
+  .contact p:not(.section-label):not(.contact-detail):not(.contact-form-note):not(.contact-form-privacy),
   .families-copy p {
     font-size: 16.5px;
     line-height: 1.58;
