@@ -69,19 +69,27 @@ You Love. Forever.
 Subheadline:
 
 ```text
-We help your family choose a custom headstone or memorial with patience, clarity, and lasting craftsmanship.
+Custom headstones, grave markers, bronze memorials, and monuments, planned with patience, clarity, and lasting craftsmanship.
 ```
 
 Primary CTA:
 
 ```text
-Plan a Memorial
+Start With Guidance
 ```
 
 Secondary CTA:
 
 ```text
-Speak With Us
+Call (805) 889-3769
+```
+
+Hero proof points:
+
+```text
+Family-owned in Oxnard
+20+ years of experience
+Spanish & English support
 ```
 
 Trust strip:
@@ -100,6 +108,8 @@ Local Care
    - Fixed transparent header over image
    - Centered editorial serif headline
    - Two CTAs
+   - Immediate proof points under the value statement
+   - Short reassurance that families can begin without every detail ready
    - Bottom trust strip
 
 2. First Decisions
@@ -150,7 +160,12 @@ Local Care
     - Call
     - Email
     - Address
+    - Optional starting-point selector in the form
     - Netlify contact form for families who prefer to begin in writing
+
+11. Mobile Conversion Support
+    - Sticky bottom contact bar with direct call and message actions
+    - Visible only on small screens
 
 ## Visual System
 
