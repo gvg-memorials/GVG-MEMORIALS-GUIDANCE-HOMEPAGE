@@ -123,7 +123,6 @@ Local Care
    - Design
    - Coordinate
    - Craft
-   - Support
 
 6. Family Reassurance
    - Detail care before production
