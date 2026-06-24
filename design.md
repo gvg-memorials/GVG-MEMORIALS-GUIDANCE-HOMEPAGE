@@ -142,7 +142,7 @@ Local Care
 
 9. Common Questions
    - Whether families need to know the memorial style before reaching out
-   - What memorial options GVG helps with
+   - What memorial options can be reviewed together
    - What to bring to the first conversation
    - What affects headstone or marker timing
 
