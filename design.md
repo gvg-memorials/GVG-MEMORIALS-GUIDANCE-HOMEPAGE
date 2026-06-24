@@ -275,8 +275,8 @@ Core tokens currently defined in `:root`:
 --weight-body: 400;
 --weight-display: 500;
 --weight-card-title: 400;
---weight-ui: 500;
---weight-label: 500;
+--weight-ui: 400;
+--weight-label: 400;
 --weight-support: var(--weight-body);
 ```
 
@@ -624,7 +624,7 @@ This document is now aligned with the current implementation, with the following
 - Some colors documented as tokens are underused in CSS: `--limestone`, `--sand`, and `--olive`.
 - Many repeated hard-coded colors, borders, and text opacity values are not yet formal tokens.
 - The current CSS has strong implicit primitives, but it is not yet grouped with component comments.
-- HTML uses query-string cache busting for changed front-end assets, such as `styles.css?v=73`; keep those versions current when assets change.
+- HTML uses query-string cache busting for changed front-end assets, such as `styles.css?v=75`; keep those versions current when assets change.
 - `design.md` is lowercase. Keep this file unless the repo later adopts uppercase `DESIGN.md` as convention.
 
 ## Asset Policy

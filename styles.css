@@ -43,8 +43,8 @@
   --weight-body: 400;
   --weight-display: 500;
   --weight-card-title: 400;
-  --weight-ui: 500;
-  --weight-label: 500;
+  --weight-ui: 400;
+  --weight-label: 400;
   --weight-support: var(--weight-body);
 }
 
