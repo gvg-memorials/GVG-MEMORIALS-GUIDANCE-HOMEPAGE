@@ -62,20 +62,20 @@ Key trust signals:
 Headline:
 
 ```text
-A Lasting Tribute,
-Chosen With Care.
+Remember The One
+You Love. Forever.
 ```
 
 Subheadline:
 
 ```text
-When it is time to choose a headstone or monument, we guide your family with clarity, patience, and respect.
+We help your family choose a custom headstone or memorial with patience, clarity, and lasting craftsmanship.
 ```
 
 Primary CTA:
 
 ```text
-DESIGN A MEMORIAL
+Begin With Guidance
 ```
 
 Secondary CTA:
@@ -138,12 +138,12 @@ Local Care
    - What does the cemetery allow?
    - Which memorial style is right?
    - What should go on the layout?
+   - What to bring to a first visit
 
-9. Appointment Prep
-   - Cemetery name or location
-   - Any cemetery paperwork
-   - Names, dates, and spelling
-   - Photos or design ideas if desired
+9. Common Questions
+   - Whether families need to know the memorial style before reaching out
+   - What memorial options GVG helps with
+   - What to bring to the first conversation
 
 10. Contact
     - Call
@@ -403,7 +403,7 @@ Documented primitive names for future reference:
 - `ProcessSteps`: ordered guidance steps.
 - `ReassuranceNotesGrid`: family reassurance notes.
 - `ResourceList`: stacked resource rows.
-- `AppointmentList`: stacked appointment-prep rows.
+- `FAQList`: visible objection-handling questions aligned with FAQ JSON-LD.
 - `GallerySplitBand`: image and local-support copy split section.
 - `ContactPanel`: final contact section with CTAs and address.
 
@@ -605,7 +605,6 @@ Current implemented mobile conventions:
 
 This document is now aligned with the current implementation, with the following known drift to address later:
 
-- The implementation includes FAQ JSON-LD in `index.html`, but there is no visible FAQ section yet.
 - Some colors documented as tokens are underused in CSS: `--limestone`, `--sand`, and `--olive`.
 - Many repeated hard-coded colors, borders, and text opacity values are not yet formal tokens.
 - The current CSS has strong implicit primitives, but it is not yet grouped with component comments.
@@ -631,7 +630,7 @@ sun-flare.js
 Next design additions should preserve the current mood:
 
 1. Add a real gallery section with blank-safe or approved finished work.
-2. Add an FAQ section for cemetery rules, installation, and appointment prep.
+2. Expand the FAQ section if families ask repeated questions about cemetery rules, installation, or timing.
 3. Add a short Spanish-language path or toggle if bilingual support is part of the final site.
 4. Add real testimonial snippets only with permission.
 5. Add a lightweight contact form or appointment request flow.
