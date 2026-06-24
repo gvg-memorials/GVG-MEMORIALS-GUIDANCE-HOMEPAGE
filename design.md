@@ -536,7 +536,8 @@ Each section should do one job:
 - Credibility: answer "can I trust you?"
 - Memorials: show what GVG makes
 - Process: reduce uncertainty
-- Resources: handle practical objections
+- Resources: give a practical first-visit checklist
+- FAQ: answer pre-call objections without repeating the planning checklist
 - Contact: make reaching out feel low pressure
 
 ## SEO And Local Business Notes

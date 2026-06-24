@@ -1707,6 +1707,7 @@ h2 {
   }
 
   .contact-form-privacy {
+    flex-basis: auto;
     text-align: center;
   }
 
