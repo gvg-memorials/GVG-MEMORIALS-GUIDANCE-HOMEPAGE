@@ -40,9 +40,11 @@
   --text-light-high: rgba(255, 250, 241, 0.9);
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Inter", Arial, sans-serif;
+  --weight-body: 400;
+  --weight-display: 500;
   --weight-ui: 500;
   --weight-label: 500;
-  --weight-support: 400;
+  --weight-support: var(--weight-body);
 }
 
 * {
@@ -62,6 +64,7 @@ body {
   background: var(--ivory);
   color: var(--ink);
   font-family: var(--sans);
+  font-weight: var(--weight-body);
 }
 
 a {
@@ -269,7 +272,7 @@ main:focus {
   display: block;
   padding: 18px 4px;
   font-size: 28px;
-  font-weight: 500;
+  font-weight: var(--weight-display);
   letter-spacing: 0.5px;
   border-bottom: 1px solid var(--divider-light-faint);
   transition: color 180ms ease, background 180ms ease, padding-inline 220ms ease;
@@ -394,7 +397,7 @@ body.nav-open {
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(54px, 8vw, 124px);
-  font-weight: 500;
+  font-weight: var(--weight-display);
   line-height: 0.91;
   letter-spacing: 0;
   text-shadow: 0 20px 60px var(--shadow);
@@ -639,7 +642,7 @@ h2 {
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(38px, 4.8vw, 68px);
-  font-weight: 500;
+  font-weight: var(--weight-display);
   line-height: 1;
   letter-spacing: 0;
   text-wrap: balance;
@@ -652,6 +655,7 @@ h2 {
   margin: 0;
   color: var(--text-ink-body);
   font-size: clamp(17px, 1.55vw, 21px);
+  font-weight: var(--weight-body);
   line-height: 1.7;
 }
 
@@ -726,7 +730,7 @@ h2 {
 .credibility strong {
   font-family: var(--serif);
   font-size: clamp(26px, 2.7vw, 34px);
-  font-weight: 500;
+  font-weight: var(--weight-display);
   line-height: 1;
 }
 
@@ -779,7 +783,7 @@ h2 {
   margin: auto 0 10px;
   font-family: var(--serif);
   font-size: clamp(26px, 2.25vw, 30px);
-  font-weight: 500;
+  font-weight: var(--weight-display);
   line-height: 1;
 }
 
@@ -844,7 +848,7 @@ h2 {
   margin: 0 auto;
   font-family: var(--serif);
   font-size: clamp(38px, 5vw, 78px);
-  font-weight: 500;
+  font-weight: var(--weight-display);
   line-height: 0.98;
   text-wrap: balance;
   text-shadow: 0 20px 60px var(--shadow);
@@ -919,7 +923,7 @@ h2 {
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(23px, 2vw, 29px);
-  font-weight: 500;
+  font-weight: var(--weight-display);
   line-height: 1.05;
 }
 
@@ -927,6 +931,7 @@ h2 {
   margin: 0;
   color: var(--text-ink-secondary);
   font-size: 15px;
+  font-weight: var(--weight-body);
   line-height: 1.5;
 }
 
@@ -959,7 +964,7 @@ h2 {
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(24px, 2.15vw, 32px);
-  font-weight: 500;
+  font-weight: var(--weight-display);
   line-height: 1.04;
 }
 
@@ -967,6 +972,7 @@ h2 {
   margin: 14px 0 0;
   color: var(--text-ink-body);
   font-size: 16px;
+  font-weight: var(--weight-body);
   line-height: 1.62;
 }
 
@@ -994,7 +1000,7 @@ h2 {
 .steps strong {
   font-family: var(--serif);
   font-size: clamp(25px, 2vw, 28px);
-  font-weight: 500;
+  font-weight: var(--weight-display);
 }
 
 .steps span {
@@ -1080,7 +1086,7 @@ h2 {
   max-width: 460px;
   font-family: var(--serif);
   font-size: clamp(20px, 1.55vw, 26px);
-  font-weight: 500;
+  font-weight: var(--weight-display);
   line-height: 1.06;
 }
 
@@ -1284,7 +1290,7 @@ h2 {
 
 .field-optional {
   color: var(--text-ink-muted);
-  font-weight: 400;
+  font-weight: var(--weight-body);
   letter-spacing: 0;
   text-transform: none;
 }
@@ -1375,6 +1381,7 @@ h2 {
   margin: 0;
   color: var(--text-light-body);
   font-size: 15px;
+  font-weight: var(--weight-body);
   line-height: 1.6;
 }
 
@@ -1447,7 +1454,7 @@ h2 {
   margin: 14px 0 22px;
   font-family: var(--serif);
   font-size: clamp(38px, 5vw, 58px);
-  font-weight: 500;
+  font-weight: var(--weight-display);
   line-height: 1.02;
   letter-spacing: 0;
   text-wrap: balance;
@@ -1457,6 +1464,7 @@ h2 {
   margin: 0 0 14px;
   color: var(--text-ink-body);
   font-size: clamp(17px, 1.5vw, 20px);
+  font-weight: var(--weight-body);
   line-height: 1.65;
 }
 
@@ -1464,6 +1472,7 @@ h2 {
   margin: 0 0 32px;
   color: var(--text-ink-muted);
   font-size: clamp(15px, 1.3vw, 17px);
+  font-weight: var(--weight-body);
   line-height: 1.6;
 }
 
