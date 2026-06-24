@@ -134,7 +134,7 @@ Local Care
 7. Local Support
    - Oxnard, Ventura County, Conejo Mountain, and nearby cemetery-aware support
 
-8. Resources
+8. Before You Visit
    - What does the cemetery allow?
    - Which memorial style is right?
    - What should go on the layout?
@@ -536,7 +536,7 @@ Each section should do one job:
 - Credibility: answer "can I trust you?"
 - Memorials: show what GVG makes
 - Process: reduce uncertainty
-- Resources: give a practical first-visit checklist
+- Before You Visit: give a practical first-visit checklist
 - FAQ: answer pre-call objections without repeating the planning checklist
 - Contact: make reaching out feel low pressure
 
