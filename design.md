@@ -407,6 +407,8 @@ Documented primitive names for future reference:
 - `FAQList`: visible objection-handling questions aligned with FAQ JSON-LD.
 - `GallerySplitBand`: image and local-support copy split section.
 - `ContactPanel`: final contact section with CTAs and address.
+- `ThankYouConfirmation`: post-form confirmation page with reassurance copy,
+  next-step notes, phone CTA, and return-home action.
 
 ### Styling Architecture
 
@@ -610,7 +612,7 @@ This document is now aligned with the current implementation, with the following
 - Some colors documented as tokens are underused in CSS: `--limestone`, `--sand`, and `--olive`.
 - Many repeated hard-coded colors, borders, and text opacity values are not yet formal tokens.
 - The current CSS has strong implicit primitives, but it is not yet grouped with component comments.
-- HTML uses query-string cache busting for changed front-end assets, such as `styles.css?v=70`; keep those versions current when assets change.
+- HTML uses query-string cache busting for changed front-end assets, such as `styles.css?v=72`; keep those versions current when assets change.
 - `design.md` is lowercase. Keep this file unless the repo later adopts uppercase `DESIGN.md` as convention.
 
 ## Asset Policy
@@ -630,12 +632,11 @@ sun-flare.js
 
 Next design additions should preserve the current mood:
 
-1. Add a real gallery section with blank-safe or approved finished work.
+1. Expand the finished-work gallery only with approved real work and respectful cropping.
 2. Expand the FAQ section if families ask repeated questions about cemetery rules, installation, or timing.
 3. Add a short Spanish-language path or toggle if bilingual support is part of the final site.
 4. Add real testimonial snippets only with permission.
-5. Add a lightweight contact form or appointment request flow.
-6. Add separate service pages for flat markers, upright monuments, bronze, benches, and Conejo Mountain support.
+5. Add separate service pages for flat markers, upright monuments, bronze, benches, and Conejo Mountain support.
 
 ## Future Low-Risk Cleanup Path
 
