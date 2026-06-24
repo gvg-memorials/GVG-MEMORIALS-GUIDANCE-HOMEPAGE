@@ -530,8 +530,8 @@ Use simple, human language. Speak to the family, not at them.
 
 Prefer:
 
-- "We help your family understand the next step."
-- "You do not have to know the right stone, size, cemetery rule, or layout before you call."
+- "You do not need every detail ready before you call."
+- "Share the cemetery name, a question, or the memorial style you are considering."
 - "We guide your family with clarity, patience, and respect."
 
 Avoid:
