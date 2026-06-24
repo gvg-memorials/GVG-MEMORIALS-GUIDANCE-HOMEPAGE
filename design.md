@@ -102,9 +102,9 @@ Local Care
    - Two CTAs
    - Bottom trust strip
 
-2. Guidance First
-   - Acknowledge that most families do not know where to begin
-   - Explain that GVG helps with cemetery requirements, memorial styles, design proofs, and manageable decisions
+2. First Decisions
+   - Acknowledge that early memorial decisions can feel hard to sort through
+   - Explain that GVG helps with cemetery requirements, memorial styles, wording, proofs, and manageable pacing
 
 3. Credibility Strip
    - Family-Owned
@@ -124,8 +124,8 @@ Local Care
    - Coordinate
    - Craft
 
-6. Family Reassurance
-   - Detail care before production
+6. Before Production
+   - Detail checks before stonework begins
    - Careful name/date review
    - Updates without pressure
    - Durable stonework
