@@ -407,6 +407,8 @@ Documented primitive names for future reference:
 - `FAQList`: visible objection-handling questions aligned with FAQ JSON-LD.
 - `GallerySplitBand`: image and local-support copy split section.
 - `ContactPanel`: final contact section with CTAs and address.
+- `ContactForm`: low-pressure message form with explicit required field labels,
+  privacy copy, and Netlify submission handling.
 - `ThankYouConfirmation`: post-form confirmation page with reassurance copy,
   next-step notes, phone CTA, and return-home action.
 
@@ -613,7 +615,7 @@ This document is now aligned with the current implementation, with the following
 - Some colors documented as tokens are underused in CSS: `--limestone`, `--sand`, and `--olive`.
 - Many repeated hard-coded colors, borders, and text opacity values are not yet formal tokens.
 - The current CSS has strong implicit primitives, but it is not yet grouped with component comments.
-- HTML uses query-string cache busting for changed front-end assets, such as `styles.css?v=72`; keep those versions current when assets change.
+- HTML uses query-string cache busting for changed front-end assets, such as `styles.css?v=73`; keep those versions current when assets change.
 - `design.md` is lowercase. Keep this file unless the repo later adopts uppercase `DESIGN.md` as convention.
 
 ## Asset Policy

@@ -50,7 +50,7 @@
       type="image/webp"
       fetchpriority="high"
     />
-    <link rel="stylesheet" href="styles.css?v=72" />
+    <link rel="stylesheet" href="styles.css?v=73" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -496,11 +496,11 @@
               <label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
             </p>
             <p class="contact-form-note" id="contact-form-note">
-              Name and phone help us respond personally.
+              Name and phone are required so we can respond personally.
             </p>
             <div class="contact-form-grid">
               <label class="field field-required">
-                <span class="field-label">Your Name</span>
+                <span class="field-label">Your Name <span class="field-required-text">Required</span></span>
                 <input
                   type="text"
                   name="name"
@@ -512,7 +512,7 @@
               </label>
 
               <label class="field field-required">
-                <span class="field-label">Phone</span>
+                <span class="field-label">Phone <span class="field-required-text">Required</span></span>
                 <input
                   type="tel"
                   name="phone"
