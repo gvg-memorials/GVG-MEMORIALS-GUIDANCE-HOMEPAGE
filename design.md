@@ -126,10 +126,10 @@ Local Care
    - Support
 
 6. Family Reassurance
-   - Patient help when decisions feel heavy
-   - Regular updates
-   - Custom design options
-   - Quality craftsmanship
+   - Detail care before production
+   - Careful name/date review
+   - Updates without pressure
+   - Durable stonework
 
 7. Local Support
    - Oxnard, Ventura County, Conejo Mountain, and nearby cemetery-aware support
@@ -538,6 +538,7 @@ Each section should do one job:
 - Credibility: answer "can I trust you?"
 - Memorials: show what GVG makes
 - Process: reduce uncertainty
+- Family Reassurance: show careful handling without repeating process or cemetery details
 - Before You Visit: give a practical first-visit checklist
 - FAQ: answer pre-call objections without repeating the planning checklist
 - Contact: make reaching out feel low pressure
