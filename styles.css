@@ -42,6 +42,7 @@
   --sans: "Inter", Arial, sans-serif;
   --weight-body: 400;
   --weight-display: 500;
+  --weight-card-title: 400;
   --weight-ui: 500;
   --weight-label: 500;
   --weight-support: var(--weight-body);
@@ -730,7 +731,7 @@ h2 {
 .credibility strong {
   font-family: var(--serif);
   font-size: clamp(26px, 2.7vw, 34px);
-  font-weight: var(--weight-display);
+  font-weight: var(--weight-card-title);
   line-height: 1;
 }
 
@@ -783,7 +784,7 @@ h2 {
   margin: auto 0 10px;
   font-family: var(--serif);
   font-size: clamp(26px, 2.25vw, 30px);
-  font-weight: var(--weight-display);
+  font-weight: var(--weight-card-title);
   line-height: 1;
 }
 
@@ -884,6 +885,7 @@ h2 {
   color: var(--accent-olive-earth);
   font-family: var(--serif);
   font-size: clamp(17px, 1.55vw, 23px);
+  font-weight: var(--weight-card-title);
   text-align: center;
   transition: background 220ms ease, color 220ms ease, transform 220ms ease;
 }
@@ -923,7 +925,7 @@ h2 {
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(23px, 2vw, 29px);
-  font-weight: var(--weight-display);
+  font-weight: var(--weight-card-title);
   line-height: 1.05;
 }
 
@@ -964,7 +966,7 @@ h2 {
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(24px, 2.15vw, 32px);
-  font-weight: var(--weight-display);
+  font-weight: var(--weight-card-title);
   line-height: 1.04;
 }
 
@@ -1000,7 +1002,7 @@ h2 {
 .steps strong {
   font-family: var(--serif);
   font-size: clamp(25px, 2vw, 28px);
-  font-weight: var(--weight-display);
+  font-weight: var(--weight-card-title);
 }
 
 .steps span {
@@ -1086,7 +1088,7 @@ h2 {
   max-width: 460px;
   font-family: var(--serif);
   font-size: clamp(20px, 1.55vw, 26px);
-  font-weight: var(--weight-display);
+  font-weight: var(--weight-card-title);
   line-height: 1.06;
 }
 
@@ -1511,7 +1513,7 @@ h2 {
 .thank-you-next strong {
   font-family: var(--serif);
   font-size: clamp(24px, 2.4vw, 30px);
-  font-weight: var(--weight-display);
+  font-weight: var(--weight-card-title);
   line-height: 1;
 }
 

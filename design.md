@@ -144,6 +144,7 @@ Local Care
    - Whether families need to know the memorial style before reaching out
    - What memorial options GVG helps with
    - What to bring to the first conversation
+   - What affects headstone or marker timing
 
 10. Contact
     - Call
@@ -252,6 +253,7 @@ Rules:
 - Do not use negative letter spacing
 - Do not scale font size directly with viewport width outside existing `clamp()` rules
 - Keep hero headline large and editorial
+- Use the quieter card-title weight for repeated supporting titles so cards do not feel randomly bold
 - Keep body copy plain, readable, and direct
 
 ### Current Implemented Tokens
@@ -271,6 +273,12 @@ Core tokens currently defined in `:root`:
 --shadow: rgba(12, 10, 7, 0.45);
 --serif: "Cormorant Garamond", Georgia, serif;
 --sans: "Inter", Arial, sans-serif;
+--weight-body: 400;
+--weight-display: 500;
+--weight-card-title: 400;
+--weight-ui: 500;
+--weight-label: 500;
+--weight-support: var(--weight-body);
 ```
 
 Implemented layout values:
@@ -294,6 +302,7 @@ section h2: clamp(42px, 5.4vw, 76px), line-height 0.98;
 body section copy: clamp(17px, 1.55vw, 21px), line-height 1.7;
 large note copy: clamp(18px, 1.7vw, 23px), line-height 1.65;
 small UI labels: 11px to 12px, uppercase, Inter, medium weight;
+supporting card titles: Cormorant Garamond, regular weight;
 support and metadata copy: regular weight, Inter;
 ```
 
@@ -636,7 +645,7 @@ sun-flare.js
 Next design additions should preserve the current mood:
 
 1. Expand the finished-work gallery only with approved real work and respectful cropping.
-2. Expand the FAQ section if families ask repeated questions about cemetery rules, installation, or timing.
+2. Expand the FAQ section if families ask repeated questions about cemetery rules or installation.
 3. Add a short Spanish-language path or toggle if bilingual support is part of the final site.
 4. Add real testimonial snippets only with permission.
 5. Add separate service pages for flat markers, upright monuments, bronze, benches, and Conejo Mountain support.
