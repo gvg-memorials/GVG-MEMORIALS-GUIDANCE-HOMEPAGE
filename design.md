@@ -135,10 +135,10 @@ Local Care
    - Oxnard, Ventura County, Conejo Mountain, and nearby cemetery-aware support
 
 8. Before You Visit
-   - What does the cemetery allow?
-   - Which memorial style is right?
-   - What should go on the layout?
-   - What to bring to a first visit
+   - What cemetery information helps
+   - Which memorial style the family is considering
+   - Names, wording, and artwork to review
+   - What families already have, with permission to begin even if details are missing
 
 9. Common Questions
    - Whether families need to know the memorial style before reaching out
