@@ -89,7 +89,7 @@ Hero proof points:
 ```text
 Family-owned in Oxnard
 20+ years of experience
-Spanish & English support
+English, Spanish and Multi-Lingual support
 ```
 
 Trust strip:
