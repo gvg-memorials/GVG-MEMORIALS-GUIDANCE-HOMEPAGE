@@ -1123,6 +1123,17 @@ h2 {
   z-index: 2;
 }
 
+.completed-card:nth-child(n + 4)::after {
+  display: none;
+}
+
+.completed-card:nth-child(n + 4) figcaption {
+  position: static;
+  padding: 16px 18px 18px;
+  background: var(--surface-dark);
+  color: var(--white);
+}
+
 .completed-card figcaption span {
   display: block;
   margin-bottom: 7px;
