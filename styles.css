@@ -1065,18 +1065,23 @@ h2 {
 
 .completed-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: clamp(18px, 2.4vw, 34px);
   margin-top: clamp(38px, 5vw, 70px);
 }
 
 .completed-card {
   position: relative;
+  grid-column: span 2;
   overflow: hidden;
   margin: 0;
   background: var(--surface-dark);
   color: var(--white);
   isolation: isolate;
+}
+
+.completed-card:nth-child(n + 4) {
+  grid-column: span 3;
 }
 
 .completed-card picture,
@@ -1842,6 +1847,11 @@ h2 {
   .completed-gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
+  }
+
+  .completed-card,
+  .completed-card:nth-child(n + 4) {
+    grid-column: auto;
   }
 
   .memorial-list article:nth-child(odd) {
