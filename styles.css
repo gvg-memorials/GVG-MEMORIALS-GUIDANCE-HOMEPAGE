@@ -2146,10 +2146,15 @@ h2 {
     aspect-ratio: 4 / 3;
   }
 
+  .completed-card::after {
+    display: none;
+  }
+
   .completed-card figcaption {
-    right: 18px;
-    bottom: 18px;
-    left: 18px;
+    position: static;
+    padding: 16px 18px 18px;
+    background: var(--surface-dark);
+    color: var(--white);
   }
 
   .completed-card figcaption span {
