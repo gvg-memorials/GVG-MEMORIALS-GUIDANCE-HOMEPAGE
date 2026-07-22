@@ -3238,6 +3238,133 @@ body.nav-open .analytics-consent {
   }
 }
 
+@media (max-width: 920px) and (max-height: 560px) and (orientation: landscape) {
+  html {
+    scroll-padding-top: 84px;
+  }
+
+  .site-header {
+    padding: 8px 18px;
+  }
+
+  .brand img {
+    width: 60px;
+  }
+
+  .header-action,
+  .nav-toggle {
+    min-height: 44px;
+  }
+
+  .nav-toggle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .hero {
+    min-height: max(470px, 100svh);
+    place-items: start center;
+  }
+
+  .hero-content {
+    width: min(720px, calc(100% - 36px));
+    margin-top: 0;
+    padding-top: 86px;
+    padding-bottom: 70px;
+  }
+
+  .hero h1 {
+    font-size: 50px;
+    line-height: 0.94;
+  }
+
+  .hero-title-desktop {
+    display: block;
+  }
+
+  .hero-title-mobile {
+    display: none;
+  }
+
+  .hero p {
+    width: min(620px, 100%);
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .hero-proof {
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .hero-proof span {
+    min-height: 32px;
+    padding: 6px 8px;
+    font-size: 9px;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .hero-actions .button {
+    width: auto;
+    min-width: 168px;
+    min-height: 44px;
+    padding-inline: 18px;
+  }
+
+  .trust-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .trust-strip span {
+    min-height: 44px;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 620px) and (max-height: 430px) and (orientation: landscape) {
+  .site-header {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .nav-toggle {
+    grid-column: 3;
+    justify-self: end;
+  }
+
+  .hero-content {
+    width: min(536px, calc(100% - 28px));
+    padding-top: 82px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero-proof {
+    gap: 5px;
+  }
+
+  .hero-proof span {
+    padding-inline: 6px;
+    font-size: 8px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
