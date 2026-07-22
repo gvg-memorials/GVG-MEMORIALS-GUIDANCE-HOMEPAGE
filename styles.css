@@ -1876,6 +1876,16 @@ body.memorial-viewer-open {
   white-space: nowrap;
 }
 
+.analytics-consent .button-outline {
+  border-color: rgba(255, 255, 255, 0.56);
+  color: var(--white);
+}
+
+.analytics-consent .button-outline:hover,
+.analytics-consent .button-outline:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .thank-you-page {
   min-height: 100vh;
   background: var(--ivory);
