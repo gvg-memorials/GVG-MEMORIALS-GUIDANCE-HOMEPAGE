@@ -208,8 +208,14 @@ main:focus {
   opacity: 1;
 }
 
+.desktop-nav a[aria-current="location"] {
+  color: var(--accent-gold-soft);
+  opacity: 1;
+}
+
 .desktop-nav a:hover::after,
-.desktop-nav a:focus-visible::after {
+.desktop-nav a:focus-visible::after,
+.desktop-nav a[aria-current="location"]::after {
   opacity: 1;
   transform: scaleX(1);
 }
@@ -323,10 +329,12 @@ main:focus {
 }
 
 .mobile-nav a:hover,
-.mobile-nav a:focus-visible {
+.mobile-nav a:focus-visible,
+.mobile-nav a[aria-current="location"] {
   color: var(--accent-gold-soft);
   background: rgba(255, 250, 241, 0.04);
   outline: none;
+  padding-inline: 10px;
 }
 
 body.nav-open {

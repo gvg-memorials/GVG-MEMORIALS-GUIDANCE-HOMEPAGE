@@ -73,21 +73,53 @@
     contactBarBlockers.forEach((element) => contactBarObserver.observe(element));
   }
 
+  const navigationLinks = Array.from(
+    document.querySelectorAll('.desktop-nav a[href^="#"], .mobile-nav a[href^="#"]'),
+  );
+  const navigationSections = Array.from(
+    new Map(
+      navigationLinks
+        .map((link) => [link.hash, document.getElementById(link.hash.slice(1))])
+        .filter(([, target]) => target),
+    ),
+    ([hash, target]) => ({ hash, target }),
+  ).sort((first, second) => first.target.offsetTop - second.target.offsetTop);
+
+  function updateActiveNavigation() {
+    const readingLine =
+      window.scrollY + Math.max(header.offsetHeight + 24, window.innerHeight * 0.32);
+    let currentHash = null;
+
+    navigationSections.forEach((section) => {
+      if (section.target.offsetTop <= readingLine) {
+        currentHash = section.hash;
+      }
+    });
+
+    navigationLinks.forEach((link) => {
+      if (currentHash && link.hash === currentHash) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
   function updateHeaderSurface() {
     header.classList.toggle("site-header--solid", window.scrollY > 80);
+    updateActiveNavigation();
     headerUpdatePending = false;
   }
 
+  function requestHeaderUpdate() {
+    if (headerUpdatePending) return;
+    headerUpdatePending = true;
+    window.requestAnimationFrame(updateHeaderSurface);
+  }
+
   updateHeaderSurface();
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (headerUpdatePending) return;
-      headerUpdatePending = true;
-      window.requestAnimationFrame(updateHeaderSurface);
-    },
-    { passive: true },
-  );
+  window.addEventListener("scroll", requestHeaderUpdate, { passive: true });
+  window.addEventListener("resize", requestHeaderUpdate);
 
   function setNavigationBackgroundHidden(isHidden) {
     backgroundRegions.forEach((region) => {
@@ -187,7 +219,8 @@
     setNavigationBackgroundHidden(true);
     requestAnimationFrame(() => {
       nav.setAttribute("data-open", "true");
-      nav.querySelector(focusableSelector)?.focus();
+      const currentLink = nav.querySelector('[aria-current="location"]');
+      (currentLink || nav.querySelector(focusableSelector))?.focus();
     });
     toggle.setAttribute("aria-expanded", "true");
     toggle.setAttribute("aria-label", "Close menu");
