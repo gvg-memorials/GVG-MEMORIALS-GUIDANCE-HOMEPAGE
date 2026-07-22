@@ -12,7 +12,85 @@
   const message = contactForm.querySelector('textarea[name="message"]');
   const defaultFileHelp = fileHelp?.textContent.trim() || "";
   const defaultSubmitLabel = submitButton.textContent.trim();
+  const draftStorageKey = "gvg_contact_draft_v1";
+  const draftFieldNames = ["name", "phone", "email", "starting_point", "cemetery", "message"];
+  let draftSaveTimer;
   contactForm.noValidate = true;
+
+  const getDraftField = (name) => contactForm.elements.namedItem(name);
+
+  const saveDraft = () => {
+    const values = {};
+    const guidancePrefills = {};
+
+    draftFieldNames.forEach((name) => {
+      const field = getDraftField(name);
+      if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) {
+        return;
+      }
+
+      if (field.value) values[name] = field.value;
+      if (field.dataset.guidancePrefill) guidancePrefills[name] = field.dataset.guidancePrefill;
+    });
+
+    try {
+      if (Object.keys(values).length) {
+        window.sessionStorage.setItem(draftStorageKey, JSON.stringify({ values, guidancePrefills }));
+      } else {
+        window.sessionStorage.removeItem(draftStorageKey);
+      }
+    } catch (_) {
+      // The form remains fully usable when session storage is unavailable.
+    }
+  };
+
+  const scheduleDraftSave = () => {
+    window.clearTimeout(draftSaveTimer);
+    draftSaveTimer = window.setTimeout(saveDraft, 180);
+  };
+
+  const restoreDraft = () => {
+    let draft;
+    try {
+      draft = JSON.parse(window.sessionStorage.getItem(draftStorageKey) || "null");
+    } catch (_) {
+      return;
+    }
+    if (!draft?.values || typeof draft.values !== "object") return;
+
+    draftFieldNames.forEach((name) => {
+      const field = getDraftField(name);
+      const value = draft.values[name];
+      if (
+        !(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement) ||
+        typeof value !== "string" ||
+        field.value
+      ) {
+        return;
+      }
+
+      if (field instanceof HTMLSelectElement && !Array.from(field.options).some((option) => option.value === value)) {
+        return;
+      }
+
+      field.value = field.maxLength > 0 ? value.slice(0, field.maxLength) : value;
+      if (draft.guidancePrefills?.[name] === value) {
+        field.dataset.guidancePrefill = value;
+      }
+    });
+
+    if (
+      optionalDetails &&
+      ["email", "starting_point", "cemetery", "message"].some((name) => getDraftField(name)?.value)
+    ) {
+      optionalDetails.open = true;
+    }
+  };
+
+  restoreDraft();
+  contactForm.addEventListener("input", scheduleDraftSave);
+  contactForm.addEventListener("change", scheduleDraftSave);
+  window.addEventListener("pagehide", saveDraft);
 
   const updateGuidancePrefill = (field, value) => {
     if (!field) return;
@@ -34,6 +112,7 @@
       if (optionalDetails) optionalDetails.open = true;
       updateGuidancePrefill(startingPoint, link.dataset.guidanceStartingPoint || "");
       updateGuidancePrefill(message, link.dataset.guidanceMessage || "");
+      saveDraft();
     });
   });
 
@@ -155,6 +234,11 @@
     if (formStatus) {
       formStatus.hidden = true;
       formStatus.textContent = "";
+    }
+    try {
+      window.sessionStorage.setItem("gvg_contact_draft_submitted", "true");
+    } catch (_) {
+      // Successful submission does not depend on session storage.
     }
     submitButton.disabled = true;
     submitButton.setAttribute("aria-busy", "true");
