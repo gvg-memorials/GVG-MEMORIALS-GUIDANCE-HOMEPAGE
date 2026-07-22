@@ -1630,6 +1630,38 @@ h2 {
   transition: border-color 180ms ease, background 180ms ease, box-shadow 220ms ease;
 }
 
+.field input[type="file"] {
+  min-height: 50px;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+.field input[type="file"]::file-selector-button {
+  min-height: 34px;
+  margin: 0 14px 0 0;
+  padding: 7px 14px 7px 6px;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--divider-ink);
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: var(--weight-label);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.field-help {
+  color: var(--text-ink-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.field-help.is-error {
+  color: var(--accent-earth);
+}
+
 .field select {
   min-height: 50px;
   appearance: none;

@@ -25,6 +25,9 @@
 /gallery-viewer.js
   Cache-Control: public, max-age=31536000, immutable
 
+/contact-form.js
+  Cache-Control: public, max-age=31536000, immutable
+
 /assets/*
   Cache-Control: public, max-age=604800
 

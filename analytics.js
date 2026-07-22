@@ -185,6 +185,16 @@
         // The form still works when browser storage is unavailable.
       }
     });
+
+    const referenceFile = contactForm.querySelector('input[name="reference_file"]');
+    referenceFile?.addEventListener("change", () => {
+      const file = referenceFile.files?.[0];
+      if (!file) return;
+      sendEvent("contact_file_added", {
+        form_name: "contact",
+        file_type: file.type || "unknown",
+      });
+    });
   }
 
   if (window.location.pathname === "/thank-you" || window.location.pathname === "/thank-you.html") {

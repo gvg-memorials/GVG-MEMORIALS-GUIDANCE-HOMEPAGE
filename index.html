@@ -27,8 +27,9 @@
         });
       }
     </script>
-    <script defer src="analytics.js?v=7"></script>
+    <script defer src="analytics.js?v=8"></script>
     <script defer src="gallery-viewer.js?v=1"></script>
+    <script defer src="contact-form.js?v=1"></script>
     <meta name="theme-color" content="#17130e" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -749,6 +750,7 @@
             name="contact"
             method="POST"
             action="/thank-you"
+            enctype="multipart/form-data"
             data-netlify="true"
             netlify-honeypot="bot-field"
             aria-labelledby="contact-form-title"
@@ -789,7 +791,7 @@
               </label>
 
               <details class="contact-form-details">
-                <summary>Add details if helpful</summary>
+                <summary>Add details or a photo if helpful</summary>
                 <div class="contact-form-optional-grid">
                   <label class="field">
                     <span class="field-label">Email <span class="field-optional">(optional)</span></span>
@@ -821,6 +823,19 @@
                       autocomplete="off"
                       maxlength="120"
                     />
+                  </label>
+
+                  <label class="field field-full">
+                    <span class="field-label">Photo or document <span class="field-optional">(optional)</span></span>
+                    <input
+                      type="file"
+                      name="reference_file"
+                      accept="image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf,.heic,.heif"
+                      aria-describedby="reference-file-help"
+                    />
+                    <span class="field-help" id="reference-file-help" data-file-help>
+                      Attach one JPG, PNG, WebP, HEIC, or PDF up to 8 MB.
+                    </span>
                   </label>
 
                   <label class="field field-full">
