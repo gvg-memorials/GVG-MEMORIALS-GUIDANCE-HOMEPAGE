@@ -29,9 +29,9 @@
       });
       gtag("js", new Date());
     </script>
-    <script defer src="analytics.js?v=12"></script>
+    <script defer src="analytics.js?v=13"></script>
     <script defer src="gallery-viewer.js?v=6"></script>
-    <script defer src="contact-form.js?v=4"></script>
+    <script defer src="contact-form.js?v=5"></script>
     <meta name="theme-color" content="#17130e" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -82,7 +82,7 @@
       type="image/webp"
       fetchpriority="high"
     />
-    <link rel="stylesheet" href="styles.css?v=113" />
+    <link rel="stylesheet" href="styles.css?v=114" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -325,32 +325,68 @@
           </div>
           <div class="memorial-list">
             <article>
-              <span>01</span>
-              <h3>Upright Monuments</h3>
-              <p>
-                Traditional granite memorials with scale, presence, and permanence.
-              </p>
+              <a
+                class="memorial-option-link"
+                href="#contact-form"
+                data-guidance-starting-point="Choosing a memorial style"
+                data-guidance-item="Upright Monuments"
+                data-guidance-message="I'm interested in an upright monument."
+                aria-label="Start guidance about upright monuments"
+              >
+                <span>01</span>
+                <h3>Upright Monuments</h3>
+                <p>
+                  Traditional granite memorials with scale, presence, and permanence.
+                </p>
+              </a>
             </article>
             <article>
-              <span>02</span>
-              <h3>Flat Grave Markers</h3>
-              <p>
-                Low-profile granite and bronze markers made to meet cemetery requirements.
-              </p>
+              <a
+                class="memorial-option-link"
+                href="#contact-form"
+                data-guidance-starting-point="Choosing a memorial style"
+                data-guidance-item="Flat Grave Markers"
+                data-guidance-message="I'm interested in a flat grave marker."
+                aria-label="Start guidance about flat grave markers"
+              >
+                <span>02</span>
+                <h3>Flat Grave Markers</h3>
+                <p>
+                  Low-profile granite and bronze markers made to meet cemetery requirements.
+                </p>
+              </a>
             </article>
             <article>
-              <span>03</span>
-              <h3>Bronze Memorials</h3>
-              <p>
-                Bronze plaques with refined lettering, emblems, portraits, and borders.
-              </p>
+              <a
+                class="memorial-option-link"
+                href="#contact-form"
+                data-guidance-starting-point="Choosing a memorial style"
+                data-guidance-item="Bronze Memorials"
+                data-guidance-message="I'm interested in a bronze memorial."
+                aria-label="Start guidance about bronze memorials"
+              >
+                <span>03</span>
+                <h3>Bronze Memorials</h3>
+                <p>
+                  Bronze plaques with refined lettering, emblems, portraits, and borders.
+                </p>
+              </a>
             </article>
             <article>
-              <span>04</span>
-              <h3>Benches & Custom Designs</h3>
-              <p>
-                Benches, custom forms, and personal stonework for a more specific tribute.
-              </p>
+              <a
+                class="memorial-option-link"
+                href="#contact-form"
+                data-guidance-starting-point="Choosing a memorial style"
+                data-guidance-item="Benches and Custom Designs"
+                data-guidance-message="I'm interested in a memorial bench or custom design."
+                aria-label="Start guidance about memorial benches and custom designs"
+              >
+                <span>04</span>
+                <h3>Benches & Custom Designs</h3>
+                <p>
+                  Benches, custom forms, and personal stonework for a more specific tribute.
+                </p>
+              </a>
             </article>
           </div>
         </div>
@@ -661,6 +697,7 @@
             class="text-link"
             href="#contact-form"
             data-guidance-starting-point="Cemetery requirements"
+            data-guidance-item="Cemetery requirements"
           >Ask About Your Cemetery</a>
         </div>
       </section>

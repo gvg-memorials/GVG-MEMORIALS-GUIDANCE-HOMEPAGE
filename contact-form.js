@@ -8,6 +8,7 @@
   const fileHelp = contactForm.querySelector("[data-file-help]");
   const optionalDetails = contactForm.querySelector(".contact-form-details");
   const startingPoint = contactForm.querySelector('select[name="starting_point"]');
+  const message = contactForm.querySelector('textarea[name="message"]');
   const defaultFileHelp = fileHelp?.textContent.trim() || "";
   const defaultSubmitLabel = submitButton.textContent.trim();
   contactForm.noValidate = true;
@@ -17,6 +18,9 @@
       if (optionalDetails) optionalDetails.open = true;
       if (startingPoint && !startingPoint.value) {
         startingPoint.value = link.dataset.guidanceStartingPoint || "";
+      }
+      if (message && !message.value.trim() && link.dataset.guidanceMessage) {
+        message.value = link.dataset.guidanceMessage;
       }
     });
   });

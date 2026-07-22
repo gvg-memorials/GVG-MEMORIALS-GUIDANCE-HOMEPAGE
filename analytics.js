@@ -151,7 +151,10 @@
     }
 
     if (href === "#contact" || href === "#contact-form") {
-      sendEvent("guidance_cta_click", { cta_location: location });
+      sendEvent("guidance_cta_click", {
+        cta_location: location,
+        guidance_item: link.dataset.guidanceItem || "general_guidance",
+      });
     }
   });
 

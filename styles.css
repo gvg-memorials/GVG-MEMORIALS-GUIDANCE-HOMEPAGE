@@ -915,11 +915,19 @@ h2 {
 
 .memorial-list article {
   min-height: 178px;
-  padding: 21px 20px;
   border-left: 1px solid var(--divider-light-soft);
+  transition: background 260ms ease, box-shadow 260ms ease, transform 260ms ease;
+}
+
+.memorial-option-link {
+  min-height: 178px;
   display: flex;
   flex-direction: column;
-  transition: background 260ms ease, box-shadow 260ms ease, transform 260ms ease;
+  padding: 21px 20px;
+}
+
+.memorial-option-link:focus-visible {
+  outline-offset: -4px;
 }
 
 .memorial-list article:first-child {
@@ -2952,10 +2960,14 @@ body.nav-open .analytics-consent {
   }
 
   .memorial-list article {
-    min-height: 118px;
-    padding: 20px 18px;
+    min-height: 0;
     border-left: 0;
     border-top: 1px solid var(--divider-light-soft);
+  }
+
+  .memorial-option-link {
+    min-height: 118px;
+    padding: 20px 18px;
   }
 
   .memorial-list article:first-child {
