@@ -29,7 +29,7 @@
       });
       gtag("js", new Date());
     </script>
-    <script defer src="analytics.js?v=13"></script>
+    <script defer src="analytics.js?v=14"></script>
     <script defer src="gallery-viewer.js?v=6"></script>
     <script defer src="contact-form.js?v=5"></script>
     <meta name="theme-color" content="#17130e" />
@@ -966,7 +966,13 @@
             rel="noopener"
             aria-label="Get directions to GVG Memorials at 623 S A St, Oxnard, CA 93030"
           >623 S A St, Oxnard, CA 93030</a>
-          <button class="footer-consent-button" type="button" data-analytics-choices>Analytics choices</button>
+          <button
+            class="footer-consent-button"
+            type="button"
+            data-analytics-choices
+            aria-controls="analytics-consent"
+            aria-expanded="false"
+          >Analytics choices</button>
         </div>
       </div>
       <div class="section-inner footer-bottom">
@@ -974,7 +980,13 @@
         <span>Custom stone memorials planned with patience, clarity, and care.</span>
       </div>
     </footer>
-    <section class="analytics-consent" data-analytics-consent hidden aria-label="Analytics privacy choices">
+    <section
+      class="analytics-consent"
+      id="analytics-consent"
+      data-analytics-consent
+      hidden
+      aria-label="Analytics privacy choices"
+    >
       <div class="analytics-consent-copy">
         <strong>Help us improve this website</strong>
         <p>Privacy-focused analytics show us which pages and contact options help families. No advertising tracking.</p>

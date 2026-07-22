@@ -55,18 +55,27 @@
   const consentAccept = document.querySelector("[data-analytics-accept]");
   const consentDecline = document.querySelector("[data-analytics-decline]");
   const consentChoiceButtons = document.querySelectorAll("[data-analytics-choices]");
+  let consentReturnTarget = null;
 
-  const showConsentChoices = () => {
+  const showConsentChoices = (trigger) => {
     if (!consentBanner) return;
+    if (trigger instanceof HTMLElement) consentReturnTarget = trigger;
+    consentChoiceButtons.forEach((button) => button.setAttribute("aria-expanded", "true"));
     consentBanner.hidden = false;
     window.requestAnimationFrame(() => consentBanner.classList.add("is-visible"));
   };
 
   const hideConsentChoices = () => {
     if (!consentBanner) return;
+    const returnTarget = consentReturnTarget;
+    consentReturnTarget = null;
+    consentChoiceButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
     consentBanner.classList.remove("is-visible");
     window.setTimeout(() => {
       consentBanner.hidden = true;
+      if (returnTarget?.isConnected) {
+        returnTarget.focus({ preventScroll: true });
+      }
     }, 220);
   };
 
@@ -93,9 +102,14 @@
   consentDecline?.addEventListener("click", () => updateConsent("denied"));
   consentChoiceButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      showConsentChoices();
+      showConsentChoices(button);
       window.setTimeout(() => consentAccept?.focus(), 40);
     });
+  });
+  consentBanner?.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    event.preventDefault();
+    hideConsentChoices();
   });
 
   const getLocation = (element) => {
