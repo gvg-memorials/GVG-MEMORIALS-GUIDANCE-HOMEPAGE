@@ -882,18 +882,26 @@ h2 {
   isolation: isolate;
 }
 
-.breathing::before,
 .breathing::after {
   position: absolute;
   inset: 0;
   content: "";
 }
 
-.breathing::before {
+.breathing-media {
+  position: absolute;
+  inset: 0;
   z-index: -2;
-  background:
-    linear-gradient(90deg, rgba(15, 14, 11, 0.32), rgba(15, 14, 11, 0.18)),
-    url("assets/low-stone-blue-pearl.jpg") center 58% / cover;
+  display: block;
+  overflow: hidden;
+}
+
+.breathing-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 58%;
   transform: scale(1.02);
 }
 
@@ -901,7 +909,8 @@ h2 {
   z-index: -1;
   background:
     radial-gradient(circle at 70% 24%, rgba(175, 135, 65, 0.22), transparent 34%),
-    linear-gradient(180deg, rgba(15, 14, 11, 0.32), rgba(15, 14, 11, 0.7));
+    linear-gradient(180deg, rgba(15, 14, 11, 0.32), rgba(15, 14, 11, 0.7)),
+    linear-gradient(90deg, rgba(15, 14, 11, 0.32), rgba(15, 14, 11, 0.18));
 }
 
 .breathing-content {
@@ -1266,47 +1275,37 @@ h2 {
   background: var(--surface-dark-deep);
 }
 
-.gallery-image::before,
 .gallery-image::after {
   position: absolute;
   inset: 0;
   content: "";
 }
 
-.gallery-image::before {
-  background:
-    linear-gradient(90deg, rgba(15, 14, 11, 0.08), rgba(15, 14, 11, 0.16)),
-    url("assets/hero-memorial-park.png") center / cover;
+.gallery-image picture,
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.gallery-image picture {
+  position: absolute;
+  inset: 0;
+}
+
+.gallery-image img {
+  object-fit: cover;
+  object-position: center;
   transform: scale(1.01);
   transition: transform 900ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .gallery-image::after {
-  background: radial-gradient(circle at 70% 28%, rgba(175, 135, 65, 0.14), transparent 35%);
+  background:
+    radial-gradient(circle at 70% 28%, rgba(175, 135, 65, 0.14), transparent 35%),
+    linear-gradient(90deg, rgba(15, 14, 11, 0.08), rgba(15, 14, 11, 0.16));
   opacity: 0.82;
   transition: opacity 300ms ease, transform 500ms ease;
-}
-
-@supports (background-image: image-set(url("assets/low-stone-blue-pearl.webp") type("image/webp"))) {
-  .breathing::before {
-    background-image:
-      linear-gradient(90deg, rgba(15, 14, 11, 0.32), rgba(15, 14, 11, 0.18)),
-      image-set(
-        url("assets/low-stone-blue-pearl.webp") type("image/webp"),
-        url("assets/low-stone-blue-pearl.jpg") type("image/jpeg")
-      );
-  }
-}
-
-@supports (background-image: image-set(url("assets/hero-memorial-park.webp") type("image/webp"))) {
-  .gallery-image::before {
-    background-image:
-      linear-gradient(90deg, rgba(15, 14, 11, 0.08), rgba(15, 14, 11, 0.16)),
-      image-set(
-        url("assets/hero-memorial-park.webp") type("image/webp"),
-        url("assets/hero-memorial-park.png") type("image/png")
-      );
-  }
 }
 
 .gallery-copy {
@@ -1927,7 +1926,7 @@ body.memorial-viewer-open {
     transform: scale(1.06);
   }
 
-  .gallery:hover .gallery-image::before {
+  .gallery:hover .gallery-image img {
     transform: scale(1.045);
   }
 
@@ -2487,19 +2486,8 @@ body.memorial-viewer-open {
     min-height: 390px;
   }
 
-  .breathing::before {
-    background-position: center 60%;
-  }
-
-  @supports (background-image: image-set(url("assets/low-stone-blue-pearl-960.webp") type("image/webp"))) {
-    .breathing::before {
-      background-image:
-        linear-gradient(90deg, rgba(15, 14, 11, 0.32), rgba(15, 14, 11, 0.18)),
-        image-set(
-          url("assets/low-stone-blue-pearl-960.webp") type("image/webp"),
-          url("assets/low-stone-blue-pearl.jpg") type("image/jpeg")
-        );
-    }
+  .breathing-media img {
+    object-position: center 60%;
   }
 
   .breathing-content {
@@ -2514,8 +2502,8 @@ body.memorial-viewer-open {
     min-height: 310px;
   }
 
-  .gallery-image::before {
-    background-position: 58% center;
+  .gallery-image img {
+    object-position: 58% center;
   }
 
   .gallery-copy {

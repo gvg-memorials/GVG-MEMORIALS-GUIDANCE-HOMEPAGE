@@ -72,7 +72,7 @@
       type="image/webp"
       fetchpriority="high"
     />
-    <link rel="stylesheet" href="styles.css?v=86" />
+    <link rel="stylesheet" href="styles.css?v=87" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -161,7 +161,7 @@
           height="242"
           alt="GVG Memorials"
           fetchpriority="high"
-          decoding="async"
+          decoding="sync"
         />
       </a>
       <nav class="desktop-nav" aria-label="Main navigation">
@@ -545,6 +545,22 @@
       </section>
 
       <section id="quiet-craft" class="breathing" aria-label="A quiet memorial reflection">
+        <picture class="breathing-media" aria-hidden="true">
+          <source
+            type="image/webp"
+            srcset="assets/low-stone-blue-pearl-960.webp 960w, assets/low-stone-blue-pearl.webp 1280w"
+            sizes="100vw"
+          >
+          <img
+            src="assets/low-stone-blue-pearl.jpg"
+            width="1536"
+            height="1024"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            fetchpriority="low"
+          >
+        </picture>
         <div class="breathing-content">
           <p class="section-label">Quiet Craft</p>
           <p>Crafted with patience. Made to hold memory for generations.</p>
@@ -569,7 +585,24 @@
       </section>
 
       <section id="local-support" class="gallery">
-        <div class="gallery-image" aria-hidden="true"></div>
+        <div class="gallery-image" aria-hidden="true">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="assets/hero-memorial-park-768.webp 768w, assets/hero-memorial-park-960.webp 960w, assets/hero-memorial-park-1280.webp 1280w, assets/hero-memorial-park.webp 1704w"
+              sizes="(max-width: 920px) 100vw, 60vw"
+            >
+            <img
+              src="assets/hero-memorial-park.png"
+              width="1704"
+              height="923"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              fetchpriority="low"
+            >
+          </picture>
+        </div>
         <div class="gallery-copy">
           <p class="section-label">Ventura County Cemeteries</p>
           <h2>Local Details, Checked Early</h2>
