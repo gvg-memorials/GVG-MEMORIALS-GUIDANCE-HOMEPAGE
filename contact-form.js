@@ -13,12 +13,63 @@
   const message = contactForm.querySelector('textarea[name="message"]');
   const defaultFileHelp = fileHelp?.textContent.trim() || "";
   const defaultSubmitLabel = submitButton.textContent.trim();
+  const attributionStorageKey = "gvg_contact_attribution_v1";
+  const attributionFieldNames = [
+    "traffic_source",
+    "landing_path",
+    "referrer_host",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+  ];
   const draftStorageKey = "gvg_contact_draft_v1";
   const draftFieldNames = ["name", "phone", "email", "starting_point", "cemetery", "message"];
   let draftSaveTimer;
   contactForm.noValidate = true;
 
   const getDraftField = (name) => contactForm.elements.namedItem(name);
+
+  const setAttributionFields = () => {
+    const searchParams = new URLSearchParams(window.location.search);
+    let referrerHost = "";
+    try {
+      const referrerUrl = new URL(document.referrer);
+      if (referrerUrl.origin !== window.location.origin) referrerHost = referrerUrl.hostname;
+    } catch (_) {
+      // Direct visits and privacy-restricted referrers have no usable host.
+    }
+
+    const currentAttribution = {
+      traffic_source: searchParams.get("utm_source") || referrerHost || "direct",
+      landing_path: window.location.pathname,
+      referrer_host: referrerHost,
+      utm_source: searchParams.get("utm_source") || "",
+      utm_medium: searchParams.get("utm_medium") || "",
+      utm_campaign: searchParams.get("utm_campaign") || "",
+    };
+    let attribution = currentAttribution;
+
+    try {
+      const storedAttribution = JSON.parse(window.sessionStorage.getItem(attributionStorageKey) || "null");
+      if (storedAttribution && typeof storedAttribution === "object") {
+        attribution = storedAttribution;
+      } else {
+        window.sessionStorage.setItem(attributionStorageKey, JSON.stringify(currentAttribution));
+      }
+    } catch (_) {
+      // Attribution still applies to this submission when session storage is unavailable.
+    }
+
+    attributionFieldNames.forEach((fieldName) => {
+      const field = contactForm.elements.namedItem(fieldName);
+      const value = attribution[fieldName];
+      if (field instanceof HTMLInputElement && typeof value === "string") {
+        field.value = value.slice(0, 120);
+      }
+    });
+  };
+
+  setAttributionFields();
 
   const saveDraft = () => {
     const values = {};
