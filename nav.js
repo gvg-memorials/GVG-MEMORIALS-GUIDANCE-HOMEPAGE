@@ -119,7 +119,7 @@
     });
   }
 
-  function focusHashTarget(hash, delay = 80) {
+  function getHashTarget(hash) {
     if (!hash || hash === "#") return;
 
     let targetId;
@@ -129,7 +129,11 @@
       return;
     }
 
-    const target = document.getElementById(targetId);
+    return document.getElementById(targetId);
+  }
+
+  function focusHashTarget(hash, delay = 80) {
+    const target = getHashTarget(hash);
     if (!target) return;
 
     const focusTarget = target.matches("h1, h2, h3, [tabindex]")
@@ -151,6 +155,30 @@
         );
       }
     }, delay);
+  }
+
+  function scrollToDistantTarget(hash) {
+    const target = getHashTarget(hash);
+    if (!target) return false;
+
+    const distance = Math.abs(target.getBoundingClientRect().top);
+    const instantScrollThreshold = Math.max(window.innerHeight * 1.5, 1200);
+    if (distance <= instantScrollThreshold) return false;
+
+    const root = document.documentElement;
+    const previousScrollBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    target.scrollIntoView({ block: "start" });
+    window.history.pushState(null, "", hash);
+    window.dispatchEvent(new CustomEvent("gvg:anchor-navigate", { detail: { hash } }));
+    window.requestAnimationFrame(() => {
+      if (previousScrollBehavior) {
+        root.style.scrollBehavior = previousScrollBehavior;
+      } else {
+        root.style.removeProperty("scroll-behavior");
+      }
+    });
+    return true;
   }
 
   function openNav() {
@@ -193,6 +221,9 @@
   nav.addEventListener("click", (event) => {
     const target = event.target;
     if (target instanceof HTMLAnchorElement) {
+      if (scrollToDistantTarget(target.hash)) {
+        event.preventDefault();
+      }
       closeNav({ restoreFocus: false });
       focusHashTarget(target.hash, navTransitionDuration + 20);
     }
@@ -209,13 +240,23 @@
       return;
     }
 
+    if (scrollToDistantTarget(link.hash)) {
+      event.preventDefault();
+    }
     focusHashTarget(link.hash);
   });
 
   if (window.location.hash) {
     window.addEventListener(
       "load",
-      () => focusHashTarget(window.location.hash, 600),
+      () => {
+        const target = getHashTarget(window.location.hash);
+        target?.scrollIntoView({ block: "start" });
+        focusHashTarget(window.location.hash, 600);
+        window.requestAnimationFrame(() => {
+          document.documentElement.classList.remove("initial-anchor-navigation");
+        });
+      },
       { once: true },
     );
   }

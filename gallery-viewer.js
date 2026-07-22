@@ -115,8 +115,22 @@
 
       window.requestAnimationFrame(() => {
         window.requestAnimationFrame(() => {
+          const root = document.documentElement;
+          const previousScrollBehavior = root.style.scrollBehavior;
+          root.style.scrollBehavior = "auto";
           contactForm?.scrollIntoView({ block: "start" });
+          window.history.pushState(null, "", "#contact-form");
+          window.dispatchEvent(new CustomEvent("gvg:anchor-navigate", {
+            detail: { hash: "#contact-form" },
+          }));
           contactFormTitle?.focus({ preventScroll: true });
+          window.requestAnimationFrame(() => {
+            if (previousScrollBehavior) {
+              root.style.scrollBehavior = previousScrollBehavior;
+            } else {
+              root.style.removeProperty("scroll-behavior");
+            }
+          });
         });
       });
     } else if (restoreFocusOnClose) {

@@ -50,9 +50,15 @@
     }
 
     if (!target) return;
+    if (target === document.body || target.id === "main-content") return;
+
     [target, ...target.querySelectorAll("[data-reveal]")]
       .filter((element) => element.matches("[data-reveal]"))
-      .forEach((element) => element.classList.add("is-visible"));
+      .forEach((element) => {
+        element.setAttribute("data-reveal-instant", "");
+        element.style.setProperty("--reveal-delay", "0ms");
+        element.classList.add("is-visible");
+      });
   };
 
   const scheduleAnchorReveal = () => {
@@ -78,4 +84,5 @@
   elements.forEach((element) => observer.observe(element));
   scheduleAnchorReveal();
   window.addEventListener("hashchange", scheduleAnchorReveal);
+  window.addEventListener("gvg:anchor-navigate", scheduleAnchorReveal);
 })();

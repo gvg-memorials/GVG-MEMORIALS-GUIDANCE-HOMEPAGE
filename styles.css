@@ -76,6 +76,10 @@ html {
   scroll-padding-top: 150px;
 }
 
+html.initial-anchor-navigation {
+  scroll-behavior: auto;
+}
+
 body {
   overflow-x: clip;
   margin: 0;
@@ -631,6 +635,12 @@ body.nav-open {
 .reveal-ready [data-reveal="image"] {
   transform: scale(1.035);
   transform-origin: center;
+}
+
+.reveal-ready [data-reveal][data-reveal-instant] {
+  transition: none;
+  transition-delay: 0ms;
+  will-change: auto;
 }
 
 .reveal-ready [data-reveal].is-visible {

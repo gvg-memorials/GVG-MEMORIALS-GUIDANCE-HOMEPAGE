@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
+      if (window.location.hash) {
+        document.documentElement.classList.add("initial-anchor-navigation");
+      }
+    </script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { window.dataLayer.push(arguments); }
       var analyticsConsent = "denied";
@@ -22,7 +27,7 @@
       gtag("js", new Date());
     </script>
     <script defer src="analytics.js?v=12"></script>
-    <script defer src="gallery-viewer.js?v=3"></script>
+    <script defer src="gallery-viewer.js?v=4"></script>
     <script defer src="contact-form.js?v=2"></script>
     <meta name="theme-color" content="#17130e" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -74,7 +79,7 @@
       type="image/webp"
       fetchpriority="high"
     />
-    <link rel="stylesheet" href="styles.css?v=105" />
+    <link rel="stylesheet" href="styles.css?v=106" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -923,8 +928,8 @@
       </div>
     </section>
     <script src="hero-motion.js?v=1"></script>
-    <script src="scroll-reveal.js?v=3"></script>
+    <script src="scroll-reveal.js?v=4"></script>
     <script src="sun-flare.js?v=3"></script>
-    <script src="nav.js?v=9"></script>
+    <script src="nav.js?v=11"></script>
   </body>
 </html>
