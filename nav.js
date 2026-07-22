@@ -10,19 +10,32 @@
   let headerUpdatePending = false;
 
   const mobileContactBar = document.querySelector(".mobile-contact-bar");
-  const heroActions = document.querySelector(".hero-actions");
+  const contactBarBlockers = [
+    document.querySelector(".hero"),
+    document.querySelector(".contact"),
+    document.querySelector(".site-footer"),
+  ].filter(Boolean);
 
-  if (mobileContactBar && heroActions && "IntersectionObserver" in window) {
+  if (mobileContactBar && contactBarBlockers.length && "IntersectionObserver" in window) {
     body.classList.add("mobile-contact-bar-enhanced");
+    const visibleBlockers = new Set();
 
     const contactBarObserver = new IntersectionObserver(
-      ([entry]) => {
-        mobileContactBar.classList.toggle("is-visible", !entry.isIntersecting);
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleBlockers.add(entry.target);
+          } else {
+            visibleBlockers.delete(entry.target);
+          }
+        });
+
+        mobileContactBar.classList.toggle("is-visible", visibleBlockers.size === 0);
       },
-      { threshold: 0.2 },
+      { threshold: 0.01 },
     );
 
-    contactBarObserver.observe(heroActions);
+    contactBarBlockers.forEach((element) => contactBarObserver.observe(element));
   }
 
   function updateHeaderSurface() {
