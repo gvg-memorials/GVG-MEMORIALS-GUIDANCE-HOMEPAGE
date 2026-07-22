@@ -946,6 +946,16 @@ h2 {
   font-size: clamp(26px, 2.25vw, 30px);
   font-weight: var(--weight-card-title);
   line-height: 1;
+  text-decoration-line: underline;
+  text-decoration-color: rgba(175, 135, 65, 0.52);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  transition: text-decoration-color 180ms ease;
+}
+
+.memorial-option-link:hover h3,
+.memorial-option-link:focus-visible h3 {
+  text-decoration-color: var(--accent-gold-soft);
 }
 
 .memorial-list p {
@@ -2357,6 +2367,10 @@ body.nav-open .analytics-consent {
 }
 
 @media (hover: none) {
+  .memorial-list h3 {
+    text-decoration-color: rgba(175, 135, 65, 0.74);
+  }
+
   .button:hover,
   .desktop-nav a:hover,
   .header-action:hover,
