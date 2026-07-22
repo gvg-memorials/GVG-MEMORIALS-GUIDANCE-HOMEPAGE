@@ -31,7 +31,7 @@
     </script>
     <script defer src="analytics.js?v=12"></script>
     <script defer src="gallery-viewer.js?v=4"></script>
-    <script defer src="contact-form.js?v=2"></script>
+    <script defer src="contact-form.js?v=3"></script>
     <meta name="theme-color" content="#17130e" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -82,7 +82,7 @@
       type="image/webp"
       fetchpriority="high"
     />
-    <link rel="stylesheet" href="styles.css?v=109" />
+    <link rel="stylesheet" href="styles.css?v=110" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -782,6 +782,7 @@
             <p class="contact-form-note" id="contact-form-note">
               Name and phone are required so we can respond personally.
             </p>
+            <p class="contact-form-status" data-form-status role="alert" hidden></p>
             <div class="contact-form-grid">
               <label class="field field-required">
                 <span class="field-label">Your Name <span class="field-required-text">Required</span></span>
@@ -791,8 +792,12 @@
                   autocomplete="name"
                   required
                   aria-required="true"
+                  aria-describedby="name-error"
+                  data-error-target="name-error"
+                  data-validation-message="Please enter your name."
                   maxlength="100"
                 />
+                <span class="field-error" id="name-error" hidden></span>
               </label>
 
               <label class="field field-required">
@@ -803,9 +808,13 @@
                   autocomplete="tel"
                   required
                   aria-required="true"
+                  aria-describedby="phone-error"
+                  data-error-target="phone-error"
+                  data-validation-message="Please enter a phone number where GVG can reach you."
                   maxlength="30"
                   inputmode="tel"
                 />
+                <span class="field-error" id="phone-error" hidden></span>
               </label>
 
               <details class="contact-form-details">
@@ -817,8 +826,12 @@
                       type="email"
                       name="email"
                       autocomplete="email"
+                      aria-describedby="email-error"
+                      data-error-target="email-error"
+                      data-validation-message="Please enter a complete email address."
                       maxlength="120"
                     />
+                    <span class="field-error" id="email-error" hidden></span>
                   </label>
 
                   <label class="field">
