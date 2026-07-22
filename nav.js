@@ -1,11 +1,29 @@
 (function () {
+  const header = document.querySelector(".site-header");
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.getElementById("mobile-nav");
-  if (!toggle || !nav) return;
+  if (!header || !toggle || !nav) return;
 
   const body = document.body;
   const focusableSelector = 'a[href], button:not([disabled])';
   let previouslyFocused = null;
+  let headerUpdatePending = false;
+
+  function updateHeaderSurface() {
+    header.classList.toggle("site-header--solid", window.scrollY > 80);
+    headerUpdatePending = false;
+  }
+
+  updateHeaderSurface();
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (headerUpdatePending) return;
+      headerUpdatePending = true;
+      window.requestAnimationFrame(updateHeaderSurface);
+    },
+    { passive: true },
+  );
 
   function openNav() {
     previouslyFocused = document.activeElement;

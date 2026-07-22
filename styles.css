@@ -135,6 +135,14 @@ main:focus {
   padding: 22px clamp(20px, 4vw, 64px);
   color: var(--white);
   background: linear-gradient(to bottom, rgba(12, 10, 7, 0.54), rgba(12, 10, 7, 0));
+  transition: background-color 180ms ease, box-shadow 180ms ease, backdrop-filter 180ms ease;
+}
+
+.site-header.site-header--solid {
+  background-color: rgba(15, 14, 11, 0.94);
+  box-shadow: 0 1px 0 var(--divider-light-faint);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 }
 
 .brand {
