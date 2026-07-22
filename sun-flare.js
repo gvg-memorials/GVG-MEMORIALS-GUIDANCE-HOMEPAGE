@@ -3,6 +3,15 @@
   if (!canvas) return;
   const hero = canvas.closest('.hero');
 
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const constrainedViewport = window.matchMedia('(max-width: 900px)').matches;
+  const saveData = navigator.connection?.saveData === true;
+
+  if (reducedMotion || constrainedViewport || saveData) {
+    hero?.classList.add('flare-webgl-unavailable');
+    return;
+  }
+
   const gl =
     canvas.getContext('webgl', { alpha: true, antialias: true, premultipliedAlpha: false }) ||
     canvas.getContext('experimental-webgl', { alpha: true, antialias: true, premultipliedAlpha: false });
@@ -17,8 +26,6 @@
     hero?.classList.add('flare-webgl-unavailable');
     cancelAnimationFrame(frameId);
   });
-
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const vertexSource = `
     attribute vec2 a_position;
