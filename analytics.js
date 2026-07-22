@@ -3,6 +3,7 @@
   if (!productionHosts.has(window.location.hostname) || typeof window.gtag !== "function") return;
 
   const measurementId = "G-JSMJEPF8ZV";
+  const consentStorageKey = "gvg_analytics_consent";
   const interactionEvents = ["pointerdown", "touchstart", "keydown"];
   let analyticsRequested = false;
   let loadTimer;
@@ -44,6 +45,66 @@
       ...parameters,
     });
   };
+
+  const consentBanner = document.querySelector("[data-analytics-consent]");
+  const consentAccept = document.querySelector("[data-analytics-accept]");
+  const consentDecline = document.querySelector("[data-analytics-decline]");
+  const consentChoiceButtons = document.querySelectorAll("[data-analytics-choices]");
+
+  const readConsent = () => {
+    try {
+      return window.localStorage.getItem(consentStorageKey);
+    } catch (_) {
+      return null;
+    }
+  };
+
+  const saveConsent = (value) => {
+    try {
+      window.localStorage.setItem(consentStorageKey, value);
+    } catch (_) {
+      // The choice still applies to this page when storage is unavailable.
+    }
+  };
+
+  const showConsentChoices = () => {
+    if (!consentBanner) return;
+    consentBanner.hidden = false;
+    window.requestAnimationFrame(() => consentBanner.classList.add("is-visible"));
+  };
+
+  const hideConsentChoices = () => {
+    if (!consentBanner) return;
+    consentBanner.classList.remove("is-visible");
+    window.setTimeout(() => {
+      consentBanner.hidden = true;
+    }, 220);
+  };
+
+  const updateConsent = (value) => {
+    saveConsent(value);
+    window.gtag("consent", "update", {
+      analytics_storage: value,
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
+    loadGoogleAnalytics();
+    hideConsentChoices();
+  };
+
+  if (consentBanner && readConsent() === null) {
+    showConsentChoices();
+  }
+
+  consentAccept?.addEventListener("click", () => updateConsent("granted"));
+  consentDecline?.addEventListener("click", () => updateConsent("denied"));
+  consentChoiceButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      showConsentChoices();
+      window.setTimeout(() => consentAccept?.focus(), 40);
+    });
+  });
 
   const getLocation = (element) => {
     if (element.closest(".mobile-contact-bar")) return "mobile_contact_bar";

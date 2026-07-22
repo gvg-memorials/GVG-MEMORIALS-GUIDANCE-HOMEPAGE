@@ -1773,17 +1773,34 @@ body.memorial-viewer-open {
 }
 
 .footer-nav a,
-.footer-contact a {
+.footer-contact a,
+.footer-consent-button {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
   transition: color 180ms ease, transform 180ms ease;
 }
 
+.footer-consent-button {
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-light-strong);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: var(--weight-support);
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
 .footer-nav a:hover,
 .footer-nav a:focus-visible,
 .footer-contact a:hover,
-.footer-contact a:focus-visible {
+.footer-contact a:focus-visible,
+.footer-consent-button:hover,
+.footer-consent-button:focus-visible {
   color: var(--accent-gold-soft);
 }
 
@@ -1799,6 +1816,64 @@ body.memorial-viewer-open {
 .footer-bottom span {
   color: var(--text-light-muted);
   font-size: 11px;
+}
+
+.analytics-consent {
+  position: fixed;
+  right: clamp(14px, 2.5vw, 34px);
+  bottom: clamp(14px, 2.5vw, 34px);
+  z-index: 40;
+  width: min(680px, calc(100vw - 28px));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 22px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(20, 17, 13, 0.97);
+  color: var(--white);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.32);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.analytics-consent[hidden] {
+  display: none;
+}
+
+.analytics-consent.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.analytics-consent-copy strong {
+  display: block;
+  margin-bottom: 5px;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: var(--weight-card-title);
+  line-height: 1.05;
+}
+
+.analytics-consent-copy p {
+  margin: 0;
+  color: var(--text-light-body);
+  font-size: 13px;
+  font-weight: var(--weight-body);
+  line-height: 1.5;
+}
+
+.analytics-consent-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.analytics-consent .button {
+  min-width: 0;
+  min-height: 46px;
+  padding: 12px 16px;
+  white-space: nowrap;
 }
 
 .thank-you-page {
@@ -2204,6 +2279,25 @@ body.memorial-viewer-open {
 
   body.nav-open .mobile-contact-bar {
     display: none;
+  }
+
+  .analytics-consent {
+    right: 10px;
+    bottom: 72px;
+    width: calc(100vw - 20px);
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .analytics-consent-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-consent .button {
+    width: 100%;
+    max-width: none;
   }
 
   .brand img {
