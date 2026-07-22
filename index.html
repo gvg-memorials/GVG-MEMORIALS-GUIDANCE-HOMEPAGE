@@ -50,7 +50,7 @@
       type="image/webp"
       fetchpriority="high"
     />
-    <link rel="stylesheet" href="styles.css?v=80" />
+    <link rel="stylesheet" href="styles.css?v=81" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -202,7 +202,7 @@
             <span>English, Spanish and Multi-Lingual support</span>
           </div>
           <div class="hero-actions" aria-label="Memorial planning actions">
-            <a class="button button-primary" href="#contact">Start With Guidance</a>
+            <a class="button button-primary" href="#contact-form">Start With Guidance</a>
             <a class="button button-secondary" href="tel:+18058893769">Call (805) 889-3769</a>
           </div>
         </div>
@@ -543,30 +543,6 @@
             </div>
           </div>
 
-          <div class="contact-paths" aria-label="Common ways families begin">
-            <a class="contact-path" href="#contact-form" aria-label="Start with cemetery requirements">
-              <span class="contact-path-number">01</span>
-              <strong>Cemetery requirements</strong>
-              <p class="contact-path-copy">
-                Share the cemetery and plot details. We help confirm size, material, placement, and setting requirements before anything moves forward.
-              </p>
-            </a>
-            <a class="contact-path" href="#contact-form" aria-label="Start with memorial style options">
-              <span class="contact-path-number">02</span>
-              <strong>Memorial style options</strong>
-              <p class="contact-path-copy">
-                Compare flat markers, upright monuments, bronze memorials, benches, and custom stonework with clear guidance.
-              </p>
-            </a>
-            <a class="contact-path" href="#contact-form" aria-label="Start with wording or artwork">
-              <span class="contact-path-number">03</span>
-              <strong>Wording or artwork</strong>
-              <p class="contact-path-copy">
-                Bring names, dates, photos, symbols, or draft wording. We organize the details into a proof your family can review carefully.
-              </p>
-            </a>
-          </div>
-
           <form
             id="contact-form"
             class="contact-form"
@@ -575,13 +551,14 @@
             action="/thank-you.html"
             data-netlify="true"
             netlify-honeypot="bot-field"
-            aria-label="Send a message to GVG Memorials"
+            aria-labelledby="contact-form-title"
             aria-describedby="contact-form-note contact-form-privacy"
           >
             <input type="hidden" name="form-name" value="contact" />
             <p class="contact-form-bot" aria-hidden="true">
               <label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
             </p>
+            <h3 class="contact-form-title" id="contact-form-title">Start With Guidance</h3>
             <p class="contact-form-note" id="contact-form-note">
               Name and phone are required so we can respond personally.
             </p>
