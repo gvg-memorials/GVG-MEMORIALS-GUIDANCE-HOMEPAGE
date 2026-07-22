@@ -33,19 +33,28 @@
       name="description"
       content="GVG Memorials received your message. We will review your details carefully and respond personally."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="assets/fonts/cormorant-garamond-latin-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
-    <link rel="stylesheet" href="styles.css?v=81" />
+    <link rel="preload" href="assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="styles.css?v=82" />
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="/" aria-label="GVG Memorials home">
-        <img src="assets/gvg-logo-white.png?v=2" width="584" height="484" alt="GVG Memorials" />
+        <img
+          src="assets/gvg-logo-white-292.webp"
+          width="292"
+          height="242"
+          alt="GVG Memorials"
+          fetchpriority="high"
+          decoding="async"
+        />
       </a>
       <a class="header-action" href="tel:+18058893769">(805) 889-3769</a>
     </header>
@@ -88,7 +97,14 @@
     <footer class="site-footer">
       <div class="section-inner footer-grid">
         <div class="footer-brand">
-          <img src="assets/gvg-logo-white.png?v=2" width="584" height="484" alt="GVG Memorials" />
+          <img
+            src="assets/gvg-logo-white-292.webp"
+            width="292"
+            height="242"
+            alt="GVG Memorials"
+            loading="lazy"
+            decoding="async"
+          />
           <p>Family-owned guidance for custom headstones, grave markers, monuments, and cemetery memorials in Oxnard and Ventura County.</p>
         </div>
         <div class="footer-contact">
