@@ -10,6 +10,7 @@
   const backgroundRegions = [
     document.getElementById("main-content"),
     document.querySelector(".site-footer"),
+    document.querySelector(".analytics-consent"),
   ].filter(Boolean);
   const backgroundRegionStates = new Map();
   let previouslyFocused = null;

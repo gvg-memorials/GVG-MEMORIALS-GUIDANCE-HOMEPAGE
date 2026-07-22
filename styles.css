@@ -2010,7 +2010,7 @@ body.memorial-viewer-open {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 40;
+  z-index: 18;
   width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -2023,7 +2023,7 @@ body.memorial-viewer-open {
   box-shadow: 0 18px 54px rgba(0, 0, 0, 0.32);
   opacity: 0;
   transform: translateY(14px);
-  transition: opacity 220ms ease, transform 220ms ease;
+  transition: bottom 220ms ease, opacity 220ms ease, transform 220ms ease;
 }
 
 .analytics-consent[hidden] {
@@ -2499,12 +2499,16 @@ body.memorial-viewer-open {
 
   .analytics-consent {
     right: 0;
-    bottom: 64px;
+    bottom: 0;
     left: 0;
     width: 100%;
     grid-template-columns: 1fr;
     gap: 12px;
     padding: 14px 16px;
+  }
+
+  .mobile-contact-bar.is-visible ~ .analytics-consent {
+    bottom: 59px;
   }
 
   .analytics-consent-actions {
