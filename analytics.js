@@ -114,6 +114,7 @@
 
   const getLocation = (element) => {
     if (element.closest(".mobile-contact-bar")) return "mobile_contact_bar";
+    if (element.closest(".mobile-nav")) return "mobile_navigation";
     if (element.closest(".site-header")) return "header";
     if (element.closest(".hero")) return "hero";
     if (element.closest(".contact")) return "contact";
