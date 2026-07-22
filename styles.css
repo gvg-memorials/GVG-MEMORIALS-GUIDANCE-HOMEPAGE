@@ -2035,6 +2035,12 @@ body.memorial-viewer-open {
   transform: translateY(0);
 }
 
+body.nav-open .analytics-consent {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100%);
+}
+
 .analytics-consent-copy strong {
   display: block;
   margin-bottom: 2px;
