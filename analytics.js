@@ -172,6 +172,15 @@
     });
   });
 
+  window.addEventListener("gvg:gallery-navigate", (event) => {
+    const detail = event.detail || {};
+    sendEvent("gallery_image_open", {
+      gallery_category: detail.category?.trim() || "completed_memorial",
+      gallery_item: detail.item?.trim() || "memorial_detail",
+      gallery_navigation: detail.navigation || "viewer",
+    });
+  });
+
   const contactForm = document.querySelector('form[name="contact"]');
   if (contactForm) {
     let formStarted = false;

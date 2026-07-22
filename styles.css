@@ -1791,7 +1791,16 @@ body.memorial-viewer-open {
   margin: 0;
 }
 
+.memorial-viewer-image-wrap {
+  position: relative;
+  min-height: 0;
+  display: grid;
+  flex: 1 1 auto;
+  background: #080705;
+}
+
 .memorial-viewer-image {
+  grid-area: 1 / 1;
   width: 100%;
   min-height: 0;
   max-height: calc(94vh - 86px);
@@ -1806,12 +1815,26 @@ body.memorial-viewer-open {
   background: var(--surface-dark);
 }
 
+.memorial-viewer-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 4px;
+}
+
 .memorial-viewer-label {
   display: block;
-  margin-bottom: 4px;
   color: var(--accent-gold-link);
   font-size: 10px;
   font-weight: var(--weight-label);
+  text-transform: uppercase;
+}
+
+.memorial-viewer-count {
+  color: var(--text-light-muted);
+  font-size: 10px;
+  font-weight: var(--weight-support);
   text-transform: uppercase;
 }
 
@@ -1843,6 +1866,46 @@ body.memorial-viewer-open {
   font-weight: var(--weight-body);
   line-height: 1;
   z-index: 3;
+}
+
+.memorial-viewer-nav {
+  position: absolute;
+  top: 50%;
+  width: 48px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  background: rgba(15, 14, 11, 0.76);
+  color: var(--white);
+  cursor: pointer;
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: var(--weight-body);
+  line-height: 1;
+  transform: translateY(-50%);
+  transition: background 180ms ease, border-color 180ms ease, opacity 180ms ease;
+  z-index: 2;
+}
+
+.memorial-viewer-prev {
+  left: 14px;
+}
+
+.memorial-viewer-next {
+  right: 14px;
+}
+
+.memorial-viewer-nav:hover,
+.memorial-viewer-nav:focus-visible {
+  border-color: var(--accent-gold-soft);
+  background: rgba(15, 14, 11, 0.94);
+}
+
+.memorial-viewer-nav:disabled {
+  cursor: default;
+  opacity: 0.24;
 }
 
 .footer-nav,
@@ -2644,6 +2707,20 @@ body.memorial-viewer-open {
   .memorial-viewer-close {
     top: 10px;
     right: 10px;
+  }
+
+  .memorial-viewer-nav {
+    width: 44px;
+    height: 54px;
+    background: rgba(15, 14, 11, 0.84);
+  }
+
+  .memorial-viewer-prev {
+    left: 8px;
+  }
+
+  .memorial-viewer-next {
+    right: 8px;
   }
 
   .families-notes {
