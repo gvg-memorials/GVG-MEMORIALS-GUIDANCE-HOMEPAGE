@@ -2,6 +2,42 @@
   const productionHosts = new Set(["gvgmemorials.com", "www.gvgmemorials.com"]);
   if (!productionHosts.has(window.location.hostname) || typeof window.gtag !== "function") return;
 
+  const measurementId = "G-JSMJEPF8ZV";
+  const interactionEvents = ["pointerdown", "touchstart", "keydown"];
+  let analyticsRequested = false;
+  let loadTimer;
+
+  const scheduleAnalytics = () => {
+    if (!analyticsRequested) {
+      loadTimer = window.setTimeout(loadGoogleAnalytics, 4000);
+    }
+  };
+
+  function loadGoogleAnalytics() {
+    if (analyticsRequested) return;
+    analyticsRequested = true;
+    window.clearTimeout(loadTimer);
+    window.removeEventListener("load", scheduleAnalytics);
+    interactionEvents.forEach((eventName) => {
+      window.removeEventListener(eventName, loadGoogleAnalytics);
+    });
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    document.head.append(script);
+  }
+
+  interactionEvents.forEach((eventName) => {
+    window.addEventListener(eventName, loadGoogleAnalytics, { once: true, passive: true });
+  });
+
+  if (document.readyState === "complete") {
+    scheduleAnalytics();
+  } else {
+    window.addEventListener("load", scheduleAnalytics, { once: true });
+  }
+
   const sendEvent = (name, parameters) => {
     window.gtag("event", name, {
       transport_type: "beacon",
