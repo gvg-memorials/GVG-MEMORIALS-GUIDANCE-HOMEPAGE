@@ -145,6 +145,10 @@ main:focus {
   backdrop-filter: blur(14px);
 }
 
+.thank-you-header .header-action {
+  grid-column: 3;
+}
+
 .brand {
   min-width: 0;
   flex-shrink: 0;
@@ -1803,6 +1807,10 @@ body.memorial-viewer-open {
   line-height: 1.02;
   letter-spacing: 0;
   text-wrap: balance;
+}
+
+.thank-you .section-label {
+  color: var(--brass-text);
 }
 
 .thank-you-lead {
