@@ -128,6 +128,10 @@ main:focus {
   outline: none;
 }
 
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
 .site-header {
   position: fixed;
   inset: 0 0 auto;
