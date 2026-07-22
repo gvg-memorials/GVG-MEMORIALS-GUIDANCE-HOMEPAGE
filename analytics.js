@@ -134,6 +134,11 @@
       return;
     }
 
+    if (link.dataset.analyticsEvent === "appointment_click") {
+      sendEvent("appointment_click", { contact_location: location });
+      return;
+    }
+
     if (href.startsWith("tel:")) {
       sendEvent("phone_click", { contact_location: location });
       return;

@@ -1464,6 +1464,33 @@ h2 {
   font-weight: var(--weight-label);
 }
 
+.contact-appointment {
+  width: fit-content;
+  min-height: 44px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  margin-top: 8px;
+  color: var(--text-ink-muted);
+  font-size: 12px;
+  font-weight: var(--weight-support);
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.appointment-label {
+  color: var(--brass-text);
+  border-bottom: 1px solid currentColor;
+  font-weight: var(--weight-label);
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.contact-appointment:hover .appointment-label,
+.contact-appointment:focus-visible .appointment-label {
+  color: var(--accent-earth);
+}
+
 .contact-form {
   margin-top: clamp(42px, 5vw, 64px);
   padding-top: clamp(34px, 4vw, 48px);
