@@ -63,6 +63,11 @@
     const href = link.getAttribute("href") || "";
     const location = getLocation(link);
 
+    if (link.dataset.analyticsEvent === "directions_click") {
+      sendEvent("directions_click", { contact_location: location });
+      return;
+    }
+
     if (href.startsWith("tel:")) {
       sendEvent("phone_click", { contact_location: location });
       return;

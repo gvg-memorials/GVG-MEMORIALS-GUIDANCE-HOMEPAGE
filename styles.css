@@ -1412,6 +1412,27 @@ h2 {
   text-transform: uppercase;
 }
 
+.contact-directions {
+  width: fit-content;
+  min-height: 44px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+}
+
+.directions-label {
+  color: var(--brass-text);
+  border-bottom: 1px solid currentColor;
+  font-size: 11px;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.contact-directions:hover .directions-label,
+.contact-directions:focus-visible .directions-label {
+  color: var(--accent-earth);
+}
+
 .contact-form {
   margin-top: clamp(42px, 5vw, 64px);
   padding-top: clamp(34px, 4vw, 48px);

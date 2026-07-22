@@ -20,7 +20,7 @@
         });
       }
     </script>
-    <script defer src="analytics.js?v=3"></script>
+    <script defer src="analytics.js?v=4"></script>
     <script defer src="gallery-viewer.js?v=1"></script>
     <meta name="theme-color" content="#17130e" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -71,7 +71,7 @@
       type="image/webp"
       fetchpriority="high"
     />
-    <link rel="stylesheet" href="styles.css?v=89" />
+    <link rel="stylesheet" href="styles.css?v=90" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -684,7 +684,16 @@
                 <a class="button button-primary" href="tel:+18058893769">Call (805) 889-3769</a>
                 <a class="button button-outline" href="mailto:gvg.memorials@gmail.com">Email GVG Memorials</a>
               </div>
-              <p class="contact-detail">623 S A St, Oxnard, CA 93030</p>
+              <a
+                class="contact-detail contact-directions"
+                href="https://www.google.com/maps/dir/?api=1&amp;destination=GVG+Memorials%2C+623+S+A+St%2C+Oxnard%2C+CA+93030"
+                data-analytics-event="directions_click"
+                target="_blank"
+                rel="noopener"
+              >
+                <span>623 S A St, Oxnard, CA 93030</span>
+                <span class="directions-label">Get Directions</span>
+              </a>
             </div>
           </div>
 
@@ -816,7 +825,13 @@
         <div class="footer-contact">
           <a href="tel:+18058893769">(805) 889-3769</a>
           <a href="mailto:gvg.memorials@gmail.com">gvg.memorials@gmail.com</a>
-          <span>623 S A St, Oxnard, CA 93030</span>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&amp;destination=GVG+Memorials%2C+623+S+A+St%2C+Oxnard%2C+CA+93030"
+            data-analytics-event="directions_click"
+            target="_blank"
+            rel="noopener"
+            aria-label="Get directions to GVG Memorials at 623 S A St, Oxnard, CA 93030"
+          >623 S A St, Oxnard, CA 93030</a>
         </div>
       </div>
       <div class="section-inner footer-bottom">
