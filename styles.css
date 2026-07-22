@@ -1820,16 +1820,17 @@ body.memorial-viewer-open {
 
 .analytics-consent {
   position: fixed;
-  right: clamp(14px, 2.5vw, 34px);
-  bottom: clamp(14px, 2.5vw, 34px);
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 40;
-  width: min(680px, calc(100vw - 28px));
+  width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 22px;
-  padding: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  gap: clamp(20px, 4vw, 54px);
+  padding: 15px clamp(20px, 4vw, 64px);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
   background: rgba(20, 17, 13, 0.97);
   color: var(--white);
   box-shadow: 0 18px 54px rgba(0, 0, 0, 0.32);
@@ -1849,14 +1850,15 @@ body.memorial-viewer-open {
 
 .analytics-consent-copy strong {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: var(--weight-card-title);
   line-height: 1.05;
 }
 
 .analytics-consent-copy p {
+  max-width: 720px;
   margin: 0;
   color: var(--text-light-body);
   font-size: 13px;
@@ -2292,22 +2294,26 @@ body.memorial-viewer-open {
   }
 
   .analytics-consent {
-    right: 10px;
-    bottom: 72px;
-    width: calc(100vw - 20px);
+    right: 0;
+    bottom: 64px;
+    left: 0;
+    width: 100%;
     grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 20px;
+    gap: 12px;
+    padding: 14px 16px;
   }
 
   .analytics-consent-actions {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .analytics-consent .button {
     width: 100%;
     max-width: none;
+    min-height: 44px;
+    padding-inline: 10px;
+    font-size: 11px;
   }
 
   .brand img {
