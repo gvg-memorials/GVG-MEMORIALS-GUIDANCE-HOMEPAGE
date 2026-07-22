@@ -2497,14 +2497,14 @@ body.nav-open .analytics-consent {
     backdrop-filter: blur(14px);
   }
 
-  body.mobile-contact-bar-enhanced .mobile-contact-bar {
+  .mobile-contact-bar-enhanced .mobile-contact-bar {
     opacity: 0;
     pointer-events: none;
     transform: translateY(100%);
     transition: opacity 220ms ease, transform 220ms ease;
   }
 
-  body.mobile-contact-bar-enhanced .mobile-contact-bar.is-visible {
+  .mobile-contact-bar-enhanced .mobile-contact-bar.is-visible {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
@@ -3148,7 +3148,7 @@ body.nav-open .analytics-consent {
     scroll-behavior: auto;
   }
 
-  body.mobile-contact-bar-enhanced .mobile-contact-bar {
+  .mobile-contact-bar-enhanced .mobile-contact-bar {
     transition: none;
   }
 
