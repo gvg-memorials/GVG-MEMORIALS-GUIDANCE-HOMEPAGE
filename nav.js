@@ -118,12 +118,12 @@
     });
   }
 
-  function focusNavigationTarget(link) {
-    if (!link.hash || link.hash === "#") return;
+  function focusHashTarget(hash, delay = 80) {
+    if (!hash || hash === "#") return;
 
     let targetId;
     try {
-      targetId = decodeURIComponent(link.hash.slice(1));
+      targetId = decodeURIComponent(hash.slice(1));
     } catch {
       return;
     }
@@ -133,7 +133,7 @@
 
     const focusTarget = target.matches("h1, h2, h3, [tabindex]")
       ? target
-      : target.querySelector("h1, h2, h3, [tabindex]") || target;
+      : target.querySelector("h1, h2, h3") || target;
     const originalTabIndex = focusTarget.getAttribute("tabindex");
 
     if (originalTabIndex === null) {
@@ -149,7 +149,7 @@
           { once: true },
         );
       }
-    }, navTransitionDuration + 20);
+    }, delay);
   }
 
   function openNav() {
@@ -193,9 +193,31 @@
     const target = event.target;
     if (target instanceof HTMLAnchorElement) {
       closeNav({ restoreFocus: false });
-      focusNavigationTarget(target);
+      focusHashTarget(target.hash, navTransitionDuration + 20);
     }
   });
+
+  document.addEventListener("click", (event) => {
+    const origin = event.target instanceof Element ? event.target : null;
+    const link = origin?.closest('a[href^="#"]');
+    if (
+      !link ||
+      link.closest("#mobile-nav") ||
+      link.classList.contains("memorial-viewer-inquiry")
+    ) {
+      return;
+    }
+
+    focusHashTarget(link.hash);
+  });
+
+  if (window.location.hash) {
+    window.addEventListener(
+      "load",
+      () => focusHashTarget(window.location.hash, 600),
+      { once: true },
+    );
+  }
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
