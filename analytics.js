@@ -4,52 +4,7 @@
 
   const measurementId = "G-JSMJEPF8ZV";
   const consentStorageKey = "gvg_analytics_consent";
-  const interactionEvents = ["pointerdown", "touchstart", "keydown"];
   let analyticsRequested = false;
-  let loadTimer;
-
-  const scheduleAnalytics = () => {
-    if (!analyticsRequested) {
-      loadTimer = window.setTimeout(loadGoogleAnalytics, 4000);
-    }
-  };
-
-  function loadGoogleAnalytics() {
-    if (analyticsRequested) return;
-    analyticsRequested = true;
-    window.clearTimeout(loadTimer);
-    window.removeEventListener("load", scheduleAnalytics);
-    interactionEvents.forEach((eventName) => {
-      window.removeEventListener(eventName, loadGoogleAnalytics);
-    });
-
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-    document.head.append(script);
-  }
-
-  interactionEvents.forEach((eventName) => {
-    window.addEventListener(eventName, loadGoogleAnalytics, { once: true, passive: true });
-  });
-
-  if (document.readyState === "complete") {
-    scheduleAnalytics();
-  } else {
-    window.addEventListener("load", scheduleAnalytics, { once: true });
-  }
-
-  const sendEvent = (name, parameters) => {
-    window.gtag("event", name, {
-      transport_type: "beacon",
-      ...parameters,
-    });
-  };
-
-  const consentBanner = document.querySelector("[data-analytics-consent]");
-  const consentAccept = document.querySelector("[data-analytics-accept]");
-  const consentDecline = document.querySelector("[data-analytics-decline]");
-  const consentChoiceButtons = document.querySelectorAll("[data-analytics-choices]");
 
   const readConsent = () => {
     try {
@@ -67,6 +22,40 @@
     }
   };
 
+  let consentState = readConsent();
+
+  function loadGoogleAnalytics() {
+    if (analyticsRequested) return;
+    analyticsRequested = true;
+    window.gtag("config", measurementId, {
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+    });
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    document.head.append(script);
+  }
+
+  if (consentState === "granted") {
+    loadGoogleAnalytics();
+  }
+
+  const sendEvent = (name, parameters) => {
+    if (consentState !== "granted") return;
+    loadGoogleAnalytics();
+    window.gtag("event", name, {
+      transport_type: "beacon",
+      ...parameters,
+    });
+  };
+
+  const consentBanner = document.querySelector("[data-analytics-consent]");
+  const consentAccept = document.querySelector("[data-analytics-accept]");
+  const consentDecline = document.querySelector("[data-analytics-decline]");
+  const consentChoiceButtons = document.querySelectorAll("[data-analytics-choices]");
+
   const showConsentChoices = () => {
     if (!consentBanner) return;
     consentBanner.hidden = false;
@@ -82,6 +71,7 @@
   };
 
   const updateConsent = (value) => {
+    consentState = value;
     saveConsent(value);
     window.gtag("consent", "update", {
       analytics_storage: value,
@@ -89,11 +79,13 @@
       ad_user_data: "denied",
       ad_personalization: "denied",
     });
-    loadGoogleAnalytics();
+    if (value === "granted") {
+      loadGoogleAnalytics();
+    }
     hideConsentChoices();
   };
 
-  if (consentBanner && readConsent() === null) {
+  if (consentBanner && consentState === null) {
     showConsentChoices();
   }
 
