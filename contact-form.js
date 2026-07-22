@@ -13,15 +13,26 @@
   const defaultSubmitLabel = submitButton.textContent.trim();
   contactForm.noValidate = true;
 
+  const updateGuidancePrefill = (field, value) => {
+    if (!field) return;
+    const previousPrefill = field.dataset.guidancePrefill || "";
+    const currentValue = field.value.trim();
+    const canReplace = !currentValue || (previousPrefill && field.value === previousPrefill);
+    if (!canReplace) return;
+
+    field.value = value;
+    if (value) {
+      field.dataset.guidancePrefill = value;
+    } else {
+      delete field.dataset.guidancePrefill;
+    }
+  };
+
   document.querySelectorAll("[data-guidance-starting-point]").forEach((link) => {
     link.addEventListener("click", () => {
       if (optionalDetails) optionalDetails.open = true;
-      if (startingPoint && !startingPoint.value) {
-        startingPoint.value = link.dataset.guidanceStartingPoint || "";
-      }
-      if (message && !message.value.trim() && link.dataset.guidanceMessage) {
-        message.value = link.dataset.guidanceMessage;
-      }
+      updateGuidancePrefill(startingPoint, link.dataset.guidanceStartingPoint || "");
+      updateGuidancePrefill(message, link.dataset.guidanceMessage || "");
     });
   });
 

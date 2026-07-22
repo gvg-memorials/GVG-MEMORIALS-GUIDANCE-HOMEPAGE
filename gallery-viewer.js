@@ -23,6 +23,17 @@
 
   const closeViewer = () => viewer.close();
 
+  const updateGuidancePrefill = (field, value) => {
+    if (!field) return;
+    const previousPrefill = field.dataset.guidancePrefill || "";
+    const currentValue = field.value.trim();
+    const canReplace = !currentValue || (previousPrefill && field.value === previousPrefill);
+    if (!canReplace) return;
+
+    field.value = value;
+    field.dataset.guidancePrefill = value;
+  };
+
   const preloadImage = (index) => {
     if (saveData) return;
 
@@ -136,10 +147,8 @@
     const message = contactForm?.querySelector('textarea[name="message"]');
 
     if (optionalDetails) optionalDetails.open = true;
-    if (startingPoint && !startingPoint.value) startingPoint.value = "Choosing a memorial style";
-    if (message && !message.value.trim()) {
-      message.value = `I'm interested in a memorial similar to: ${cardTitle}.`;
-    }
+    updateGuidancePrefill(startingPoint, "Choosing a memorial style");
+    updateGuidancePrefill(message, `I'm interested in a memorial similar to: ${cardTitle}.`);
 
     window.dispatchEvent(new CustomEvent("gvg:gallery-inquiry", {
       detail: { category: cardLabel, item: cardTitle },
