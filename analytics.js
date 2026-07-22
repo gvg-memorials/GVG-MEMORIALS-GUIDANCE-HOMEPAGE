@@ -222,6 +222,23 @@
     }
 
     contactForm.addEventListener("submit", () => {
+      const invalidFields = Array.from(contactForm.querySelectorAll(":invalid"))
+        .map((field) => field.getAttribute("name"))
+        .filter(Boolean);
+      const phone = contactForm.querySelector('input[name="phone"]');
+      const phoneDigitCount = phone ? phone.value.replace(/\D/g, "").length : 0;
+      if (phone?.value.trim() && phoneDigitCount < 7 && !invalidFields.includes("phone")) {
+        invalidFields.push("phone");
+      }
+
+      if (invalidFields.length) {
+        sendEvent("contact_form_validation_error", {
+          form_name: "contact",
+          invalid_fields: invalidFields.join(","),
+        });
+        return;
+      }
+
       sendEvent("contact_form_submit", { form_name: "contact" });
       try {
         window.sessionStorage.setItem("gvg_contact_submitted", "true");

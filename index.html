@@ -29,9 +29,9 @@
       });
       gtag("js", new Date());
     </script>
-    <script defer src="analytics.js?v=14"></script>
+    <script defer src="analytics.js?v=15"></script>
     <script defer src="gallery-viewer.js?v=7"></script>
-    <script defer src="contact-form.js?v=6"></script>
+    <script defer src="contact-form.js?v=7"></script>
     <meta name="theme-color" content="#17130e" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -851,9 +851,10 @@
                   aria-required="true"
                   aria-describedby="phone-error"
                   data-error-target="phone-error"
-                  data-validation-message="Please enter a phone number where GVG can reach you."
+                  data-validation-message="Please enter a phone number with at least 7 digits."
                   maxlength="30"
                   inputmode="tel"
+                  placeholder="(805) 555-0123"
                 />
                 <span class="field-error" id="phone-error" hidden></span>
               </label>

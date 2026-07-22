@@ -8,6 +8,7 @@
   const fileHelp = contactForm.querySelector("[data-file-help]");
   const optionalDetails = contactForm.querySelector(".contact-form-details");
   const startingPoint = contactForm.querySelector('select[name="starting_point"]');
+  const phone = contactForm.querySelector('input[name="phone"]');
   const message = contactForm.querySelector('textarea[name="message"]');
   const defaultFileHelp = fileHelp?.textContent.trim() || "";
   const defaultSubmitLabel = submitButton.textContent.trim();
@@ -73,6 +74,14 @@
     error.textContent = "";
   };
 
+  const updatePhoneValidity = () => {
+    if (!phone) return;
+    const digitCount = phone.value.replace(/\D/g, "").length;
+    phone.setCustomValidity(phone.value.trim() && digitCount < 7 ? "Please enter at least 7 digits." : "");
+  };
+
+  phone?.addEventListener("input", updatePhoneValidity);
+
   contactForm.addEventListener(
     "invalid",
     (event) => {
@@ -136,6 +145,7 @@
       return;
     }
 
+    updatePhoneValidity();
     if (!contactForm.checkValidity()) {
       event.preventDefault();
       contactForm.querySelector("input:invalid, select:invalid, textarea:invalid")?.focus();
