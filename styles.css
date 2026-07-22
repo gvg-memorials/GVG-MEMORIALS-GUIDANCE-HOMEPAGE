@@ -20,6 +20,7 @@
   --limestone: #ded2bd;
   --sand: #b9a77f;
   --brass: #af8741;
+  --brass-text: #775a25;
   --olive: #3c472c;
   --white: #fffaf1;
   --shadow: rgba(12, 10, 7, 0.45);
@@ -519,7 +520,7 @@ body.nav-open {
 .button-primary {
   background: var(--brass);
   border-color: var(--brass);
-  color: var(--white);
+  color: var(--ink);
   box-shadow: 0 12px 34px rgba(12, 10, 7, 0.16);
 }
 
@@ -694,6 +695,16 @@ body.nav-open {
   font-weight: var(--weight-label);
   letter-spacing: 0;
   text-transform: uppercase;
+}
+
+.intro .section-label,
+.completed-gallery .section-label,
+.process .section-label,
+.families .section-label,
+.resources .section-label,
+.faq .section-label,
+.contact .section-label {
+  color: var(--brass-text);
 }
 
 h2 {
@@ -1929,6 +1940,7 @@ h2 {
 
   .mobile-contact-bar a:first-child {
     background: var(--brass);
+    color: var(--ink);
   }
 
   .mobile-contact-bar a:focus-visible {
