@@ -181,6 +181,14 @@
     });
   });
 
+  window.addEventListener("gvg:gallery-inquiry", (event) => {
+    const detail = event.detail || {};
+    sendEvent("gallery_inquiry_click", {
+      gallery_category: detail.category?.trim() || "completed_memorial",
+      gallery_item: detail.item?.trim() || "memorial_detail",
+    });
+  });
+
   const contactForm = document.querySelector('form[name="contact"]');
   if (contactForm) {
     let formStarted = false;

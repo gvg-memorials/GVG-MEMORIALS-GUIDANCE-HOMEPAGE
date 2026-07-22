@@ -9,9 +9,12 @@
   const closeButton = viewer.querySelector(".memorial-viewer-close");
   const previousButton = viewer.querySelector(".memorial-viewer-prev");
   const nextButton = viewer.querySelector(".memorial-viewer-next");
+  const inquiryLink = viewer.querySelector(".memorial-viewer-inquiry");
   const triggers = Array.from(document.querySelectorAll(".completed-card-trigger"));
   let activeIndex = -1;
   let previouslyFocused = null;
+  let restoreFocusOnClose = true;
+  let pendingInquiryHandoff = false;
 
   const closeViewer = () => viewer.close();
 
@@ -50,6 +53,7 @@
 
       event.preventDefault();
       previouslyFocused = trigger;
+      restoreFocusOnClose = true;
       showImage(index);
       viewer.showModal();
       document.body.classList.add("memorial-viewer-open");
@@ -59,6 +63,32 @@
 
   previousButton.addEventListener("click", () => showImage(activeIndex - 1, "previous"));
   nextButton.addEventListener("click", () => showImage(activeIndex + 1, "next"));
+  inquiryLink.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const trigger = triggers[activeIndex];
+    const card = trigger?.closest(".completed-card");
+    const cardLabel = card?.querySelector("figcaption span")?.textContent.trim() || "Completed memorial";
+    const cardTitle = card?.querySelector("figcaption strong")?.textContent.trim() || "Similar memorial";
+    const contactForm = document.getElementById("contact-form");
+    const optionalDetails = contactForm?.querySelector(".contact-form-details");
+    const startingPoint = contactForm?.querySelector('select[name="starting_point"]');
+    const message = contactForm?.querySelector('textarea[name="message"]');
+
+    if (optionalDetails) optionalDetails.open = true;
+    if (startingPoint && !startingPoint.value) startingPoint.value = "Choosing a memorial style";
+    if (message && !message.value.trim()) {
+      message.value = `I'm interested in a memorial similar to: ${cardTitle}.`;
+    }
+
+    window.dispatchEvent(new CustomEvent("gvg:gallery-inquiry", {
+      detail: { category: cardLabel, item: cardTitle },
+    }));
+
+    restoreFocusOnClose = false;
+    pendingInquiryHandoff = true;
+    closeViewer();
+  });
   closeButton.addEventListener("click", closeViewer);
   viewer.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
@@ -79,7 +109,21 @@
     document.body.classList.remove("memorial-viewer-open");
     image.removeAttribute("src");
     activeIndex = -1;
-    previouslyFocused?.focus({ preventScroll: true });
+    if (pendingInquiryHandoff) {
+      const contactForm = document.getElementById("contact-form");
+      const contactFormTitle = document.getElementById("contact-form-title");
+
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          contactForm?.scrollIntoView({ block: "start" });
+          contactFormTitle?.focus({ preventScroll: true });
+        });
+      });
+    } else if (restoreFocusOnClose) {
+      previouslyFocused?.focus({ preventScroll: true });
+    }
     previouslyFocused = null;
+    restoreFocusOnClose = true;
+    pendingInquiryHandoff = false;
   });
 })();

@@ -1816,7 +1816,7 @@ body.memorial-viewer-open {
   grid-area: 1 / 1;
   width: 100%;
   min-height: 0;
-  max-height: calc(94vh - 86px);
+  max-height: calc(94vh - 146px);
   display: block;
   flex: 1 1 auto;
   object-fit: contain;
@@ -1858,6 +1858,27 @@ body.memorial-viewer-open {
   font-size: clamp(22px, 2.4vw, 30px);
   font-weight: var(--weight-card-title);
   line-height: 1.08;
+}
+
+.memorial-viewer-inquiry {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 10px;
+  border-bottom: 1px solid rgba(210, 176, 106, 0.52);
+  color: var(--accent-gold-link);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: var(--weight-label);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: border-color 180ms ease, color 180ms ease;
+}
+
+.memorial-viewer-inquiry:hover,
+.memorial-viewer-inquiry:focus-visible {
+  border-color: currentColor;
+  color: var(--white);
 }
 
 .memorial-viewer-close {
@@ -2723,7 +2744,7 @@ body.memorial-viewer-open {
   }
 
   .memorial-viewer-image {
-    max-height: calc(100dvh - 108px);
+    max-height: calc(100dvh - 156px);
   }
 
   .memorial-viewer figcaption {
