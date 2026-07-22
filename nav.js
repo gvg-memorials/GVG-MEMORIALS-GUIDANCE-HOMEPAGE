@@ -6,6 +6,12 @@
 
   const body = document.body;
   const focusableSelector = 'a[href], button:not([disabled])';
+  const navTransitionDuration = 240;
+  const backgroundRegions = [
+    document.getElementById("main-content"),
+    document.querySelector(".site-footer"),
+  ].filter(Boolean);
+  const backgroundRegionStates = new Map();
   let previouslyFocused = null;
   let headerUpdatePending = false;
 
@@ -82,9 +88,74 @@
     { passive: true },
   );
 
+  function setNavigationBackgroundHidden(isHidden) {
+    backgroundRegions.forEach((region) => {
+      if (isHidden) {
+        if (!backgroundRegionStates.has(region)) {
+          backgroundRegionStates.set(region, {
+            ariaHidden: region.getAttribute("aria-hidden"),
+            inert: region.hasAttribute("inert"),
+          });
+        }
+        region.setAttribute("aria-hidden", "true");
+        region.setAttribute("inert", "");
+        return;
+      }
+
+      const originalState = backgroundRegionStates.get(region);
+      if (!originalState) return;
+
+      if (originalState.ariaHidden === null) {
+        region.removeAttribute("aria-hidden");
+      } else {
+        region.setAttribute("aria-hidden", originalState.ariaHidden);
+      }
+
+      if (!originalState.inert) {
+        region.removeAttribute("inert");
+      }
+      backgroundRegionStates.delete(region);
+    });
+  }
+
+  function focusNavigationTarget(link) {
+    if (!link.hash || link.hash === "#") return;
+
+    let targetId;
+    try {
+      targetId = decodeURIComponent(link.hash.slice(1));
+    } catch {
+      return;
+    }
+
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    const focusTarget = target.matches("h1, h2, h3, [tabindex]")
+      ? target
+      : target.querySelector("h1, h2, h3, [tabindex]") || target;
+    const originalTabIndex = focusTarget.getAttribute("tabindex");
+
+    if (originalTabIndex === null) {
+      focusTarget.setAttribute("tabindex", "-1");
+    }
+
+    setTimeout(() => {
+      focusTarget.focus({ preventScroll: true });
+      if (originalTabIndex === null) {
+        focusTarget.addEventListener(
+          "blur",
+          () => focusTarget.removeAttribute("tabindex"),
+          { once: true },
+        );
+      }
+    }, navTransitionDuration + 20);
+  }
+
   function openNav() {
     previouslyFocused = document.activeElement;
     nav.hidden = false;
+    setNavigationBackgroundHidden(true);
     requestAnimationFrame(() => {
       nav.setAttribute("data-open", "true");
       nav.querySelector(focusableSelector)?.focus();
@@ -103,8 +174,9 @@
     setTimeout(() => {
       if (toggle.getAttribute("aria-expanded") === "false") {
         nav.hidden = true;
+        setNavigationBackgroundHidden(false);
       }
-    }, 240);
+    }, navTransitionDuration);
     if (restoreFocus && previouslyFocused instanceof HTMLElement) {
       previouslyFocused.focus();
     }
@@ -121,6 +193,7 @@
     const target = event.target;
     if (target instanceof HTMLAnchorElement) {
       closeNav({ restoreFocus: false });
+      focusNavigationTarget(target);
     }
   });
 
