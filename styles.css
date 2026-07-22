@@ -1883,6 +1883,7 @@ body.memorial-viewer-open {
   display: grid;
   flex: 1 1 auto;
   background: #080705;
+  touch-action: pan-y pinch-zoom;
 }
 
 .memorial-viewer-image {

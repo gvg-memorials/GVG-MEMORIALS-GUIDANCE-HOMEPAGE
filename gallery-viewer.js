@@ -3,6 +3,7 @@
   if (!viewer) return;
 
   const image = viewer.querySelector(".memorial-viewer-image");
+  const imageWrap = viewer.querySelector(".memorial-viewer-image-wrap");
   const label = viewer.querySelector(".memorial-viewer-label");
   const title = viewer.querySelector("#memorial-viewer-title");
   const count = viewer.querySelector(".memorial-viewer-count");
@@ -15,8 +16,20 @@
   let previouslyFocused = null;
   let restoreFocusOnClose = true;
   let pendingInquiryHandoff = false;
+  let swipeStart = null;
+  const preloadedImages = new Map();
 
   const closeViewer = () => viewer.close();
+
+  const preloadImage = (index) => {
+    const source = triggers[index]?.href;
+    if (!source || preloadedImages.has(source)) return;
+
+    const preload = new Image();
+    preload.decoding = "async";
+    preload.src = source;
+    preloadedImages.set(source, preload);
+  };
 
   const showImage = (index, navigation) => {
     const trigger = triggers[index];
@@ -35,6 +48,8 @@
     count.textContent = `${index + 1} of ${triggers.length}`;
     previousButton.disabled = index === 0;
     nextButton.disabled = index === triggers.length - 1;
+    preloadImage(index - 1);
+    preloadImage(index + 1);
 
     if (navigation) {
       window.dispatchEvent(new CustomEvent("gvg:gallery-navigate", {
@@ -63,6 +78,33 @@
 
   previousButton.addEventListener("click", () => showImage(activeIndex - 1, "previous"));
   nextButton.addEventListener("click", () => showImage(activeIndex + 1, "next"));
+  imageWrap.addEventListener("touchstart", (event) => {
+    if (event.touches.length !== 1) {
+      swipeStart = null;
+      return;
+    }
+
+    const touch = event.touches[0];
+    swipeStart = { x: touch.clientX, y: touch.clientY };
+  }, { passive: true });
+  imageWrap.addEventListener("touchend", (event) => {
+    if (!swipeStart || event.changedTouches.length !== 1) return;
+
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - swipeStart.x;
+    const deltaY = touch.clientY - swipeStart.y;
+    swipeStart = null;
+
+    if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY) * 1.25) return;
+    if (deltaX > 0 && !previousButton.disabled) {
+      showImage(activeIndex - 1, "swipe-previous");
+    } else if (deltaX < 0 && !nextButton.disabled) {
+      showImage(activeIndex + 1, "swipe-next");
+    }
+  }, { passive: true });
+  imageWrap.addEventListener("touchcancel", () => {
+    swipeStart = null;
+  }, { passive: true });
   inquiryLink.addEventListener("click", (event) => {
     event.preventDefault();
 
@@ -109,6 +151,7 @@
     document.body.classList.remove("memorial-viewer-open");
     image.removeAttribute("src");
     activeIndex = -1;
+    swipeStart = null;
     if (pendingInquiryHandoff) {
       const contactForm = document.getElementById("contact-form");
       const contactFormTitle = document.getElementById("contact-form-title");
