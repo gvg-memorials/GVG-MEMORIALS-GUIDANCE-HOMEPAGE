@@ -31,7 +31,7 @@
     </script>
     <script defer src="analytics.js?v=15"></script>
     <script defer src="gallery-viewer.js?v=7"></script>
-    <script defer src="contact-form.js?v=8"></script>
+    <script defer src="contact-form.js?v=9"></script>
     <meta name="theme-color" content="#17130e" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -837,6 +837,7 @@
                   data-error-target="name-error"
                   data-validation-message="Please enter your name."
                   maxlength="100"
+                  enterkeyhint="next"
                 />
                 <span class="field-error" id="name-error" hidden></span>
               </label>
@@ -854,6 +855,7 @@
                   data-validation-message="Please enter a phone number with at least 7 digits."
                   maxlength="30"
                   inputmode="tel"
+                  enterkeyhint="send"
                   placeholder="(805) 555-0123"
                 />
                 <span class="field-error" id="phone-error" hidden></span>

@@ -8,6 +8,7 @@
   const fileHelp = contactForm.querySelector("[data-file-help]");
   const optionalDetails = contactForm.querySelector(".contact-form-details");
   const startingPoint = contactForm.querySelector('select[name="starting_point"]');
+  const name = contactForm.querySelector('input[name="name"]');
   const phone = contactForm.querySelector('input[name="phone"]');
   const message = contactForm.querySelector('textarea[name="message"]');
   const defaultFileHelp = fileHelp?.textContent.trim() || "";
@@ -160,6 +161,11 @@
   };
 
   phone?.addEventListener("input", updatePhoneValidity);
+  name?.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" || event.isComposing || !phone) return;
+    event.preventDefault();
+    phone.focus();
+  });
 
   contactForm.addEventListener(
     "invalid",
