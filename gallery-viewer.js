@@ -12,6 +12,8 @@
   const nextButton = viewer.querySelector(".memorial-viewer-next");
   const inquiryLink = viewer.querySelector(".memorial-viewer-inquiry");
   const triggers = Array.from(document.querySelectorAll(".completed-card-trigger"));
+  const viewerImageSizes = "(max-width: 1300px) 94vw, 1240px";
+  const saveData = navigator.connection?.saveData === true;
   let activeIndex = -1;
   let previouslyFocused = null;
   let restoreFocusOnClose = true;
@@ -22,11 +24,19 @@
   const closeViewer = () => viewer.close();
 
   const preloadImage = (index) => {
-    const source = triggers[index]?.href;
-    if (!source || preloadedImages.has(source)) return;
+    if (saveData) return;
+
+    const trigger = triggers[index];
+    const source = trigger?.href;
+    if (!trigger || !source || preloadedImages.has(source)) return;
 
     const preload = new Image();
+    const sourceSet = trigger.querySelector("source[srcset]")?.srcset;
     preload.decoding = "async";
+    if (sourceSet) {
+      preload.srcset = sourceSet;
+      preload.sizes = viewerImageSizes;
+    }
     preload.src = source;
     preloadedImages.set(source, preload);
   };
@@ -37,10 +47,18 @@
 
     const card = trigger.closest(".completed-card");
     const thumbnail = trigger.querySelector("img");
+    const sourceSet = trigger.querySelector("source[srcset]")?.srcset;
     const cardLabel = card.querySelector("figcaption span");
     const cardTitle = card.querySelector("figcaption strong");
 
     activeIndex = index;
+    if (sourceSet) {
+      image.srcset = sourceSet;
+      image.sizes = viewerImageSizes;
+    } else {
+      image.removeAttribute("srcset");
+      image.removeAttribute("sizes");
+    }
     image.src = trigger.href;
     image.alt = thumbnail.alt;
     label.textContent = cardLabel.textContent;
@@ -150,6 +168,8 @@
   viewer.addEventListener("close", () => {
     document.body.classList.remove("memorial-viewer-open");
     image.removeAttribute("src");
+    image.removeAttribute("srcset");
+    image.removeAttribute("sizes");
     activeIndex = -1;
     swipeStart = null;
     if (pendingInquiryHandoff) {
