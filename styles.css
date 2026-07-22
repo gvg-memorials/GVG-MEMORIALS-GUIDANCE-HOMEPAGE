@@ -1147,6 +1147,46 @@ h2 {
   width: 100%;
 }
 
+.completed-card-trigger {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: zoom-in;
+  text-align: inherit;
+}
+
+.completed-card-trigger::after {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  content: "+";
+  background: rgba(15, 14, 11, 0.64);
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 21px;
+  font-weight: var(--weight-body);
+  line-height: 1;
+  opacity: 0.84;
+  pointer-events: none;
+  transition: background 220ms ease, opacity 220ms ease, transform 220ms ease;
+  z-index: 2;
+}
+
+.completed-card-trigger:focus-visible {
+  outline-offset: -4px;
+}
+
 .completed-card picture {
   aspect-ratio: 3 / 2;
   overflow: hidden;
@@ -1592,6 +1632,97 @@ h2 {
   line-height: 1.6;
 }
 
+body.memorial-viewer-open {
+  overflow: hidden;
+}
+
+.memorial-viewer {
+  width: min(94vw, 1240px);
+  max-width: none;
+  max-height: 94vh;
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  color: var(--white);
+}
+
+.memorial-viewer::backdrop {
+  background: rgba(10, 9, 7, 0.92);
+  backdrop-filter: blur(4px);
+}
+
+.memorial-viewer-panel {
+  position: relative;
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-dark);
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.46);
+}
+
+.memorial-viewer figure {
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.memorial-viewer-image {
+  width: 100%;
+  min-height: 0;
+  max-height: calc(94vh - 86px);
+  display: block;
+  flex: 1 1 auto;
+  object-fit: contain;
+  background: #080705;
+}
+
+.memorial-viewer figcaption {
+  padding: 16px clamp(20px, 3vw, 34px) 20px;
+  background: var(--surface-dark);
+}
+
+.memorial-viewer-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--accent-gold-link);
+  font-size: 10px;
+  font-weight: var(--weight-label);
+  text-transform: uppercase;
+}
+
+.memorial-viewer figcaption strong {
+  display: block;
+  color: var(--white);
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: var(--weight-card-title);
+  line-height: 1.08;
+}
+
+.memorial-viewer-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.54);
+  border-radius: 50%;
+  background: rgba(15, 14, 11, 0.78);
+  color: var(--white);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 30px;
+  font-weight: var(--weight-body);
+  line-height: 1;
+  z-index: 3;
+}
+
 .footer-nav,
 .footer-contact {
   display: grid;
@@ -1790,6 +1921,12 @@ h2 {
     transform: scale(1.045);
   }
 
+  .completed-card-trigger:hover::after {
+    background: rgba(15, 14, 11, 0.82);
+    opacity: 1;
+    transform: scale(1.06);
+  }
+
   .gallery:hover .gallery-image::before {
     transform: scale(1.045);
   }
@@ -1828,6 +1965,10 @@ h2 {
   .resource-list article:hover,
   .faq-list details:hover,
   .completed-card:hover img {
+    transform: none;
+  }
+
+  .completed-card-trigger:hover::after {
     transform: none;
   }
 }
@@ -2240,6 +2381,29 @@ h2 {
     max-width: 100%;
     font-size: clamp(22px, 6.4vw, 28px);
     line-height: 1.08;
+  }
+
+  .memorial-viewer {
+    width: calc(100vw - 20px);
+    max-height: calc(100dvh - 20px);
+  }
+
+  .memorial-viewer-panel,
+  .memorial-viewer figure {
+    max-height: calc(100dvh - 20px);
+  }
+
+  .memorial-viewer-image {
+    max-height: calc(100dvh - 108px);
+  }
+
+  .memorial-viewer figcaption {
+    padding: 14px 18px 18px;
+  }
+
+  .memorial-viewer-close {
+    top: 10px;
+    right: 10px;
   }
 
   .families-notes {

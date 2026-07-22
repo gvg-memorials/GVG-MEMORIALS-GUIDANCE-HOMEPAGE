@@ -22,6 +22,7 @@
       }
     </script>
     <script defer src="analytics.js?v=2"></script>
+    <script defer src="gallery-viewer.js?v=1"></script>
     <meta name="theme-color" content="#17130e" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -71,7 +72,7 @@
       type="image/webp"
       fetchpriority="high"
     />
-    <link rel="stylesheet" href="styles.css?v=85" />
+    <link rel="stylesheet" href="styles.css?v=86" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -331,7 +332,14 @@
           </div>
           <div class="completed-gallery-grid">
             <figure class="completed-card">
-              <picture>
+              <a
+                class="completed-card-trigger"
+                href="assets/completed-memorials/completed-memorial-detail-01.webp"
+                target="_blank"
+                rel="noopener"
+                aria-label="View larger: Blue Pearl granite with a deep-sunk sanded panel"
+              >
+                <picture>
                 <source
                   srcset="
                     assets/completed-memorials/completed-memorial-detail-01-800.webp 800w,
@@ -349,14 +357,22 @@
                   decoding="async"
                   alt="Close detail of engraved granite memorial lettering by GVG Memorials"
                 />
-              </picture>
+                </picture>
+              </a>
               <figcaption>
                 <span>Engraving Detail</span>
                 <strong>Blue Pearl granite with a deep-sunk sanded panel</strong>
               </figcaption>
             </figure>
             <figure class="completed-card">
-              <picture>
+              <a
+                class="completed-card-trigger"
+                href="assets/completed-memorials/completed-memorial-custom-flat-02.webp"
+                target="_blank"
+                rel="noopener"
+                aria-label="View larger: Polished black granite with custom scenic artwork"
+              >
+                <picture>
                 <source
                   srcset="
                     assets/completed-memorials/completed-memorial-custom-flat-02-800.webp 800w,
@@ -374,14 +390,22 @@
                   decoding="async"
                   alt="Custom polished black granite flat memorial with scenic artwork by GVG Memorials"
                 />
-              </picture>
+                </picture>
+              </a>
               <figcaption>
                 <span>Custom Flat Memorial</span>
                 <strong>Polished black granite with custom scenic artwork</strong>
               </figcaption>
             </figure>
             <figure class="completed-card">
-              <picture>
+              <a
+                class="completed-card-trigger"
+                href="assets/completed-memorials/completed-memorial-detailed-engraving-03.webp"
+                target="_blank"
+                rel="noopener"
+                aria-label="View larger: Standard sunk artwork on polished granite"
+              >
+                <picture>
                 <source
                   srcset="
                     assets/completed-memorials/completed-memorial-detailed-engraving-03-800.webp 800w,
@@ -399,14 +423,22 @@
                   decoding="async"
                   alt="Detailed memorial engraving artwork on polished black granite by GVG Memorials"
                 />
-              </picture>
+                </picture>
+              </a>
               <figcaption>
                 <span>Detailed Engraving</span>
                 <strong>Standard sunk artwork on polished granite</strong>
               </figcaption>
             </figure>
             <figure class="completed-card completed-card--portrait">
-              <picture>
+              <a
+                class="completed-card-trigger"
+                href="assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp.webp"
+                target="_blank"
+                rel="noopener"
+                aria-label="View larger: Puritan Rose granite with stainless steel photo"
+              >
+                <picture>
                 <source
                   srcset="
                     assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp-800.webp 800w,
@@ -424,14 +456,22 @@
                   decoding="async"
                   alt="Puritan Rose granite memorial with stainless steel photo by GVG Memorials"
                 />
-              </picture>
+                </picture>
+              </a>
               <figcaption>
                 <span>Puritan Rose Granite</span>
                 <strong>Puritan Rose granite with stainless steel photo</strong>
               </figcaption>
             </figure>
             <figure class="completed-card">
-              <picture>
+              <a
+                class="completed-card-trigger"
+                href="assets/completed-memorials/completed-memorial-oxford-grey-nature-scene-05.webp"
+                target="_blank"
+                rel="noopener"
+                aria-label="View larger: Oxford Grey granite with nature scene artwork"
+              >
+                <picture>
                 <source
                   srcset="
                     assets/completed-memorials/completed-memorial-oxford-grey-nature-scene-05-800.webp 800w,
@@ -449,13 +489,31 @@
                   decoding="async"
                   alt="Oxford Grey granite memorial with nature scene artwork by GVG Memorials"
                 />
-              </picture>
+                </picture>
+              </a>
               <figcaption>
                 <span>Oxford Grey Granite</span>
                 <strong>Oxford Grey granite with nature scene artwork</strong>
               </figcaption>
             </figure>
           </div>
+          <dialog class="memorial-viewer" aria-labelledby="memorial-viewer-title">
+            <div class="memorial-viewer-panel">
+              <button class="memorial-viewer-close" type="button" aria-label="Close enlarged memorial image">&times;</button>
+              <figure>
+                <img
+                  class="memorial-viewer-image"
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                  alt=""
+                  decoding="async"
+                >
+                <figcaption>
+                  <span class="memorial-viewer-label"></span>
+                  <strong id="memorial-viewer-title"></strong>
+                </figcaption>
+              </figure>
+            </div>
+          </dialog>
         </div>
       </section>
 
