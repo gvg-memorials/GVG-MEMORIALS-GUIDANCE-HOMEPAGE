@@ -19,6 +19,34 @@
   if (mobileContactBar && contactBarBlockers.length && "IntersectionObserver" in window) {
     body.classList.add("mobile-contact-bar-enhanced");
     const visibleBlockers = new Set();
+    const contactBarLinks = Array.from(mobileContactBar.querySelectorAll("a[href]"));
+    const originalTabIndexes = new Map(
+      contactBarLinks.map((link) => [link, link.getAttribute("tabindex")]),
+    );
+
+    const setContactBarVisibility = (isVisible) => {
+      mobileContactBar.classList.toggle("is-visible", isVisible);
+
+      if (isVisible) {
+        mobileContactBar.removeAttribute("aria-hidden");
+        mobileContactBar.removeAttribute("inert");
+        contactBarLinks.forEach((link) => {
+          const originalTabIndex = originalTabIndexes.get(link);
+          if (originalTabIndex === null) {
+            link.removeAttribute("tabindex");
+          } else {
+            link.setAttribute("tabindex", originalTabIndex);
+          }
+        });
+        return;
+      }
+
+      mobileContactBar.setAttribute("aria-hidden", "true");
+      mobileContactBar.setAttribute("inert", "");
+      contactBarLinks.forEach((link) => link.setAttribute("tabindex", "-1"));
+    };
+
+    setContactBarVisibility(false);
 
     const contactBarObserver = new IntersectionObserver(
       (entries) => {
@@ -30,7 +58,7 @@
           }
         });
 
-        mobileContactBar.classList.toggle("is-visible", visibleBlockers.size === 0);
+        setContactBarVisibility(visibleBlockers.size === 0);
       },
       { threshold: 0.01 },
     );
