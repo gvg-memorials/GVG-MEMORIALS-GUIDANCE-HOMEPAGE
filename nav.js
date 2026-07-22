@@ -9,6 +9,22 @@
   let previouslyFocused = null;
   let headerUpdatePending = false;
 
+  const mobileContactBar = document.querySelector(".mobile-contact-bar");
+  const heroActions = document.querySelector(".hero-actions");
+
+  if (mobileContactBar && heroActions && "IntersectionObserver" in window) {
+    body.classList.add("mobile-contact-bar-enhanced");
+
+    const contactBarObserver = new IntersectionObserver(
+      ([entry]) => {
+        mobileContactBar.classList.toggle("is-visible", !entry.isIntersecting);
+      },
+      { threshold: 0.2 },
+    );
+
+    contactBarObserver.observe(heroActions);
+  }
+
   function updateHeaderSurface() {
     header.classList.toggle("site-header--solid", window.scrollY > 80);
     headerUpdatePending = false;
