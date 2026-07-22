@@ -19,6 +19,9 @@
 /nav.js
   Cache-Control: public, max-age=31536000, immutable
 
+/analytics.js
+  Cache-Control: public, max-age=31536000, immutable
+
 /assets/*
   Cache-Control: public, max-age=604800
 
