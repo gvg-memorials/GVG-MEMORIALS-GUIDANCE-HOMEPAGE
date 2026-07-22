@@ -73,7 +73,7 @@ html {
   overflow-x: hidden;
   overflow-x: clip;
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
+  scroll-padding-top: 150px;
 }
 
 body {
@@ -2198,6 +2198,10 @@ body.memorial-viewer-open {
 }
 
 @media (max-width: 920px) {
+  html {
+    scroll-padding-top: 142px;
+  }
+
   .site-header {
     grid-template-columns: auto 1fr auto auto;
     gap: 12px;
@@ -2330,7 +2334,7 @@ body.memorial-viewer-open {
 
 @media (max-width: 620px) {
   html {
-    scroll-padding-top: 82px;
+    scroll-padding-top: 104px;
   }
 
   .site-header {
@@ -2834,6 +2838,10 @@ body.memorial-viewer-open {
 }
 
 @media (max-width: 420px) {
+  html {
+    scroll-padding-top: 92px;
+  }
+
   .site-header {
     grid-template-columns: auto minmax(0, 1fr) auto;
     padding-inline: 14px;
@@ -2904,6 +2912,10 @@ body.memorial-viewer-open {
 }
 
 @media (max-width: 360px) {
+  html {
+    scroll-padding-top: 86px;
+  }
+
   .brand img {
     width: 66px;
   }
