@@ -172,12 +172,29 @@
       ? target
       : target.querySelector("h1, h2, h3") || target;
     const originalTabIndex = focusTarget.getAttribute("tabindex");
+    const focusAtSchedule = document.activeElement;
 
     if (originalTabIndex === null) {
       focusTarget.setAttribute("tabindex", "-1");
     }
 
     setTimeout(() => {
+      const currentFocus = document.activeElement;
+      const focusMovedByVisitor =
+        currentFocus !== focusAtSchedule &&
+        currentFocus !== document.body &&
+        currentFocus !== document.documentElement;
+      const visitorIsEditing = currentFocus?.matches?.(
+        'input, select, textarea, [contenteditable="true"]',
+      );
+
+      if (focusMovedByVisitor || visitorIsEditing) {
+        if (originalTabIndex === null) {
+          focusTarget.removeAttribute("tabindex");
+        }
+        return;
+      }
+
       focusTarget.focus({ preventScroll: true });
       if (originalTabIndex === null) {
         focusTarget.addEventListener(
