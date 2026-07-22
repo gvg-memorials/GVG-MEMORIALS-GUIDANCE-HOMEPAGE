@@ -124,6 +124,15 @@
     const href = link.getAttribute("href") || "";
     const location = getLocation(link);
 
+    if (link.classList.contains("completed-card-trigger")) {
+      const card = link.closest(".completed-card");
+      sendEvent("gallery_image_open", {
+        gallery_category: card?.querySelector("figcaption span")?.textContent.trim() || "completed_memorial",
+        gallery_item: card?.querySelector("figcaption strong")?.textContent.trim() || "memorial_detail",
+      });
+      return;
+    }
+
     if (link.dataset.analyticsEvent === "reviews_click") {
       sendEvent("reviews_click", { contact_location: location });
       return;
@@ -152,6 +161,15 @@
     if (href === "#contact" || href === "#contact-form") {
       sendEvent("guidance_cta_click", { cta_location: location });
     }
+  });
+
+  document.querySelectorAll(".faq-list details").forEach((details) => {
+    details.addEventListener("toggle", () => {
+      if (!details.open) return;
+      sendEvent("faq_open", {
+        faq_question: details.querySelector("summary")?.textContent.trim() || "family_question",
+      });
+    });
   });
 
   const contactForm = document.querySelector('form[name="contact"]');
