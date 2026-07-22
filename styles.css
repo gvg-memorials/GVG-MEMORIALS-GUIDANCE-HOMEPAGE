@@ -1447,6 +1447,23 @@ h2 {
   color: var(--accent-earth);
 }
 
+.contact-availability {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: 10px;
+  color: var(--text-ink-muted);
+  font-size: 12px;
+  font-weight: var(--weight-support);
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.contact-availability-label {
+  color: var(--brass-text);
+  font-weight: var(--weight-label);
+}
+
 .contact-form {
   margin-top: clamp(42px, 5vw, 64px);
   padding-top: clamp(34px, 4vw, 48px);
