@@ -44,7 +44,29 @@
 
   const contactForm = document.querySelector('form[name="contact"]');
   if (contactForm) {
+    let formStarted = false;
+    const trackFormStart = () => {
+      if (formStarted) return;
+      formStarted = true;
+      sendEvent("contact_form_start", { form_name: "contact" });
+    };
+
+    contactForm.addEventListener("focusin", trackFormStart);
+    contactForm.addEventListener("change", trackFormStart);
+
+    const optionalDetails = contactForm.querySelector(".contact-form-details");
+    if (optionalDetails) {
+      let detailsOpened = false;
+      optionalDetails.addEventListener("toggle", () => {
+        if (optionalDetails.open && !detailsOpened) {
+          detailsOpened = true;
+          sendEvent("contact_details_open", { form_name: "contact" });
+        }
+      });
+    }
+
     contactForm.addEventListener("submit", () => {
+      sendEvent("contact_form_submit", { form_name: "contact" });
       try {
         window.sessionStorage.setItem("gvg_contact_submitted", "true");
       } catch (_) {
