@@ -1025,22 +1025,51 @@ h2 {
   border: 1px solid var(--divider-ink);
 }
 
-.faq-list article {
-  padding: clamp(22px, 2.6vw, 34px);
+.faq-list details {
   background: var(--ivory);
   transition: background 240ms ease, box-shadow 260ms ease, transform 260ms ease;
 }
 
-.faq-list h3 {
+.faq-list summary {
+  position: relative;
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  padding: clamp(20px, 2.2vw, 28px) clamp(56px, 5vw, 72px) clamp(20px, 2.2vw, 28px) clamp(22px, 2.6vw, 34px);
+  cursor: pointer;
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(24px, 2.15vw, 32px);
   font-weight: var(--weight-card-title);
   line-height: 1.04;
+  list-style: none;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary::after {
+  position: absolute;
+  top: 50%;
+  right: clamp(20px, 2.6vw, 34px);
+  content: "+";
+  color: var(--brass-text);
+  font-family: var(--sans);
+  font-size: 24px;
+  font-weight: var(--weight-body);
+  line-height: 1;
+  transform: translateY(-50%);
+  transition: transform 180ms ease;
+}
+
+.faq-list details[open] summary::after {
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .faq-list p {
-  margin: 14px 0 0;
+  margin: 0;
+  padding: 0 clamp(56px, 5vw, 72px) clamp(24px, 2.6vw, 34px) clamp(22px, 2.6vw, 34px);
   color: var(--text-ink-body);
   font-size: 16px;
   font-weight: var(--weight-body);
@@ -1750,7 +1779,7 @@ h2 {
     transform: translateX(4px);
   }
 
-  .faq-list article:hover {
+  .faq-list details:hover {
     background: var(--surface-warm-light);
     box-shadow: inset 3px 0 0 rgba(175, 135, 65, 0.34);
     transform: translateX(3px);
@@ -1797,7 +1826,7 @@ h2 {
   .memorial-list article:hover,
   .families-notes span:hover,
   .resource-list article:hover,
-  .faq-list article:hover,
+  .faq-list details:hover,
   .completed-card:hover img {
     transform: none;
   }
@@ -2343,11 +2372,18 @@ h2 {
     margin-bottom: 0;
   }
 
-  .faq-list article {
-    padding: 22px 18px;
+  .faq-list summary {
+    min-height: 68px;
+    padding: 18px 52px 18px 18px;
+    font-size: 24px;
+  }
+
+  .faq-list summary::after {
+    right: 18px;
   }
 
   .faq-list p {
+    padding: 0 52px 20px 18px;
     font-size: 15.5px;
     line-height: 1.58;
   }
