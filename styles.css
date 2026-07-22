@@ -816,12 +816,26 @@ h2 {
   line-height: 1;
 }
 
-.credibility span {
+.credibility span,
+.credibility a {
   color: var(--text-ink-muted);
   font-size: 11px;
   font-weight: var(--weight-support);
   line-height: 1.35;
   text-transform: uppercase;
+}
+
+.credibility a {
+  width: fit-content;
+  text-decoration-color: rgba(64, 57, 47, 0.34);
+  text-underline-offset: 4px;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.credibility a:hover,
+.credibility a:focus-visible {
+  color: var(--accent-earth);
+  text-decoration-color: currentColor;
 }
 
 .memorials {

@@ -124,6 +124,11 @@
     const href = link.getAttribute("href") || "";
     const location = getLocation(link);
 
+    if (link.dataset.analyticsEvent === "reviews_click") {
+      sendEvent("reviews_click", { contact_location: location });
+      return;
+    }
+
     if (link.dataset.analyticsEvent === "directions_click") {
       sendEvent("directions_click", { contact_location: location });
       return;
