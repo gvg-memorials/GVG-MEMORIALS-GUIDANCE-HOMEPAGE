@@ -138,6 +138,11 @@
     new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]),
     gl.STATIC_DRAW,
   );
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+  gl.useProgram(program);
+  gl.enableVertexAttribArray(positionLocation);
+  gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
 
   let frameId = 0;
   let isVisible = true;
@@ -158,15 +163,8 @@
 
   function render(now) {
     if (!isVisible) return;
-    resize();
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
-    gl.enable(gl.BLEND);
-    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-    gl.useProgram(program);
-    gl.enableVertexAttribArray(positionLocation);
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
     gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
     gl.uniform1f(timeLocation, (now - start) * 0.001);
     gl.uniform1f(motionLocation, reducedMotion ? 0 : 1);
@@ -178,8 +176,14 @@
   }
 
   hero?.classList.add('flare-webgl-ready');
+  resize();
   frameId = requestAnimationFrame(render);
-  window.addEventListener('resize', resize);
+  window.addEventListener('resize', resize, { passive: true });
+
+  if ('ResizeObserver' in window) {
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(canvas);
+  }
 
   if ('IntersectionObserver' in window && hero) {
     const observer = new IntersectionObserver(([entry]) => {
