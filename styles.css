@@ -3270,6 +3270,19 @@ body.nav-open .analytics-consent {
     scroll-padding-top: 92px;
   }
 
+  .thank-you-page {
+    align-items: start;
+    padding: 104px 14px 56px;
+  }
+
+  .thank-you-inner {
+    padding: 30px 22px;
+  }
+
+  .thank-you h1 {
+    font-size: 36px;
+  }
+
   .site-header {
     grid-template-columns: auto minmax(0, 1fr) auto;
     padding-inline: 14px;
