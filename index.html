@@ -29,9 +29,9 @@
       });
       gtag("js", new Date());
     </script>
-    <script defer src="analytics.js?v=16"></script>
+    <script defer src="analytics.js?v=17"></script>
     <script defer src="gallery-viewer.js?v=8"></script>
-    <script defer src="contact-form.js?v=15"></script>
+    <script defer src="contact-form.js?v=16"></script>
     <meta name="theme-color" content="#17130e" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -82,7 +82,7 @@
       type="image/webp"
       fetchpriority="high"
     />
-    <link rel="stylesheet" href="styles.css?v=124" />
+    <link rel="stylesheet" href="styles.css?v=125" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -829,7 +829,7 @@
             </p>
             <h3 class="contact-form-title" id="contact-form-title" tabindex="-1">Start With Guidance</h3>
             <p class="contact-form-note" id="contact-form-note">
-              Name and phone are required so we can respond personally.
+              Your name and one contact method are all we need to begin.
             </p>
             <div class="contact-form-context" data-guidance-context aria-live="polite" hidden>
               <span class="contact-form-context-label">Selected interest</span>
@@ -838,7 +838,7 @@
             </div>
             <p class="contact-form-status" data-form-status role="alert" hidden></p>
             <div class="contact-form-grid">
-              <label class="field field-required">
+              <label class="field field-required field-full">
                 <span class="field-label">Your Name <span class="field-required-text">Required</span></span>
                 <input
                   type="text"
@@ -855,30 +855,29 @@
                 <span class="field-error" id="name-error" hidden></span>
               </label>
 
-              <label class="field field-required">
-                <span class="field-label">Phone <span class="field-required-text">Required</span></span>
-                <input
-                  type="tel"
-                  name="phone"
-                  autocomplete="tel"
-                  required
-                  aria-required="true"
-                  aria-describedby="phone-error"
-                  data-error-target="phone-error"
-                  data-validation-message="Please enter a phone number with at least 7 digits."
-                  maxlength="30"
-                  inputmode="tel"
-                  enterkeyhint="send"
-                  placeholder="(805) 555-0123"
-                />
-                <span class="field-error" id="phone-error" hidden></span>
-              </label>
-
-              <details class="contact-form-details">
-                <summary>Add details or a photo if helpful</summary>
-                <div class="contact-form-optional-grid">
+              <fieldset class="contact-method-group field-full">
+                <legend class="field-label">
+                  How should we reach you? <span class="field-required-text">Choose phone or email</span>
+                </legend>
+                <div class="contact-method-grid">
                   <label class="field">
-                    <span class="field-label">Email <span class="field-optional">(optional)</span></span>
+                    <span class="field-label">Phone</span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      autocomplete="tel"
+                      aria-describedby="phone-error"
+                      data-error-target="phone-error"
+                      maxlength="30"
+                      inputmode="tel"
+                      enterkeyhint="next"
+                      placeholder="(805) 555-0123"
+                    />
+                    <span class="field-error" id="phone-error" hidden></span>
+                  </label>
+
+                  <label class="field">
+                    <span class="field-label">Email</span>
                     <input
                       type="email"
                       name="email"
@@ -887,10 +886,16 @@
                       data-error-target="email-error"
                       data-validation-message="Please enter a complete email address."
                       maxlength="120"
+                      enterkeyhint="send"
                     />
                     <span class="field-error" id="email-error" hidden></span>
                   </label>
+                </div>
+              </fieldset>
 
+              <details class="contact-form-details">
+                <summary>Add details or a photo if helpful</summary>
+                <div class="contact-form-optional-grid">
                   <label class="field">
                     <span class="field-label">What do you need help with? <span class="field-optional">(optional)</span></span>
                     <select name="starting_point">

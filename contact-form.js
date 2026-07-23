@@ -13,6 +13,7 @@
   const startingPoint = contactForm.querySelector('select[name="starting_point"]');
   const name = contactForm.querySelector('input[name="name"]');
   const phone = contactForm.querySelector('input[name="phone"]');
+  const email = contactForm.querySelector('input[name="email"]');
   const message = contactForm.querySelector('textarea[name="message"]');
   const defaultFileHelp = fileHelp?.textContent.trim() || "";
   const defaultSubmitLabel = submitButton.textContent.trim();
@@ -34,7 +35,7 @@
   const getDraftField = (name) => contactForm.elements.namedItem(name);
 
   const hasVisitorOptionalDetails = () => {
-    const visitorTextFields = ["email", "cemetery"];
+    const visitorTextFields = ["cemetery"];
     const hasVisitorText = visitorTextFields.some((fieldName) => getDraftField(fieldName)?.value.trim());
     const hasEditedGuidance = [startingPoint, message].some(
       (field) => field?.value.trim() && field.value !== field.dataset.guidancePrefill,
@@ -162,7 +163,7 @@
       setGuidanceContext(draft.guidanceContext);
     } else if (
       optionalDetails &&
-      ["email", "starting_point", "cemetery", "message"].some((name) => getDraftField(name)?.value)
+      ["starting_point", "cemetery", "message"].some((name) => getDraftField(name)?.value)
     ) {
       optionalDetails.open = true;
     }
@@ -216,7 +217,10 @@
   const getFieldValidationMessage = (field) => {
     if (field.validity.valueMissing) {
       if (field.getAttribute("name") === "name") return "Please enter your name.";
-      if (field.getAttribute("name") === "phone") return "Please enter your phone number.";
+    }
+
+    if (field.getAttribute("name") === "phone" && field.validity.customError) {
+      return field.validationMessage;
     }
 
     return (
@@ -234,11 +238,12 @@
     const invalidNames = new Set(invalidFields.map((field) => field.getAttribute("name")));
 
     if (
-      invalidFields.length === 2 &&
       invalidNames.has("name") &&
-      invalidNames.has("phone")
+      invalidNames.has("phone") &&
+      !phone?.value.trim() &&
+      !email?.value.trim()
     ) {
-      formStatus.textContent = "Please enter your name and phone number.";
+      formStatus.textContent = "Please enter your name and a phone number or email address.";
     } else if (invalidFields.length === 1) {
       formStatus.textContent = getFieldValidationMessage(invalidFields[0]);
     } else {
@@ -273,13 +278,24 @@
     error.textContent = "";
   };
 
-  const updatePhoneValidity = () => {
+  const updateContactMethodValidity = () => {
     if (!phone) return;
     const digitCount = phone.value.replace(/\D/g, "").length;
-    phone.setCustomValidity(phone.value.trim() && digitCount < 7 ? "Please enter at least 7 digits." : "");
+    let message = "";
+    if (!phone.value.trim() && !email?.value.trim()) {
+      message = "Please enter a phone number or email address.";
+    } else if (phone.value.trim() && digitCount < 7) {
+      message = "Please enter a phone number with at least 7 digits.";
+    }
+    phone.setCustomValidity(message);
+    if (!message) {
+      clearFieldError(phone);
+      updateFormStatus();
+    }
   };
 
-  phone?.addEventListener("input", updatePhoneValidity);
+  phone?.addEventListener("input", updateContactMethodValidity);
+  email?.addEventListener("input", updateContactMethodValidity);
   name?.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" || event.isComposing || !phone) return;
     event.preventDefault();
@@ -349,7 +365,7 @@
       return;
     }
 
-    updatePhoneValidity();
+    updateContactMethodValidity();
     if (!contactForm.checkValidity()) {
       event.preventDefault();
       const firstInvalidField = contactForm.querySelector(

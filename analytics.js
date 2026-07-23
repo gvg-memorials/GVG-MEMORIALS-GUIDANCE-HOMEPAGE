@@ -227,7 +227,11 @@
         .map((field) => field.getAttribute("name"))
         .filter(Boolean);
       const phone = contactForm.querySelector('input[name="phone"]');
+      const email = contactForm.querySelector('input[name="email"]');
       const phoneDigitCount = phone ? phone.value.replace(/\D/g, "").length : 0;
+      if (!phone?.value.trim() && !email?.value.trim()) {
+        invalidFields.push("contact_method");
+      }
       if (phone?.value.trim() && phoneDigitCount < 7 && !invalidFields.includes("phone")) {
         invalidFields.push("phone");
       }

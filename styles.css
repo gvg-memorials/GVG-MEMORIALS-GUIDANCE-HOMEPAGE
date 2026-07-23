@@ -1739,6 +1739,23 @@ h2 {
   gap: clamp(20px, 2.2vw, 28px);
 }
 
+.contact-method-group {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.contact-method-group > .field-label {
+  margin-bottom: 10px;
+}
+
+.contact-method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 2.2vw, 28px);
+}
+
 .contact-form-details {
   grid-column: 1 / -1;
   border-top: 1px solid var(--divider-ink);
@@ -2636,6 +2653,7 @@ body.nav-open .analytics-consent {
   }
 
   .contact-form-grid,
+  .contact-method-grid,
   .contact-form-optional-grid {
     grid-template-columns: 1fr;
   }
