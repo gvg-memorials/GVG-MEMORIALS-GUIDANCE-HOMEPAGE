@@ -10,6 +10,7 @@
   const guidanceContext = contactForm.querySelector("[data-guidance-context]");
   const guidanceContextText = contactForm.querySelector("[data-guidance-context-text]");
   const guidanceContextReview = contactForm.querySelector("[data-guidance-context-review]");
+  const guidanceItem = contactForm.querySelector('input[name="guidance_item"]');
   const startingPoint = contactForm.querySelector('select[name="starting_point"]');
   const name = contactForm.querySelector('input[name="name"]');
   const phone = contactForm.querySelector('input[name="phone"]');
@@ -45,6 +46,7 @@
 
   const setGuidanceContext = (value, collapseDetails = true) => {
     guidanceContextValue = typeof value === "string" ? value.trim().slice(0, 180) : "";
+    if (guidanceItem) guidanceItem.value = guidanceContextValue;
     if (!guidanceContext || !guidanceContextText) return;
 
     guidanceContextText.textContent = guidanceContextValue;
