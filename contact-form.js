@@ -352,7 +352,14 @@
     updatePhoneValidity();
     if (!contactForm.checkValidity()) {
       event.preventDefault();
-      contactForm.querySelector("input:invalid, select:invalid, textarea:invalid")?.focus();
+      const firstInvalidField = contactForm.querySelector(
+        "input:invalid, select:invalid, textarea:invalid",
+      );
+      firstInvalidField?.focus({ preventScroll: true });
+      contactForm.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start",
+      });
       return;
     }
 
