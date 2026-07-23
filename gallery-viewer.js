@@ -12,6 +12,7 @@
   const nextButton = viewer.querySelector(".memorial-viewer-next");
   const inquiryLink = viewer.querySelector(".memorial-viewer-inquiry");
   const triggers = Array.from(document.querySelectorAll(".completed-card-trigger"));
+  const captions = triggers.map((trigger) => trigger.closest(".completed-card")?.querySelector("figcaption"));
   const viewerImageSizes = "(max-width: 1300px) 94vw, 1240px";
   const saveData = navigator.connection?.saveData === true;
   let activeIndex = -1;
@@ -102,6 +103,12 @@
       viewer.showModal();
       document.body.classList.add("memorial-viewer-open");
       closeButton.focus({ preventScroll: true });
+    });
+  });
+
+  captions.forEach((caption, index) => {
+    caption?.addEventListener("click", () => {
+      triggers[index]?.click();
     });
   });
 
