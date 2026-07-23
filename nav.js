@@ -297,11 +297,18 @@
   });
 
   if (window.location.hash) {
+    const alignInitialHashTarget = () => {
+      getHashTarget(window.location.hash)?.scrollIntoView({ block: "start" });
+    };
+
+    // Correct the browser's native anchor position before slower assets finish.
+    alignInitialHashTarget();
+    window.requestAnimationFrame(alignInitialHashTarget);
+
     window.addEventListener(
       "load",
       () => {
-        const target = getHashTarget(window.location.hash);
-        target?.scrollIntoView({ block: "start" });
+        alignInitialHashTarget();
         focusHashTarget(window.location.hash, 600);
         window.requestAnimationFrame(() => {
           document.documentElement.classList.remove("initial-anchor-navigation");
