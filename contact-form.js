@@ -7,6 +7,9 @@
   const referenceFile = contactForm.querySelector('input[name="reference_file"]');
   const fileHelp = contactForm.querySelector("[data-file-help]");
   const optionalDetails = contactForm.querySelector(".contact-form-details");
+  const guidanceContext = contactForm.querySelector("[data-guidance-context]");
+  const guidanceContextText = contactForm.querySelector("[data-guidance-context-text]");
+  const guidanceContextReview = contactForm.querySelector("[data-guidance-context-review]");
   const startingPoint = contactForm.querySelector('select[name="starting_point"]');
   const name = contactForm.querySelector('input[name="name"]');
   const phone = contactForm.querySelector('input[name="phone"]');
@@ -24,10 +27,31 @@
   ];
   const draftStorageKey = "gvg_contact_draft_v1";
   const draftFieldNames = ["name", "phone", "email", "starting_point", "cemetery", "message"];
+  let guidanceContextValue = "";
   let draftSaveTimer;
   contactForm.noValidate = true;
 
   const getDraftField = (name) => contactForm.elements.namedItem(name);
+
+  const hasVisitorOptionalDetails = () => {
+    const visitorTextFields = ["email", "cemetery"];
+    const hasVisitorText = visitorTextFields.some((fieldName) => getDraftField(fieldName)?.value.trim());
+    const hasEditedGuidance = [startingPoint, message].some(
+      (field) => field?.value.trim() && field.value !== field.dataset.guidancePrefill,
+    );
+    return hasVisitorText || hasEditedGuidance || Boolean(referenceFile?.files?.length);
+  };
+
+  const setGuidanceContext = (value, collapseDetails = true) => {
+    guidanceContextValue = typeof value === "string" ? value.trim().slice(0, 180) : "";
+    if (!guidanceContext || !guidanceContextText) return;
+
+    guidanceContextText.textContent = guidanceContextValue;
+    guidanceContext.hidden = !guidanceContextValue;
+    if (guidanceContextValue && collapseDetails && optionalDetails) {
+      optionalDetails.open = hasVisitorOptionalDetails();
+    }
+  };
 
   const setAttributionFields = () => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -87,7 +111,10 @@
 
     try {
       if (Object.keys(values).length) {
-        window.sessionStorage.setItem(draftStorageKey, JSON.stringify({ values, guidancePrefills }));
+        window.sessionStorage.setItem(
+          draftStorageKey,
+          JSON.stringify({ values, guidancePrefills, guidanceContext: guidanceContextValue }),
+        );
       } else {
         window.sessionStorage.removeItem(draftStorageKey);
       }
@@ -131,7 +158,9 @@
       }
     });
 
-    if (
+    if (typeof draft.guidanceContext === "string" && draft.guidanceContext.trim()) {
+      setGuidanceContext(draft.guidanceContext);
+    } else if (
       optionalDetails &&
       ["email", "starting_point", "cemetery", "message"].some((name) => getDraftField(name)?.value)
     ) {
@@ -161,11 +190,22 @@
 
   document.querySelectorAll("[data-guidance-starting-point]").forEach((link) => {
     link.addEventListener("click", () => {
-      if (optionalDetails) optionalDetails.open = true;
       updateGuidancePrefill(startingPoint, link.dataset.guidanceStartingPoint || "");
       updateGuidancePrefill(message, link.dataset.guidanceMessage || "");
+      setGuidanceContext(link.dataset.guidanceItem || link.dataset.guidanceStartingPoint || "");
       saveDraft();
     });
+  });
+
+  window.addEventListener("gvg:guidance-selected", (event) => {
+    setGuidanceContext(event.detail?.item || "");
+    saveDraft();
+  });
+
+  guidanceContextReview?.addEventListener("click", () => {
+    if (!optionalDetails) return;
+    optionalDetails.open = true;
+    optionalDetails.querySelector("summary")?.focus();
   });
 
   const getErrorElement = (field) => {

@@ -142,13 +142,14 @@
     const cardLabel = card?.querySelector("figcaption span")?.textContent.trim() || "Completed memorial";
     const cardTitle = card?.querySelector("figcaption strong")?.textContent.trim() || "Similar memorial";
     const contactForm = document.getElementById("contact-form");
-    const optionalDetails = contactForm?.querySelector(".contact-form-details");
     const startingPoint = contactForm?.querySelector('select[name="starting_point"]');
     const message = contactForm?.querySelector('textarea[name="message"]');
 
-    if (optionalDetails) optionalDetails.open = true;
     updateGuidancePrefill(startingPoint, "Choosing a memorial style");
     updateGuidancePrefill(message, `I'm interested in a memorial similar to: ${cardTitle}.`);
+    window.dispatchEvent(new CustomEvent("gvg:guidance-selected", {
+      detail: { item: cardTitle },
+    }));
 
     window.dispatchEvent(new CustomEvent("gvg:gallery-inquiry", {
       detail: { category: cardLabel, item: cardTitle },
