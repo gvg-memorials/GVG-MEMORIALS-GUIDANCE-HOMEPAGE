@@ -304,7 +304,8 @@
     });
   }
 
-  if (window.location.pathname === "/thank-you" || window.location.pathname === "/thank-you.html") {
+  const thankYouPaths = new Set(["/thank-you", "/thank-you/", "/thank-you.html"]);
+  if (thankYouPaths.has(window.location.pathname)) {
     try {
       if (window.sessionStorage.getItem("gvg_contact_submitted") === "true") {
         let leadContext = {};
