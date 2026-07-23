@@ -15,6 +15,7 @@ Netlify Web Analytics period: June 22-July 22, 2026
 | Gross unique visitors | 1,856 | Directional |
 | Gross pageviews | 3,126 | Directional |
 | Google referrals | 58 | Directional |
+| Same-domain referrals | 749 | Excluded as an acquisition source |
 | Netlify form submissions | 5 | Recorded |
 | Verified external form leads | 4 | Confirmed |
 | Known internal QA submissions | 1 | Excluded from leads |
@@ -39,6 +40,8 @@ The verified form lead conversion rate is `4 / 1,856 = 0.22%`.
   and QA.
 - Google referrals are server-side referral requests. They are useful for
   direction, but they are not the same as GA4 organic-search users.
+- Netlify reports 749 referrals from `gvgmemorials.com`. These are same-domain
+  or redirect traffic and must not be treated as an external acquisition source.
 - GA4 is consent-based, so it will intentionally count fewer visitors than
   Netlify.
 
@@ -81,10 +84,11 @@ The GA4-reserved `purchase` key event has no stream data and is ignored.
 2. GA4 only records visitors who allow analytics.
 3. Netlify cannot separate human traffic from all bots or exclude internal QA
    traffic from its server-side totals.
-4. A click-to-call is intent, not proof that a completed phone conversation
+4. Netlify same-domain referrals obscure the original source for some visits.
+5. A click-to-call is intent, not proof that a completed phone conversation
    occurred.
-5. An appointment click is intent, not proof that Square completed a booking.
-6. Form attribution fields were added after the oldest submissions, so the
+6. An appointment click is intent, not proof that Square completed a booking.
+7. Form attribution fields were added after the oldest submissions, so the
    earlier leads do not contain reliable source attribution.
 
 ## Clean Measurement Window
