@@ -5,6 +5,7 @@
   const measurementId = "G-JSMJEPF8ZV";
   const consentStorageKey = "gvg_analytics_consent";
   const leadContextStorageKey = "gvg_contact_lead_context_v1";
+  const phoneLeadStorageKey = "gvg_phone_lead_tracked_v1";
   let analyticsRequested = false;
 
   const readConsent = () => {
@@ -44,12 +45,13 @@
   }
 
   const sendEvent = (name, parameters) => {
-    if (consentState !== "granted") return;
+    if (consentState !== "granted") return false;
     loadGoogleAnalytics();
     window.gtag("event", name, {
       transport_type: "beacon",
       ...parameters,
     });
+    return true;
   };
 
   const consentBanner = document.querySelector("[data-analytics-consent]");
@@ -158,6 +160,26 @@
 
     if (href.startsWith("tel:")) {
       sendEvent("phone_click", { contact_location: location });
+      let phoneLeadTracked = false;
+      try {
+        phoneLeadTracked = window.sessionStorage.getItem(phoneLeadStorageKey) === "true";
+      } catch (_) {
+        // A call click can still be measured when session storage is unavailable.
+      }
+
+      if (
+        !phoneLeadTracked &&
+        sendEvent("generate_lead", {
+          method: "phone",
+          contact_location: location,
+        })
+      ) {
+        try {
+          window.sessionStorage.setItem(phoneLeadStorageKey, "true");
+        } catch (_) {
+          // Duplicate suppression is best-effort when session storage is unavailable.
+        }
+      }
       return;
     }
 
