@@ -1033,6 +1033,59 @@ h2 {
   text-transform: uppercase;
 }
 
+.memorial-existing-link {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--divider-light-soft);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.025);
+  transition: background 220ms ease, box-shadow 220ms ease;
+}
+
+.memorial-existing-copy {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.memorial-existing-copy strong {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2vw, 27px);
+  font-weight: var(--weight-card-title);
+  line-height: 1.08;
+}
+
+.memorial-existing-copy span {
+  color: var(--text-light-secondary);
+  font-size: 13px;
+  font-weight: var(--weight-support);
+  line-height: 1.45;
+}
+
+.memorial-existing-action {
+  flex: 0 0 auto;
+  color: var(--accent-gold-soft);
+  font-size: 12px;
+  font-weight: var(--weight-label);
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-color: rgba(213, 178, 111, 0.58);
+  text-underline-offset: 5px;
+}
+
+.memorial-existing-link:hover {
+  background: rgba(255, 255, 255, 0.065);
+}
+
+.memorial-existing-link:focus-visible {
+  outline: none;
+  box-shadow: inset var(--focus-ring);
+}
+
 .process {
   padding: clamp(76px, 9vw, 130px) 0;
 }
@@ -3153,6 +3206,28 @@ body.nav-open .analytics-consent {
   .memorial-list p {
     font-size: 13px;
     line-height: 1.42;
+  }
+
+  .memorial-existing-link {
+    min-height: 0;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 18px 22px;
+  }
+
+  .memorial-existing-copy {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .memorial-existing-copy strong {
+    font-size: clamp(24px, 7.2vw, 29px);
+  }
+
+  .memorial-existing-action {
+    margin-top: 0;
   }
 
   .steps {
