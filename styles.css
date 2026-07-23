@@ -922,6 +922,45 @@ h2 {
   text-decoration-color: currentColor;
 }
 
+.credibility .credibility-review {
+  padding: 0;
+}
+
+.credibility .credibility-review-link {
+  width: 100%;
+  min-height: 138px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 22px;
+  padding: 24px 22px;
+  text-decoration: none;
+}
+
+.credibility-review-link strong {
+  color: var(--ink);
+}
+
+.credibility-review-link span {
+  width: fit-content;
+  text-decoration: underline;
+  text-decoration-color: rgba(64, 57, 47, 0.34);
+  text-underline-offset: 4px;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.credibility-review-link:hover span,
+.credibility-review-link:focus-visible span {
+  color: var(--accent-earth);
+  text-decoration-color: currentColor;
+}
+
+.credibility .credibility-review-link:focus-visible {
+  outline: none;
+  box-shadow: inset var(--focus-ring);
+}
+
 .memorials {
   padding: clamp(76px, 9vw, 130px) 0;
   background: var(--surface-dark-soft);
@@ -3030,6 +3069,16 @@ body.nav-open .analytics-consent {
     border-left: 0;
     border-top: 1px solid var(--divider-ink);
     gap: 16px;
+  }
+
+  .credibility .credibility-review {
+    padding: 0;
+  }
+
+  .credibility .credibility-review-link {
+    min-height: 112px;
+    gap: 16px;
+    padding: 18px 15px;
   }
 
   .credibility article:nth-child(even) {
