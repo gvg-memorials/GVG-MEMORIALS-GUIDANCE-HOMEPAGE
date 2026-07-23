@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      var analyticsConsent = "denied";
+      try {
+        if (window.localStorage.getItem("gvg_analytics_consent") === "granted") {
+          analyticsConsent = "granted";
+        }
+      } catch (_) {}
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: analyticsConsent,
+        wait_for_update: 500,
+      });
+      gtag("js", new Date());
+    </script>
+    <script defer src="/analytics.js?v=16"></script>
+    <meta name="theme-color" content="#17130e" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="robots" content="noindex" />
+    <title>Page Not Found | GVG Memorials</title>
+    <meta
+      name="description"
+      content="Return to GVG Memorials for guidance choosing a headstone, grave marker, monument, or cemetery memorial."
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/cormorant-garamond-latin-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/inter-latin-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/styles.css?v=119" />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header site-header--solid thank-you-header" aria-label="Site header">
+      <a class="brand" href="/" aria-label="GVG Memorials home">
+        <img
+          src="/assets/gvg-logo-white-292.webp"
+          srcset="/assets/gvg-logo-white-96.webp 96w, /assets/gvg-logo-white-160.webp 160w, /assets/gvg-logo-white-292.webp 292w"
+          sizes="(max-width: 360px) 66px, (max-width: 420px) 72px, (max-width: 620px) 86px, 118px"
+          width="292"
+          height="242"
+          alt="GVG Memorials"
+          fetchpriority="high"
+          decoding="sync"
+        />
+      </a>
+      <a class="header-action" href="tel:+18058893769">(805) 889-3769</a>
+    </header>
+
+    <main id="main-content" class="thank-you-page" tabindex="-1">
+      <section class="thank-you" aria-labelledby="not-found-title">
+        <div class="thank-you-inner">
+          <p class="section-label">Page Not Found</p>
+          <h1 id="not-found-title">Let's Get You Back to Guidance</h1>
+          <p class="thank-you-lead">
+            The page you were looking for may have moved, or the address may be incomplete.
+          </p>
+          <p class="thank-you-secondary">
+            Return to our memorial guidance page, or call us directly and we will help you find what you need.
+          </p>
+          <div class="thank-you-actions">
+            <a class="button button-primary" href="/">Return Home</a>
+            <a class="button button-outline" href="tel:+18058893769">Call (805) 889-3769</a>
+          </div>
+          <p class="contact-detail">623 S A St, Oxnard, CA 93030</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-inner footer-grid">
+        <div class="footer-brand">
+          <img
+            src="/assets/gvg-logo-white-292.webp"
+            srcset="/assets/gvg-logo-white-96.webp 96w, /assets/gvg-logo-white-160.webp 160w, /assets/gvg-logo-white-292.webp 292w"
+            sizes="(max-width: 620px) 78px, 96px"
+            width="292"
+            height="242"
+            alt="GVG Memorials"
+            loading="lazy"
+            decoding="async"
+          />
+          <p>Family-owned guidance for custom headstones, grave markers, monuments, and cemetery memorials in Oxnard and Ventura County.</p>
+        </div>
+        <div class="footer-contact">
+          <a href="tel:+18058893769">(805) 889-3769</a>
+          <a href="mailto:gvg.memorials@gmail.com">gvg.memorials@gmail.com</a>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&amp;destination=GVG+Memorials%2C+623+S+A+St%2C+Oxnard%2C+CA+93030"
+            data-analytics-event="directions_click"
+            target="_blank"
+            rel="noopener"
+            aria-label="Get directions to GVG Memorials at 623 S A St, Oxnard, CA 93030"
+          >623 S A St, Oxnard, CA 93030</a>
+          <button
+            class="footer-consent-button"
+            type="button"
+            data-analytics-choices
+            aria-controls="analytics-consent"
+            aria-expanded="false"
+          >Analytics choices</button>
+        </div>
+      </div>
+      <div class="section-inner footer-bottom">
+        <span>GVG Memorials</span>
+        <span>Custom stone memorials planned with patience, clarity, and care.</span>
+      </div>
+    </footer>
+
+    <section
+      class="analytics-consent"
+      id="analytics-consent"
+      data-analytics-consent
+      hidden
+      aria-label="Analytics privacy choices"
+    >
+      <div class="analytics-consent-copy">
+        <strong>Help us improve this website</strong>
+        <p>Privacy-focused analytics show us which pages and contact options help families. No advertising tracking.</p>
+      </div>
+      <div class="analytics-consent-actions">
+        <button class="button button-primary" type="button" data-analytics-accept>Allow analytics</button>
+        <button class="button button-outline" type="button" data-analytics-decline>Continue without</button>
+      </div>
+    </section>
+  </body>
+</html>
