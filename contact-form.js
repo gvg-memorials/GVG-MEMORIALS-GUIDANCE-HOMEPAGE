@@ -191,9 +191,16 @@
 
   document.querySelectorAll("[data-guidance-starting-point]").forEach((link) => {
     link.addEventListener("click", () => {
+      const openDetails = link.dataset.guidanceOpenDetails === "true";
       updateGuidancePrefill(startingPoint, link.dataset.guidanceStartingPoint || "");
       updateGuidancePrefill(message, link.dataset.guidanceMessage || "");
-      setGuidanceContext(link.dataset.guidanceItem || link.dataset.guidanceStartingPoint || "");
+      setGuidanceContext(
+        link.dataset.guidanceItem || link.dataset.guidanceStartingPoint || "",
+        !openDetails,
+      );
+      if (openDetails && optionalDetails) {
+        optionalDetails.open = true;
+      }
       saveDraft();
     });
   });
