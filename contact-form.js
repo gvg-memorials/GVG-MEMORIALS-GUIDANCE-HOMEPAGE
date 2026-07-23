@@ -356,7 +356,11 @@
         "input:invalid, select:invalid, textarea:invalid",
       );
       firstInvalidField?.focus({ preventScroll: true });
-      contactForm.scrollIntoView({
+      const invalidScrollTarget =
+        firstInvalidField === name || firstInvalidField === phone
+          ? contactForm
+          : firstInvalidField?.closest(".field") || firstInvalidField || contactForm;
+      invalidScrollTarget.scrollIntoView({
         behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
         block: "start",
       });
