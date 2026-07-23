@@ -54,6 +54,15 @@
     }
   };
 
+  const syncGuidanceReviewControl = () => {
+    if (!guidanceContextReview || !optionalDetails) return;
+    const detailsOpen = optionalDetails.open;
+    guidanceContextReview.hidden = detailsOpen;
+    guidanceContextReview.setAttribute("aria-expanded", String(detailsOpen));
+  };
+
+  optionalDetails?.addEventListener("toggle", syncGuidanceReviewControl);
+
   const setAttributionFields = () => {
     const searchParams = new URLSearchParams(window.location.search);
     let referrerHost = "";
@@ -170,6 +179,7 @@
   };
 
   restoreDraft();
+  syncGuidanceReviewControl();
   contactForm.addEventListener("input", scheduleDraftSave);
   contactForm.addEventListener("change", scheduleDraftSave);
   window.addEventListener("pagehide", saveDraft);

@@ -31,7 +31,7 @@
     </script>
     <script defer src="analytics.js?v=17"></script>
     <script defer src="gallery-viewer.js?v=8"></script>
-    <script defer src="contact-form.js?v=17"></script>
+    <script defer src="contact-form.js?v=18"></script>
     <meta name="theme-color" content="#17130e" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -850,7 +850,12 @@
             <div class="contact-form-context" data-guidance-context aria-live="polite" hidden>
               <span class="contact-form-context-label">Selected interest</span>
               <strong data-guidance-context-text></strong>
-              <button type="button" data-guidance-context-review>Review details</button>
+              <button
+                type="button"
+                data-guidance-context-review
+                aria-controls="contact-form-details"
+                aria-expanded="false"
+              >Review details</button>
             </div>
             <p class="contact-form-status" data-form-status role="alert" hidden></p>
             <div class="contact-form-grid">
@@ -909,7 +914,7 @@
                 </div>
               </fieldset>
 
-              <details class="contact-form-details">
+              <details class="contact-form-details" id="contact-form-details">
                 <summary>Add details or a photo if helpful</summary>
                 <div class="contact-form-optional-grid">
                   <label class="field">
