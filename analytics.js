@@ -4,6 +4,7 @@
 
   const measurementId = "G-JSMJEPF8ZV";
   const consentStorageKey = "gvg_analytics_consent";
+  const leadContextStorageKey = "gvg_contact_lead_context_v1";
   let analyticsRequested = false;
 
   const readConsent = () => {
@@ -201,11 +202,24 @@
 
   const contactForm = document.querySelector('form[name="contact"]');
   if (contactForm) {
+    const getLeadContext = () => {
+      const guidanceItem = contactForm.querySelector('input[name="guidance_item"]')?.value.trim();
+      const startingPoint = contactForm.querySelector('select[name="starting_point"]')?.value.trim();
+
+      return {
+        guidance_item: (guidanceItem || "general_guidance").slice(0, 100),
+        starting_point: (startingPoint || "not_selected").slice(0, 100),
+      };
+    };
+
     let formStarted = false;
     const trackFormStart = () => {
       if (formStarted) return;
       formStarted = true;
-      sendEvent("contact_form_start", { form_name: "contact" });
+      sendEvent("contact_form_start", {
+        form_name: "contact",
+        ...getLeadContext(),
+      });
     };
 
     contactForm.addEventListener("focusin", trackFormStart);
@@ -244,9 +258,14 @@
         return;
       }
 
-      sendEvent("contact_form_submit", { form_name: "contact" });
+      const leadContext = getLeadContext();
+      sendEvent("contact_form_submit", {
+        form_name: "contact",
+        ...leadContext,
+      });
       try {
         window.sessionStorage.setItem("gvg_contact_submitted", "true");
+        window.sessionStorage.setItem(leadContextStorageKey, JSON.stringify(leadContext));
       } catch (_) {
         // The form still works when browser storage is unavailable.
       }
@@ -266,11 +285,22 @@
   if (window.location.pathname === "/thank-you" || window.location.pathname === "/thank-you.html") {
     try {
       if (window.sessionStorage.getItem("gvg_contact_submitted") === "true") {
+        let leadContext = {};
+        try {
+          leadContext = JSON.parse(window.sessionStorage.getItem(leadContextStorageKey) || "{}");
+        } catch (_) {
+          // A malformed stored value falls back to general lead attribution.
+        }
         sendEvent("generate_lead", {
           method: "contact_form",
           form_name: "contact",
+          guidance_item:
+            typeof leadContext.guidance_item === "string" ? leadContext.guidance_item : "general_guidance",
+          starting_point:
+            typeof leadContext.starting_point === "string" ? leadContext.starting_point : "not_selected",
         });
         window.sessionStorage.removeItem("gvg_contact_submitted");
+        window.sessionStorage.removeItem(leadContextStorageKey);
       }
     } catch (_) {
       // Avoid counting direct thank-you page visits as completed leads.
