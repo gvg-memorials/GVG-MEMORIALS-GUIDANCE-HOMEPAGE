@@ -1686,7 +1686,8 @@ h2 {
 }
 
 .contact-form {
-  margin-top: clamp(42px, 5vw, 64px);
+  width: min(100%, 960px);
+  margin: clamp(42px, 5vw, 64px) auto 0;
   padding-top: clamp(34px, 4vw, 48px);
   border-top: 1px solid var(--divider-ink);
 }
