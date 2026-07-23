@@ -213,9 +213,37 @@
     return errorTarget ? document.getElementById(errorTarget) : null;
   };
 
+  const getFieldValidationMessage = (field) => {
+    if (field.validity.valueMissing) {
+      if (field.getAttribute("name") === "name") return "Please enter your name.";
+      if (field.getAttribute("name") === "phone") return "Please enter your phone number.";
+    }
+
+    return (
+      field.dataset.validationMessage ||
+      field.validationMessage ||
+      "Please review the highlighted field before sending."
+    );
+  };
+
   const showFormStatus = () => {
     if (!formStatus) return;
-    formStatus.textContent = "Please review the highlighted field before sending.";
+    const invalidFields = Array.from(
+      contactForm.querySelectorAll("input:invalid, select:invalid, textarea:invalid"),
+    );
+    const invalidNames = new Set(invalidFields.map((field) => field.getAttribute("name")));
+
+    if (
+      invalidFields.length === 2 &&
+      invalidNames.has("name") &&
+      invalidNames.has("phone")
+    ) {
+      formStatus.textContent = "Please enter your name and phone number.";
+    } else if (invalidFields.length === 1) {
+      formStatus.textContent = getFieldValidationMessage(invalidFields[0]);
+    } else {
+      formStatus.textContent = "Please review the highlighted fields before sending.";
+    }
     formStatus.hidden = false;
   };
 
@@ -233,7 +261,7 @@
     field.setAttribute("aria-invalid", "true");
     const error = getErrorElement(field);
     if (!error) return;
-    error.textContent = field.dataset.validationMessage || field.validationMessage;
+    error.textContent = getFieldValidationMessage(field);
     error.hidden = false;
   };
 
