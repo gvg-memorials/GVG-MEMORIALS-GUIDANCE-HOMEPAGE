@@ -22,8 +22,10 @@ The site uses a warm editorial memorial-park hero image, GVG logo assets, and gu
 - `hero-motion.js` - subtle hero scroll and reveal motion
 - `scroll-reveal.js` - soft section and card reveal behavior
 - `sun-flare.js` - subtle hero sun flare effect
-- `thank-you.html` - Netlify form success page
+- `thank-you/index.html` - canonical Netlify form success page
 - `assets/` - GVG logo and homepage hero image
+
+Exploratory image-generation output in `assets/generated-options/` is intentionally ignored. Copy only approved, web-optimized images into a tracked production asset folder before using them on the public site.
 
 ## Preview
 

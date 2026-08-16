@@ -301,7 +301,7 @@ Implemented layout values:
 
 ```css
 section inner width: min(1180px, calc(100% - 40px));
-hero content width: min(980px, calc(100% - 40px));
+hero content width: min(1180px, calc(100% - 40px));
 section heading max width: 760px;
 main section padding: clamp(76px, 9vw, 130px) 0;
 intro section padding: clamp(72px, 9vw, 130px) 0;
@@ -313,7 +313,7 @@ Implemented type values:
 
 ```css
 hero h1: clamp(54px, 8vw, 124px), line-height 0.91;
-mobile hero h1: clamp(48px, 15vw, 68px);
+mobile hero h1: clamp(36px, 9.8vw, 47px), with smaller narrow-screen overrides;
 section h2: clamp(42px, 5.4vw, 76px), line-height 0.98;
 body section copy: clamp(17px, 1.55vw, 21px), line-height 1.7;
 large note copy: clamp(18px, 1.7vw, 23px), line-height 1.65;
@@ -467,6 +467,9 @@ Current motion layers:
 
 - CSS fallback glow on `.sun-flare-fallback`.
 - WebGL shader in `sun-flare.js`.
+- Slow hero-image drift and subtle shade movement.
+- Supporting hero-copy and CTA entrance reveals.
+- Intersection Observer section and card reveals from `scroll-reveal.js`.
 - Button hover lift using `translateY(-1px)`.
 - Header/nav hover color transition.
 
@@ -487,6 +490,8 @@ Current WebGL behavior:
 Rules:
 
 - Keep motion slow and subtle.
+- Keep the hero `h1` immediately visible; it is the Largest Contentful Paint candidate and must not wait for an opacity animation.
+- Apply entrance reveals to supporting hero content instead of delaying the primary headline.
 - Keep the flare behind all readable content.
 - Preserve the CSS fallback so the hero still has warmth if WebGL is unavailable.
 - Do not add large animated UI, scroll tricks, or decorative motion that changes the tone.

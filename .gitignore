@@ -5,7 +5,12 @@ node_modules/
 .env
 .env.*
 .herenow/
+.gstack/
 publish/
 
 # Local Netlify folder
 .netlify
+
+# Exploratory image-generation output is reviewed locally before selected
+# production assets are copied into the tracked assets directory.
+assets/generated-options/
