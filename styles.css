@@ -2927,18 +2927,7 @@ body.nav-open .analytics-consent {
   }
 
   .hero-proof {
-    width: min(100%, 304px);
-    gap: 6px;
-    margin: 18px auto 0;
-    animation-name: hero-content-reveal-mobile;
-    animation-duration: 560ms;
-    animation-delay: 80ms;
-  }
-
-  .hero-proof span {
-    min-height: 30px;
-    padding: 7px 9px;
-    font-size: 12px;
+    display: none;
   }
 
   .hero .hero-reassurance {
@@ -2955,6 +2944,17 @@ body.nav-open .analytics-consent {
     min-height: 54px;
     margin-inline: auto;
     padding-inline: 18px;
+  }
+
+  .hero-actions .button-secondary {
+    width: max-content;
+    min-height: 44px;
+    padding: 8px 6px;
+    border: 0;
+    background: transparent;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.42);
+    text-underline-offset: 6px;
   }
 
   .thank-you-next {
@@ -2989,7 +2989,7 @@ body.nav-open .analytics-consent {
   }
 
   .trust-strip {
-    grid-template-columns: 1fr 1fr;
+    display: none;
   }
 
   .trust-strip span {

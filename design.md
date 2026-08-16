@@ -108,9 +108,9 @@ Local Care
    - Fixed transparent header over image
    - Centered editorial serif headline
    - Two CTAs
-   - Immediate proof points under the value statement
+   - Immediate proof points under the value statement on tablet and desktop
    - Short reassurance that families can begin without every detail ready
-   - Bottom trust strip
+   - Bottom trust strip on tablet and desktop
 
 2. First Decisions
    - Acknowledge that early memorial decisions can feel hard to sort through
@@ -544,7 +544,7 @@ Avoid weak labels such as:
 
 ### Trust Strip
 
-The trust strip anchors the hero and should remain simple. It is not a feature grid. It should communicate the service categories in one glance.
+The trust strip anchors the hero on tablet and desktop and should remain simple. It is not a feature grid. It should communicate the service categories in one glance. Hide it on phone layouts, where the same service context appears later in the page and the hero needs a quieter first screen.
 
 ## Copywriting Rules
 
@@ -628,7 +628,8 @@ Current implemented mobile conventions:
 
 - Header switches from three columns to logo plus phone CTA at `920px`.
 - Desktop nav is hidden at `920px`.
-- Hero trust strip becomes two columns at `920px`.
+- Hero trust strip becomes two columns at `920px` and is hidden at `620px`.
+- Hero proof badges are hidden at `620px`; the primary CTA remains boxed while the phone action becomes a simple text link.
 - Major layout grids stack to one column at `920px`.
 - Credibility and memorial option grids reduce to two columns at `920px`.
 - At `620px`, the logo becomes `66px` wide and the phone CTA becomes smaller.
