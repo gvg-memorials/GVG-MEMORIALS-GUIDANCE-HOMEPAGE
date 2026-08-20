@@ -473,13 +473,7 @@ body.nav-open {
 }
 
 .hero h1 {
-  display: grid;
-  grid-template-areas:
-    "remember one"
-    "love forever";
-  grid-template-columns: max-content max-content;
-  justify-content: center;
-  column-gap: 0.08em;
+  width: 100%;
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(54px, 8vw, 124px);
@@ -489,25 +483,12 @@ body.nav-open {
   text-shadow: 0 20px 60px var(--shadow);
 }
 
-.hero-title-part {
+.hero-title-line {
   display: block;
 }
 
-.hero-title-remember {
-  grid-area: remember;
-}
-
-.hero-title-one {
-  grid-area: one;
-}
-
-.hero-title-love {
-  grid-area: love;
-  justify-self: end;
-}
-
-.hero-title-forever {
-  grid-area: forever;
+.hero-title-mobile {
+  display: none;
 }
 
 .hero p {
@@ -2894,12 +2875,16 @@ body.nav-open .analytics-consent {
   }
 
   .hero h1 {
-    grid-template-areas:
-      "remember remember"
-      "one love"
-      "forever forever";
     font-size: clamp(36px, 9.8vw, 47px);
     line-height: 0.99;
+  }
+
+  .hero-title-desktop {
+    display: none;
+  }
+
+  .hero-title-mobile {
+    display: block;
   }
 
   .hero p {
@@ -3556,11 +3541,16 @@ body.nav-open .analytics-consent {
   }
 
   .hero h1 {
-    grid-template-areas:
-      "remember one"
-      "love forever";
     font-size: 50px;
     line-height: 0.94;
+  }
+
+  .hero-title-desktop {
+    display: block;
+  }
+
+  .hero-title-mobile {
+    display: none;
   }
 
   .hero p {

@@ -269,6 +269,7 @@ Rules:
 - Do not use negative letter spacing
 - Do not scale font size directly with viewport width outside existing `clamp()` rules
 - Keep hero headline large and editorial
+- Keep the hero headline as contiguous line text: two explicit lines on tablet/desktop (`Remember The One` / `You Love. Forever.`) and three shorter lines on phones (`Remember The` / `One You Love.` / `Forever.`). Do not rebuild it with shared grid columns because unequal phrase widths create detached-looking words.
 - Use the quieter card-title weight for repeated supporting titles so cards do not feel randomly bold
 - Keep body copy plain, readable, and direct
 
