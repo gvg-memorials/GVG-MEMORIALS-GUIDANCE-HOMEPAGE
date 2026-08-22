@@ -109,12 +109,12 @@ Local Care
    - Centered editorial serif headline
    - Two CTAs
    - Immediate proof points under the value statement on tablet and desktop
-   - Short reassurance that families can begin without every detail ready
    - Bottom trust strip on tablet and desktop
 
 2. First Decisions
    - Acknowledge that early memorial decisions can feel hard to sort through
    - Explain that GVG helps with cemetery requirements, memorial styles, wording, proofs, and manageable pacing
+   - Keep the supporting paragraph directly beneath the heading and the guidance checklist in the adjacent column
 
 3. Credibility Strip
    - Family-Owned
@@ -128,34 +128,31 @@ Local Care
    - Bronze Memorials
    - Benches & Custom Designs
 
-5. Process
+5. Recent Work
+   - Real completed memorial photography
+   - Engraving and stonework details with restrained captions
+
+6. Process
    - Listen
    - Design
    - Coordinate
    - Craft
+   - A short note beneath the steps confirms proof approval, name/date checks, and cemetery requirements
+   - One text CTA: Ask about your cemetery
 
-6. Before Production
-   - Detail checks before stonework begins
-   - Careful name/date review
-   - Updates without pressure
-   - Durable stonework
-
-7. Local Support
-   - Oxnard, Ventura County, Conejo Mountain, and nearby cemetery-aware support
-
-8. Before You Visit
+7. Before You Visit
+   - Reassure families that paperwork, photos, notes, questions, or incomplete information are enough to begin
    - What cemetery information helps
    - Which memorial style the family is considering
    - Names, wording, and artwork to review
-   - What families already have, with permission to begin even if details are missing
 
-9. Common Questions
+8. Common Questions
    - Whether families need to know the memorial style before reaching out
    - What memorial options can be reviewed together
    - Whether GVG can help with cemetery requirements
    - What affects headstone or marker timing
 
-10. Contact
+9. Contact
     - Common starting points for cemetery requirements, memorial style options, and wording/artwork review
     - Call
     - Email
@@ -163,7 +160,7 @@ Local Care
     - Optional starting-point selector in the form
     - Netlify contact form for families who prefer to begin in writing
 
-11. Mobile Conversion Support
+10. Mobile Conversion Support
     - Sticky bottom contact bar with direct call and message actions
     - Visible only on small screens
 
@@ -296,27 +293,45 @@ Core tokens currently defined in `:root`:
 --weight-ui: 400;
 --weight-label: 400;
 --weight-support: var(--weight-body);
+--section-space-desktop: 96px;
+--section-space-tablet: 72px;
+--section-space-mobile: 56px;
+--section-gutter-desktop: 56px;
+--section-gutter-tablet: 32px;
+--section-gutter-mobile: 24px;
+--eyebrow-size: 12.5px;
+--eyebrow-weight: 500;
+--eyebrow-tracking: 0.14em;
+--section-title-desktop: 46px;
+--section-title-tablet: 40px;
+--section-title-mobile: 32px;
+--section-title-leading: 1.1;
+--section-header-label-gap: 16px;
+--section-header-lede-gap: 20px;
+--section-lede-size: 17px;
 ```
 
 Implemented layout values:
 
 ```css
-section inner width: min(1180px, calc(100% - 40px));
+section inner max width: 1180px;
+desktop horizontal gutter: 56px per side;
+tablet horizontal gutter: 32px per side;
+mobile horizontal gutter: 24px per side;
 hero content width: min(1180px, calc(100% - 40px));
 section heading max width: 760px;
-main section padding: clamp(76px, 9vw, 130px) 0;
-intro section padding: clamp(72px, 9vw, 130px) 0;
+primary section padding: 96px desktop, 72px tablet, 56px mobile;
 major grid gap: clamp(42px, 7vw, 96px);
-gallery copy padding: clamp(42px, 6vw, 96px);
 ```
 
 Implemented type values:
 
 ```css
-hero h1: clamp(54px, 8vw, 124px), line-height 0.91;
-mobile hero h1: clamp(36px, 9.8vw, 47px), with smaller narrow-screen overrides;
-section h2: clamp(42px, 5.4vw, 76px), line-height 0.98;
-body section copy: clamp(17px, 1.55vw, 21px), line-height 1.7;
+hero h1: 68px desktop, 56px tablet, 40px mobile, with short-height landscape exceptions;
+section h2: 46px desktop, 40px tablet, 32px mobile, line-height 1.1;
+section eyebrow: 12.5px Inter, weight 500, 0.14em tracking, uppercase;
+optional section lede: 17px Inter with a 20px heading gap;
+body section copy: 17px, line-height 1.62 to 1.7;
 large note copy: clamp(18px, 1.7vw, 23px), line-height 1.65;
 small UI labels: 11px to 12px, uppercase, Inter, medium weight;
 supporting card titles: Cormorant Garamond, regular weight;
@@ -424,14 +439,14 @@ Documented primitive names for future reference:
 - `SectionLabel`: uppercase brass label.
 - `EditorialGrid`: two-column content grid.
 - `BorderGrid`: repeated grid with 1px dividers.
-- `ProofPillRow`: small uppercase guidance/trust pills.
+- `GuidanceChecklist`: three plain check-mark items for design guidance, layout proofs, and cemetery coordination.
 - `CredibilityGrid`: four trust-signal cells.
 - `MemorialOptionsGrid`: four memorial option cells.
 - `ProcessSteps`: ordered guidance steps.
-- `ReassuranceNotesGrid`: family reassurance notes.
+- `ProcessSafeguardNote`: proof, name/date, and cemetery checks attached directly beneath the process steps.
 - `ResourceList`: stacked resource rows.
 - `FAQList`: visible objection-handling questions aligned with FAQ JSON-LD.
-- `GallerySplitBand`: image and local-support copy split section.
+- `CompletedMemorialGallery`: responsive grid of real completed memorial photography with accessible detail viewer.
 - `ContactPanel`: final contact section with CTAs and address.
 - `ContactForm`: low-pressure message form with explicit required field labels,
   privacy copy, and Netlify submission handling.
@@ -571,8 +586,9 @@ Each section should do one job:
 - Guidance: reduce overwhelm
 - Credibility: answer "can I trust you?"
 - Memorials: show what GVG makes
+- Recent Work: show real craftsmanship without restating the hero
 - Process: reduce uncertainty
-- Family Reassurance: show careful handling without repeating process or cemetery details
+- Process Safeguard Note: confirm proof and cemetery checks without creating another section
 - Before You Visit: give a practical first-visit checklist
 - FAQ: answer pre-call objections without repeating the planning checklist
 - Contact: make reaching out feel low pressure
@@ -611,8 +627,19 @@ If this page becomes the live site, add/maintain:
 
 Breakpoints currently target:
 
-- `max-width: 920px`
-- `max-width: 620px`
+- Desktop: `921px` and above
+- Tablet: `621px` to `920px`
+- Mobile: `620px` and below
+
+Primary responsive rhythm:
+
+```text
+Desktop: H1 68px, H2 46px, 96px section padding, 56px gutters
+Tablet: H1 56px, H2 40px, 72px section padding, 32px gutters
+Mobile: H1 40px, H2 32px, 56px section padding, 24px gutters
+```
+
+The hero, credibility strip, process safeguard note, gallery cards, form internals, consent banner, and footer use purpose-specific spacing rather than the primary-section token.
 
 Mobile behavior:
 
@@ -623,7 +650,7 @@ Mobile behavior:
 - Collapse trust and credibility grids
 - Keep text from overlapping image subjects
 
-The mobile hero can remain left-aligned because it feels more editorial and prevents centered text from colliding with the monument.
+The mobile hero remains centered with three explicit headline lines so the composition stays balanced without colliding with the monument.
 
 Current implemented mobile conventions:
 
@@ -635,11 +662,11 @@ Current implemented mobile conventions:
 - Credibility and memorial option grids reduce to two columns at `920px`.
 - At `620px`, the logo becomes `66px` wide and the phone CTA becomes smaller.
 - At `620px`, the hero uses `min-height: max(100svh, 860px)` and starts content from the top with controlled padding.
-- At `620px`, hero content is left-aligned, CTAs are full-width, and the hero image shifts to `object-position: 64% center`.
-- At `620px`, credibility and reassurance grids stack to one column.
+- At `620px`, hero content remains centered, CTAs stack, and the hero image shifts to `object-position: 64% center`.
+- At `620px`, the credibility grid remains a compact two-column trust band.
 - At `620px`, memorial options stack to one column.
 - At `620px`, process steps become one-column rows.
-- At `620px`, gallery image minimum height becomes `430px`.
+- At `620px`, completed memorial cards stack to one column with captions below each image.
 
 ### Known Drift Between This Document And Implementation
 
@@ -648,7 +675,7 @@ This document is now aligned with the current implementation, with the following
 - Some colors documented as tokens are underused in CSS: `--limestone`, `--sand`, and `--olive`.
 - Many repeated hard-coded colors, borders, and text opacity values are not yet formal tokens.
 - The current CSS has strong implicit primitives, but it is not yet grouped with component comments.
-- HTML uses query-string cache busting for changed front-end assets, such as `styles.css?v=75`; keep those versions current when assets change.
+- HTML uses query-string cache busting for changed front-end assets; keep those versions current when assets change.
 - `design.md` is lowercase. Keep this file unless the repo later adopts uppercase `DESIGN.md` as convention.
 
 ## Asset Policy

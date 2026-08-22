@@ -1,9 +1,7 @@
 (function () {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const selectors = [
-    ".intro .section-label",
-    ".intro h2",
-    ".intro-copy p",
+    ".intro .section-heading > *",
     ".proof-row span",
     ".credibility article",
     ".memorials .section-heading > *",
@@ -12,11 +10,7 @@
     ".completed-card",
     ".process .section-heading > *",
     ".steps li",
-    ".breathing-content > *",
-    ".families-grid > div",
-    ".families-notes span",
-    ".gallery-image",
-    ".gallery-copy > *",
+    ".process-note > *",
     ".resources .section-heading > *",
     ".resource-list article",
     ".contact-panel > div",
@@ -28,7 +22,7 @@
   if (!elements.length) return;
 
   elements.forEach((element, index) => {
-    element.setAttribute("data-reveal", element.classList.contains("gallery-image") ? "image" : "soft");
+    element.setAttribute("data-reveal", "soft");
     element.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 70}ms`);
   });
 
