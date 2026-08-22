@@ -33,11 +33,8 @@
   });
 
   if (reducedMotion || !("IntersectionObserver" in window)) {
-    elements.forEach((element) => element.classList.add("is-visible"));
     return;
   }
-
-  document.body.classList.add("reveal-ready");
 
   const revealAnchorTarget = () => {
     if (!window.location.hash) return;
@@ -67,21 +64,39 @@
     window.setTimeout(revealAnchorTarget, 240);
   };
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    {
-      rootMargin: "0px 0px -12% 0px",
-      threshold: 0.12,
-    },
-  );
+  let observer;
+  let observerResponded = false;
+  let observerWatchdog;
+  try {
+    observer = new IntersectionObserver(
+      (entries) => {
+        observerResponded = true;
+        window.clearTimeout(observerWatchdog);
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        rootMargin: "0px 0px -12% 0px",
+        threshold: 0.12,
+      },
+    );
 
-  elements.forEach((element) => observer.observe(element));
+    document.documentElement.classList.add("js-reveal");
+    elements.forEach((element) => observer.observe(element));
+    observerWatchdog = window.setTimeout(() => {
+      if (observerResponded) return;
+      document.documentElement.classList.remove("js-reveal");
+      observer.disconnect();
+    }, 1500);
+  } catch (_) {
+    document.documentElement.classList.remove("js-reveal");
+    if (observer) observer.disconnect();
+    return;
+  }
+
   scheduleAnchorReveal();
   window.addEventListener("hashchange", scheduleAnchorReveal);
   window.addEventListener("gvg:anchor-navigate", scheduleAnchorReveal);
