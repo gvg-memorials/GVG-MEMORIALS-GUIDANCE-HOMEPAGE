@@ -534,8 +534,10 @@ Desktop:
 
 Mobile:
 
-- Hide nav
-- Keep logo and phone CTA visible
+- Hide the desktop navigation
+- Keep the logo centered in the viewport
+- Place the hamburger control on the left
+- Keep the phone CTA on the right at tablet widths and hide it on narrow phones
 
 ### Buttons
 
@@ -654,13 +656,13 @@ The mobile hero remains centered with three explicit headline lines so the compo
 
 Current implemented mobile conventions:
 
-- Header switches from three columns to logo plus phone CTA at `920px`.
-- Desktop nav is hidden at `920px`.
+- At `920px`, the desktop navigation is replaced by a left-aligned hamburger control while the logo remains centered.
+- The phone CTA stays right-aligned from `621px` to `920px` and is hidden at `620px`.
 - Hero trust strip becomes two columns at `920px` and is hidden at `620px`.
 - Hero proof badges are hidden at `620px`; the primary CTA remains boxed while the phone action becomes a simple text link.
 - Major layout grids stack to one column at `920px`.
 - Credibility and memorial option grids reduce to two columns at `920px`.
-- At `620px`, the logo becomes `66px` wide and the phone CTA becomes smaller.
+- At `620px`, the logo remains centered, the hamburger remains left-aligned, and the phone CTA is hidden.
 - At `620px`, the hero uses `min-height: max(100svh, 860px)` and starts content from the top with controlled padding.
 - At `620px`, hero content remains centered, CTAs stack, and the hero image shifts to `object-position: 64% center`.
 - At `620px`, the credibility grid remains a compact two-column trust band.
