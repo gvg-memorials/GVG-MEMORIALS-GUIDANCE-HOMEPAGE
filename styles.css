@@ -2027,3 +2027,7 @@ dd {
     margin-inline: auto;
   }
 }
+/* tall close-up: keep the doves in frame on wide screens */
+.slide--detail img {
+  object-position: center 42%;
+}
