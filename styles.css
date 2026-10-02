@@ -1994,3 +1994,36 @@ dd {
     object-position: center 30%;
   }
 }
+
+/* --- centred section openers, to match the centred header and cover ----------- */
+
+.chapter {
+  justify-content: center;
+}
+.chapter::before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--hair);
+  transform: translateY(-5px);
+}
+.steps .section-title {
+  max-width: none;
+  text-align: center;
+}
+.split-head {
+  grid-template-columns: 1fr !important;
+  justify-items: center;
+  gap: 10px !important;
+  text-align: center;
+}
+.split-note {
+  justify-self: center !important;
+  text-align: center !important;
+}
+@media (min-width: 900px) {
+  .step {
+    max-width: 1040px;
+    margin-inline: auto;
+  }
+}
