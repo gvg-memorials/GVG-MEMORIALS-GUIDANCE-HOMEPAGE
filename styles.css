@@ -1943,3 +1943,15 @@ dd {
     justify-content: center;
   }
 }
+
+/* --- intro without a headline: the drop-cap paragraph stands alone, centred --- */
+
+@media (min-width: 900px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+.intro-body {
+  margin-inline: auto;
+}
