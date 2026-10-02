@@ -67,7 +67,7 @@
     <link rel="preload" href="assets/fonts/cormorant-garamond-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/EBGaramond-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" as="image" href="assets/folder/gvg-stained-glass-480.webp" type="image/webp" fetchpriority="high" />
-    <link rel="stylesheet" href="styles.css?v=202" />
+    <link rel="stylesheet" href="styles.css?v=300" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -142,6 +142,7 @@
       </a>
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="#steps">How It Works</a>
+        <a href="#granite">Granite</a>
         <a href="#gallery">Our Work</a>
         <a href="#family">Our Family</a>
         <a href="#questions">Questions</a>
@@ -171,53 +172,62 @@
 
     <main id="main-content" tabindex="-1">
       <section class="hero" aria-labelledby="hero-title">
-        <img
-          class="hero-mark"
-          src="assets/folder/gvg-stained-glass-480.webp"
-          width="480"
-          height="480"
-          alt="GVG Memorials"
-          fetchpriority="high"
-          decoding="async"
-        />
-        <h1 id="hero-title">Remember the one you love. <span>Forever.</span></h1>
-        <p class="hero-sub">We'll walk with you through every choice, at a pace that feels right for your family.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="tel:+18058893769">Call (805) 889-3769</a>
-          <a class="button button-outline" href="#contact-form">Ask us a question</a>
-        </div>
-        <p class="hero-proof">
+        <div class="masthead">
+          <span>Headstones &amp; Grave Markers</span>
+          <span>Oxnard, California</span>
           <span>Family owned since 1998</span>
-          <span>Oxnard, serving Ventura County</span>
-          <span lang="es">También atendemos en español</span>
-        </p>
+        </div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1 id="hero-title">Remember the one you love. <em>Forever.</em></h1>
+            <p class="hero-sub">We'll walk with you through every choice, at a pace that feels right for your family.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="tel:+18058893769">Call (805) 889-3769</a>
+              <a class="button button-outline" href="#contact-form">Ask us a question</a>
+            </div>
+            <p class="hero-es" lang="es">También atendemos en español.</p>
+          </div>
+          <img
+            class="hero-mark"
+            src="assets/folder/gvg-stained-glass-480.webp"
+            width="480"
+            height="480"
+            alt="GVG Memorials"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
       </section>
 
       <section class="intro" aria-labelledby="intro-title">
-        <div class="section-inner narrow">
-          <p class="kicker">A first word</p>
+        <div class="section-inner intro-grid">
           <h2 id="intro-title">You don't have to know where to start.</h2>
-          <p class="lede">
-            Whether you've lost a parent, a spouse, or a child, we'll guide you through every choice. A name and a
-            cemetery are all we need to begin. We'll check what your cemetery requires and help you get every detail
-            right.
-          </p>
+          <div class="intro-body">
+            <p class="dropcap">
+              Whether you've lost a parent, a spouse, or a child, we'll guide you through every choice. A name and a
+              cemetery are all we need to begin.
+            </p>
+            <p>
+              We'll check what your cemetery requires, show you real stone, and help you get every name, date, and
+              detail right before anything is engraved.
+            </p>
+          </div>
         </div>
       </section>
 
       <section id="steps" class="steps" aria-labelledby="steps-title">
         <div class="section-inner">
-          <header class="section-head">
-            <p class="kicker">How it works</p>
-            <h2 id="steps-title">Five steps, one at a time</h2>
-          </header>
+          <p class="chapter"><span class="chapter-no">I</span><span class="chapter-name">How it works</span></p>
+          <h2 id="steps-title" class="section-title">Five steps, one at a time</h2>
 
           <article class="step">
             <span class="step-num" aria-hidden="true">1</span>
-            <div class="step-text">
+            <header class="step-head">
               <p class="kicker">Step one</p>
               <h3>Tell us where they rest</h3>
               <p class="step-lede">Every choice that follows depends on the cemetery.</p>
+            </header>
+            <div class="step-body">
               <p>
                 Every cemetery has its own requirements: the type of memorial, the size, the material, and whether
                 vases, portraits, or emblems are permitted. Share the cemetery name, and section and lot if you have
@@ -234,19 +244,19 @@
 
           <article class="step">
             <span class="step-num" aria-hidden="true">2</span>
-            <div class="step-text">
+            <header class="step-head">
               <p class="kicker">Step two</p>
               <h3>Choose the memorial</h3>
               <p class="step-lede">Within what the cemetery allows, the choice is yours.</p>
-              <p>
-                There are four types. We'll show you which ones your cemetery allows and the sizes that fit.
-              </p>
-              <ul class="lines">
-                <li><strong>Flat granite</strong> sits level with the lawn.</li>
-                <li><strong>Flat bronze</strong> is a cast bronze plate on a granite base.</li>
-                <li><strong>Slant</strong> stands a few inches tall, angled to be read standing.</li>
-                <li><strong>Upright</strong> is a headstone on its own base, where the cemetery permits one.</li>
-              </ul>
+            </header>
+            <div class="step-body">
+              <p>There are four types. We'll show you which ones your cemetery allows and the sizes that fit.</p>
+              <dl class="types">
+                <div><dt>Flat granite</dt><dd>Sits level with the lawn.</dd></div>
+                <div><dt>Flat bronze</dt><dd>A cast bronze plate on a granite base.</dd></div>
+                <div><dt>Slant</dt><dd>Stands a few inches tall, angled to be read standing.</dd></div>
+                <div><dt>Upright</dt><dd>A headstone on its own base, where the cemetery permits one.</dd></div>
+              </dl>
               <p>
                 Most memorials honor one person. If a spouse or partner will one day rest beside them, you can choose
                 a companion memorial instead, with their side left open for later.
@@ -256,22 +266,70 @@
 
           <article class="step">
             <span class="step-num" aria-hidden="true">3</span>
-            <div class="step-text">
+            <header class="step-head">
               <p class="kicker">Step three</p>
               <h3>Choose the stone and design</h3>
               <p class="step-lede">A name, two dates, and one image that says who they were.</p>
+            </header>
+            <div class="step-body">
               <p>
                 We have eighteen granite colors, and you can see and touch real samples at our shop. Our album holds
                 286 designs, and if what you picture isn't there, we'll draw it. Ceramic portraits and bronze emblems
                 are available where your cemetery permits them.
               </p>
+              <a class="text-link" href="#granite">See the granite and designs</a>
             </div>
           </article>
 
-          <div class="granite" aria-labelledby="granite-title">
-            <p class="kicker center">The collection</p>
-            <h3 id="granite-title" class="center">Eighteen granite colors</h3>
-            <ul class="swatches">
+          <article class="step">
+            <span class="step-num" aria-hidden="true">4</span>
+            <header class="step-head">
+              <p class="kicker">Step four</p>
+              <h3>Receive your free written quote</h3>
+              <p class="step-lede">Every item listed, before you move forward.</p>
+            </header>
+            <div class="step-body">
+              <p>
+                Every item is clearly listed in writing before you move forward, so you know what to expect. The quote
+                is free, with no obligation.
+              </p>
+              <a
+                class="text-link"
+                href="#contact-form"
+                data-guidance-starting-point="A free written quote"
+                data-guidance-item="A free written quote"
+              >Request a free written quote</a>
+            </div>
+          </article>
+
+          <article class="step">
+            <span class="step-num" aria-hidden="true">5</span>
+            <header class="step-head">
+              <p class="kicker">Step five</p>
+              <h3>Approve your proof</h3>
+              <p class="step-lede">Engraving begins after you approve and sign.</p>
+            </header>
+            <div class="step-body">
+              <p>
+                We draw the full layout to scale and send it to you. Review every name, date, and detail, ideally
+                against a document. Engraving begins after you approve and sign the proof.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="granite" class="granite" aria-labelledby="granite-title">
+        <div class="section-inner">
+          <p class="chapter"><span class="chapter-no">II</span><span class="chapter-name">The collection</span></p>
+          <div class="split-head">
+            <h2 id="granite-title" class="section-title">Eighteen granite colors</h2>
+            <p class="split-note">
+              Photographs of the actual stone. Every stone is natural, so ask to see a sample at our shop before you
+              decide.
+            </p>
+          </div>
+          <ul class="swatches">
               <li class="swatch"><img src="assets/folder/granite/01_Black_Granite.webp" width="220" height="220" loading="lazy" decoding="async" alt="" /><span>Black</span></li>
               <li class="swatch"><img src="assets/folder/granite/11_Oxford_Gray_Granite.webp" width="220" height="220" loading="lazy" decoding="async" alt="" /><span>Oxford Gray</span></li>
               <li class="swatch"><img src="assets/folder/granite/02_Blue_Pearl_Granite.webp" width="220" height="220" loading="lazy" decoding="async" alt="" /><span>Blue Pearl</span></li>
@@ -290,125 +348,87 @@
               <li class="swatch"><img src="assets/folder/granite/16_Southern_White_Granite.webp" width="220" height="220" loading="lazy" decoding="async" alt="" /><span>Southern White</span></li>
               <li class="swatch"><img src="assets/folder/granite/17_Tan_Brown_Granite.webp" width="220" height="220" loading="lazy" decoding="async" alt="" /><span>Tan Brown</span></li>
               <li class="swatch"><img src="assets/folder/granite/18_Tropical_Green_Granite.webp" width="220" height="220" loading="lazy" decoding="async" alt="" /><span>Tropical Green</span></li>
-            </ul>
-            <p class="note center">Photographs of the actual stone. Every stone is natural, so ask to see a sample before you decide.</p>
+          </ul>
 
-            <p class="kicker center art-kick">A few from our album</p>
-            <ul class="plates">
-              <li><img src="assets/folder/art/sunflower_GVG-FL-001.webp" width="640" height="369" loading="lazy" decoding="async" alt="Sample marker design with a sunflower" /><span>Sunflower</span></li>
-              <li><img src="assets/folder/art/guadalupe_GVG-FA-300.webp" width="640" height="369" loading="lazy" decoding="async" alt="Sample marker design with Our Lady of Guadalupe" /><span>Guadalupe</span></li>
-              <li><img src="assets/folder/art/guitar_GVG-HB-271.webp" width="640" height="369" loading="lazy" decoding="async" alt="Sample marker design with a guitar and music notes" /><span>Guitar and music</span></li>
-              <li><img src="assets/folder/art/rose_GVG-FL-059.webp" width="640" height="369" loading="lazy" decoding="async" alt="Sample marker design with a rose" /><span>Roses</span></li>
-              <li><img src="assets/folder/art/lighthouse_GVG-SC-275.webp" width="640" height="369" loading="lazy" decoding="async" alt="Sample marker design with a lighthouse" /><span>Lighthouse</span></li>
-              <li><img src="assets/folder/art/eagle_flag_GVG-PR-131.webp" width="640" height="369" loading="lazy" decoding="async" alt="Sample marker design with an eagle and flag" /><span>Eagle and flag</span></li>
-            </ul>
+          <div class="split-head album-head">
+            <h3>A few from our album</h3>
+            <p class="split-note">286 designs, arranged by subject. If it isn't there, we'll draw it.</p>
           </div>
-
-          <article class="step">
-            <span class="step-num" aria-hidden="true">4</span>
-            <div class="step-text">
-              <p class="kicker">Step four</p>
-              <h3>Receive your free written quote</h3>
-              <p class="step-lede">Every item listed, before you move forward.</p>
-              <p>
-                Every item is clearly listed in writing before you move forward, so you know what to expect. The quote
-                is free, with no obligation.
-              </p>
-              <a
-                class="text-link"
-                href="#contact-form"
-                data-guidance-starting-point="A free written quote"
-                data-guidance-item="A free written quote"
-              >Request a free written quote</a>
-            </div>
-          </article>
-
-          <article class="step">
-            <span class="step-num" aria-hidden="true">5</span>
-            <div class="step-text">
-              <p class="kicker">Step five</p>
-              <h3>Approve your proof</h3>
-              <p class="step-lede">Engraving begins after you approve and sign.</p>
-              <p>
-                We draw the full layout to scale and send it to you. Review every name, date, and detail, ideally
-                against a document. Engraving begins after you approve and sign the proof.
-              </p>
-            </div>
-          </article>
+          <ul class="plates">
+            <li><img src="assets/folder/art/sunflower_GVG-FL-001.webp" width="640" height="369" loading="lazy" decoding="async" alt="Sample marker design with a sunflower" /><span>Sunflower</span></li>
+            <li><img src="assets/folder/art/guadalupe_GVG-FA-300.webp" width="640" height="369" loading="lazy" decoding="async" alt="Sample marker design with Our Lady of Guadalupe" /><span>Guadalupe</span></li>
+            <li><img src="assets/folder/art/guitar_GVG-HB-271.webp" width="640" height="369" loading="lazy" decoding="async" alt="Sample marker design with a guitar and music notes" /><span>Guitar and music</span></li>
+            <li><img src="assets/folder/art/rose_GVG-FL-059.webp" width="640" height="369" loading="lazy" decoding="async" alt="Sample marker design with a rose" /><span>Roses</span></li>
+            <li><img src="assets/folder/art/lighthouse_GVG-SC-275.webp" width="640" height="369" loading="lazy" decoding="async" alt="Sample marker design with a lighthouse" /><span>Lighthouse</span></li>
+            <li><img src="assets/folder/art/eagle_flag_GVG-PR-131.webp" width="640" height="369" loading="lazy" decoding="async" alt="Sample marker design with an eagle and flag" /><span>Eagle and flag</span></li>
+          </ul>
         </div>
       </section>
 
       <section id="after" class="after" aria-labelledby="after-title">
-        <div class="section-inner two-up">
-          <div class="box">
-            <h2 id="after-title" class="box-title">From proof to placement</h2>
-            <p>
-              We send the approved layout to your cemetery for its records and required review. When the memorial is
-              finished, it is installed according to your cemetery's requirements. Most cemeteries set the memorial
-              themselves. At Conejo Mountain Memorial Park, we install it ourselves. Either way, we'll tell you what to
-              expect at your cemetery.
-            </p>
-          </div>
-          <div class="box">
-            <h2 class="box-title">How long does it take?</h2>
-            <p>
-              It depends on the cemetery's review, the stone you choose, and the artwork. Once we know your cemetery
-              and your choices, we'll give you a clear timeline.
-            </p>
+        <div class="section-inner">
+          <p class="chapter"><span class="chapter-no">III</span><span class="chapter-name">After you approve</span></p>
+          <div class="after-grid">
+            <article>
+              <h2 id="after-title" class="section-title">From proof to placement</h2>
+              <p>
+                We send the approved layout to your cemetery for its records and required review. When the memorial is
+                finished, it is installed according to your cemetery's requirements. Most cemeteries set the memorial
+                themselves. At Conejo Mountain Memorial Park, we install it ourselves. Either way, we'll tell you what
+                to expect at your cemetery.
+              </p>
+            </article>
+            <article>
+              <h2 class="section-title">How long does it take?</h2>
+              <p>
+                It depends on the cemetery's review, the stone you choose, and the artwork. Once we know your cemetery
+                and your choices, we'll give you a clear timeline.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
       <section id="resources" class="bring" aria-labelledby="bring-title">
-        <div class="section-inner narrow">
-          <p class="kicker center">Before you visit</p>
-          <h2 id="bring-title" class="center">What to bring, if you have it</h2>
-          <p class="center lede-sm">Bring whatever you have. If something is missing, we can still begin.</p>
-          <ul class="lines">
-            <li>The cemetery name, and the section, lot, and space number</li>
-            <li>Their full name, as you'd like it engraved</li>
-            <li>Dates of birth and passing</li>
-            <li>Any words, a verse, or a nickname you'd like included</li>
-            <li>A photo of them, if you'd like a portrait or an image based on something they loved</li>
-            <li>Any paperwork from the cemetery</li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="memorials" class="makes" aria-labelledby="makes-title">
-        <div class="section-inner narrow">
-          <p class="kicker center">What we make</p>
-          <h2 id="makes-title" class="center">Made for the one you love</h2>
-          <p class="makes-list">
-            <span>Flat granite and bronze memorials</span>
-            <span>Slants</span>
-            <span>Custom uprights</span>
-            <span>Single and companion memorials</span>
-            <span>Granite benches</span>
-            <span>Final dates</span>
-            <span>Cleaning and restoration</span>
-          </p>
-          <a
-            class="memorial-existing-link"
-            href="#contact-form"
-            data-guidance-starting-point="Existing memorial or added lettering"
-            data-guidance-item="Existing Memorials and Added Lettering"
-            data-guidance-message="I have an existing memorial and need help adding a date or name, or with cleaning or restoration."
-            data-guidance-open-details="true"
-          >
-            <strong>Already have a memorial?</strong>
-            <span>If your loved one is joining someone already resting, we can add the final date or a new name. We also clean and restore older stones.</span>
-          </a>
+        <div class="section-inner">
+          <p class="chapter"><span class="chapter-no">IV</span><span class="chapter-name">Before you visit</span></p>
+          <div class="bring-grid">
+            <div>
+              <h2 id="bring-title" class="section-title">What to bring, if you have it</h2>
+              <p class="step-lede">Bring whatever you have. If something is missing, we can still begin.</p>
+            </div>
+            <ol class="numbered">
+              <li>The cemetery name, and the section, lot, and space number</li>
+              <li>Their full name, as you'd like it engraved</li>
+              <li>Dates of birth and passing</li>
+              <li>Any words, a verse, or a nickname you'd like included</li>
+              <li>A photo of them, for a portrait or an image based on something they loved</li>
+              <li>Any paperwork from the cemetery</li>
+            </ol>
+          </div>
         </div>
       </section>
 
       <section id="gallery" class="completed-gallery" aria-labelledby="completed-gallery-title">
         <div class="section-inner">
-          <header class="section-head">
-            <p class="kicker">Our work</p>
-            <h2 id="completed-gallery-title">Crafted with care</h2>
-          </header>
+          <p class="chapter"><span class="chapter-no">V</span><span class="chapter-name">Our work</span></p>
+          <div class="split-head">
+            <h2 id="completed-gallery-title" class="section-title">Crafted with care</h2>
+            <p class="split-note">A few memorials from our shop. Tap any photo to see it larger.</p>
+          </div>
           <div class="completed-gallery-grid">
+            <figure class="completed-card completed-card--portrait">
+              <a class="completed-card-trigger" href="assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp.webp" target="_blank" rel="noopener" aria-label="View larger: Puritan Rose granite with stainless steel photo">
+                <picture>
+                  <source srcset="assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp-800.webp 800w, assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp-1200.webp 1200w, assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp.webp 1706w" sizes="(max-width: 700px) calc(100vw - 32px), 50vw" type="image/webp" />
+                  <img src="assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp.jpg" width="1706" height="2560" loading="lazy" decoding="async" alt="Puritan Rose granite memorial with stainless steel photo by GVG Memorials" />
+                </picture>
+              </a>
+              <figcaption>
+                <span>Puritan Rose granite</span>
+                <strong>Puritan Rose granite with stainless steel photo</strong>
+              </figcaption>
+            </figure>
             <figure class="completed-card">
               <a class="completed-card-trigger" href="assets/completed-memorials/completed-memorial-detail-01.webp" target="_blank" rel="noopener" aria-label="View larger: Blue Pearl granite with a deep-sunk sanded panel">
                 <picture>
@@ -445,18 +465,6 @@
                 <strong>Standard sunk artwork on polished granite</strong>
               </figcaption>
             </figure>
-            <figure class="completed-card completed-card--portrait">
-              <a class="completed-card-trigger" href="assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp.webp" target="_blank" rel="noopener" aria-label="View larger: Puritan Rose granite with stainless steel photo">
-                <picture>
-                  <source srcset="assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp-800.webp 800w, assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp-1200.webp 1200w, assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp.webp 1706w" sizes="(max-width: 700px) calc(100vw - 32px), 50vw" type="image/webp" />
-                  <img src="assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp.jpg" width="1706" height="2560" loading="lazy" decoding="async" alt="Puritan Rose granite memorial with stainless steel photo by GVG Memorials" />
-                </picture>
-              </a>
-              <figcaption>
-                <span>Puritan Rose granite</span>
-                <strong>Puritan Rose granite with stainless steel photo</strong>
-              </figcaption>
-            </figure>
             <figure class="completed-card">
               <a class="completed-card-trigger" href="assets/completed-memorials/completed-memorial-oxford-grey-nature-scene-05.webp" target="_blank" rel="noopener" aria-label="View larger: Oxford Gray granite with nature scene artwork">
                 <picture>
@@ -490,113 +498,145 @@
               </figure>
             </div>
           </dialog>
+
+          <div id="memorials" class="makes">
+            <h3>What we make</h3>
+            <p class="makes-list">
+              <span>Flat granite and bronze memorials</span>
+              <span>Slants</span>
+              <span>Custom uprights</span>
+              <span>Single and companion memorials</span>
+              <span>Granite benches</span>
+              <span>Final dates</span>
+              <span>Cleaning and restoration</span>
+            </p>
+            <a
+              class="memorial-existing-link"
+              href="#contact-form"
+              data-guidance-starting-point="Existing memorial or added lettering"
+              data-guidance-item="Existing Memorials and Added Lettering"
+              data-guidance-message="I have an existing memorial and need help adding a date or name, or with cleaning or restoration."
+              data-guidance-open-details="true"
+            >
+              <strong>Already have a memorial?</strong>
+              <span>If your loved one is joining someone already resting, we can add the final date or a new name. We also clean and restore older stones.</span>
+            </a>
+          </div>
         </div>
       </section>
 
       <section id="family" class="family" aria-labelledby="family-title">
-        <div class="section-inner family-grid">
-          <div>
-            <p class="kicker">Our family</p>
-            <h2 id="family-title">Three generations, serving yours</h2>
-            <p class="step-lede">Making memorials in Ventura County since 1998.</p>
-            <dl class="eras">
-              <div><dt>1998</dt><dd>Gerardo Valle Garcia and Gerardo Garcia Jr. founded GVG Memorials in Oxnard.</dd></div>
-              <div><dt>Firsts</dt><dd>Among the first in the area to place a color photograph on a granite memorial.</dd></div>
-              <div><dt>Today</dt><dd>Jerry Garcia carries the work forward as the third generation, working with carefully selected craftsmen and designers.</dd></div>
-            </dl>
-          </div>
-          <div class="family-photos">
-            <figure>
+        <div class="section-inner">
+          <p class="chapter"><span class="chapter-no">VI</span><span class="chapter-name">Our family</span></p>
+          <div class="family-grid">
+            <figure class="family-portrait">
               <img src="assets/folder/gerardo-garcia-jr.webp" width="480" height="720" loading="lazy" decoding="async" alt="Gerardo &ldquo;Jerry&rdquo; Garcia Jr." />
+              <figcaption>Gerardo &ldquo;Jerry&rdquo; Garcia Jr., 1972&ndash;2023</figcaption>
             </figure>
-            <figure>
-              <img src="assets/folder/gerardo-garcia-jr-memorial.webp" width="960" height="542" loading="lazy" decoding="async" alt="The memorial GVG made for Gerardo G. Garcia Jr." />
-              <figcaption>Gerardo &ldquo;Jerry&rdquo; Garcia Jr., 1972&ndash;2023. His vision continues to guide us.</figcaption>
-            </figure>
+            <div class="family-text">
+              <h2 id="family-title" class="section-title">Three generations, serving yours</h2>
+              <p class="pull">&ldquo;His vision continues to guide us.&rdquo;</p>
+              <dl class="eras">
+                <div><dt>1998</dt><dd>Gerardo Valle Garcia and Gerardo Garcia Jr. founded GVG Memorials in Oxnard.</dd></div>
+                <div><dt>Firsts</dt><dd>Among the first in the area to place a color photograph on a granite memorial.</dd></div>
+                <div><dt>Today</dt><dd>Jerry Garcia carries the work forward as the third generation, working with carefully selected craftsmen and designers.</dd></div>
+              </dl>
+              <figure class="family-stone">
+                <img src="assets/folder/gerardo-garcia-jr-memorial.webp" width="960" height="542" loading="lazy" decoding="async" alt="The memorial GVG made for Gerardo G. Garcia Jr." />
+                <figcaption>The memorial we made for him.</figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="reviews" aria-labelledby="reviews-title">
-        <div class="section-inner narrow">
-          <p class="kicker center">In their words</p>
-          <h2 id="reviews-title" class="center">4.8 out of 5 from families on Google</h2>
-          <blockquote>
-            <p>&ldquo;Jerry was caring, personable, professional and encouraging throughout the entire process.&rdquo;</p>
-            <cite>Frank G.</cite>
-          </blockquote>
-          <blockquote>
-            <p>&ldquo;Jerry made the process easy and he made sure we got everything we wanted.&rdquo;</p>
-            <cite>Andrew G.</cite>
-          </blockquote>
-          <p class="center">
-            <a class="text-link" href="https://maps.google.com/?cid=9366360180697269487" data-analytics-event="reviews_click" target="_blank" rel="noopener">Read more reviews on Google</a>
-          </p>
+        <div class="section-inner">
+          <p class="chapter"><span class="chapter-no">VII</span><span class="chapter-name">In their words</span></p>
+          <div class="reviews-grid">
+            <div class="score">
+              <p class="score-num">4.8</p>
+              <h2 id="reviews-title">out of 5 from families on Google</h2>
+              <a class="text-link" href="https://maps.google.com/?cid=9366360180697269487" data-analytics-event="reviews_click" target="_blank" rel="noopener">Read the reviews</a>
+            </div>
+            <div class="quotes">
+              <blockquote>
+                <p>&ldquo;Jerry was caring, personable, professional and encouraging throughout the entire process.&rdquo;</p>
+                <cite>Frank G.</cite>
+              </blockquote>
+              <blockquote>
+                <p>&ldquo;Jerry made the process easy and he made sure we got everything we wanted.&rdquo;</p>
+                <cite>Andrew G.</cite>
+              </blockquote>
+            </div>
+          </div>
         </div>
       </section>
 
       <section id="questions" class="faq" aria-labelledby="faq-title">
-        <div class="section-inner narrow">
-          <p class="kicker center">Questions families ask</p>
-          <h2 id="faq-title" class="center">You're not the first to wonder</h2>
-          <div class="faq-list">
-            <details name="family-questions" open>
-              <summary>Do I need to decide anything before I call?</summary>
-              <p>No. A name and a cemetery are enough to begin. We'll explain the choices and what your cemetery allows.</p>
-            </details>
-            <details name="family-questions">
-              <summary>What does a memorial cost?</summary>
-              <p>It depends on the type, size, granite, artwork, and your cemetery's requirements. We give every family a free written quote with every item listed, before anything is decided.</p>
-            </details>
-            <details name="family-questions">
-              <summary>Can I see the stone before it's made?</summary>
-              <p>Yes. You'll see real granite samples at our shop and a full proof drawn to scale. Engraving begins only after you approve and sign the proof.</p>
-            </details>
-            <details name="family-questions">
-              <summary>Should we choose a single or a companion memorial?</summary>
-              <p>Most families choose a single memorial for their loved one. A companion memorial is for two people, such as a husband and wife. One side is engraved now and the other later, at our shop or at the cemetery, depending on the cemetery's requirements. Any size can be made either way.</p>
-            </details>
-            <details name="family-questions">
-              <summary>Can you add a date to a stone that's already in place?</summary>
-              <p>Yes. Send us a photo of the stone and the cemetery name, and we'll explain what's possible.</p>
-            </details>
+        <div class="section-inner">
+          <p class="chapter"><span class="chapter-no">VIII</span><span class="chapter-name">Questions</span></p>
+          <div class="faq-grid">
+            <h2 id="faq-title" class="section-title">Questions families ask</h2>
+            <div class="faq-list">
+              <details name="family-questions" open>
+                <summary>Do I need to decide anything before I call?</summary>
+                <p>No. A name and a cemetery are enough to begin. We'll explain the choices and what your cemetery allows.</p>
+              </details>
+              <details name="family-questions">
+                <summary>What does a memorial cost?</summary>
+                <p>It depends on the type, size, granite, artwork, and your cemetery's requirements. We give every family a free written quote with every item listed, before anything is decided.</p>
+              </details>
+              <details name="family-questions">
+                <summary>Can I see the stone before it's made?</summary>
+                <p>Yes. You'll see real granite samples at our shop and a full proof drawn to scale. Engraving begins only after you approve and sign the proof.</p>
+              </details>
+              <details name="family-questions">
+                <summary>Should we choose a single or a companion memorial?</summary>
+                <p>Most families choose a single memorial for their loved one. A companion memorial is for two people, such as a husband and wife. One side is engraved now and the other later, at our shop or at the cemetery, depending on the cemetery's requirements. Any size can be made either way.</p>
+              </details>
+              <details name="family-questions">
+                <summary>Can you add a date to a stone that's already in place?</summary>
+                <p>Yes. Send us a photo of the stone and the cemetery name, and we'll explain what's possible.</p>
+              </details>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="contact" class="contact" aria-labelledby="contact-title">
-        <div class="section-inner contact-grid">
-          <div class="contact-info">
-            <p class="kicker">Contact</p>
-            <h2 id="contact-title">Start whenever you're ready</h2>
-            <p class="contact-intro">
-              Tell us a little about your loved one and the cemetery, if you know it, and we'll call you back. You
-              don't need every detail.
-            </p>
-            <p class="contact-phone"><a href="tel:+18058893769">(805) 889-3769</a></p>
-            <p class="contact-line"><a href="mailto:jerry@gvgmemorials.com">jerry@gvgmemorials.com</a></p>
-            <a
-              class="contact-line contact-directions"
-              href="https://www.google.com/maps/dir/?api=1&amp;destination=GVG+Memorials%2C+623+S+A+St%2C+Oxnard%2C+CA+93030"
-              data-analytics-event="directions_click"
-              target="_blank"
-              rel="noopener"
-            >623 S A Street, Oxnard, CA 93030 <span>Get directions</span></a>
-            <dl class="hours" aria-label="Office hours">
-              <div><dt>Monday&ndash;Friday</dt><dd>10 AM&ndash;6 PM</dd></div>
-              <div><dt>Saturday</dt><dd>12&ndash;3 PM</dd></div>
-              <div><dt>Sunday</dt><dd>Closed</dd></div>
-            </dl>
-            <p class="contact-note">We can meet at our shop or at your home.</p>
-            <a
-              class="text-link"
-              href="https://book.squareup.com/appointments/buitydlrv1cqx7/location/LCP1KPEFVFPBE/services"
-              data-analytics-event="appointment_click"
-              target="_blank"
-              rel="noopener"
-            >Schedule a visit</a>
-          </div>
-
+        <div class="section-inner">
+          <p class="chapter"><span class="chapter-no">IX</span><span class="chapter-name">Contact</span></p>
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h2 id="contact-title" class="section-title">Start whenever you're ready</h2>
+              <p class="contact-intro">
+                Tell us a little about your loved one and the cemetery, if you know it, and we'll call you back. You
+                don't need every detail.
+              </p>
+              <p class="contact-phone"><a href="tel:+18058893769">(805) 889-3769</a></p>
+              <p class="contact-line"><a href="mailto:jerry@gvgmemorials.com">jerry@gvgmemorials.com</a></p>
+              <a
+                class="contact-line contact-directions"
+                href="https://www.google.com/maps/dir/?api=1&amp;destination=GVG+Memorials%2C+623+S+A+St%2C+Oxnard%2C+CA+93030"
+                data-analytics-event="directions_click"
+                target="_blank"
+                rel="noopener"
+              >623 S A Street, Oxnard, CA 93030 <span>Get directions</span></a>
+              <dl class="hours" aria-label="Office hours">
+                <div><dt>Monday&ndash;Friday</dt><dd>10 AM&ndash;6 PM</dd></div>
+                <div><dt>Saturday</dt><dd>12&ndash;3 PM</dd></div>
+                <div><dt>Sunday</dt><dd>Closed</dd></div>
+              </dl>
+              <p class="contact-note">We can meet at our shop or at your home.</p>
+              <a
+                class="text-link"
+                href="https://book.squareup.com/appointments/buitydlrv1cqx7/location/LCP1KPEFVFPBE/services"
+                data-analytics-event="appointment_click"
+                target="_blank"
+                rel="noopener"
+              >Schedule a visit</a>
+            </div>
           <form
             id="contact-form"
             class="contact-form"
@@ -735,6 +775,7 @@
               </p>
             </div>
           </form>
+          </div>
         </div>
       </section>
     </main>
