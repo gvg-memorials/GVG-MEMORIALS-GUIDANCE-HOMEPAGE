@@ -1435,18 +1435,3 @@ body.nav-open .analytics-consent {
     max-width: 340px;
   }
 }
-.shop-photo {
-  margin: 26px 0 0;
-}
-.shop-photo img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border: 1px solid var(--gold);
-}
-.shop-photo figcaption {
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 16px;
-  font-style: italic;
-}
