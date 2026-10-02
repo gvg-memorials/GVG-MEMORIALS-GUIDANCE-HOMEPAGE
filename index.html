@@ -67,7 +67,7 @@
     <link rel="preload" href="assets/fonts/cormorant-garamond-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/EBGaramond-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" as="image" href="assets/folder/gvg-stained-glass-480.webp" type="image/webp" fetchpriority="high" />
-    <link rel="stylesheet" href="styles.css?v=300" />
+    <link rel="stylesheet" href="styles.css?v=301" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -196,6 +196,44 @@
             fetchpriority="high"
             decoding="async"
           />
+        </div>
+      </section>
+
+      <section class="showcase" aria-roledescription="carousel" aria-label="Memorials we've made">
+        <div class="stage">
+          <figure class="slide is-active">
+            <img src="assets/completed-memorials/completed-memorial-oxford-grey-nature-scene-05-1200.webp" srcset="assets/completed-memorials/completed-memorial-oxford-grey-nature-scene-05-800.webp 800w, assets/completed-memorials/completed-memorial-oxford-grey-nature-scene-05-1200.webp 1200w, assets/completed-memorials/completed-memorial-oxford-grey-nature-scene-05.webp 2000w" sizes="(max-width: 1240px) 100vw, 1200px" width="1200" height="800" alt="Oxford Gray granite memorial with nature scene artwork by GVG Memorials" />
+            <figcaption>Oxford Gray granite with nature scene artwork</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="assets/completed-memorials/completed-memorial-custom-flat-02-1200.webp" srcset="assets/completed-memorials/completed-memorial-custom-flat-02-800.webp 800w, assets/completed-memorials/completed-memorial-custom-flat-02-1200.webp 1200w, assets/completed-memorials/completed-memorial-custom-flat-02.webp 1800w" sizes="(max-width: 1240px) 100vw, 1200px" width="1200" height="800" loading="lazy" alt="Polished black granite flat memorial with custom scenic artwork by GVG Memorials" />
+            <figcaption>Polished black granite with custom scenic artwork</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="assets/completed-memorials/completed-memorial-detail-01-1200.webp" srcset="assets/completed-memorials/completed-memorial-detail-01-800.webp 800w, assets/completed-memorials/completed-memorial-detail-01-1200.webp 1200w, assets/completed-memorials/completed-memorial-detail-01.webp 1800w" sizes="(max-width: 1240px) 100vw, 1200px" width="1200" height="800" loading="lazy" alt="Blue Pearl granite memorial with a deep-sunk sanded panel by GVG Memorials" />
+            <figcaption>Blue Pearl granite with a deep-sunk sanded panel</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp-1200.webp" srcset="assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp-800.webp 800w, assets/completed-memorials/completed-memorial-puritan-rose-stainless-photo-04-raw-sharp-1200.webp 1200w" sizes="(max-width: 1240px) 100vw, 1200px" width="1200" height="1800" loading="lazy" alt="Puritan Rose granite memorial with a stainless steel photo by GVG Memorials" />
+            <figcaption>Puritan Rose granite with a stainless steel photo</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="assets/completed-memorials/completed-memorial-detailed-engraving-03-1200.webp" srcset="assets/completed-memorials/completed-memorial-detailed-engraving-03-800.webp 800w, assets/completed-memorials/completed-memorial-detailed-engraving-03-1200.webp 1200w, assets/completed-memorials/completed-memorial-detailed-engraving-03.webp 1800w" sizes="(max-width: 1240px) 100vw, 1200px" width="1200" height="800" loading="lazy" alt="Detailed engraving on polished granite by GVG Memorials" />
+            <figcaption>Standard sunk artwork on polished granite</figcaption>
+          </figure>
+          <form class="ask" data-ask>
+            <label for="ask-q" class="sr-only">Ask us anything</label>
+            <input id="ask-q" type="text" autocomplete="off" placeholder="Try &lsquo;Where do I start?&rsquo;" />
+            <button type="submit" aria-label="Send your question">&rarr;</button>
+          </form>
+        </div>
+        <div class="stage-bar">
+          <p class="stage-caption" aria-live="polite"><span class="stage-count">1 / 5</span> <span class="stage-text">Oxford Gray granite with nature scene artwork</span></p>
+          <div class="stage-controls">
+            <button type="button" data-prev aria-label="Previous photo">&lsaquo;</button>
+            <button type="button" data-pause aria-label="Pause photos"></button>
+            <button type="button" data-next aria-label="Next photo">&rsaquo;</button>
+          </div>
         </div>
       </section>
 
@@ -818,6 +856,66 @@
         <button class="button button-outline" type="button" data-analytics-decline>Continue without</button>
       </div>
     </section>
+    <script>
+      (function () {
+        // Photo slideshow with pause, and a question box that carries into the contact form.
+        var slides = document.querySelectorAll(".showcase .slide");
+        var count = document.querySelector(".stage-count");
+        var text = document.querySelector(".stage-text");
+        var pause = document.querySelector("[data-pause]");
+        var i = 0;
+        var playing = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+        function show(n) {
+          slides[i].classList.remove("is-active");
+          i = (n + slides.length) % slides.length;
+          slides[i].classList.add("is-active");
+          var img = slides[i].querySelector("img");
+          if (img.loading === "lazy") img.loading = "eager";
+          count.textContent = i + 1 + " / " + slides.length;
+          text.textContent = slides[i].querySelector("figcaption").textContent;
+        }
+        setInterval(function () { if (playing && !document.hidden) show(i + 1); }, 5500);
+        document.querySelector("[data-next]").onclick = function () { show(i + 1); };
+        document.querySelector("[data-prev]").onclick = function () { show(i - 1); };
+        pause.onclick = function () {
+          playing = !playing;
+          pause.classList.toggle("is-paused", !playing);
+          pause.setAttribute("aria-label", playing ? "Pause photos" : "Play photos");
+        };
+        var stage = document.querySelector(".stage");
+        var x0 = null;
+        stage.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+        stage.addEventListener("touchend", function (e) {
+          if (x0 === null) return;
+          var dx = e.changedTouches[0].clientX - x0;
+          if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1));
+          x0 = null;
+        });
+
+        var input = document.getElementById("ask-q");
+        var prompts = ["Where do I start?", "What does my cemetery allow?", "Add a date to a stone", "A portrait on the memorial", "What does a memorial cost?", "A companion for my parents"];
+        var p = 0;
+        setInterval(function () {
+          if (document.activeElement === input || input.value) return;
+          p = (p + 1) % prompts.length;
+          input.placeholder = "Try \u2018" + prompts[p] + "\u2019";
+        }, 3200);
+        document.querySelector("[data-ask]").addEventListener("submit", function (e) {
+          e.preventDefault();
+          var form = document.getElementById("contact-form");
+          var msg = form.querySelector('textarea[name="message"]');
+          var details = form.querySelector(".contact-form-details");
+          if (details) details.open = true;
+          if (msg) {
+            msg.value = input.value.trim() || prompts[p];
+            msg.dispatchEvent(new Event("input", { bubbles: true }));
+          }
+          form.scrollIntoView({ behavior: "smooth", block: "start" });
+          var name = form.querySelector('input[name="name"]');
+          if (name) setTimeout(function () { name.focus({ preventScroll: true }); }, 600);
+        });
+      })();
+    </script>
     <script src="nav.js?v=15"></script>
   </body>
 </html>
