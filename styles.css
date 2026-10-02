@@ -1926,3 +1926,20 @@ dd {
   letter-spacing: 3px;
   text-transform: uppercase;
 }
+
+/* --- hero without the large logo: one centred column --------------------------- */
+
+@media (min-width: 960px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    max-width: 1000px;
+    text-align: center;
+  }
+  .hero-sub {
+    margin-left: auto;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+}
