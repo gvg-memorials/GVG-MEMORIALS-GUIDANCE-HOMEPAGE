@@ -1955,3 +1955,42 @@ dd {
 .intro-body {
   margin-inline: auto;
 }
+
+/* --- more work: extra photos open on request ------------------------------- */
+
+.completed-card.is-extra {
+  display: none;
+}
+.completed-card.is-extra.is-shown {
+  display: block;
+}
+.gallery-more-wrap {
+  margin-top: 36px;
+  text-align: center;
+}
+.gallery-more {
+  min-height: 52px;
+  padding: 0 28px;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 17px;
+  font-variant: small-caps;
+  letter-spacing: 2.4px;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+.gallery-more:hover {
+  background: var(--paper-2);
+}
+/* only the lead photo spans two rows; later tall photos sit in the grid like the rest */
+@media (min-width: 1000px) {
+  .completed-card--portrait:not(:first-child) {
+    grid-row: auto;
+  }
+  .completed-card--portrait:not(:first-child) img {
+    aspect-ratio: 3 / 2;
+    object-position: center 30%;
+  }
+}
