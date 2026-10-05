@@ -3,6 +3,29 @@
   const submitButton = contactForm?.querySelector('button[type="submit"]');
   if (!contactForm || !submitButton) return;
 
+  const spanish = document.documentElement.lang.startsWith("es");
+  const text = spanish
+    ? {
+        name: "Por favor, escriba su nombre.",
+        nameAndContact: "Por favor, escriba su nombre y un teléfono o correo electrónico.",
+        reviewOne: "Por favor, revise el campo marcado antes de enviar.",
+        reviewMany: "Por favor, revise los campos marcados antes de enviar.",
+        contact: "Por favor, escriba un teléfono o correo electrónico.",
+        phoneDigits: "Por favor, escriba un teléfono de al menos 7 dígitos.",
+        fileSize: "Por favor, elija un archivo de menos de 8 MB.",
+        sending: "Enviando...",
+      }
+    : {
+        name: "Please enter your name.",
+        nameAndContact: "Please enter your name and a phone number or email address.",
+        reviewOne: "Please review the highlighted field before sending.",
+        reviewMany: "Please review the highlighted fields before sending.",
+        contact: "Please enter a phone number or email address.",
+        phoneDigits: "Please enter a phone number with at least 7 digits.",
+        fileSize: "Please choose a file smaller than 8 MB.",
+        sending: "Sending...",
+      };
+
   const formStatus = contactForm.querySelector("[data-form-status]");
   const referenceFile = contactForm.querySelector('input[name="reference_file"]');
   const fileHelp = contactForm.querySelector("[data-file-help]");
@@ -235,7 +258,7 @@
 
   const getFieldValidationMessage = (field) => {
     if (field.validity.valueMissing) {
-      if (field.getAttribute("name") === "name") return "Please enter your name.";
+      if (field.getAttribute("name") === "name") return text.name;
     }
 
     if (field.getAttribute("name") === "phone" && field.validity.customError) {
@@ -245,7 +268,7 @@
     return (
       field.dataset.validationMessage ||
       field.validationMessage ||
-      "Please review the highlighted field before sending."
+      text.reviewOne
     );
   };
 
@@ -262,11 +285,11 @@
       !phone?.value.trim() &&
       !email?.value.trim()
     ) {
-      formStatus.textContent = "Please enter your name and a phone number or email address.";
+      formStatus.textContent = text.nameAndContact;
     } else if (invalidFields.length === 1) {
       formStatus.textContent = getFieldValidationMessage(invalidFields[0]);
     } else {
-      formStatus.textContent = "Please review the highlighted fields before sending.";
+      formStatus.textContent = text.reviewMany;
     }
     formStatus.hidden = false;
   };
@@ -302,9 +325,9 @@
     const digitCount = phone.value.replace(/\D/g, "").length;
     let message = "";
     if (!phone.value.trim() && !email?.value.trim()) {
-      message = "Please enter a phone number or email address.";
+      message = text.contact;
     } else if (phone.value.trim() && digitCount < 7) {
-      message = "Please enter a phone number with at least 7 digits.";
+      message = text.phoneDigits;
     }
     phone.setCustomValidity(message);
     if (!message) {
@@ -362,7 +385,7 @@
         return;
       }
 
-      const message = "Please choose a file smaller than 8 MB.";
+      const message = text.fileSize;
       referenceFile.setCustomValidity(message);
       referenceFile.setAttribute("aria-invalid", "true");
       fileHelp.classList.add("is-error");
@@ -413,7 +436,7 @@
     }
     submitButton.disabled = true;
     submitButton.setAttribute("aria-busy", "true");
-    submitButton.textContent = "Sending...";
+    submitButton.textContent = text.sending;
   });
 
   window.addEventListener("pageshow", resetSubmitButton);

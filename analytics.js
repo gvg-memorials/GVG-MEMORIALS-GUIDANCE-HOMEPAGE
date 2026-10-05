@@ -153,6 +153,11 @@
       return;
     }
 
+    if (link.dataset.analyticsEvent === "save_contact_click") {
+      sendEvent("save_contact_click", { contact_location: location });
+      return;
+    }
+
     if (link.dataset.analyticsEvent === "appointment_click") {
       sendEvent("appointment_click", { contact_location: location });
       return;
@@ -180,6 +185,12 @@
           // Duplicate suppression is best-effort when session storage is unavailable.
         }
       }
+      return;
+    }
+
+    if (href.startsWith("sms:")) {
+      sendEvent("text_click", { contact_location: location });
+      sendEvent("generate_lead", { method: "text", contact_location: location });
       return;
     }
 
@@ -304,7 +315,7 @@
     });
   }
 
-  const thankYouPaths = new Set(["/thank-you", "/thank-you/", "/thank-you.html"]);
+  const thankYouPaths = new Set(["/thank-you", "/thank-you/", "/thank-you.html", "/es/gracias", "/es/gracias/"]);
   if (thankYouPaths.has(window.location.pathname)) {
     try {
       if (window.sessionStorage.getItem("gvg_contact_submitted") === "true") {
