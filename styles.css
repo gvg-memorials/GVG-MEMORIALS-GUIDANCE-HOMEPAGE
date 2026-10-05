@@ -1714,8 +1714,16 @@ dd {
   touch-action: pan-y;
 }
 @media (max-width: 599px) {
+  /* memorial photos are landscape; a 3:2 frame keeps the names in view, and
+     the question box sits under the photo instead of over the inscription */
   .stage {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 3 / 2;
+    overflow: visible;
+    margin-bottom: 72px;
+  }
+  .stage .ask {
+    bottom: -66px;
+    width: 100%;
   }
 }
 .slide {
