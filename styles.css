@@ -2031,3 +2031,25 @@ dd {
 .slide--detail img {
   object-position: center 42%;
 }
+
+/* --- a personal sign-off under the opening note ----------------------------- */
+
+.signoff {
+  margin-top: 28px !important;
+  color: var(--gold-deep);
+  font-family: var(--display);
+  font-size: clamp(26px, 3vw, 32px);
+  font-style: italic;
+  line-height: 1.1;
+}
+.signoff span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-family: var(--text);
+  font-size: 15px;
+  font-style: normal;
+  font-variant: small-caps;
+  letter-spacing: 2.4px;
+  text-transform: lowercase;
+}
