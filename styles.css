@@ -40,7 +40,8 @@
   --stone: #efe7d7;
   --ink: #2a251d;
   --gold: #af8741;
-  --gold-dk: #8e6e36;
+  --gold-dk: #86672f;
+  --gold-press: #735827;
   --gold-deep: #86672f;
   --hair: #cfc1a6;
   --muted: #736b5e;
@@ -159,7 +160,8 @@ textarea:focus-visible {
   color: var(--paper-2);
 }
 .button-primary:hover {
-  background: var(--gold-deep);
+  background: var(--gold-press);
+  border-color: var(--gold-press);
 }
 .button-outline,
 .button-secondary {
@@ -1541,7 +1543,7 @@ dd {
   }
 }
 .score-num {
-  color: var(--gold);
+  color: var(--gold-dk);
   font-family: var(--display);
   font-size: clamp(120px, 16vw, 190px);
   font-weight: 500;
@@ -1781,7 +1783,7 @@ dd {
   cursor: pointer;
 }
 .ask button:hover {
-  background: var(--gold-deep);
+  background: var(--gold-press);
 }
 .stage-bar {
   display: flex;
