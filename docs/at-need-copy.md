@@ -154,7 +154,7 @@ Yes. Send us a photo of the stone and the cemetery name, and we'll explain what'
 Tell us a little about your loved one and the cemetery, if you know it, and we'll call you back. You don't need
 every detail.
 
-(805) 889-3769 · jerry@gvgmemorials.com
+(805) 889-3769 · info@gvgmemorials.com
 623 S A Street, Oxnard, CA 93030
 
 Office hours: Monday–Friday 10 AM–6 PM · Saturday 12–3 PM · Sunday closed
@@ -170,5 +170,5 @@ quote".]*
 - "20+ years of experience", replaced by "Family owned since 1998"
 - "Not a funeral home" line
 - "Planned with patience…" and other sales-style lines in the top section
-- gvg.memorials@gmail.com, replaced by jerry@gvgmemorials.com
+- gvg.memorials@gmail.com, replaced by info@gvgmemorials.com
 - Nothing about planning ahead appears anywhere
