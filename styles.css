@@ -1076,6 +1076,9 @@ dd {
 
 .intro {
   border-top: 1px solid var(--hair);
+  /* the steps below share this cream, so half the padding keeps the note
+     and "How it works" from drifting apart */
+  padding-bottom: clamp(32px, 5vw, 64px);
 }
 .intro-grid {
   display: grid;
