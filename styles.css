@@ -2053,3 +2053,8 @@ dd {
   letter-spacing: 2.4px;
   text-transform: lowercase;
 }
+/* step numbers in lining figures, so the 1 reads as a one, not a capital I */
+.step-num {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
