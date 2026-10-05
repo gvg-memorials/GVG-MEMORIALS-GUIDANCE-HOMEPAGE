@@ -183,6 +183,12 @@
       return;
     }
 
+    if (href.startsWith("sms:")) {
+      sendEvent("text_click", { contact_location: location });
+      sendEvent("generate_lead", { method: "text", contact_location: location });
+      return;
+    }
+
     if (href.startsWith("mailto:")) {
       sendEvent("email_click", { contact_location: location });
       return;
