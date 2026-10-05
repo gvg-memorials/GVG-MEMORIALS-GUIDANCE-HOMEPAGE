@@ -1,6 +1,7 @@
 (function () {
   const viewer = document.querySelector(".memorial-viewer");
   if (!viewer) return;
+  const spanish = document.documentElement.lang.startsWith("es");
 
   const image = viewer.querySelector(".memorial-viewer-image");
   const imageWrap = viewer.querySelector(".memorial-viewer-image-wrap");
@@ -75,7 +76,7 @@
     image.alt = thumbnail.alt;
     label.textContent = cardLabel.textContent;
     title.textContent = cardTitle.textContent;
-    count.textContent = `${index + 1} of ${triggers.length}`;
+    count.textContent = `${index + 1} ${spanish ? "de" : "of"} ${triggers.length}`;
     previousButton.disabled = index === 0;
     nextButton.disabled = index === triggers.length - 1;
     preloadImage(index - 1);
@@ -153,7 +154,10 @@
     const message = contactForm?.querySelector('textarea[name="message"]');
 
     updateGuidancePrefill(startingPoint, "Choosing a memorial style");
-    updateGuidancePrefill(message, `I'm interested in a memorial similar to: ${cardTitle}.`);
+    updateGuidancePrefill(
+      message,
+      spanish ? `Me interesa una lápida parecida a esta: ${cardTitle}.` : `I'm interested in a memorial similar to: ${cardTitle}.`,
+    );
     window.dispatchEvent(new CustomEvent("gvg:guidance-selected", {
       detail: { item: cardTitle },
     }));

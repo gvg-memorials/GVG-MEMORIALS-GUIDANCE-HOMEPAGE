@@ -36,3 +36,14 @@ python3 -m http.server 4173
 ```
 
 Then visit `http://127.0.0.1:4173/`.
+
+## Spanish pages
+
+`es/index.html` and `es/gracias/index.html` are generated from the English pages. After editing `index.html` or
+`thank-you/index.html`, run:
+
+```bash
+python3 scripts/build_es.py
+```
+
+If an English sentence changed, the script stops and lists it; add the new wording and its Spanish to the script.

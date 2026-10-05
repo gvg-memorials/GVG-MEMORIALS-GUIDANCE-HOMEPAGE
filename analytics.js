@@ -315,7 +315,7 @@
     });
   }
 
-  const thankYouPaths = new Set(["/thank-you", "/thank-you/", "/thank-you.html"]);
+  const thankYouPaths = new Set(["/thank-you", "/thank-you/", "/thank-you.html", "/es/gracias", "/es/gracias/"]);
   if (thankYouPaths.has(window.location.pathname)) {
     try {
       if (window.sessionStorage.getItem("gvg_contact_submitted") === "true") {
