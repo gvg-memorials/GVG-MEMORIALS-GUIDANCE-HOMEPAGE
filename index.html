@@ -163,6 +163,7 @@
 
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
       <a href="#steps">How It Works</a>
+      <a href="#granite">Granite</a>
       <a href="#gallery">Our Work</a>
       <a href="#family">Our Family</a>
       <a href="#questions">Questions</a>
@@ -782,8 +783,8 @@
           <p class="chapter"><span class="chapter-name">In their words</span></p>
           <div class="reviews-grid">
             <div class="score">
-              <p class="score-num">4.8</p>
-              <h2 id="reviews-title">out of 5 from families on Google</h2>
+              <p class="score-num" aria-hidden="true">4.8</p>
+              <h2 id="reviews-title"><span class="sr-only">4.8 </span>out of 5 from families on Google</h2>
               <a class="text-link" href="https://maps.google.com/?cid=9366360180697269487" data-analytics-event="reviews_click" target="_blank" rel="noopener">Read the reviews</a>
             </div>
             <div class="quotes">
@@ -1022,6 +1023,7 @@
         </div>
         <nav class="footer-nav" aria-label="Footer navigation">
           <a href="#steps">How It Works</a>
+          <a href="#granite">Granite</a>
           <a href="#gallery">Our Work</a>
           <a href="#family">Our Family</a>
           <a href="#questions">Questions</a>
@@ -1119,6 +1121,7 @@
         document.querySelector("[data-ask]").addEventListener("submit", function (e) {
           e.preventDefault();
           var form = document.getElementById("contact-form");
+          window.dispatchEvent(new CustomEvent("gvg:guidance-selected", { detail: { item: "" } }));
           var msg = form.querySelector('textarea[name="message"]');
           var details = form.querySelector(".contact-form-details");
           if (details) details.open = true;
@@ -1126,7 +1129,7 @@
             msg.value = input.value.trim() || prompts[p];
             msg.dispatchEvent(new Event("input", { bubbles: true }));
           }
-          form.scrollIntoView({ behavior: "smooth", block: "start" });
+          document.getElementById("contact").scrollIntoView({ behavior: "smooth", block: "start" });
           var name = form.querySelector('input[name="name"]');
           if (name) setTimeout(function () { name.focus({ preventScroll: true }); }, 600);
         });

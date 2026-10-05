@@ -351,8 +351,8 @@ PAIRS = [
 
     # --- reviews (the families' own words stay in English, marked as such) -----------------------------
     ('<span class="chapter-name">In their words</span>', '<span class="chapter-name">En sus palabras</span>'),
-    ('<h2 id="reviews-title">out of 5 from families on Google</h2>',
-     '<h2 id="reviews-title">de 5, según las familias en Google</h2>'),
+    ('<h2 id="reviews-title"><span class="sr-only">4.8 </span>out of 5 from families on Google</h2>',
+     '<h2 id="reviews-title"><span class="sr-only">4.8 </span>de 5, según las familias en Google</h2>'),
     ('target="_blank" rel="noopener">Read the reviews</a>', 'target="_blank" rel="noopener">Leer las reseñas</a>'),
     ("<blockquote>\n                <p>&ldquo;Jerry was caring", '<blockquote lang="en">\n                <p>&ldquo;Jerry was caring'),
     ("<blockquote>\n                <p>&ldquo;Jerry made the process", '<blockquote lang="en">\n                <p>&ldquo;Jerry made the process'),
