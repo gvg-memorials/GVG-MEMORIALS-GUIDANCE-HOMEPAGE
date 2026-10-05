@@ -29,7 +29,8 @@
         }
       } catch (_) {}
     </script>
-    <script defer src="/analytics.js?v=21"></script>
+    <script defer src="/analytics.js?v=22"></script>
+    <script defer src="/hours.js?v=1"></script>
     <meta name="theme-color" content="#f7f2e8" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -49,7 +50,7 @@
       crossorigin
     />
     <link rel="preload" href="/assets/fonts/EBGaramond-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="/styles.css?v=313" />
+    <link rel="stylesheet" href="/styles.css?v=314" />
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -67,29 +68,35 @@
           <p class="section-label">Message received</p>
           <h1>Thank you for reaching out</h1>
           <p class="thank-you-lead">
-            We received your message. A member of our family will review the
-            details carefully and respond personally.
+            We have your message. A member of our family will read it and call or write back personally.
           </p>
-          <p class="thank-you-secondary">
-            If you need us sooner, please call.
-          </p>
+          <p class="thank-you-secondary" data-open-status data-open-status-reply hidden></p>
+
+          <div class="save-number" aria-labelledby="save-number-title">
+            <h2 id="save-number-title">We'll call from <a href="tel:+18058893769">(805)&nbsp;889&#8209;3769</a></h2>
+            <p>Save our number so you'll know it's us when we call, and not a stranger.</p>
+            <a class="button button-outline" href="/assets/gvg-memorials.vcf" data-analytics-event="save_contact_click">Add us to your contacts</a>
+          </div>
+
+          <div class="thank-you-next" aria-labelledby="thank-you-next-title">
+            <h2 id="thank-you-next-title">While you wait, if you have them</h2>
+            <span>
+              <strong>The cemetery</strong>
+              <small>Its name, and the section, lot, and space number from any paperwork.</small>
+            </span>
+            <span>
+              <strong>Their name and dates</strong>
+              <small>Written the way you'd like them engraved.</small>
+            </span>
+            <span>
+              <strong>A photo</strong>
+              <small>Of them, or of something they loved. There's no rush to find it.</small>
+            </span>
+          </div>
+
           <div class="thank-you-actions">
             <a class="button button-primary" href="tel:+18058893769">Call (805) 889-3769</a>
             <a class="button button-outline" href="/">Return home</a>
-          </div>
-          <div class="thank-you-next" aria-label="What happens next">
-            <span>
-              <strong>Review</strong>
-              <small>We read your message and check the details you shared.</small>
-            </span>
-            <span>
-              <strong>Respond</strong>
-              <small>We reach out personally by phone or email.</small>
-            </span>
-            <span>
-              <strong>Clarify</strong>
-              <small>We walk you through your cemetery's requirements and next steps.</small>
-            </span>
           </div>
           <p class="contact-detail">623 S A St, Oxnard, CA 93030</p>
         </div>

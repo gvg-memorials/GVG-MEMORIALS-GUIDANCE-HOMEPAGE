@@ -45,3 +45,8 @@
 
 /sitemap.xml
   Cache-Control: public, max-age=3600
+
+/assets/gvg-memorials.vcf
+  Content-Type: text/vcard; charset=utf-8
+  Content-Disposition: inline; filename="GVG Memorials.vcf"
+  Cache-Control: public, max-age=3600
