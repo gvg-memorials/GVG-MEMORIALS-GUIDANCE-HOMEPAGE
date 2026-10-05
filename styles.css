@@ -2104,3 +2104,25 @@ h2 em,
   letter-spacing: 3px;
   text-transform: lowercase;
 }
+
+/* --- open now / closed line, from hours.js ----------------------------------- */
+
+.open-status {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 17px;
+  font-style: italic;
+  max-width: 34em;
+  margin-inline: auto;
+}
+.open-status.is-open {
+  color: var(--gold-deep);
+}
+.open-status--contact {
+  margin-inline: 0;
+  max-width: 340px;
+}
+/* Today's row stays in ink; the other days step back. */
+.hours:has(.is-today) div:not(.is-today) {
+  color: var(--muted);
+}

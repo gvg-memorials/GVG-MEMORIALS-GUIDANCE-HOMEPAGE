@@ -32,6 +32,7 @@
     <script defer src="analytics.js?v=20"></script>
     <script defer src="gallery-viewer.js?v=9"></script>
     <script defer src="contact-form.js?v=19"></script>
+    <script defer src="hours.js?v=1"></script>
     <meta name="theme-color" content="#f7f2e8" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
@@ -67,7 +68,7 @@
     <meta name="twitter:image" content="https://www.gvgmemorials.com/assets/gvg-share-g-clear.png" />
     <link rel="preload" href="assets/fonts/cormorant-garamond-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/EBGaramond-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=311" />
+    <link rel="stylesheet" href="styles.css?v=312" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -185,6 +186,7 @@
               <a class="button button-primary" href="tel:+18058893769">Call (805) 889-3769</a>
               <a class="button button-outline" href="#contact-form">Ask us a question</a>
             </div>
+            <p class="open-status" data-open-status aria-live="polite" hidden></p>
             <p class="hero-es" lang="es">También atendemos en español.</p>
           </div>
         </div>
@@ -842,10 +844,11 @@
                 rel="noopener"
               >623 S A Street, Oxnard, CA 93030 <span>Get directions</span></a>
               <dl class="hours" aria-label="Office hours">
-                <div><dt>Monday&ndash;Friday</dt><dd>10 AM&ndash;6 PM</dd></div>
-                <div><dt>Saturday</dt><dd>12&ndash;3 PM</dd></div>
-                <div><dt>Sunday</dt><dd>Closed</dd></div>
+                <div data-days="1 2 3 4 5"><dt>Monday&ndash;Friday</dt><dd>10 AM&ndash;6 PM</dd></div>
+                <div data-days="6"><dt>Saturday</dt><dd>12&ndash;3 PM</dd></div>
+                <div data-days="0"><dt>Sunday</dt><dd>Closed</dd></div>
               </dl>
+              <p class="open-status open-status--contact" data-open-status hidden></p>
               <p class="contact-note">We can meet at our shop or at your home.</p>
               <a
                 class="text-link"
