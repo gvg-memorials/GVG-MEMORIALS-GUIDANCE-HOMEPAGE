@@ -2096,3 +2096,11 @@ h2 em {
     text-align: left;
   }
 }
+
+/* opening quotation marks hang in the margin so the words, not the marks, line up */
+@supports not (hanging-punctuation: first) {
+  .quotes p,
+  .pull {
+    text-indent: -0.42em;
+  }
+}
