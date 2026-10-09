@@ -1417,7 +1417,7 @@ h2 em {
 .epigraph span {
   display: block;
   margin-top: 20px;
-  color: var(--muted);
+  color: var(--ink);
   font-size: 15px;
   font-variant: small-caps;
   letter-spacing: 3px;
@@ -1462,6 +1462,7 @@ h2 em {
   display: block;
   overflow: hidden;
   border: 1px solid var(--gold);
+  background: var(--stone);
 }
 .completed-card img {
   width: 100%;
@@ -2046,5 +2047,52 @@ h2 em {
     top: 0;
     height: var(--masthead-h);
     grid-template-rows: var(--masthead-h);
+  }
+}
+
+/* --- footer: left-aligned columns on wide screens, a quiet closing line ------- */
+
+@media (min-width: 860px) {
+  .site-footer {
+    padding: 72px 0 36px;
+    text-align: left;
+  }
+  .footer-grid {
+    grid-template-columns: 5fr 4fr 3fr;
+    justify-items: stretch;
+    gap: 48px;
+  }
+  .footer-brand {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    column-gap: 18px;
+    align-items: center;
+    align-self: start;
+  }
+  .footer-brand img {
+    grid-row: span 2;
+    width: 64px;
+    height: 64px;
+    margin: 0;
+  }
+  .footer-name {
+    margin-top: 0;
+  }
+  .footer-nav {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-auto-flow: column;
+    column-gap: 28px;
+    align-content: start;
+  }
+  .footer-contact {
+    justify-items: start;
+    align-content: start;
+  }
+  .footer-bottom {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--hair);
+    text-align: left;
   }
 }

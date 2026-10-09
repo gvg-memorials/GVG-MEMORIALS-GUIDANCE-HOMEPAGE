@@ -419,6 +419,7 @@ PAIRS = [
      "Su información se queda con GVG Memorials y solo la usamos para responderle."),
 
     # --- footer and analytics banner ------------------------------------------------------------------
+    ("<span>Headstones and grave markers since 1998</span>", "<span>Lápidas y placas desde 1998</span>"),
     ("<p>Family owned since 1998</p>", "<p>Negocio familiar desde 1998</p>"),
     ('aria-expanded="false">Analytics choices</button>', 'aria-expanded="false">Opciones de análisis</button>'),
     ('aria-label="Analytics privacy choices"', 'aria-label="Opciones de privacidad"'),

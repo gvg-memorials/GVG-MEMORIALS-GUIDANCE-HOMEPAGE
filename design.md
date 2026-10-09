@@ -67,6 +67,7 @@ Defined once on `:root` in `styles.css`. Use the variables; don't hard-code hex 
 
 **Contrast:** all gold text uses `--gold-dk` (about 4.7:1 on `--paper`). `--gold` measures about
 3:1, so it is for lines, frames and borders only.
+On the `--stone` band, `--gold-dk` and `--muted` drop to 4.3:1, so small text there is set in `--ink`.
 
 **Section rhythm:** each section opens with a hairline. The tinted sections (`--paper-2`) are
 `.completed-gallery`, `.granite` and `.reviews`; the epigraph sits on `--stone`; the rest are `--paper`.
@@ -178,7 +179,9 @@ line, and "We can meet at our shop or at your home." Form in a gold-keyline card
 (required) and phone *or* email, then optional details and a photo. Labels are always visible
 (placeholders are examples only). Privacy note under the send button.
 
-**Footer.** Logo, "Family owned since 1998", caps nav (two columns on phones), contact and "Analytics choices".
+**Footer.** Centered on phones. From 860px: left-aligned columns: the logo beside "GVG Memorials" and
+"Family owned since 1998", the caps nav in two columns reading downward, then contact and "Analytics choices".
+A closing line under a hairline: "GVG Memorials, Oxnard, California — Headstones and grave markers since 1998".
 
 ## 8. Page order (English and Spanish match)
 
