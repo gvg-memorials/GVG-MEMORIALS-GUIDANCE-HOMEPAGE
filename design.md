@@ -4,7 +4,7 @@ The design source of truth for gvgmemorials.com, Version A (the "folder" look).
 Read this before changing `index.html`, `es/index.html` or `styles.css`. If the
 site and this file disagree, fix one of them in the same change.
 
-Last updated: 2026-10-09 (de-templating pass: shorter page, photo in the cover, fewer labels). Replaces the earlier direction document (WebGL sun-flare
+Last updated: 2026-10-09 (second pass: editorial cover with one photograph, pinned section links, gentle motion). Replaces the earlier direction document (WebGL sun-flare
 hero, sans-serif accents, dark espresso panels), which no longer describes the site.
 
 ---
@@ -56,7 +56,7 @@ Defined once on `:root` in `styles.css`. Use the variables; don't hard-code hex 
 |---|---|---|
 | `--paper` | `#f7f2e8` | Main page cream (header, hero, epigraph) |
 | `--paper-2` | `#fbf8f1` | Lighter cream for alternate sections, inputs, button text |
-| `--stone` | `#efe7d7` | Warm stone, slideshow backdrop, share image |
+| `--stone` | `#efe7d7` | Warm stone: the epigraph band, the cover photo backdrop, share image |
 | `--ink` | `#2a251d` | Body text and headings |
 | `--gold` | `#af8741` | Rules, frames and borders only (never text) |
 | `--gold-dk` / `--gold-deep` | `#86672f` | Primary button fill; small gold text (readable contrast) |
@@ -69,7 +69,7 @@ Defined once on `:root` in `styles.css`. Use the variables; don't hard-code hex 
 3:1, so it is for lines, frames and borders only.
 
 **Section rhythm:** each section opens with a hairline. The tinted sections (`--paper-2`) are
-`.steps`, `.granite` and `.reviews`; the rest sit on `--paper`.
+`.completed-gallery`, `.granite` and `.reviews`; the epigraph sits on `--stone`; the rest are `--paper`.
 
 ## 5. Typography
 
@@ -86,7 +86,7 @@ Two Garamonds at the same small size look muddy, so Cormorant never appears unde
 
 | Element | Size |
 |---|---|
-| Hero h1 | `clamp(44px, 5.6vw, 76px)` |
+| Hero h1 | `clamp(46px, 6.4vw, 96px)`, line-height 0.98, tracking -0.02em |
 | Section title h2 (`.section-title`) | `clamp(38px, 5.2vw, 64px)`, line-height 1.02 |
 | Step title and sub-section h3 | `clamp(28px, 3vw, 34px)` |
 | Body | 17–19px, line-height ~1.6 |
@@ -118,16 +118,22 @@ Two Garamonds at the same small size look muddy, so Cormorant never appears unde
 
 ## 7. Components
 
-**Header.** Logo plus "GVG Memorials" in sentence-case serif, centered. Phone number top
-right. Section links on a second row in letterspaced caps, with a hairline and
-"Español" at the end; from 960 to 1199px the tracking tightens so the Spanish labels stay on one line.
-Phones get a menu button and a sticky bottom bar with **Call · Text · Write**. There is no masthead strip.
+**Header.** Logo plus "GVG Memorials" in sentence-case serif, centered, with the phone number top
+right, and the section links on a second row in letterspaced caps ending with a hairline and
+"Español". From 960px the header is sticky with a negative `top`, so the logo row scrolls away
+and the section-link row stays pinned. Once pinned (`.site-header--solid`, set by nav.js past 80px), a
+small logo fades in at the left of that row and, from 1280px, the phone number at the right; the
+links get side padding so nothing overlaps. Phones keep a 72px header with a menu button and the
+sticky bottom bar with **Call · Text · Write**.
 
-**Cover (`.hero`).** Two columns from 960px: the words on the left, the slideshow on the right.
-Small-caps kicker "Family owned in Oxnard since 1998", the headline, one sentence that says what
-to do ("Tell us their name and the cemetery…"), Call + Ask buttons, the open/closed line,
-"4.8 out of 5 from families on Google" (links to the reviews) and the Spanish line. On phones
-the words come first and the photos follow.
+**Cover (`.hero`).** From 960px: the words on the left, inside the 1200px column, and one tall
+photograph in the right column that bleeds off the right edge of the window and fills the first
+screen (`100svh` less the header, 560 to 900px). The photograph is the carved-doves close-up on
+Blue Pearl, with a small cream museum label on it. Words: small-caps kicker "Family owned in Oxnard
+since 1998", the headline, one sentence on what to do, Call + Ask buttons, the open/closed line,
+then under a hairline "4.8 out of 5 from families on Google" (links to the reviews) and the Spanish
+line. On phones the words come first and the photograph follows, edge to edge at 4:5. On load the
+words rise in, staggered, and the photograph settles from a 5% zoom (skipped for reduced motion).
 
 **Buttons.** `.button` 52px tall, square, small caps, 17px.
 - Primary: gold-dk fill, cream text ("Call (805) 889-3769").
@@ -137,23 +143,20 @@ the words come first and the photos follow.
 **Text link.** `.text-link`: gold-dk text, 18px, with a 1px underline
 ("Ask about your cemetery"). 44px tap height on phones (padding, not visual size).
 
-**Slideshow (`.showcase`).** Six photos of real GVG work in a gold-keyline 3:2 frame inside the
-cover: Oxford Gray nature scene, Asher beach scene, carved doves close-up, Nash, Moffitt, Lopez Solis.
-Counter and caption below; previous/pause/next buttons are square and outlined. Respects reduced
-motion. Nothing sits on top of the photos. These six are not repeated in the gallery.
-
 **How it works (`.steps`).** One section: five compact rows (gold numeral, title, gold italic
 lede, body, optional text link) separated by hairlines, then two blocks side by side:
 "After you approve" with "How long does it take?" (installation and timing), and
 "What to bring, if you have it" as a checklist with empty boxes in a gold-keyline card.
 
 **Epigraph.** Full-width italic Cormorant quote from the folder line, credited to "The Garcia
-family, GVG Memorials", between how it works and our work. The only centered block.
+family, GVG Memorials", on the warm stone band with a short gold rule above, between how it works
+and the granite. The only centered block.
 
 **Gallery (`.completed-gallery`).** Titled "Our work". On wide screens the lead photo spans two
 rows of a three-column grid; below 1000px the lead runs across two columns. Captions put the
 title first and the kind of memorial in a quieter italic line (hidden on phones except for the lead).
-11 visible and 4 behind "See more of our work". Keep the visible count at 5 + a multiple of 3
+The gallery is the one home for the work (no slideshow): 20 photos, 11 visible and 9 behind
+"See more of our work". Keep the visible count at 5 + a multiple of 3
 (desktop) **and** odd (phone: the lead plus pairs), which 11 satisfies.
 Below the grid: "What we make" as a plain hairline list beside the "Already have a memorial?" card.
 
@@ -180,11 +183,11 @@ line, and "We can meet at our shop or at your home." Form in a gold-keyline card
 ## 8. Page order (English and Spanish match)
 
 1. Header
-2. Cover: words on the left, slideshow on the right
+2. Cover: words on the left, the doves photograph bleeding off the right
 3. Opening note with drop cap, signed "Jerry Garcia, Third generation, GVG Memorials"
-4. How it works: five steps, then "After you approve" and "What to bring"
-5. Epigraph
-6. Our work: gallery, "What we make", "Already have a memorial?"
+4. Our work: gallery, "What we make", "Already have a memorial?"
+5. How it works: five steps, then "After you approve" and "What to bring"
+6. Epigraph
 7. Eighteen granite colors and the album
 8. Our family
 9. Reviews
@@ -192,7 +195,8 @@ line, and "We can meet at our shop or at your home." Form in a gold-keyline card
 11. Contact
 12. Footer
 
-The nav follows the same order: How It Works, Our Work, Granite, Our Family, Questions, Contact, Español.
+The nav follows the same order: Our Work, How It Works, Granite, Our Family, Questions, Contact,
+Español. In Spanish two labels are shortened so the pinned row fits: "Galería" and "Familia".
 
 ## 9. Imagery
 
@@ -212,14 +216,18 @@ The nav follows the same order: How It Works, Our Work, Granite, Our Family, Que
 
 ## 11. Motion
 
-- Gentle and functional only: slide crossfade (1s), hover color shifts (160ms), FAQ open/close.
-- `prefers-reduced-motion`: the slideshow stops auto-advancing and scrolling is instant.
+- Gentle and functional only: the cover's rise-in and photo settle, blocks below the first screen
+  fading up 18px as they scroll into view (`[data-reveal]`, 900ms), the pinned header's logo and
+  phone fading in, hover color shifts (160ms), FAQ open/close.
+- The scroll fade is fail-safe: everything starts visible, and the script only holds back blocks
+  that are still below the fold when it runs. No IntersectionObserver or reduced motion means no
+  fade at all, and print shows everything.
+- `prefers-reduced-motion`: no cover animation, no fades, instant scrolling.
 - Animate only `opacity`, `transform` and colors.
 
 ## 12. Accessibility
 
 - Landmarks: header, nav, main, sections labelled by their headings, footer.
-- Slideshow: `aria-roledescription="carousel"`, live caption and a pause button.
 - Visible focus states. Body contrast at least 4.5:1 (ink on cream is about 13:1).
 - Form errors are specific and appear next to the field.
 
@@ -241,4 +249,9 @@ The nav follows the same order: How It Works, Our Work, Granite, Our Family, Que
 - The 2026-10-09 pass needs Jerry's approval: the new cover headline and sentence, the
   question box removed, the slideshow cut from 13 to 6 photos and moved into the cover, the
   page order (our work before granite), and the merged "How it works" section.
+- The second pass (same day) also needs his approval: the doves close-up as the cover photograph
+  in place of the slideshow (its five other photos are back in the gallery), our work moved ahead
+  of how it works, and the shortened Spanish nav labels.
+- Small caps are synthesized: the self-hosted EB Garamond subset has no `smcp` glyphs. A fuller
+  EB Garamond build with true small caps would sharpen every label.
 - Jerry hasn't approved the exact wording of the father line in the opening note.

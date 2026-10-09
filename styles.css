@@ -941,8 +941,8 @@ h2 em {
   padding: clamp(56px, 8vw, 104px) 0;
   border-top: 1px solid var(--hair);
 }
-/* two creams, alternating like pages */
-.steps,
+/* two creams, alternating like pages; the epigraph sits on warm stone */
+.completed-gallery,
 .granite,
 .reviews {
   background: var(--paper-2);
@@ -972,11 +972,19 @@ h2 em {
 }
 @media (min-width: 960px) {
   :root {
-    --header-h: 128px;
+    --masthead-h: 80px;
+    --nav-row-h: 50px;
+    --header-h: calc(var(--masthead-h) + var(--nav-row-h));
   }
+  html {
+    scroll-padding-top: calc(var(--nav-row-h) + 24px);
+  }
+  /* the logo row scrolls away with the page and the section links stay pinned */
   .site-header {
-    grid-template-rows: 1fr auto;
-    padding-top: 12px;
+    top: calc(-1 * var(--masthead-h));
+    grid-template-rows: var(--masthead-h) var(--nav-row-h);
+    align-items: center;
+    row-gap: 0;
   }
   .brand,
   .header-action {
@@ -985,10 +993,45 @@ h2 em {
   .desktop-nav {
     grid-column: 1 / -1;
     grid-row: 2;
+    align-self: stretch;
+    align-items: center;
     justify-content: center;
-    gap: clamp(22px, 3vw, 44px);
+    gap: clamp(20px, 2.6vw, 44px);
     margin-left: 0;
-    padding: 10px 0 14px;
+    padding: 0;
+    transition: padding 240ms ease;
+  }
+  /* once pinned, leave room for the small logo (and, on wide screens, the phone) at the ends */
+  .site-header--solid .desktop-nav {
+    padding-inline: 56px;
+  }
+  .header-mini {
+    grid-row: 2;
+    z-index: 1;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 240ms ease, visibility 0s linear 240ms;
+    text-decoration: none;
+  }
+  .site-header--solid .header-mini {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 240ms ease;
+  }
+  .header-mini-brand {
+    grid-column: 1;
+    justify-self: start;
+  }
+  .header-mini-brand img {
+    width: 34px;
+    height: 34px;
+  }
+  .header-mini-call {
+    grid-column: 3;
+    justify-self: end;
+    font-size: 17px;
+    font-variant-numeric: lining-nums;
   }
   .desktop-nav a {
     font-size: 13px;
@@ -1007,6 +1050,21 @@ h2 em {
     letter-spacing: 2px;
   }
 }
+@media (max-width: 959px) {
+  .header-mini {
+    display: none;
+  }
+}
+@media (min-width: 960px) and (max-width: 1279px) {
+  .header-mini-call {
+    display: none;
+  }
+}
+@media (min-width: 1280px) {
+  .site-header--solid .desktop-nav {
+    padding-inline: 150px;
+  }
+}
 .desktop-nav .lang-link {
   padding-left: 18px;
   border-left: 1px solid var(--hair);
@@ -1018,14 +1076,14 @@ h2 em {
   font-style: italic;
 }
 
-/* --- cover: the words on the left, the work on the right --------------------- */
+/* --- cover: the words on the left, one photograph bleeding off the right ------- */
 
 .hero {
-  padding: clamp(28px, 5vw, 64px) 0 clamp(56px, 8vw, 96px);
+  padding: clamp(28px, 6vw, 56px) 0 0;
 }
 .hero-grid {
   display: grid;
-  gap: 40px;
+  gap: 36px;
   width: min(100% - 2 * var(--gutter), 1200px);
   margin-inline: auto;
 }
@@ -1037,29 +1095,34 @@ h2 em {
   text-transform: lowercase;
 }
 .hero h1 {
-  margin-top: 18px;
-  font-size: clamp(44px, 5.6vw, 76px);
-  line-height: 1;
-  letter-spacing: -0.015em;
+  margin-top: 20px;
+  font-size: clamp(46px, 6.4vw, 96px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
 }
 .hero h1 em {
   display: block;
-  margin-top: 0.08em;
+  margin-top: 0.06em;
+  letter-spacing: -0.015em;
 }
 .hero-sub {
-  max-width: 28em;
-  margin-top: 22px;
-  font-size: clamp(20px, 1.9vw, 22px);
+  max-width: 27em;
+  margin-top: 26px;
+  font-size: clamp(20px, 1.6vw, 22px);
   line-height: 1.5;
 }
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 30px;
+  margin-top: 32px;
 }
 .hero-proof {
-  margin-top: 24px;
+  margin-top: 28px;
+  padding-top: 18px;
+  max-width: 27em;
+  border-top: 1px solid var(--hair);
   color: var(--muted);
   font-size: 17px;
 }
@@ -1069,7 +1132,7 @@ h2 em {
   text-underline-offset: 4px;
 }
 .hero-es {
-  margin-top: 10px;
+  margin-top: 6px;
   color: var(--muted);
   font-size: 17px;
   font-style: italic;
@@ -1079,6 +1142,35 @@ h2 em {
   color: var(--gold-dk);
   text-underline-offset: 4px;
 }
+.hero .open-status {
+  margin-top: 14px;
+}
+.hero-figure {
+  position: relative;
+  margin: 0 calc(-1 * var(--gutter));
+  overflow: hidden;
+  background: var(--stone);
+}
+.hero-figure img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 560px;
+  object-fit: cover;
+  object-position: center 38%;
+}
+/* a small museum label on the photograph */
+.hero-figure figcaption {
+  position: absolute;
+  left: var(--gutter);
+  bottom: var(--gutter);
+  max-width: calc(100% - 2 * var(--gutter));
+  padding: 7px 14px 8px;
+  background: var(--paper);
+  color: var(--muted);
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.3;
+}
 @media (max-width: 599px) {
   .hero-actions {
     flex-direction: column;
@@ -1086,127 +1178,59 @@ h2 em {
   }
 }
 @media (min-width: 960px) {
+  .hero {
+    padding: 0;
+  }
   .hero-grid {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 40px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 44vw);
+    gap: clamp(40px, 5vw, 96px);
+    align-items: stretch;
+    width: 100%;
+    padding-left: max(var(--gutter), calc((100vw - 1200px) / 2));
+  }
+  .hero-copy {
+    align-self: center;
+    padding: 56px 0 64px;
+  }
+  .hero-figure {
+    margin: 0;
+    height: clamp(560px, calc(100svh - var(--header-h)), 900px);
+  }
+  .hero-figure img {
+    height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+  }
+  .hero-figure figcaption {
+    left: 24px;
+    bottom: 24px;
   }
 }
 @media (min-width: 1200px) {
   .hero-grid {
-    grid-template-columns: 5fr 6fr;
-    gap: 72px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 46vw);
   }
 }
-
-/* slideshow of finished memorials, inside the cover */
-.showcase {
-  min-width: 0;
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy > * {
+    animation: rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .hero-copy > :nth-child(2) { animation-delay: 80ms; }
+  .hero-copy > :nth-child(3) { animation-delay: 160ms; }
+  .hero-copy > :nth-child(n + 4) { animation-delay: 240ms; }
+  .hero-figure img {
+    animation: settle 1800ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
 }
-.stage {
-  position: relative;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  border: 1px solid var(--gold);
-  background: var(--stone);
-  touch-action: pan-y;
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
 }
-.slide {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  opacity: 0;
-  transition: opacity 1000ms ease;
-}
-.slide.is-active {
-  opacity: 1;
-}
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-/* tall close-up: keep the doves in frame */
-.slide--detail img {
-  object-position: center 42%;
-}
-.slide figcaption {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-}
-.stage-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  margin-top: 12px;
-}
-.stage-caption {
-  min-width: 0;
-  color: var(--muted);
-  font-size: 16px;
-  font-style: italic;
-}
-.stage-count {
-  margin-right: 8px;
-  color: var(--gold-dk);
-  font-style: normal;
-  font-variant-numeric: lining-nums;
-}
-.stage-controls {
-  display: flex;
-  flex: none;
-  gap: 6px;
-}
-.stage-controls button {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--gold);
-  background: transparent;
-  color: var(--ink);
-  font-family: var(--display);
-  font-size: 24px;
-  line-height: 1;
-  cursor: pointer;
-}
-.stage-controls button:hover {
-  background: var(--paper-2);
-}
-/* pause: two bars; play: a triangle */
-.stage-controls button[data-pause]::before,
-.stage-controls button[data-pause]::after {
-  content: "";
-  position: absolute;
-  top: 15px;
-  width: 3px;
-  height: 14px;
-  background: var(--ink);
-}
-.stage-controls button[data-pause]::before {
-  left: 16px;
-}
-.stage-controls button[data-pause]::after {
-  left: 23px;
-}
-.stage-controls button[data-pause].is-paused::after {
-  display: none;
-}
-.stage-controls button[data-pause].is-paused::before {
-  left: 17px;
-  width: 0;
-  height: 0;
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
-  border-left: 11px solid var(--ink);
-  background: none;
-}
-@media (max-width: 599px) {
-  .stage-text {
-    display: none;
+@keyframes settle {
+  from {
+    transform: scale(1.05);
   }
 }
 
@@ -1328,7 +1352,7 @@ h2 em {
 .bring {
   padding: clamp(24px, 3.5vw, 36px);
   border: 1px solid var(--gold);
-  background: var(--paper);
+  background: var(--paper-2);
 }
 .checklist {
   margin: 16px 0 0;
@@ -1367,9 +1391,17 @@ h2 em {
 
 .epigraph {
   margin: 0;
-  padding: clamp(64px, 9vw, 120px) var(--gutter);
-  border-top: 1px solid var(--hair);
+  padding: clamp(72px, 10vw, 136px) var(--gutter);
+  background: var(--stone);
   text-align: center;
+}
+.epigraph::before {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 1px;
+  margin: 0 auto clamp(28px, 4vw, 40px);
+  background: var(--gold);
 }
 .epigraph p {
   max-width: 18em;
@@ -1537,7 +1569,7 @@ h2 em {
   display: block;
   padding: clamp(24px, 3.5vw, 36px);
   border: 1px solid var(--gold);
-  background: var(--paper-2);
+  background: var(--paper);
   text-decoration: none;
   transition: border-color 160ms ease;
 }
@@ -1871,6 +1903,7 @@ h2 em {
 }
 .hours dd {
   margin: 0;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 /* today's row stays in ink; the other days step back */
 .hours:has(.is-today) div:not(.is-today) {
@@ -1975,5 +2008,43 @@ h2 em {
   .footer-nav {
     grid-template-columns: 1fr 1fr;
     column-gap: 28px;
+  }
+}
+
+/* --- sections settle into place as they scroll into view --------------------- */
+
+[data-reveal].reveal-wait {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 900ms cubic-bezier(0.2, 0.7, 0.2, 1), transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+[data-reveal].reveal-wait.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+::selection {
+  background: #eadfc6;
+  color: var(--ink);
+}
+
+@media print {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .site-header,
+  .mobile-contact-bar,
+  .analytics-consent {
+    position: static;
+  }
+}
+
+/* thank-you and 404 headers have no section links: one row, always pinned */
+@media (min-width: 960px) {
+  .thank-you-header {
+    top: 0;
+    height: var(--masthead-h);
+    grid-template-rows: var(--masthead-h);
   }
 }

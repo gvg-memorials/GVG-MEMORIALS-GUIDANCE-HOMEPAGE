@@ -67,8 +67,8 @@ PAIRS = [
     ('aria-label="Quick contact options"', 'aria-label="Contacto rápido"'),
     ('<a href="#steps">How It Works</a>', '<a href="#steps">Cómo funciona</a>'),
     ('<a href="#granite">Granite</a>', '<a href="#granite">Granito</a>'),
-    ('<a href="#gallery">Our Work</a>', '<a href="#gallery">Nuestro trabajo</a>'),
-    ('<a href="#family">Our Family</a>', '<a href="#family">Nuestra familia</a>'),
+    ('<a href="#gallery">Our Work</a>', '<a href="#gallery">Galería</a>'),
+    ('<a href="#family">Our Family</a>', '<a href="#family">Familia</a>'),
     ('<a href="#questions">Questions</a>', '<a href="#questions">Preguntas</a>'),
     ('<a href="#contact">Contact</a>', '<a href="#contact">Contacto</a>'),
     ('<a class="lang-link" href="/es/" hreflang="es" lang="es">Español</a>',
@@ -97,8 +97,6 @@ PAIRS = [
      '<p class="hero-es" lang="en">We also help families in English. <a href="/" hreflang="en">Read this page in English</a></p>'),
 
     # --- slideshow ------------------------------------------------------------------------------------
-    ("aria-label=\"Memorials we've made\"", 'aria-label="Lápidas que hemos hecho"'),
-    ('aria-roledescription="carousel"', 'aria-roledescription="carrusel"'),
     ("Oxford Gray granite with nature scene artwork", "Granito Oxford Gray con un paisaje de bosque"),
     ("Oxford Gray granite memorial with nature scene artwork by GVG Memorials",
      "Lápida de granito Oxford Gray con un paisaje de bosque, de GVG Memorials"),
@@ -133,9 +131,6 @@ PAIRS = [
      "Lápida de granito con una foto a color, un balón de fútbol americano y una greca, de GVG Memorials"),
     ("Granite memorial with a color photo, a football and a key border",
      "Lápida de granito con una foto a color, un balón de fútbol americano y una greca"),
-    ('aria-label="Previous photo"', 'aria-label="Foto anterior"'),
-    ('aria-label="Pause photos"', 'aria-label="Pausar fotos"'),
-    ('aria-label="Next photo"', 'aria-label="Foto siguiente"'),
 
     # --- opening note ---------------------------------------------------------------------------------
     ('aria-label="A first word"', 'aria-label="Unas palabras"'),
@@ -157,8 +152,8 @@ PAIRS = [
      '<p class="signoff">Jerry Garcia <span>Tercera generación, GVG Memorials</span></p>'),
 
     # --- five steps -----------------------------------------------------------------------------------
-    ('<h2 id="steps-title" class="section-title">How it works</h2>',
-     '<h2 id="steps-title" class="section-title">Cómo funciona</h2>'),
+    ('<h2 id="steps-title" class="section-title" data-reveal>How it works</h2>',
+     '<h2 id="steps-title" class="section-title" data-reveal>Cómo funciona</h2>'),
     ("<h3>The cemetery</h3>", "<h3>El cementerio</h3>"),
     ("<p class=\"step-lede\">It decides what's possible, so we begin there.</p>",
      '<p class="step-lede">Decide lo que se puede hacer, así que empezamos ahí.</p>'),
@@ -434,8 +429,6 @@ PAIRS = [
     ("data-analytics-decline>Continue without</button>", "data-analytics-decline>Continuar sin análisis</button>"),
 
     # --- inline slideshow script ----------------------------------------------------------------------
-    ('pause.setAttribute("aria-label", playing ? "Pause photos" : "Play photos");',
-     'pause.setAttribute("aria-label", playing ? "Pausar fotos" : "Reproducir fotos");'),
     ('more.textContent = open ? "See more of our work" : "Show fewer";',
      'more.textContent = open ? "Ver más de nuestro trabajo" : "Ver menos";'),
     (SMS_EN, SMS_ES),
