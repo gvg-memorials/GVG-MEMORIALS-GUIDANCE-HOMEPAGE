@@ -4,7 +4,7 @@ The design source of truth for gvgmemorials.com, Version A (the "folder" look).
 Read this before changing `index.html`, `es/index.html` or `styles.css`. If the
 site and this file disagree, fix one of them in the same change.
 
-Last updated: 2026-10-04. Replaces the earlier direction document (WebGL sun-flare
+Last updated: 2026-10-09 (de-templating pass: shorter page, photo in the cover, fewer labels). Replaces the earlier direction document (WebGL sun-flare
 hero, sans-serif accents, dark espresso panels), which no longer describes the site.
 
 ---
@@ -44,7 +44,9 @@ The site should feel like a fine printed magazine, not a store.
    the primary button. No second accent color.
 4. **Serif only.** Cormorant Garamond for display and EB Garamond for text. No sans-serif on Version A.
 5. **Square corners.** `border-radius: 0` on buttons, inputs, cards and frames.
-6. **Few lines.** One hairline per chapter marker and plain dividers between steps and FAQ rows. Don't put a rule under every heading.
+6. **Few lines.** A hairline at the top of each section and plain dividers between steps, list rows and FAQ rows. Don't put a rule under every heading.
+7. **Don't repeat a trick.** No small-caps label above every heading, no gold italic in every title, no identical
+   centered opener on every section. Vary the section layouts; a repeated formula is what makes a page look generated.
 
 ## 4. Color tokens
 
@@ -56,18 +58,18 @@ Defined once on `:root` in `styles.css`. Use the variables; don't hard-code hex 
 | `--paper-2` | `#fbf8f1` | Lighter cream for alternate sections, inputs, button text |
 | `--stone` | `#efe7d7` | Warm stone, slideshow backdrop, share image |
 | `--ink` | `#2a251d` | Body text and headings |
-| `--gold` | `#af8741` | Rules, frames, borders, large numerals |
+| `--gold` | `#af8741` | Rules, frames and borders only (never text) |
 | `--gold-dk` / `--gold-deep` | `#86672f` | Primary button fill; small gold text (readable contrast) |
 | `--gold-press` | `#735827` | Primary button hover/press |
 | `--hair` | `#cfc1a6` | Hairline rules and dividers |
 | `--muted` | `#736b5e` | Secondary text, captions, hours |
 | `--error` | `#8f2f22` | Form errors only |
 
-**Contrast:** small gold text must use `--gold-deep`, never `--gold`. `--gold` is for
-lines and for text at display size only.
+**Contrast:** all gold text uses `--gold-dk` (about 4.7:1 on `--paper`). `--gold` measures about
+3:1, so it is for lines, frames and borders only.
 
-**Section rhythm:** sections alternate the two creams like turning pages. The tinted
-sections (`--paper-2`) are `.granite`, `.bring`, `.family` and `.faq`; the rest sit on `--paper`.
+**Section rhythm:** each section opens with a hairline. The tinted sections (`--paper-2`) are
+`.steps`, `.granite` and `.reviews`; the rest sit on `--paper`.
 
 ## 5. Typography
 
@@ -75,27 +77,30 @@ Fonts are self-hosted in `assets/fonts/` (no Google Fonts request).
 
 | Role | Font | Notes |
 |---|---|---|
-| Display (`--display`) | Cormorant Garamond | Hero, section titles, step titles, epigraph, signature, big numerals |
-| Text (`--text`) | EB Garamond | Body, labels, buttons, nav, form |
+| Display (`--display`) | Cormorant Garamond | **26px and up only:** hero, section titles, step titles, epigraph, quotes, signature, big numerals |
+| Text (`--text`) | EB Garamond | Everything under 26px: body, ledes, captions, FAQ questions, swatch names, labels, buttons, nav, form |
+
+Two Garamonds at the same small size look muddy, so Cormorant never appears under 26px.
 
 **Scale (desktop → phone via `clamp`):**
 
 | Element | Size |
 |---|---|
-| Hero h1 | 112px desktop |
-| Section title h2 (`.section-title`) | `clamp(40px, 6.2vw, 72px)`, line-height 1.02 |
-| Step title h3 | 48px desktop |
-| Sub-section h3 | 36–40px |
+| Hero h1 | `clamp(44px, 5.6vw, 76px)` |
+| Section title h2 (`.section-title`) | `clamp(38px, 5.2vw, 64px)`, line-height 1.02 |
+| Step title and sub-section h3 | `clamp(28px, 3vw, 34px)` |
 | Body | 17–19px, line-height ~1.6 |
-| Labels, kickers, chapter names | 15px small caps, letter-spacing 3–3.5px |
+| Small-caps labels (hero kicker, signature title, review names, epigraph credit) | 15px, letter-spacing 2.4–3px |
 | Desktop nav | 13px uppercase, letter-spacing 3px |
 | Minimum anywhere | 13px (nav); body text never under 16px |
 
 **Signature moves:**
-- **Gold italic accent in headlines.** The second half of a title is an `<em>` in
-  gold-deep italic: "Five steps, *one at a time*", "Eighteen *granite colors*",
-  "Start whenever *you're ready*". Use it on every section title, once per title.
-- **Small caps labels** (`font-variant: small-caps` + `text-transform: lowercase` + wide tracking).
+- **Gold italic accent in headlines, three times only:** the cover ("Headstones made with care,
+  *for the one you love.*"), the family ("Three generations, *serving yours*") and the contact
+  invitation ("Start whenever *you're ready*"). Every other title is plain. Rarity is what makes it feel special.
+- **Small caps labels** (`font-variant: small-caps` + `text-transform: lowercase` + wide tracking), used sparingly:
+  nav, buttons, the hero kicker, the signature title, review names and the epigraph credit. Text links are
+  plain underlined text, not small caps.
 - **Drop cap** on the opening note.
 - **Lining figures** on step numbers (`lnum`) so "1" doesn't read as a capital I.
   Note: the self-hosted EB Garamond has no old-style figures, so `oldstyle-nums` does nothing.
@@ -105,9 +110,9 @@ Fonts are self-hosted in `assets/fonts/` (no Google Fonts request).
 
 - Content width: `.section-inner` = `min(100% - 2 × gutter, 1200px)`.
 - Gutter: `--gutter` 16px on phones, 40px from 760px up.
-- Section padding: `clamp(64px, 10vw, 128px)` top and bottom.
-  - The opening note (`.intro`) uses half the bottom padding because the steps below share its cream.
-  - Where two same-cream sections meet, check the gap doesn't exceed ~200px.
+- Section padding: `clamp(56px, 8vw, 104px)` top and bottom, with a hairline at the top of each section.
+- Headings are left-aligned. The epigraph is the one centered moment on the page.
+- `.section-head`: the title, with a short italic note under it on phones and beside it (right-aligned) from 900px.
 - Headings sit closer to their own section than to the one above.
 - Body text measure: keep paragraphs under ~75 characters (the intro is ~70ch).
 
@@ -115,77 +120,79 @@ Fonts are self-hosted in `assets/fonts/` (no Google Fonts request).
 
 **Header.** Logo plus "GVG Memorials" in sentence-case serif, centered. Phone number top
 right. Section links on a second row in letterspaced caps, with a hairline and
-"Español" at the end. Phones get a menu button and a sticky bottom bar with **Call · Text · Write**.
+"Español" at the end; from 960 to 1199px the tracking tightens so the Spanish labels stay on one line.
+Phones get a menu button and a sticky bottom bar with **Call · Text · Write**. There is no masthead strip.
 
-**Masthead strip.** Under the header: "Headstones & Grave Markers · Oxnard, California ·
-Family owned since 1998" in small caps, closed by a hairline.
+**Cover (`.hero`).** Two columns from 960px: the words on the left, the slideshow on the right.
+Small-caps kicker "Family owned in Oxnard since 1998", the headline, one sentence that says what
+to do ("Tell us their name and the cemetery…"), Call + Ask buttons, the open/closed line,
+"4.8 out of 5 from families on Google" (links to the reviews) and the Spanish line. On phones
+the words come first and the photos follow.
 
 **Buttons.** `.button` 52px tall, square, small caps, 17px.
-- Primary: gold-deep fill, cream text ("Call (805) 889-3769").
+- Primary: gold-dk fill, cream text ("Call (805) 889-3769").
 - Outline: gold border, ink text ("Ask us a question").
 - One primary per view.
 
-**Text link.** `.text-link`: gold-deep small caps with a 1px gold underline
+**Text link.** `.text-link`: gold-dk text, 18px, with a 1px underline
 ("Ask about your cemetery"). 44px tap height on phones (padding, not visual size).
 
-**Chapter marker.** `.chapter`: small-caps name centered between two hairlines
-("How it works", "The collection", "Our work"). The only rule in a section head.
+**Slideshow (`.showcase`).** Six photos of real GVG work in a gold-keyline 3:2 frame inside the
+cover: Oxford Gray nature scene, Asher beach scene, carved doves close-up, Nash, Moffitt, Lopez Solis.
+Counter and caption below; previous/pause/next buttons are square and outlined. Respects reduced
+motion. Nothing sits on top of the photos. These six are not repeated in the gallery.
 
-**Slideshow (`.showcase`).** 13 photos of real GVG work in a gold-keyline frame, 16:9
-on desktop and 3:2 on phones. Counter and caption below; previous/pause/next buttons
-are square and outlined. Respects reduced motion. Below 600px the question box sits
-*under* the photo, not on the stone.
-
-**Question box (`.ask`).** Cream field, gold border, italic placeholder
-("Try 'Where do I start?'"), square gold arrow button. Answers from the on-page guide.
-
-**Steps.** Five rows: big pale-gold numeral, small-caps "Step one", magazine-style title
-(The cemetery / The shape / The stone and the story / The quote / The proof), gold italic
-lede, body and one text link. Rows are separated by hairlines.
+**How it works (`.steps`).** One section: five compact rows (gold numeral, title, gold italic
+lede, body, optional text link) separated by hairlines, then two blocks side by side:
+"After you approve" with "How long does it take?" (installation and timing), and
+"What to bring, if you have it" as a checklist with empty boxes in a gold-keyline card.
 
 **Epigraph.** Full-width italic Cormorant quote from the folder line, credited to "The Garcia
-family, GVG Memorials", between the steps and the granite.
+family, GVG Memorials", between how it works and our work. The only centered block.
 
-**Granite grid.** 18 square swatches with a thin gold frame, "No. 1" small-caps label and name.
+**Gallery (`.completed-gallery`).** Titled "Our work". On wide screens the lead photo spans two
+rows of a three-column grid; below 1000px the lead runs across two columns. Captions put the
+title first and the kind of memorial in a quieter italic line (hidden on phones except for the lead).
+11 visible and 4 behind "See more of our work". Keep the visible count at 5 + a multiple of 3
+(desktop) **and** odd (phone: the lead plus pairs), which 11 satisfies.
+Below the grid: "What we make" as a plain hairline list beside the "Already have a memorial?" card.
+
+**Granite grid.** 18 square swatches with a thin gold frame and the name; 4 across on phones,
+6 on tablets, 9 from 1100px. No "No. 1" labels.
 
 **Album grid.** Six design examples from the 286-design album, captioned plainly.
-
-**Gallery.** Lead photo spans two rows, then a grid with "Fig. N" small-caps labels and
-serif captions. 11 visible and the rest behind "See more of our work". Keep the visible
-count at 5 + a multiple of 3 so no photo sits alone in a row.
 
 **Family.** Portrait of Gerardo "Jerry" Garcia Jr. (1972–2023), "Three generations, *serving
 yours*", a gold italic pull quote and a short timeline (1998 / Firsts / Today) with italic gold years.
 
-**Reviews.** Large "4.8" in gold display numerals, "out of 5 from families on Google", and two
-italic quotes with small-caps first names.
+**Reviews (`#reviews`).** Large "4.8" in gold display numerals, "out of 5 from families on Google", and two
+italic quotes separated by a hairline, with small-caps first names.
 
-**FAQ.** Native `<details>` rows with hairline dividers and a gold +/× marker.
+**FAQ.** Native `<details>` rows with hairline dividers and a gold +/× marker. Questions in EB Garamond 21px.
 
 **Contact.** Big phone number, text and email links, hours table with a live open/closed
 line, and "We can meet at our shop or at your home." Form in a gold-keyline card: name
 (required) and phone *or* email, then optional details and a photo. Labels are always visible
 (placeholders are examples only). Privacy note under the send button.
 
-**Footer.** Logo, "Family owned since 1998", caps nav, contact and "Analytics choices".
+**Footer.** Logo, "Family owned since 1998", caps nav (two columns on phones), contact and "Analytics choices".
 
 ## 8. Page order (English and Spanish match)
 
-1. Header and masthead
-2. Hero: "Remember the one you love. *Forever.*", one sentence, Call + Ask buttons, open/closed line, Spanish link
-3. Slideshow with question box
-4. Opening note with drop cap, signed "Jerry Garcia, Third generation, GVG Memorials"
-5. How it works: five steps
-6. Epigraph
-7. The collection: eighteen granite colors and the album
-8. After you approve: proof to placement and timing
-9. Before you visit: what to bring
-10. Our work: gallery and "What we make"
-11. Our family
-12. Reviews
-13. Questions
-14. Contact
-15. Footer
+1. Header
+2. Cover: words on the left, slideshow on the right
+3. Opening note with drop cap, signed "Jerry Garcia, Third generation, GVG Memorials"
+4. How it works: five steps, then "After you approve" and "What to bring"
+5. Epigraph
+6. Our work: gallery, "What we make", "Already have a memorial?"
+7. Eighteen granite colors and the album
+8. Our family
+9. Reviews
+10. Questions
+11. Contact
+12. Footer
+
+The nav follows the same order: How It Works, Our Work, Granite, Our Family, Questions, Contact, Español.
 
 ## 9. Imagery
 
@@ -197,8 +204,8 @@ line, and "We can meet at our shop or at your home." Form in a gold-keyline card
 
 ## 10. Responsive
 
-- Breakpoints in use: 600, 760, 860, 900, 960px.
-- Phones: one column, a menu button, the sticky Call/Text/Write bar, and a 3:2 slideshow with the question box below it.
+- Breakpoints in use: 600, 640, 700, 760, 860, 900, 960, 1000, 1100, 1200px.
+- Phones: one column for text, a two-column gallery, a menu button and the sticky Call/Text/Write bar.
 - Tap targets at least 44px. Inline links inside sentences are the only exception.
 - No horizontal scroll at 375px.
 - Check every change at 375px and 1440px, in English and at `/es/`.
@@ -224,14 +231,14 @@ line, and "We can meet at our shop or at your home." Form in a gold-keyline card
 - Rounded "bubbly" corners or drop shadows on cards
 - Prices, packages, "starting at", pre-need or planning-ahead copy
 - Stock imagery, or photos Jerry removed
-- Chat bubbles or pop-ups that cover the page
+- Chat bubbles, question boxes or pop-ups that cover the page or a photo
+- The same label + rule + centered title + italic subtitle formula on every section
 
-## 14. Open items (2026-10-04)
+## 14. Open items (2026-10-09)
 
 - **Before going live:** Jerry picked Version A. Delete `version-c/` and `version-d/`
   before merging PR #3. **Do not merge or push to `main` until Jerry says go.**
-- On desktop, the question box overlaps the bottom of each slide; ask Jerry about moving it below the photo.
-- Phone gallery is one column (~5,400px); a two-column grid is a possible change.
+- The 2026-10-09 pass needs Jerry's approval: the new cover headline and sentence, the
+  question box removed, the slideshow cut from 13 to 6 photos and moved into the cover, the
+  page order (our work before granite), and the merged "How it works" section.
 - Jerry hasn't approved the exact wording of the father line in the opening note.
-- Possible addition: a Claude-powered answer helper behind the question box, through a
-  Netlify Function, following the rules in section 2. Not built.

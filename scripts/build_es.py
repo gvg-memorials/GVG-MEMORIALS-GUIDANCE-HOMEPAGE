@@ -83,13 +83,14 @@ PAIRS = [
     ('<a href="#contact-form">Write</a>', '<a href="#contact-form">Escribir</a>'),
 
     # --- hero -----------------------------------------------------------------------------------------
-    ("<span>Headstones &amp; Grave Markers</span>", "<span>Lápidas y placas</span>"),
-    ("<span>Oxnard, California</span>", "<span>Oxnard, California</span>"),
-    ("<span>Family owned since 1998</span>", "<span>Negocio familiar desde 1998</span>"),
-    ('<h1 id="hero-title">Remember the one you love. <em>Forever.</em></h1>',
-     '<h1 id="hero-title">Recuerde a quien tanto ama. <em>Para siempre.</em></h1>'),
-    ("<p class=\"hero-sub\">We'll walk with you through every choice, at a pace that feels right for your family.</p>",
-     '<p class="hero-sub">Le acompañamos en cada decisión, al paso que su familia necesite.</p>'),
+    ('<p class="hero-kicker">Family owned in Oxnard since 1998</p>',
+     '<p class="hero-kicker">Negocio familiar en Oxnard desde 1998</p>'),
+    ('<h1 id="hero-title">Headstones made with care, <em>for the one you love.</em></h1>',
+     '<h1 id="hero-title">Lápidas hechas con cariño, <em>para quien tanto ama.</em></h1>'),
+    ("<p class=\"hero-sub\">Tell us their name and the cemetery. We'll guide you through every choice, at your family's pace, and give you a free written quote.</p>",
+     '<p class="hero-sub">Díganos su nombre y el cementerio. Le acompañamos en cada decisión, al paso de su familia, y le damos un presupuesto por escrito gratis.</p>'),
+    ('<p class="hero-proof"><a href="#reviews">4.8 out of 5 from families on Google</a></p>',
+     '<p class="hero-proof"><a href="#reviews">4.8 de 5 según las familias en Google</a></p>'),
     ('<a class="button button-outline" href="#contact-form">Ask us a question</a>',
      '<a class="button button-outline" href="#contact-form">Háganos una pregunta</a>'),
     ('<p class="hero-es" lang="es">También atendemos en español. <a href="/es/" hreflang="es">Ver esta página en español</a></p>',
@@ -108,16 +109,8 @@ PAIRS = [
     ("Carved doves on Blue Pearl granite, up close, by GVG Memorials",
      "Palomas talladas en granito Blue Pearl, de cerca, de GVG Memorials"),
     ("Carved doves on Blue Pearl granite, up close", "Palomas talladas en granito Blue Pearl, de cerca"),
-    ("Polished black granite flat memorial with custom scenic artwork by GVG Memorials",
-     "Placa de granito negro pulido con un paisaje hecho a la medida, de GVG Memorials"),
     ("Polished black granite with custom scenic artwork", "Granito negro pulido con un paisaje hecho a la medida"),
-    ("Blue Pearl granite memorial with a deep-sunk sanded panel by GVG Memorials",
-     "Lápida de granito Blue Pearl con un panel hundido y arenado, de GVG Memorials"),
     ("Blue Pearl granite with a deep-sunk sanded panel", "Granito Blue Pearl con un panel hundido y arenado"),
-    ("Puritan Rose granite memorial with a stainless steel photo by GVG Memorials",
-     "Lápida de granito Puritan Rose con una foto en acero inoxidable, de GVG Memorials"),
-    ("Puritan Rose granite with a stainless steel photo", "Granito Puritan Rose con una foto en acero inoxidable"),
-    ("Detailed engraving on polished granite by GVG Memorials", "Grabado detallado en granito pulido, de GVG Memorials"),
     ("Standard sunk artwork on polished granite", "Diseño grabado en granito pulido"),
     ("Granite memorial with a color photo and baseball artwork, by GVG Memorials",
      "Lápida de granito con una foto a color y un diseño de béisbol, de GVG Memorials"),
@@ -140,9 +133,6 @@ PAIRS = [
      "Lápida de granito con una foto a color, un balón de fútbol americano y una greca, de GVG Memorials"),
     ("Granite memorial with a color photo, a football and a key border",
      "Lápida de granito con una foto a color, un balón de fútbol americano y una greca"),
-    ('<label for="ask-q" class="sr-only">Ask us anything</label>', '<label for="ask-q" class="sr-only">Pregúntenos lo que quiera</label>'),
-    ('placeholder="Try &lsquo;Where do I start?&rsquo;"', 'placeholder="Por ejemplo: &lsquo;¿Por dónde empiezo?&rsquo;"'),
-    ('aria-label="Send your question"', 'aria-label="Enviar su pregunta"'),
     ('aria-label="Previous photo"', 'aria-label="Foto anterior"'),
     ('aria-label="Pause photos"', 'aria-label="Pausar fotos"'),
     ('aria-label="Next photo"', 'aria-label="Foto siguiente"'),
@@ -167,22 +157,18 @@ PAIRS = [
      '<p class="signoff">Jerry Garcia <span>Tercera generación, GVG Memorials</span></p>'),
 
     # --- five steps -----------------------------------------------------------------------------------
-    ('<span class="chapter-name">How it works</span>', '<span class="chapter-name">Cómo funciona</span>'),
-    ('<h2 id="steps-title" class="section-title">Five steps, <em>one at a time</em></h2>',
-     '<h2 id="steps-title" class="section-title">Cinco pasos, <em>uno a la vez</em></h2>'),
-    ('<p class="kicker">Step one</p>', '<p class="kicker">Paso uno</p>'),
+    ('<h2 id="steps-title" class="section-title">How it works</h2>',
+     '<h2 id="steps-title" class="section-title">Cómo funciona</h2>'),
     ("<h3>The cemetery</h3>", "<h3>El cementerio</h3>"),
     ("<p class=\"step-lede\">It decides what's possible, so we begin there.</p>",
      '<p class="step-lede">Decide lo que se puede hacer, así que empezamos ahí.</p>'),
     ("<p>Every cemetery has its own rules about size, material, and what can sit on the grave. Tell us which one, and we'll find out what's allowed. No paperwork? We'll call them for you.</p>",
      "<p>Cada cementerio tiene sus propias reglas sobre el tamaño, el material y lo que se puede poner en la tumba. Díganos cuál es y averiguamos qué está permitido. ¿No tiene los papeles? Nosotros les llamamos.</p>"),
     (">Ask about your cemetery</a>", ">Pregunte por su cementerio</a>"),
-    ('<p class="kicker">Step two</p>', '<p class="kicker">Paso dos</p>'),
     ("<h3>The shape</h3>", "<h3>La forma</h3>"),
     ('<p class="step-lede">Flat, slanted, or standing tall.</p>', '<p class="step-lede">Plana, inclinada o de pie.</p>'),
     ("<p>Your cemetery decides which shapes are allowed, and we'll show you only those. A flat marker in granite or bronze rests level with the grass. A slant leans back so it's easy to read, and an upright stands as a traditional headstone. Most honor one person, and a companion leaves room for a husband or wife.</p>",
      "<p>Su cementerio decide qué formas se permiten, y le mostramos solo esas. Una placa plana de granito o de bronce queda al ras del pasto. Una lápida inclinada se recarga hacia atrás para que se lea fácil, y una vertical se levanta como la lápida tradicional. La mayoría honra a una persona, y una doble deja espacio para el esposo o la esposa.</p>"),
-    ('<p class="kicker">Step three</p>', '<p class="kicker">Paso tres</p>'),
     ("<h3>The stone and the story</h3>", "<h3>La piedra y la historia</h3>"),
     ('<p class="step-lede">A name, two dates, and something that says who they were.</p>',
      '<p class="step-lede">Un nombre, dos fechas y algo que diga quién fue.</p>'),
@@ -190,14 +176,12 @@ PAIRS = [
      "<p>Vea y toque granito de verdad en nuestro taller, en dieciocho colores. Escoja entre 286 diseños, o descríbanos lo que tiene en mente y lo dibujamos. Donde el cementerio lo permite, podemos agregar un retrato con foto o un emblema de bronce.</p>"),
     ('<a class="text-link" href="#granite">See the granite and designs</a>',
      '<a class="text-link" href="#granite">Ver el granito y los diseños</a>'),
-    ('<p class="kicker">Step four</p>', '<p class="kicker">Paso cuatro</p>'),
     ("<h3>The quote</h3>", "<h3>El presupuesto</h3>"),
     ('<p class="step-lede">Every cost in writing, before you decide.</p>',
      '<p class="step-lede">Cada costo por escrito, antes de decidir.</p>'),
     ("<p>We write down each item and what it costs, so you can take it home and talk it over. It's free, and you're under no obligation.</p>",
      "<p>Anotamos cada cosa y lo que cuesta, para que se lo lleve a casa y lo platique con su familia. Es gratis y sin ningún compromiso.</p>"),
     (">Ask for a free quote</a>", ">Pida un presupuesto gratis</a>"),
-    ('<p class="kicker">Step five</p>', '<p class="kicker">Paso cinco</p>'),
     ("<h3>The proof</h3>", "<h3>La prueba</h3>"),
     ('<p class="step-lede">Nothing is carved until you sign off.</p>',
      '<p class="step-lede">No se graba nada hasta que usted lo apruebe.</p>'),
@@ -209,16 +193,15 @@ PAIRS = [
     ("<span>The Garcia family, GVG Memorials</span>", "<span>La familia Garcia, GVG Memorials</span>"),
 
     # --- granite --------------------------------------------------------------------------------------
-    ('<span class="chapter-name">The collection</span>', '<span class="chapter-name">La colección</span>'),
-    ('<h2 id="granite-title" class="section-title">Eighteen <em>granite colors</em></h2>',
-     '<h2 id="granite-title" class="section-title">Dieciocho <em>colores de granito</em></h2>'),
+    ('<h2 id="granite-title" class="section-title">Eighteen granite colors</h2>',
+     '<h2 id="granite-title" class="section-title">Dieciocho colores de granito</h2>'),
     ("""              Photographs of the actual stone. Every stone is natural, so ask to see a sample at our shop before you
               decide.""",
      """              Fotografías de la piedra real, con su nombre de catálogo. Cada piedra es natural, así que pida ver una
               muestra en nuestro taller antes de decidir."""),
     ("<h3>A few from our album</h3>", "<h3>Algunos de nuestro álbum</h3>"),
-    ("<p class=\"split-note\">286 designs, arranged by subject. If it isn't there, we'll draw it.</p>",
-     '<p class="split-note">286 diseños, ordenados por tema. Si no está ahí, lo dibujamos.</p>'),
+    ("<p class=\"section-note\">286 designs, arranged by subject. If it isn't there, we'll draw it.</p>",
+     '<p class="section-note">286 diseños, ordenados por tema. Si no está ahí, lo dibujamos.</p>'),
     ('alt="Sample marker design with a sunflower" /><span>Sunflower</span>',
      'alt="Diseño de muestra con un girasol" /><span>Girasol</span>'),
     ('alt="Sample marker design with Our Lady of Guadalupe" /><span>Guadalupe</span>',
@@ -232,9 +215,7 @@ PAIRS = [
      'alt="Diseño de muestra con un águila y la bandera" /><span>Águila y bandera</span>'),
 
     # --- after you approve ----------------------------------------------------------------------------
-    ('<span class="chapter-name">After you approve</span>', '<span class="chapter-name">Después de aprobar</span>'),
-    ('<h2 id="after-title" class="section-title">From proof <em>to placement</em></h2>',
-     '<h2 id="after-title" class="section-title">De la prueba <em>al cementerio</em></h2>'),
+    ("<h3>After you approve</h3>", "<h3>Después de aprobar</h3>"),
     ("""                We send the approved layout to your cemetery for its records and required review. When the memorial is
                 finished, it is installed according to your cemetery's requirements. Most cemeteries set the memorial
                 themselves. At Conejo Mountain Memorial Park, we install it ourselves. Either way, we'll tell you what
@@ -243,18 +224,16 @@ PAIRS = [
                 está terminada, se instala según las reglas de su cementerio. La mayoría de los cementerios la colocan
                 ellos mismos. En Conejo Mountain Memorial Park, la instalamos nosotros. En cualquier caso, le decimos
                 qué esperar en su cementerio."""),
-    ('<h2 class="section-title">How long does it take?</h2>', '<h2 class="section-title">¿Cuánto tiempo tarda?</h2>'),
+    ("<h3>How long does it take?</h3>", "<h3>¿Cuánto tiempo tarda?</h3>"),
     ("""                It depends on the cemetery's review, the stone you choose, and the artwork. Once we know your cemetery
                 and your choices, we'll give you a clear timeline.""",
      """                Depende de la revisión del cementerio, la piedra que escoja y el diseño. Cuando sepamos su cementerio y
                 lo que eligió, le damos fechas claras."""),
 
     # --- what to bring --------------------------------------------------------------------------------
-    ('<span class="chapter-name">Before you visit</span>', '<span class="chapter-name">Antes de su visita</span>'),
-    ('<h2 id="bring-title" class="section-title">What to bring, <em>if you have it</em></h2>',
-     '<h2 id="bring-title" class="section-title">Qué traer, <em>si lo tiene</em></h2>'),
-    ('<p class="step-lede">Bring whatever you have. If something is missing, we can still begin.</p>',
-     '<p class="step-lede">Traiga lo que tenga. Si falta algo, de todos modos podemos empezar.</p>'),
+    ("<h3>What to bring, if you have it</h3>", "<h3>Qué traer, si lo tiene</h3>"),
+    ('<p class="bring-note">Bring whatever you have. If something is missing, we can still begin.</p>',
+     '<p class="bring-note">Traiga lo que tenga. Si falta algo, de todos modos podemos empezar.</p>'),
     ("<li>The cemetery name, and the section, lot, and space number</li>",
      "<li>El nombre del cementerio, y la sección, el lote y el número de espacio</li>"),
     ("<li>Their full name, as you'd like it engraved</li>", "<li>Su nombre completo, como le gustaría que se grabe</li>"),
@@ -266,11 +245,10 @@ PAIRS = [
     ("<li>Any paperwork from the cemetery</li>", "<li>Cualquier papel del cementerio</li>"),
 
     # --- gallery --------------------------------------------------------------------------------------
-    ('<span class="chapter-name">Our work</span>', '<span class="chapter-name">Nuestro trabajo</span>'),
-    ('<h2 id="completed-gallery-title" class="section-title">Crafted <em>with care</em></h2>',
-     '<h2 id="completed-gallery-title" class="section-title">Hechas <em>con cariño</em></h2>'),
-    ('<p class="split-note">Memorials from our shop. Tap any photo to see it larger.</p>',
-     '<p class="split-note">Lápidas de nuestro taller. Toque cualquier foto para verla más grande.</p>'),
+    ('<h2 id="completed-gallery-title" class="section-title">Our work</h2>',
+     '<h2 id="completed-gallery-title" class="section-title">Nuestro trabajo</h2>'),
+    ('<p class="section-note">Memorials from our shop. Tap any photo to see it larger.</p>',
+     '<p class="section-note">Lápidas de nuestro taller. Toque cualquier foto para verla más grande.</p>'),
     ('aria-label="View larger: ', 'aria-label="Ver más grande: '),
     ("Puritan Rose granite with stainless steel photo", "Granito Puritan Rose con una foto en acero inoxidable"),
     ("Puritan Rose granite memorial with stainless steel photo by GVG Memorials",
@@ -282,7 +260,6 @@ PAIRS = [
     ("Custom polished black granite flat memorial with scenic artwork by GVG Memorials",
      "Placa a la medida de granito negro pulido con un paisaje, de GVG Memorials"),
     ("<span>Custom flat memorial</span>", "<span>Placa plana a la medida</span>"),
-    ("<span>Oxford Gray granite</span>", "<span>Granito Oxford Gray</span>"),
     ("<span>Flat granite</span>", "<span>Placa de granito</span>"),
     ("<span>Companion memorial</span>", "<span>Lápida doble</span>"),
     ("Custom upright with an angel sculpture, by GVG Memorials", "Lápida vertical a la medida con la escultura de un ángel, de GVG Memorials"),
@@ -318,13 +295,13 @@ PAIRS = [
     ('<a class="memorial-viewer-inquiry" href="#contact-form">Ask About a Similar Memorial</a>',
      '<a class="memorial-viewer-inquiry" href="#contact-form">Preguntar por una lápida parecida</a>'),
     ("<h3>What we make</h3>", "<h3>Lo que hacemos</h3>"),
-    ("<span>Flat granite and bronze memorials</span>", "<span>Placas planas de granito y de bronce</span>"),
-    ("<span>Slants</span>", "<span>Lápidas inclinadas</span>"),
-    ("<span>Custom uprights</span>", "<span>Lápidas verticales a la medida</span>"),
-    ("<span>Single and companion memorials</span>", "<span>Lápidas individuales y dobles</span>"),
-    ("<span>Granite benches</span>", "<span>Bancas de granito</span>"),
-    ("<span>Final dates</span>", "<span>Fechas finales</span>"),
-    ("<span>Cleaning and restoration</span>", "<span>Limpieza y restauración</span>"),
+    ("<li>Flat granite and bronze memorials</li>", "<li>Placas planas de granito y de bronce</li>"),
+    ("<li>Slants</li>", "<li>Lápidas inclinadas</li>"),
+    ("<li>Custom uprights</li>", "<li>Lápidas verticales a la medida</li>"),
+    ("<li>Single and companion memorials</li>", "<li>Lápidas individuales y dobles</li>"),
+    ("<li>Granite benches</li>", "<li>Bancas de granito</li>"),
+    ("<li>Final dates</li>", "<li>Fechas finales</li>"),
+    ("<li>Cleaning and restoration</li>", "<li>Limpieza y restauración</li>"),
     ('data-guidance-message="I have an existing memorial and need help adding a date or name, or with cleaning or restoration."',
      'data-guidance-message="Tengo una lápida y necesito ayuda para agregar una fecha o un nombre, o para limpiarla o restaurarla."'),
     ('data-guidance-item="Existing Memorials and Added Lettering"', 'data-guidance-item="Una lápida que ya existe"'),
@@ -335,7 +312,6 @@ PAIRS = [
      "<span>Si su ser querido descansará junto a alguien que ya está ahí, podemos agregar la fecha final o un nombre nuevo. También limpiamos y restauramos lápidas antiguas.</span>"),
 
     # --- family ---------------------------------------------------------------------------------------
-    ('<span class="chapter-name">Our family</span>', '<span class="chapter-name">Nuestra familia</span>'),
     ('<h2 id="family-title" class="section-title">Three generations, <em>serving yours</em></h2>',
      '<h2 id="family-title" class="section-title">Tres generaciones, <em>al servicio de la suya</em></h2>'),
     ('<p class="pull">&ldquo;His vision continues to guide us.&rdquo;</p>',
@@ -350,7 +326,6 @@ PAIRS = [
     ("<figcaption>The memorial we made for him.</figcaption>", "<figcaption>La lápida que hicimos para él.</figcaption>"),
 
     # --- reviews (the families' own words stay in English, marked as such) -----------------------------
-    ('<span class="chapter-name">In their words</span>', '<span class="chapter-name">En sus palabras</span>'),
     ('<h2 id="reviews-title"><span class="sr-only">4.8 </span>out of 5 from families on Google</h2>',
      '<h2 id="reviews-title"><span class="sr-only">4.8 </span>de 5, según las familias en Google</h2>'),
     ('target="_blank" rel="noopener">Read the reviews</a>', 'target="_blank" rel="noopener">Leer las reseñas</a>'),
@@ -358,9 +333,8 @@ PAIRS = [
     ("<blockquote>\n                <p>&ldquo;Jerry made the process", '<blockquote lang="en">\n                <p>&ldquo;Jerry made the process'),
 
     # --- FAQ ------------------------------------------------------------------------------------------
-    ('<span class="chapter-name">Questions</span>', '<span class="chapter-name">Preguntas</span>'),
-    ('<h2 id="faq-title" class="section-title">Questions <em>families ask</em></h2>',
-     '<h2 id="faq-title" class="section-title">Lo que preguntan <em>las familias</em></h2>'),
+    ('<h2 id="faq-title" class="section-title">Questions families ask</h2>',
+     '<h2 id="faq-title" class="section-title">Lo que preguntan las familias</h2>'),
     ("<summary>Do I need to decide anything before I call?</summary>", "<summary>¿Tengo que decidir algo antes de llamar?</summary>"),
     ("<p>No. A name and a cemetery are enough to begin. We'll explain the choices and what your cemetery allows.</p>",
      "<p>No. Con un nombre y un cementerio podemos empezar. Le explicamos las opciones y lo que permite su cementerio.</p>"),
@@ -379,7 +353,6 @@ PAIRS = [
      "<p>Sí. Mándenos una foto de la lápida y el nombre del cementerio, y le explicamos qué se puede hacer.</p>"),
 
     # --- contact --------------------------------------------------------------------------------------
-    ('<span class="chapter-name">Contact</span>', '<span class="chapter-name">Contacto</span>'),
     ("<h2 id=\"contact-title\" class=\"section-title\">Start whenever <em>you're ready</em></h2>",
      '<h2 id="contact-title" class="section-title">Empiece cuando <em>esté listo</em></h2>'),
     ("""                Tell us a little about your loved one and the cemetery, if you know it, and we'll call you back. You
@@ -465,10 +438,6 @@ PAIRS = [
      'pause.setAttribute("aria-label", playing ? "Pausar fotos" : "Reproducir fotos");'),
     ('more.textContent = open ? "See more of our work" : "Show fewer";',
      'more.textContent = open ? "Ver más de nuestro trabajo" : "Ver menos";'),
-    ('var prompts = ["Where do I start?", "What does my cemetery allow?", "Add a date to a stone", "A portrait on the memorial", "What does a memorial cost?", "A companion for my parents"];',
-     'var prompts = ["¿Por dónde empiezo?", "¿Qué permite mi cementerio?", "Agregar una fecha a una lápida", "Un retrato en la lápida", "¿Cuánto cuesta una lápida?", "Una lápida doble para mis papás"];'),
-    ('input.placeholder = "Try \\u2018" + prompts[p] + "\\u2019";',
-     'input.placeholder = "Por ejemplo: \\u2018" + prompts[p] + "\\u2019";'),
     (SMS_EN, SMS_ES),
 ]
 
