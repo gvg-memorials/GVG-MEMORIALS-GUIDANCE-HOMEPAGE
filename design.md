@@ -259,4 +259,3 @@ Today timeline, and the memorial GVG made for him). Do not re-add it.
 - The second pass (same day) also needs his approval: the doves close-up as the cover photograph
   in place of the slideshow (its five other photos are back in the gallery), our work moved ahead
   of how it works, and the shortened Spanish nav labels.
-- Jerry hasn't approved the exact wording of the father line in the opening note.

@@ -142,11 +142,9 @@ PAIRS = [
      """              Revisamos lo que pide su cementerio, le mostramos piedra de verdad y le ayudamos a que cada nombre,
               fecha y detalle quede bien antes de grabar nada."""),
     ("""              We are a family business, three generations in Oxnard since 1998. We were among the first in the area to
-              place a color photograph on a granite memorial, and families rate us 4.8 out of 5. In 2023 we made a
-              memorial for our own father, so we know what this moment asks of you.""",
+              place a color photograph on a granite memorial, and families rate us 4.8 out of 5.""",
      """              Somos un negocio familiar, tres generaciones en Oxnard desde 1998. Fuimos de los primeros en la zona en
-              poner una fotografía a color en una lápida de granito, y las familias nos califican con 4.8 de 5. En
-              2023 hicimos la lápida de nuestro propio padre, así que sabemos lo que este momento le pide."""),
+              poner una fotografía a color en una lápida de granito, y las familias nos califican con 4.8 de 5."""),
     ('<p class="signoff">Jerry Garcia <span>Third generation, GVG Memorials</span></p>',
      '<p class="signoff">Jerry Garcia <span>Tercera generación, GVG Memorials</span></p>'),
 
