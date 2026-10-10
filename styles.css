@@ -1083,6 +1083,10 @@ h2 em {
   width: min(100% - 2 * var(--gutter), 1200px);
   margin-inline: auto;
 }
+/* on narrow screens the line breaks after the dot, never inside "since 1998" */
+.hero-kicker span {
+  white-space: nowrap;
+}
 .hero-kicker {
   color: var(--muted);
   font-size: 15px;
@@ -1486,9 +1490,6 @@ h2 em {
   .completed-card figcaption strong {
     font-size: 16px;
   }
-  .completed-card:not(:first-child) figcaption span {
-    display: none;
-  }
 }
 /* title first, then the kind of memorial in a quieter line */
 .completed-card figcaption {
@@ -1502,10 +1503,10 @@ h2 em {
   font-weight: 400;
   line-height: 1.3;
 }
-.completed-card figcaption span {
-  color: var(--muted);
-  font-size: 16px;
-  font-style: italic;
+/* captions show the title only; the kind of memorial stays in the markup for analytics */
+.completed-card figcaption span,
+.memorial-viewer-label {
+  display: none;
 }
 .gallery-more-wrap {
   margin-top: 36px;

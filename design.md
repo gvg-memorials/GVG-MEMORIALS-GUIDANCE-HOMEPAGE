@@ -135,9 +135,9 @@ sticky bottom bar with **Call · Text · Write**.
 **Cover (`.hero`).** From 960px: the words on the left, inside the 1200px column, and one tall
 photograph in the right column that bleeds off the right edge of the window and fills the first
 screen (`100svh` less the header, 560 to 900px). The photograph is the carved-doves close-up on
-Blue Pearl, with a small cream museum label on it. Words: small-caps kicker "Family owned in Oxnard
-since 1998", the headline, one sentence on what to do, Call + Ask buttons, the open/closed line,
-then under a hairline "4.8 out of 5 from families on Google" (links to the reviews) and the Spanish
+Blue Pearl, with a small cream museum label on it. Words: small-caps kicker "Oxnard, California ·
+Family-owned since 1998" (the second half never breaks), the headline, one sentence on what to do, Call + Ask buttons, the open/closed line,
+then under a hairline "Rated 4.8 out of 5 by families on Google" (links to the reviews) and the Spanish
 line. On phones the words come first and the photograph follows, edge to edge at 4:5. On load the
 words rise in, staggered, and the photograph settles from a 5% zoom (skipped for reduced motion).
 
@@ -149,7 +149,9 @@ words rise in, staggered, and the photograph settles from a 5% zoom (skipped for
 **Text link.** `.text-link`: gold-dk text, 18px, with a 1px underline
 ("Ask about your cemetery"). 44px tap height on phones (padding, not visual size).
 
-**How it works (`.steps`).** One section: five compact rows (gold numeral, title, gold italic
+**How it works (`.steps`).** Titled "Five steps, one at a time". Step titles are short actions, never
+starting the same way: Start with the cemetery / Choose the shape / Make it theirs / Get your quote /
+Approve the proof. Five compact rows (gold numeral, title, gold italic
 lede, body, optional text link) separated by hairlines, then two blocks side by side:
 "After you approve" with "How long does it take?" (installation and timing), and
 "What to bring, if you have it" as a checklist with empty boxes in a gold-keyline card.
@@ -158,15 +160,14 @@ lede, body, optional text link) separated by hairlines, then two blocks side by 
 family, GVG Memorials", on the warm stone band with a short gold rule above, between how it works
 and the granite. The only centered block.
 
-**Gallery (`.completed-gallery`).** Titled "Our work". On wide screens the lead photo spans two
-rows of a three-column grid; below 1000px the lead runs across two columns. Captions put the
-title first and the kind of memorial in a quieter italic line (hidden on phones except for the lead).
+**Gallery (`.completed-gallery`).** Titled "Recent work" (the nav still says "Our Work"). On wide screens the lead photo spans two
+rows of a three-column grid; below 1000px the lead runs across two columns. Captions show the title only (Jerry, 2026-10-10); the kind of memorial stays in a hidden span for analytics.
 The gallery is the one home for the work (no slideshow): 20 photos, 11 visible and 9 behind
 "See more of our work". Keep the visible count at 5 + a multiple of 3
 (desktop) **and** odd (phone: the lead plus pairs), which 11 satisfies.
-Below the grid: "What we make" as a plain hairline list beside the "Already have a memorial?" card.
+Below the grid: "What we create" as a plain hairline list beside the "Already have a headstone?" card.
 
-**Granite grid.** 18 square swatches with a thin gold frame and the name; 4 across on phones,
+**Granite grid.** 17 square swatches ("Seventeen granite colors"; Morning Rose dropped, China Pink renamed Rose Pink, Jerry 2026-10-10) with a thin gold frame and the name; 4 across on phones,
 6 on tablets, 9 from 1100px. No "No. 1" labels.
 
 **Album grid.** Six design examples from the 286-design album, captioned plainly.
@@ -190,16 +191,16 @@ A closing line under a hairline: "GVG Memorials, Oxnard, California — Headston
 1. Header
 2. Cover: words on the left, the doves photograph bleeding off the right
 3. Opening note with drop cap, signed "Jerry Garcia, Third generation, GVG Memorials"
-4. Our work: gallery, "What we make", "Already have a memorial?"
-5. How it works: five steps, then "After you approve" and "What to bring"
+4. Recent work: gallery, "What we create", "Already have a headstone?"
+5. Five steps, one at a time, then "After you approve" and "What to bring"
 6. Epigraph
-7. Eighteen granite colors and the album
+7. Seventeen granite colors and the album
 8. Reviews
 9. Questions
 10. Contact
 11. Footer
 
-The nav follows the same order: Our Work, How It Works, Granite, Questions, Contact, Español.
+The nav follows the same order: Our Work, How It Works, Granite & Designs, Questions, Contact, Español.
 In Spanish "Our Work" is shortened to "Galería" so the pinned row fits.
 
 **Removed by Jerry (2026-10-10):** the "Our family" section (his father's portrait, the 1998 / Firsts /
@@ -249,7 +250,13 @@ Today timeline, and the memorial GVG made for him). Do not re-add it.
 - Chat bubbles, question boxes or pop-ups that cover the page or a photo
 - The same label + rule + centered title + italic subtitle formula on every section
 
-## 14. Open items (2026-10-09)
+## 14. Copy review (2026-10-10)
+
+Jerry reviewed every line of wording in https://claude.ai/artifact/TQXrMSD63LxcYuH1fNdTzc and the
+site was updated to his choices (58 lines). Photo descriptions now match the captions plus
+", by GVG Memorials". The FAQ gained "Do you install the memorial?".
+
+## 15. Open items (2026-10-09)
 
 - **Before going live:** Jerry picked Version A. Delete `version-c/` and `version-d/`
   before merging PR #3. **Do not merge or push to `main` until Jerry says go.**

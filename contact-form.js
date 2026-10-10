@@ -8,8 +8,8 @@
     ? {
         name: "Por favor, escriba su nombre.",
         nameAndContact: "Por favor, escriba su nombre y un teléfono o correo electrónico.",
-        reviewOne: "Por favor, revise el campo marcado antes de enviar.",
-        reviewMany: "Por favor, revise los campos marcados antes de enviar.",
+        reviewOne: "Por favor, revise el campo marcado.",
+        reviewMany: "Por favor, revise los campos marcados.",
         contact: "Por favor, escriba un teléfono o correo electrónico.",
         phoneDigits: "Por favor, escriba un teléfono de al menos 7 dígitos.",
         fileSize: "Por favor, elija un archivo de menos de 8 MB.",
@@ -18,8 +18,8 @@
     : {
         name: "Please enter your name.",
         nameAndContact: "Please enter your name and a phone number or email address.",
-        reviewOne: "Please review the highlighted field before sending.",
-        reviewMany: "Please review the highlighted fields before sending.",
+        reviewOne: "Please check the marked field.",
+        reviewMany: "Please check the marked fields.",
         contact: "Please enter a phone number or email address.",
         phoneDigits: "Please enter a phone number with at least 7 digits.",
         fileSize: "Please choose a file smaller than 8 MB.",

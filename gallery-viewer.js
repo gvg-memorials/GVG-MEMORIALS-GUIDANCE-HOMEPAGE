@@ -156,7 +156,7 @@
     updateGuidancePrefill(startingPoint, "Choosing a memorial style");
     updateGuidancePrefill(
       message,
-      spanish ? `Me interesa una lápida parecida a esta: ${cardTitle}.` : `I'm interested in a memorial similar to: ${cardTitle}.`,
+      spanish ? `Me gustaría una lápida como esta: ${cardTitle}.` : `I'd like a memorial like this one: ${cardTitle}.`,
     );
     window.dispatchEvent(new CustomEvent("gvg:guidance-selected", {
       detail: { item: cardTitle },
