@@ -20,6 +20,15 @@
   font-display: swap;
 }
 
+/* true small capitals: lowercase letters in this face are drawn as small caps */
+@font-face {
+  font-family: "Alegreya SC";
+  src: url("assets/fonts/alegreya-sc-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --paper: #f7f2e8;
   --paper-2: #fbf8f1;
@@ -34,6 +43,7 @@
   --error: #8f2f22;
   --display: "Alegreya", Georgia, serif;
   --text: "Alegreya", Georgia, serif;
+  --caps: "Alegreya SC", "Alegreya", Georgia, serif;
   --gutter: 16px;
   --header-h: 72px;
 }
@@ -132,9 +142,8 @@ textarea:focus-visible {
   padding: 0 22px;
   border: 1px solid var(--gold);
   border-radius: 0;
-  font-family: var(--text);
   font-size: 17px;
-  font-variant: small-caps;
+  font-family: var(--caps);
   letter-spacing: 2px;
   text-decoration: none;
   text-transform: lowercase;
@@ -211,7 +220,7 @@ textarea:focus-visible {
 }
 .desktop-nav a {
   font-size: 16px;
-  font-variant: small-caps;
+  font-family: var(--caps);
   letter-spacing: 2.2px;
   text-decoration: none;
   text-transform: lowercase;
@@ -335,7 +344,7 @@ textarea:focus-visible {
     display: grid;
     place-items: center;
     font-size: 18px;
-    font-variant: small-caps;
+    font-family: var(--caps);
     letter-spacing: 2.4px;
     text-decoration: none;
     text-transform: lowercase;
@@ -406,7 +415,7 @@ textarea:focus-visible {
 .memorial-viewer-count {
   color: var(--gold-deep);
   font-size: 15px;
-  font-variant: small-caps;
+  font-family: var(--caps);
   letter-spacing: 2px;
   text-transform: lowercase;
 }
@@ -422,7 +431,7 @@ textarea:focus-visible {
   border-bottom: 1px solid var(--gold);
   color: var(--gold-deep);
   font-size: 16px;
-  font-variant: small-caps;
+  font-family: var(--caps);
   letter-spacing: 2.2px;
   text-decoration: none;
   text-transform: lowercase;
@@ -505,7 +514,7 @@ textarea:focus-visible {
 .contact-form-context-label {
   color: var(--gold-deep);
   font-size: 15px;
-  font-variant: small-caps;
+  font-family: var(--caps);
   letter-spacing: 2px;
   text-transform: lowercase;
 }
@@ -684,7 +693,7 @@ textarea:focus-visible {
   text-decoration: none;
 }
 .footer-nav a {
-  font-variant: small-caps;
+  font-family: var(--caps);
   letter-spacing: 2.2px;
   text-transform: lowercase;
 }
@@ -869,7 +878,7 @@ h2 em {
 
 .section-label {
   color: var(--gold-dk);
-  font-variant: small-caps;
+  font-family: var(--caps);
   letter-spacing: 3px;
   text-transform: lowercase;
 }
@@ -1077,7 +1086,7 @@ h2 em {
 .hero-kicker {
   color: var(--muted);
   font-size: 15px;
-  font-variant: small-caps;
+  font-family: var(--caps);
   letter-spacing: 2.6px;
   text-transform: lowercase;
 }
@@ -1253,10 +1262,9 @@ h2 em {
   display: block;
   margin-top: 6px;
   color: var(--muted);
-  font-family: var(--text);
   font-size: 15px;
   font-style: normal;
-  font-variant: small-caps;
+  font-family: var(--caps);
   letter-spacing: 2.4px;
   text-transform: lowercase;
 }
@@ -1406,7 +1414,7 @@ h2 em {
   margin-top: 20px;
   color: var(--ink);
   font-size: 15px;
-  font-variant: small-caps;
+  font-family: var(--caps);
   letter-spacing: 3px;
   text-transform: lowercase;
 }
@@ -1509,9 +1517,8 @@ h2 em {
   border: 1px solid var(--gold);
   background: transparent;
   color: var(--ink);
-  font-family: var(--text);
   font-size: 17px;
-  font-variant: small-caps;
+  font-family: var(--caps);
   letter-spacing: 2.4px;
   text-transform: lowercase;
   cursor: pointer;
@@ -1773,7 +1780,7 @@ h2 em {
   color: var(--muted);
   font-size: 15px;
   font-style: normal;
-  font-variant: small-caps;
+  font-family: var(--caps);
   letter-spacing: 2.6px;
   text-transform: lowercase;
 }

@@ -79,6 +79,7 @@ Fonts are self-hosted in `assets/fonts/` (no Google Fonts request).
 | Role | Font | Notes |
 |---|---|---|
 | Display and text (`--display`, `--text`) | Alegreya | Regular 400 and Italic 400 only (`assets/fonts/alegreya-latin-400-*.woff2`, SIL Open Font License in `OFL-Alegreya.txt`) |
+| Small-caps labels (`--caps`) | Alegreya SC | Regular 400 (`alegreya-sc-latin-400-normal.woff2`, `OFL-Alegreya-SC.txt`). Its lowercase letters are true small caps, so labels use `font-family: var(--caps)` with `text-transform: lowercase`, never `font-variant: small-caps` |
 
 Hierarchy comes from size and italic, never from bold: `font-synthesis-weight: none` stops the browser
 faking a bold. Alegreya's figures are old-style by default (good in sentences); phone numbers, the
@@ -259,6 +260,4 @@ Español. In Spanish two labels are shortened so the pinned row fits: "Galería"
 - The second pass (same day) also needs his approval: the doves close-up as the cover photograph
   in place of the slideshow (its five other photos are back in the gallery), our work moved ahead
   of how it works, and the shortened Spanish nav labels.
-- Small caps are synthesized: the Alegreya files have no `smcp` glyphs. Alegreya SC (same license)
-  would give true small caps for the labels.
 - Jerry hasn't approved the exact wording of the father line in the opening note.
