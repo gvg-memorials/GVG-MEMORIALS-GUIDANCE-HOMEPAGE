@@ -153,7 +153,7 @@ lede, body, optional text link) separated by hairlines, then two blocks side by 
 "After you approve" with "How long does it take?" (installation and timing), and
 "What to bring, if you have it" as a checklist with empty boxes in a gold-keyline card.
 
-**Epigraph.** Full-width italic Cormorant quote from the folder line, credited to "The Garcia
+**Epigraph.** Full-width italic quote from the folder line, credited to "The Garcia
 family, GVG Memorials", on the warm stone band with a short gold rule above, between how it works
 and the granite. The only centered block.
 
@@ -176,7 +176,7 @@ yours*", a gold italic pull quote and a short timeline (1998 / Firsts / Today) w
 **Reviews (`#reviews`).** Large "4.8" in gold display numerals, "out of 5 from families on Google", and two
 italic quotes separated by a hairline, with small-caps first names.
 
-**FAQ.** Native `<details>` rows with hairline dividers and a gold +/× marker. Questions in EB Garamond 21px.
+**FAQ.** Native `<details>` rows with hairline dividers and a gold +/× marker. Questions at 21px.
 
 **Contact.** Big phone number, text and email links, hours table with a live open/closed
 line, and "We can meet at our shop or at your home." Form in a gold-keyline card: name
