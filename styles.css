@@ -940,7 +940,7 @@ h2 em {
 /* two creams, alternating like pages; the epigraph sits on warm stone */
 .completed-gallery,
 .granite,
-.reviews {
+.faq {
   background: var(--paper-2);
 }
 
@@ -2074,7 +2074,7 @@ h2 em {
   }
   .footer-nav {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: repeat(3, auto);
     grid-auto-flow: column;
     column-gap: 28px;
     align-content: start;

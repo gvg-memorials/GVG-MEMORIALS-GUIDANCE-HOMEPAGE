@@ -68,7 +68,6 @@ PAIRS = [
     ('<a href="#steps">How It Works</a>', '<a href="#steps">Cómo funciona</a>'),
     ('<a href="#granite">Granite</a>', '<a href="#granite">Granito</a>'),
     ('<a href="#gallery">Our Work</a>', '<a href="#gallery">Galería</a>'),
-    ('<a href="#family">Our Family</a>', '<a href="#family">Familia</a>'),
     ('<a href="#questions">Questions</a>', '<a href="#questions">Preguntas</a>'),
     ('<a href="#contact">Contact</a>', '<a href="#contact">Contacto</a>'),
     ('<a class="lang-link" href="/es/" hreflang="es" lang="es">Español</a>',
@@ -305,20 +304,6 @@ PAIRS = [
     ("<strong>Already have a memorial?</strong>", "<strong>¿Ya tiene una lápida?</strong>"),
     ("<span>If your loved one is joining someone already resting, we can add the final date or a new name. We also clean and restore older stones.</span>",
      "<span>Si su ser querido descansará junto a alguien que ya está ahí, podemos agregar la fecha final o un nombre nuevo. También limpiamos y restauramos lápidas antiguas.</span>"),
-
-    # --- family ---------------------------------------------------------------------------------------
-    ('<h2 id="family-title" class="section-title">Three generations, <em>serving yours</em></h2>',
-     '<h2 id="family-title" class="section-title">Tres generaciones, <em>al servicio de la suya</em></h2>'),
-    ('<p class="pull">&ldquo;His vision continues to guide us.&rdquo;</p>',
-     '<p class="pull">&ldquo;Su visión nos sigue guiando.&rdquo;</p>'),
-    ("<dd>Gerardo Valle Garcia and Gerardo Garcia Jr. founded GVG Memorials in Oxnard.</dd>",
-     "<dd>Gerardo Valle Garcia y Gerardo Garcia Jr. fundaron GVG Memorials en Oxnard.</dd>"),
-    ("<dt>Firsts</dt><dd>Among the first in the area to place a color photograph on a granite memorial.</dd>",
-     "<dt>Pioneros</dt><dd>De los primeros en la zona en poner una fotografía a color en una lápida de granito.</dd>"),
-    ("<dt>Today</dt><dd>Jerry Garcia carries the work forward as the third generation, working with carefully selected craftsmen and designers.</dd>",
-     "<dt>Hoy</dt><dd>Jerry Garcia continúa el trabajo como la tercera generación, con artesanos y diseñadores escogidos con cuidado.</dd>"),
-    ('alt="The memorial GVG made for Gerardo G. Garcia Jr."', 'alt="La lápida que GVG hizo para Gerardo G. Garcia Jr."'),
-    ("<figcaption>The memorial we made for him.</figcaption>", "<figcaption>La lápida que hicimos para él.</figcaption>"),
 
     # --- reviews (the families' own words stay in English, marked as such) -----------------------------
     ('<h2 id="reviews-title"><span class="sr-only">4.8 </span>out of 5 from families on Google</h2>',

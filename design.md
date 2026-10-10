@@ -70,7 +70,7 @@ Defined once on `:root` in `styles.css`. Use the variables; don't hard-code hex 
 On the `--stone` band, `--gold-dk` and `--muted` drop to 4.3:1, so small text there is set in `--ink`.
 
 **Section rhythm:** each section opens with a hairline. The tinted sections (`--paper-2`) are
-`.completed-gallery`, `.granite` and `.reviews`; the epigraph sits on `--stone`; the rest are `--paper`.
+`.completed-gallery`, `.granite` and `.faq`; the epigraph sits on `--stone`; the rest are `--paper`.
 
 ## 5. Typography
 
@@ -102,9 +102,9 @@ print pieces and for images made on his own computer.
 | Minimum anywhere | 13px (nav); body text never under 16px |
 
 **Signature moves:**
-- **Gold italic accent in headlines, three times only:** the cover ("Headstones made with care,
-  *for the one you love.*"), the family ("Three generations, *serving yours*") and the contact
-  invitation ("Start whenever *you're ready*"). Every other title is plain. Rarity is what makes it feel special.
+- **Gold italic accent in headlines, twice only:** the cover ("Headstones made with care,
+  *for the one you love.*") and the contact invitation ("Start whenever *you're ready*"). Every other
+  title is plain. Rarity is what makes it feel special.
 - **Small caps labels** (`font-variant: small-caps` + `text-transform: lowercase` + wide tracking), used sparingly:
   nav, buttons, the hero kicker, the signature title, review names and the epigraph credit. Text links are
   plain underlined text, not small caps.
@@ -171,9 +171,6 @@ Below the grid: "What we make" as a plain hairline list beside the "Already have
 
 **Album grid.** Six design examples from the 286-design album, captioned plainly.
 
-**Family.** Portrait of Gerardo "Jerry" Garcia Jr. (1972–2023), "Three generations, *serving
-yours*", a gold italic pull quote and a short timeline (1998 / Firsts / Today) with italic gold years.
-
 **Reviews (`#reviews`).** Large "4.8" in gold display numerals, "out of 5 from families on Google", and two
 italic quotes separated by a hairline, with small-caps first names.
 
@@ -197,14 +194,16 @@ A closing line under a hairline: "GVG Memorials, Oxnard, California — Headston
 5. How it works: five steps, then "After you approve" and "What to bring"
 6. Epigraph
 7. Eighteen granite colors and the album
-8. Our family
-9. Reviews
-10. Questions
-11. Contact
-12. Footer
+8. Reviews
+9. Questions
+10. Contact
+11. Footer
 
-The nav follows the same order: Our Work, How It Works, Granite, Our Family, Questions, Contact,
-Español. In Spanish two labels are shortened so the pinned row fits: "Galería" and "Familia".
+The nav follows the same order: Our Work, How It Works, Granite, Questions, Contact, Español.
+In Spanish "Our Work" is shortened to "Galería" so the pinned row fits.
+
+**Removed by Jerry (2026-10-10):** the "Our family" section (his father's portrait, the 1998 / Firsts /
+Today timeline, and the memorial GVG made for him). Do not re-add it.
 
 ## 9. Imagery
 
