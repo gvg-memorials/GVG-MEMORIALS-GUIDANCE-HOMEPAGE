@@ -42,7 +42,7 @@ The site should feel like a fine printed magazine, not a store.
 2. **No diamonds or ornaments.** Separate things with open space and plain hairline rules.
 3. **Gold is the only accent.** Use it for rules, frames, numerals, italic accents and
    the primary button. No second accent color.
-4. **Serif only.** Cormorant Garamond for display and EB Garamond for text. No sans-serif on Version A.
+4. **Serif only.** Alegreya Regular and Italic (400) for everything (Jerry's choice, 2026-10-10). No sans-serif, no bold.
 5. **Square corners.** `border-radius: 0` on buttons, inputs, cards and frames.
 6. **Few lines.** A hairline at the top of each section and plain dividers between steps, list rows and FAQ rows. Don't put a rule under every heading.
 7. **Don't repeat a trick.** No small-caps label above every heading, no gold italic in every title, no identical
@@ -78,17 +78,22 @@ Fonts are self-hosted in `assets/fonts/` (no Google Fonts request).
 
 | Role | Font | Notes |
 |---|---|---|
-| Display (`--display`) | Cormorant Garamond | **26px and up only:** hero, section titles, step titles, epigraph, quotes, signature, big numerals |
-| Text (`--text`) | EB Garamond | Everything under 26px: body, ledes, captions, FAQ questions, swatch names, labels, buttons, nav, form |
+| Display and text (`--display`, `--text`) | Alegreya | Regular 400 and Italic 400 only (`assets/fonts/alegreya-latin-400-*.woff2`, SIL Open Font License in `OFL-Alegreya.txt`) |
 
-Two Garamonds at the same small size look muddy, so Cormorant never appears under 26px.
+Hierarchy comes from size and italic, never from bold: `font-synthesis-weight: none` stops the browser
+faking a bold. Alegreya's figures are old-style by default (good in sentences); phone numbers, the
+kicker, step numbers and the 4.8 use lining figures.
+
+Jerry first asked for **Michelangelus** (Microsoft, 2026). Its license forbids distributing the font, and a
+web font is sent to every visitor, so it can't be used as live text on the site. It is fine for his
+print pieces and for images made on his own computer.
 
 **Scale (desktop → phone via `clamp`):**
 
 | Element | Size |
 |---|---|
-| Hero h1 | `clamp(46px, 6.4vw, 96px)`, line-height 0.98, tracking -0.02em |
-| Section title h2 (`.section-title`) | `clamp(38px, 5.2vw, 64px)`, line-height 1.02 |
+| Hero h1 | `clamp(44px, 5.6vw, 84px)`, line-height 1, tracking -0.015em |
+| Section title h2 (`.section-title`) | `clamp(36px, 4.6vw, 58px)`, line-height 1.02 |
 | Step title and sub-section h3 | `clamp(28px, 3vw, 34px)` |
 | Body | 17–19px, line-height ~1.6 |
 | Small-caps labels (hero kicker, signature title, review names, epigraph credit) | 15px, letter-spacing 2.4–3px |
@@ -103,8 +108,7 @@ Two Garamonds at the same small size look muddy, so Cormorant never appears unde
   nav, buttons, the hero kicker, the signature title, review names and the epigraph credit. Text links are
   plain underlined text, not small caps.
 - **Drop cap** on the opening note.
-- **Lining figures** on step numbers (`lnum`) so "1" doesn't read as a capital I.
-  Note: the self-hosted EB Garamond has no old-style figures, so `oldstyle-nums` does nothing.
+- **Lining figures** on phone numbers, step numbers and the 4.8; old-style figures in running text.
 - Curly quotes and apostrophes in all copy.
 
 ## 6. Layout and spacing
@@ -255,6 +259,6 @@ Español. In Spanish two labels are shortened so the pinned row fits: "Galería"
 - The second pass (same day) also needs his approval: the doves close-up as the cover photograph
   in place of the slideshow (its five other photos are back in the gallery), our work moved ahead
   of how it works, and the shortened Spanish nav labels.
-- Small caps are synthesized: the self-hosted EB Garamond subset has no `smcp` glyphs. A fuller
-  EB Garamond build with true small caps would sharpen every label.
+- Small caps are synthesized: the Alegreya files have no `smcp` glyphs. Alegreya SC (same license)
+  would give true small caps for the labels.
 - Jerry hasn't approved the exact wording of the father line in the opening note.
