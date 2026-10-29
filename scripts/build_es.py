@@ -331,7 +331,9 @@ PAIRS = [
     ('<p class="contact-note">We can meet at our shop or at your home.</p>',
      '<p class="contact-note">Podemos vernos en nuestro taller o en su casa.</p>'),
     (">Schedule a visit</a>", ">Hacer una cita</a>"),
-    ('action="/thank-you/"', 'action="/es/gracias/"'),
+    # The form action stays "/thank-you/": both forms are the one Netlify form "contact", and
+    # Netlify answers every submission with a single success page. That page forwards Spanish
+    # senders to /es/gracias/.
     ('<input type="hidden" name="language" value="English" />', '<input type="hidden" name="language" value="Spanish" />'),
     ("<label>Do not fill this out: <input", "<label>No llene este campo: <input"),
     ("<h3 class=\"contact-form-title\" id=\"contact-form-title\" tabindex=\"-1\">We'll call you back</h3>",

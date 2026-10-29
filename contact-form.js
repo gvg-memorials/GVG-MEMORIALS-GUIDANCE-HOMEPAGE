@@ -431,6 +431,9 @@
     }
     try {
       window.sessionStorage.setItem("gvg_contact_draft_submitted", "true");
+      // The thank-you page reads this to send Spanish senders to /es/gracias/.
+      const language = contactForm.querySelector('input[name="language"]')?.value || "English";
+      window.sessionStorage.setItem("gvg_contact_language", language);
     } catch (_) {
       // Successful submission does not depend on session storage.
     }
