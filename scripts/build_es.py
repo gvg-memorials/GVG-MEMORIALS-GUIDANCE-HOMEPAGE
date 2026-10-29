@@ -91,8 +91,8 @@ PAIRS = [
      '<p class="hero-sub">Díganos su nombre y el cementerio, y nosotros nos encargamos del resto, al paso de su familia, con un presupuesto por escrito gratis.</p>'),
     ('<p class="hero-proof"><a href="#reviews">Rated 4.8 out of 5 by families on Google</a></p>',
      '<p class="hero-proof"><a href="#reviews">Calificación de 4.8 de 5 según las familias en Google</a></p>'),
-    ('<a class="button button-outline" href="#contact-form">Ask us a question</a>',
-     '<a class="button button-outline" href="#contact-form">Háganos una pregunta</a>'),
+    ('data-guidance-item="A free written quote">Request a free quote</a>',
+     'data-guidance-item="Un presupuesto por escrito gratis">Pida un presupuesto gratis</a>'),
     ('<p class="hero-es" lang="es">También atendemos en español. <a href="/es/" hreflang="es">Ver esta página en español</a></p>',
      '<p class="hero-es" lang="en">We also help families in English. <a href="/" hreflang="en">Read this page in English</a></p>'),
 
@@ -287,6 +287,16 @@ PAIRS = [
     ('target="_blank" rel="noopener">Read the reviews</a>', 'target="_blank" rel="noopener">Leer las reseñas</a>'),
     ("<blockquote>\n                <p>&ldquo;Jerry was caring", '<blockquote lang="en">\n                <p>&ldquo;Jerry was caring'),
     ("<blockquote>\n                <p>&ldquo;Jerry made the process", '<blockquote lang="en">\n                <p>&ldquo;Jerry made the process'),
+    ("throughout the entire process.&rdquo;</p>\n                <cite>Frank G.</cite>",
+     "throughout the entire process.&rdquo;</p>\n"
+     '                <p class="quote-translation" lang="es"><span class="quote-translation-label">Traducción</span>'
+     "&ldquo;Jerry fue atento, amable, profesional y nos dio ánimo durante todo el proceso.&rdquo;</p>\n"
+     "                <cite>Frank G.</cite>"),
+    ("everything we wanted.&rdquo;</p>\n                <cite>Andrew G.</cite>",
+     "everything we wanted.&rdquo;</p>\n"
+     '                <p class="quote-translation" lang="es"><span class="quote-translation-label">Traducción</span>'
+     "&ldquo;Jerry nos facilitó el proceso y se aseguró de que tuviéramos todo lo que queríamos.&rdquo;</p>\n"
+     "                <cite>Andrew G.</cite>"),
 
     # --- FAQ ------------------------------------------------------------------------------------------
     ('<h2 id="faq-title" class="section-title">Questions families ask</h2>',
@@ -315,8 +325,8 @@ PAIRS = [
     # --- contact --------------------------------------------------------------------------------------
     ("<h2 id=\"contact-title\" class=\"section-title\">Start whenever <em>you're ready</em></h2>",
      '<h2 id="contact-title" class="section-title">Empiece cuando <em>esté listo</em></h2>'),
-    ("                Tell us a little about your loved one and the cemetery, and we'll call you back. You don't need every\n                detail.",
-     '                Cuéntenos un poco sobre su ser querido y el cementerio, y le llamamos. No necesita tener todos los\n                detalles.'),
+    ("                Tell us a little about your loved one and the cemetery, and we'll be in touch. You don't need every\n                detail.",
+     '                Cuéntenos un poco sobre su ser querido y el cementerio, y nos pondremos en contacto con usted. No\n                necesita tener todos los detalles.'),
     ("""                Hard to talk right now? <a href=\"""", """                ¿Le cuesta hablar en este momento? <a href=\""""),
     (""">Send us a text</a> at the same number. A photo of the
                 stone or the cemetery paperwork is a fine way to start.""",
@@ -336,8 +346,8 @@ PAIRS = [
     # senders to /es/gracias/.
     ('<input type="hidden" name="language" value="English" />', '<input type="hidden" name="language" value="Spanish" />'),
     ("<label>Do not fill this out: <input", "<label>No llene este campo: <input"),
-    ("<h3 class=\"contact-form-title\" id=\"contact-form-title\" tabindex=\"-1\">We'll call you back</h3>",
-     '<h3 class="contact-form-title" id="contact-form-title" tabindex="-1">Le devolvemos la llamada</h3>'),
+    ("<h3 class=\"contact-form-title\" id=\"contact-form-title\" tabindex=\"-1\">We'll be in touch</h3>",
+     '<h3 class="contact-form-title" id="contact-form-title" tabindex="-1">Nos pondremos en contacto</h3>'),
     ("""              Your name and one way to reach you are all we need.
               <span lang="es">También atendemos en español.</span>""",
      """              Solo necesitamos su nombre y una forma de contactarle."""),

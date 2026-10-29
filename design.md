@@ -143,7 +143,7 @@ words rise in, staggered, and the photograph settles from a 5% zoom (skipped for
 
 **Buttons.** `.button` 52px tall, square, small caps, 17px.
 - Primary: gold-dk fill, cream text ("Call (805) 889-3769").
-- Outline: gold border, ink text ("Ask us a question").
+- Outline: gold border, ink text ("Request a free quote"; it pre-selects "A free written quote" in the form).
 - One primary per view.
 
 **Text link.** `.text-link`: gold-dk text, 18px, with a 1px underline
@@ -173,7 +173,9 @@ Below the grid: "What we create" as a plain hairline list beside the "Already ha
 **Album grid.** Six design examples from the 286-design album, captioned plainly.
 
 **Reviews (`#reviews`).** Large "4.8" in gold display numerals, "out of 5 from families on Google", and two
-italic quotes separated by a hairline, with small-caps first names.
+italic quotes separated by a hairline, with small-caps first names. On the Spanish page the quotes stay in
+the families' English, each followed by a Spanish translation under a small gold "Traducción" label
+(`.quote-translation`).
 
 **FAQ.** Native `<details>` rows with hairline dividers and a gold +/× marker. Questions at 21px.
 
