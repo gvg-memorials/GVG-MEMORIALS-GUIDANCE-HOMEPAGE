@@ -102,7 +102,7 @@ print pieces and for images made on his own computer.
 | Minimum anywhere | 13px (nav); body text never under 16px |
 
 **Signature moves:**
-- **Gold italic accent in headlines, twice only:** the cover ("Headstones made with care,
+- **Gold italic accent in headlines, twice only:** the cover ("Headstones, made with care
   *for the one you love.*") and the contact invitation ("Start whenever *you're ready*"). Every other
   title is plain. Rarity is what makes it feel special.
 - **Small caps labels** (`font-variant: small-caps` + `text-transform: lowercase` + wide tracking), used sparingly:

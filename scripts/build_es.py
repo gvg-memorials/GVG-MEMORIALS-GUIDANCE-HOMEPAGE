@@ -85,8 +85,8 @@ PAIRS = [
     # --- hero -----------------------------------------------------------------------------------------
     ('<p class="hero-kicker">Oxnard, California · <span>Family-owned since 1998</span></p>',
      '<p class="hero-kicker">Oxnard, California · <span>Negocio familiar desde 1998</span></p>'),
-    ('<h1 id="hero-title">Headstones made with care, <em>for the one you love.</em></h1>',
-     '<h1 id="hero-title">Lápidas hechas con cariño, <em>para quien tanto ama.</em></h1>'),
+    ('<h1 id="hero-title">Headstones, made with care <em>for the one you love.</em></h1>',
+     '<h1 id="hero-title">Lápidas, hechas con cariño <em>para quien tanto ama.</em></h1>'),
     ('<p class="hero-sub">Tell us their name and the cemetery, and we\'ll take it from there, at your family\'s pace, with a free written quote.</p>',
      '<p class="hero-sub">Díganos su nombre y el cementerio, y nosotros nos encargamos del resto, al paso de su familia, con un presupuesto por escrito gratis.</p>'),
     ('<p class="hero-proof"><a href="#reviews">Rated 4.8 out of 5 by families on Google</a></p>',
