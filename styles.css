@@ -1785,6 +1785,24 @@ h2 em {
   letter-spacing: 2.6px;
   text-transform: lowercase;
 }
+/* Spanish page: the family's own words stay in English, with a labeled translation below */
+.quotes .quote-translation {
+  margin-top: 14px;
+  font-family: var(--text);
+  font-size: clamp(18px, 1.9vw, 21px);
+  line-height: 1.45;
+  text-indent: 0;
+}
+.quote-translation-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--gold-dk);
+  font-size: 14px;
+  font-style: normal;
+  font-family: var(--caps);
+  letter-spacing: 2.4px;
+  text-transform: lowercase;
+}
 
 /* --- questions ------------------------------------------------------------------ */
 
