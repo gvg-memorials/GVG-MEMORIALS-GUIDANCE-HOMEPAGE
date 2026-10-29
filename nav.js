@@ -5,6 +5,7 @@
   if (!header || !toggle || !nav) return;
 
   const body = document.body;
+  const spanish = document.documentElement.lang.startsWith("es");
   const focusableSelector = 'a[href], button:not([disabled])';
   const navTransitionDuration = 240;
   const backgroundRegions = [
@@ -240,7 +241,7 @@
       (currentLink || nav.querySelector(focusableSelector))?.focus();
     });
     toggle.setAttribute("aria-expanded", "true");
-    toggle.setAttribute("aria-label", "Close menu");
+    toggle.setAttribute("aria-label", spanish ? "Cerrar menú" : "Close menu");
     body.classList.add("nav-open");
   }
 
@@ -248,7 +249,7 @@
     const { restoreFocus = true } = options;
     nav.removeAttribute("data-open");
     toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-label", "Open menu");
+    toggle.setAttribute("aria-label", spanish ? "Abrir menú" : "Open menu");
     body.classList.remove("nav-open");
     setTimeout(() => {
       if (toggle.getAttribute("aria-expanded") === "false") {

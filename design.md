@@ -1,727 +1,269 @@
-# GVG Memorials Guidance Homepage Design Direction
-
-## Project
-
-Repository: `gvg-memorials/GVG-MEMORIALS-GUIDANCE-HOMEPAGE`
-
-This website is the guidance-first homepage direction for GVG Memorials. It is separate from the `GVG-WEBSITE-LIQUID-GLASS` design concept repo.
-
-## Creative Direction
-
-The site should feel like a calm luxury editorial memorial page, not an ecommerce storefront. The visual direction is warm, cinematic, respectful, and family-focused. The first impression should tell grieving families that GVG will help them choose a headstone or monument with patience, clarity, and care.
-
-The mood is:
-
-- Calm
-- Dignified
-- Empathetic
-- Premium but not flashy
-- Local and trustworthy
-- Family-owned
-- Clear rather than clever
-
-Avoid:
-
-- Shop-first or cart-first presentation
-- Dark funeral-home gloom
-- Loud gradients or generic startup styling
-- Overly decorative religious imagery
-- Crowded product grids above the fold
-- Copy that feels pushy, salesy, or transactional
-
-## Audience
-
-The visitor is usually a family member who has recently lost someone or is helping plan a memorial. They may not know cemetery rules, stone types, layout requirements, installation details, or what information to bring to the first appointment.
-
-They need:
-
-- Reassurance that they are in the right place
-- A clear explanation of what GVG does
-- Confidence that someone will guide them through the process
-- Help choosing between headstones, flat markers, bronze, benches, ledgers, and custom designs
-- Local cemetery-aware support in Oxnard and Ventura County
-
-## Core Positioning
-
-GVG Memorials is a family-owned Oxnard memorial company helping families create custom headstones, grave markers, monuments, bronze memorials, benches, and cemetery tributes with patience, clarity, and care.
-
-Key trust signals:
-
-- Family-owned
-- 20+ years of experience
-- Custom memorial design
-- Cemetery-aware planning
-- Multilingual support
-- Not a funeral home
-- Local Oxnard and Ventura County service
-
-## Homepage Message
-
-### Hero
-
-Headline:
-
-```text
-Remember The One
-You Love. Forever.
-```
-
-Subheadline:
-
-```text
-Custom headstones, grave markers, bronze memorials, and monuments, planned with patience, clarity, and lasting craftsmanship.
-```
-
-Primary CTA:
-
-```text
-Start With Guidance
-```
-
-Secondary CTA:
-
-```text
-Call (805) 889-3769
-```
-
-Hero proof points:
-
-```text
-Family-owned in Oxnard
-20+ years of experience
-English, Spanish and Multi-Lingual support
-```
-
-Trust strip:
-
-```text
-Custom Headstones
-Cemetery Memorials
-Family Guidance
-Local Care
-```
-
-## Page Structure
-
-1. Hero
-   - Full-bleed golden-hour memorial park image
-   - Fixed transparent header over image
-   - Centered editorial serif headline
-   - Two CTAs
-   - Immediate proof points under the value statement on tablet and desktop
-   - Bottom trust strip on tablet and desktop
-
-2. First Decisions
-   - Acknowledge that early memorial decisions can feel hard to sort through
-   - Explain that GVG helps with cemetery requirements, memorial styles, wording, proofs, and manageable pacing
-   - Keep the supporting paragraph directly beneath the heading and the guidance checklist in the adjacent column
-
-3. Credibility Strip
-   - Family-Owned
-   - 20+ Years
-   - Not a Funeral Home
-   - Multilingual Support
-
-4. Memorial Options
-   - Upright Monuments
-   - Flat Grave Markers
-   - Bronze Memorials
-   - Benches & Custom Designs
-
-5. Recent Work
-   - Real completed memorial photography
-   - Engraving and stonework details with restrained captions
-
-6. Process
-   - Listen
-   - Design
-   - Coordinate
-   - Craft
-   - A short note beneath the steps confirms proof approval, name/date checks, and cemetery requirements
-   - One text CTA: Ask about your cemetery
-
-7. Before You Visit
-   - Reassure families that paperwork, photos, notes, questions, or incomplete information are enough to begin
-   - What cemetery information helps
-   - Which memorial style the family is considering
-   - Names, wording, and artwork to review
-
-8. Common Questions
-   - Whether families need to know the memorial style before reaching out
-   - What memorial options can be reviewed together
-   - Whether GVG can help with cemetery requirements
-   - What affects headstone or marker timing
-
-9. Contact
-    - Common starting points for cemetery requirements, memorial style options, and wording/artwork review
-    - Call
-    - Email
-    - Address
-    - Optional starting-point selector in the form
-    - Netlify contact form for families who prefer to begin in writing
-
-10. Mobile Conversion Support
-    - Sticky bottom contact bar with direct call and message actions
-    - Visible only on small screens
-
-## Visual System
-
-### WebGL Sun Flare
-
-The hero includes a subtle WebGL lens flare layer to make the existing golden-hour background feel alive when someone lands on the site. The effect should behave like warm California sun passing through oak branches: cinematic and premium, but calm enough for a memorial service homepage.
-
-Implementation:
-
-```text
-sun-flare.js
-```
-
-Rules:
-
-- Keep the flare behind the hero copy and CTAs.
-- The flare should feel like natural sun through trees, not a sci-fi effect.
-- Use slow, subtle motion only.
-- Anchor the sun position to the upper-right light source and use aspect-corrected shader math so the flare does not drift on desktop or mobile.
-- Respect `prefers-reduced-motion` by rendering a still flare.
-- Use `requestAnimationFrame` for browser-timed motion and pause the loop when the hero is offscreen.
-- Keep a low-opacity CSS glow layer under WebGL as art direction support, and allow it to become the full fallback if WebGL is unavailable.
-- Do not let the flare reduce headline readability.
-
-### Photography
-
-The hero image should feel like luxury editorial photography: warm golden-hour California memorial park, rolling hills, mature oak trees, polished blank granite monuments, tasteful flowers, and immaculate landscaping.
-
-Image rules:
-
-- No readable inscriptions
-- No names or dates
-- No religious symbols unless explicitly requested
-- No people grieving
-- No gloomy horror-cemetery mood
-- Keep monuments realistic and proportionate
-
-Current hero asset:
-
-```text
-assets/hero-memorial-park.png
-```
-
-### Color Tokens
-
-The current CSS color system:
-
-```css
---ink: #17130e;
---ivory: #f6f1e8;
---limestone: #ded2bd;
---sand: #b9a77f;
---brass: #af8741;
---olive: #3c472c;
---white: #fffaf1;
---shadow: rgba(12, 10, 7, 0.45);
-```
-
-Usage:
-
-- `--ink`: primary text, dark editorial sections
-- `--ivory`: main page background
-- `--brass`: primary CTA and accent labels
-- `--white`: hero text and dark-section text
-- `--limestone` / `--sand`: warm stone-family support colors
-- `--olive`: restrained local garden accent, use sparingly
-
-Avoid turning the whole page beige or monochrome. The dark memorial-options and appointment sections create contrast and keep the page from becoming too soft.
-
-### Typography
-
-Headlines:
-
-```css
-font-family: "Cormorant Garamond", Georgia, serif;
-```
-
-Use for:
-
-- Hero headline
-- Section headings
-- Memorial option titles
-- Large trust labels
-
-Body/UI:
-
-```css
-font-family: "Inter", Arial, sans-serif;
-```
-
-Use for:
-
-- Navigation
-- Buttons
-- Body copy
-- Labels
-- Contact details
-
-Rules:
-
-- Do not use negative letter spacing
-- Do not scale font size directly with viewport width outside existing `clamp()` rules
-- Keep hero headline large and editorial
-- Keep the hero headline as contiguous line text: two explicit lines on tablet/desktop (`Remember The One` / `You Love. Forever.`) and three shorter lines on phones (`Remember The` / `One You Love.` / `Forever.`). Do not rebuild it with shared grid columns because unequal phrase widths create detached-looking words.
-- Use the quieter card-title weight for repeated supporting titles so cards do not feel randomly bold
-- Keep body copy plain, readable, and direct
-
-### Current Implemented Tokens
-
-The current website is a static HTML/CSS/JS implementation. `styles.css` is the source of truth for the implemented visual system.
-
-Core tokens currently defined in `:root`:
-
-```css
---ink: #17130e;
---ivory: #f6f1e8;
---limestone: #ded2bd;
---sand: #b9a77f;
---brass: #af8741;
---olive: #3c472c;
---white: #fffaf1;
---shadow: rgba(12, 10, 7, 0.45);
---serif: "Cormorant Garamond", Georgia, serif;
---sans: "Inter", Arial, sans-serif;
---weight-body: 400;
---weight-display: 500;
---weight-card-title: 400;
---weight-ui: 400;
---weight-label: 400;
---weight-support: var(--weight-body);
---section-space-desktop: 96px;
---section-space-tablet: 72px;
---section-space-mobile: 56px;
---section-gutter-desktop: 56px;
---section-gutter-tablet: 32px;
---section-gutter-mobile: 24px;
---eyebrow-size: 12.5px;
---eyebrow-weight: 500;
---eyebrow-tracking: 0.14em;
---section-title-desktop: 46px;
---section-title-tablet: 40px;
---section-title-mobile: 32px;
---section-title-leading: 1.1;
---section-header-label-gap: 16px;
---section-header-lede-gap: 20px;
---section-lede-size: 17px;
-```
-
-Implemented layout values:
-
-```css
-section inner max width: 1180px;
-desktop horizontal gutter: 56px per side;
-tablet horizontal gutter: 32px per side;
-mobile horizontal gutter: 24px per side;
-hero content width: min(1180px, calc(100% - 40px));
-section heading max width: 760px;
-primary section padding: 96px desktop, 72px tablet, 56px mobile;
-major grid gap: clamp(42px, 7vw, 96px);
-```
-
-Implemented type values:
-
-```css
-hero h1: 68px desktop, 56px tablet, 40px mobile, with short-height landscape exceptions;
-section h2: 46px desktop, 40px tablet, 32px mobile, line-height 1.1;
-section eyebrow: 12.5px Inter, weight 500, 0.14em tracking, uppercase;
-optional section lede: 17px Inter with a 20px heading gap;
-body section copy: 17px, line-height 1.62 to 1.7;
-large note copy: clamp(18px, 1.7vw, 23px), line-height 1.65;
-small UI labels: 11px to 12px, uppercase, Inter, medium weight;
-supporting card titles: Cormorant Garamond, regular weight;
-support and metadata copy: regular weight, Inter;
-```
-
-Implemented interaction values:
-
-```css
-button min-height: 48px;
-button padding: 0 28px;
-button hover transform: translateY(-1px);
-transition duration: 180ms ease;
-```
-
-### Hard-Coded Values To Tokenize Later
-
-The site already looks coherent. These values should eventually become named tokens, but changing them should be a later low-risk cleanup only. Do not change visual output during tokenization.
-
-Dark surfaces:
-
-```css
-#17130e;
-#16130f;
-#0f0e0b;
-```
-
-Warm surfaces:
-
-```css
-#ebe0ce;
-#f5efe4;
-```
-
-Accent and hover values:
-
-```css
-#c59648;
-#f0d18c;
-#f2d28f;
-#5d4928;
-#4d3e25;
-```
-
-Divider values:
-
-```css
-rgba(23, 19, 14, 0.16);
-rgba(23, 19, 14, 0.28);
-rgba(255, 250, 241, 0.16);
-rgba(255, 250, 241, 0.18);
-rgba(255, 250, 241, 0.2);
-rgba(255, 250, 241, 0.24);
-rgba(255, 250, 241, 0.48);
-rgba(255, 250, 241, 0.66);
-```
-
-Text opacity values:
-
-```css
-rgba(23, 19, 14, 0.62);
-rgba(23, 19, 14, 0.68);
-rgba(23, 19, 14, 0.72);
-rgba(23, 19, 14, 0.78);
-rgba(255, 250, 241, 0.72);
-rgba(255, 250, 241, 0.74);
-rgba(255, 250, 241, 0.75);
-rgba(255, 250, 241, 0.84);
-rgba(255, 250, 241, 0.9);
-```
-
-Motion and glow values:
-
-```css
-sun fallback animation: 8s ease-in-out infinite alternate;
-WebGL-ready fallback animation: 12s;
-desktop WebGL canvas opacity: 0.9;
-mobile WebGL canvas opacity: 0.62;
-fallback glow desktop range: 0.46 to 0.72;
-fallback glow WebGL-ready range: 0.16 to 0.28;
-fallback glow mobile range: 0.32 to 0.48;
-fallback glow mobile WebGL-ready range: 0.12 to 0.22;
-```
-
-### Existing Component Primitives
-
-The current site does not use React, Tailwind, Next.js, or a component library. Components exist as static HTML/CSS primitives.
-
-Documented primitive names for future reference:
-
-- `SiteHeader`: fixed transparent header with logo, desktop nav, and phone CTA.
-- `DesktopNav`: uppercase navigation links shown above the mobile breakpoint.
-- `HeaderAction`: outlined phone CTA in the header.
-- `HeroMediaStack`: full-bleed hero image, WebGL canvas, CSS glow fallback, and shade overlay.
-- `SunFlareLayer`: WebGL sun flare plus CSS fallback.
-- `HeroContent`: headline, support copy, and hero CTAs.
-- `HeroTrustStrip`: bottom service strip inside the hero.
-- `Button`: shared CTA base.
-- `ButtonPrimary`: brass filled CTA.
-- `ButtonSecondary`: transparent/dark glass CTA on the hero.
-- `ButtonOutline`: light-section outline CTA.
-- `SectionShell`: full-width section band.
-- `SectionInner`: constrained content wrapper.
-- `SectionHeading`: label, heading, and optional support copy.
-- `SectionLabel`: uppercase brass label.
-- `EditorialGrid`: two-column content grid.
-- `BorderGrid`: repeated grid with 1px dividers.
-- `GuidanceChecklist`: three plain check-mark items for design guidance, layout proofs, and cemetery coordination.
-- `CredibilityGrid`: four trust-signal cells.
-- `MemorialOptionsGrid`: four memorial option cells.
-- `ProcessSteps`: ordered guidance steps.
-- `ProcessSafeguardNote`: proof, name/date, and cemetery checks attached directly beneath the process steps.
-- `ResourceList`: stacked resource rows.
-- `FAQList`: visible objection-handling questions aligned with FAQ JSON-LD.
-- `CompletedMemorialGallery`: responsive grid of real completed memorial photography with accessible detail viewer.
-- `ContactPanel`: final contact section with CTAs and address.
-- `ContactForm`: low-pressure message form with explicit required field labels,
-  privacy copy, and Netlify submission handling.
-- `ThankYouConfirmation`: post-form confirmation page with reassurance copy,
-  next-step notes, phone CTA, and return-home action.
-
-### Styling Architecture
-
-Current architecture:
-
-```text
-index.html      static content, SEO, JSON-LD, section order, class structure
-styles.css      tokens, reset, layout, components, responsive rules
-sun-flare.js    WebGL hero animation and motion fallback behavior
-assets/         production logo and hero image assets
-```
-
-The CSS is organized by page flow rather than by formal component groups. That is acceptable for the current static site. Future cleanup can reorganize CSS comments and token naming without changing selectors or rendered appearance.
-
-The current styling approach is:
-
-- CSS custom properties for core brand colors and type.
-- Static semantic section classes.
-- Reusable class patterns for buttons, grids, section wrappers, and labels.
-- Thin borders and grid rhythm instead of cards and shadows.
-- Responsive behavior through two breakpoints: `920px` and `620px`.
-- No framework, build system, utility library, or component runtime.
-
-### Motion System
-
-Motion is brand atmosphere only. It should not compete with the memorial message.
-
-Current motion layers:
-
-- CSS fallback glow on `.sun-flare-fallback`.
-- WebGL shader in `sun-flare.js`.
-- Slow hero-image drift and subtle shade movement.
-- Supporting hero-copy and CTA entrance reveals.
-- Intersection Observer section and card reveals from `scroll-reveal.js`.
-- Button hover lift using `translateY(-1px)`.
-- Header/nav hover color transition.
-
-Current WebGL behavior:
-
-- Gets a WebGL context from `.sun-flare`.
-- Uses alpha blending over the hero image.
-- Anchors the sun at `vec2(0.82, 0.84)`.
-- Uses aspect-corrected calculations so the flare holds position across viewport sizes.
-- Uses a warm/cream color mix.
-- Caps alpha at `0.5`.
-- Renders with `requestAnimationFrame`.
-- Sets motion to zero when `prefers-reduced-motion: reduce` is active.
-- Pauses when the hero is offscreen with `IntersectionObserver`.
-- Adds `flare-webgl-unavailable` if WebGL is missing or shader setup fails.
-- Adds `flare-webgl-ready` when WebGL starts.
-
-Rules:
-
-- Keep motion slow and subtle.
-- Keep the hero `h1` immediately visible; it is the Largest Contentful Paint candidate and must not wait for an opacity animation.
-- Apply entrance reveals to supporting hero content instead of delaying the primary headline.
-- Keep the flare behind all readable content.
-- Preserve the CSS fallback so the hero still has warmth if WebGL is unavailable.
-- Do not add large animated UI, scroll tricks, or decorative motion that changes the tone.
-
-## Layout Principles
-
-- The hero is full-viewport and full-bleed.
-- Header stays fixed over the hero.
-- Most sections use constrained inner width: `min(1180px, calc(100% - 40px))`.
-- Sections should feel like editorial bands, not stacked cards.
-- Use border lines, grid rhythm, and spacing rather than heavy shadows.
-- Avoid nested cards.
-- Repeated informational items can use simple grid cells with restrained borders.
-
-## Component Guidance
-
-### Header
-
-Desktop:
-
-- GVG white logo on the left
-- Small caps navigation centered/right
-- Phone CTA on the right
-
-Mobile:
-
-- Hide the desktop navigation
-- Keep the logo centered in the viewport
-- Place the hamburger control on the left
-- Keep the phone CTA on the right at tablet widths and hide it on narrow phones
-
-### Buttons
-
-Primary:
-
-- Brass fill
-- Uppercase Inter
-- Clear action language
-
-Secondary:
-
-- Transparent/dark glass effect over hero
-- Outline treatment in contact area
-
-Avoid weak labels such as:
-
-- Submit
-- Learn More
-- Click Here
-- Get Started
-- Begin With Guidance
-
-### Trust Strip
-
-The trust strip anchors the hero on tablet and desktop and should remain simple. It is not a feature grid. It should communicate the service categories in one glance. Hide it on phone layouts, where the same service context appears later in the page and the hero needs a quieter first screen.
-
-## Copywriting Rules
-
-Use simple, human language. Speak to the family, not at them.
-
-Prefer:
-
-- "You do not need every detail ready before you call."
-- "Share the cemetery name, a question, or the memorial style you are considering."
-- "We guide your family with clarity, patience, and respect."
-
-Avoid:
-
-- "Shop now" as the main homepage action
-- "Premium solutions"
-- "Innovative memorial products"
-- Overly poetic copy that hides the service
-- Pressure-based sales language
-
-Each section should do one job:
-
-- Hero: reassurance and service clarity
-- Guidance: reduce overwhelm
-- Credibility: answer "can I trust you?"
-- Memorials: show what GVG makes
-- Recent Work: show real craftsmanship without restating the hero
-- Process: reduce uncertainty
-- Process Safeguard Note: confirm proof and cemetery checks without creating another section
-- Before You Visit: give a practical first-visit checklist
-- FAQ: answer pre-call objections without repeating the planning checklist
-- Contact: make reaching out feel low pressure
-
-## SEO And Local Business Notes
-
-The homepage should clearly include:
-
-- GVG Memorials
-- Oxnard
-- Ventura County
-- Custom headstones
-- Grave markers
-- Monuments
-- Bronze memorials
-- Cemetery memorials
-- Cemetery requirements
-- Family-owned
-
-Local contact details:
-
-```text
-Phone: (805) 889-3769
-Email: gvg.memorials@gmail.com
-Address: 623 S A St, Oxnard, CA 93030
-```
-
-If this page becomes the live site, add/maintain:
-
-- Meta description
-- Open Graph title/description/image
-- LocalBusiness JSON-LD
-- FAQ JSON-LD if FAQ content is added
-
-## Responsive Rules
-
-Breakpoints currently target:
-
-- Desktop: `921px` and above
-- Tablet: `621px` to `920px`
-- Mobile: `620px` and below
-
-Primary responsive rhythm:
-
-```text
-Desktop: H1 68px, H2 46px, 96px section padding, 56px gutters
-Tablet: H1 56px, H2 40px, 72px section padding, 32px gutters
-Mobile: H1 40px, H2 32px, 56px section padding, 24px gutters
-```
-
-The hero, credibility strip, process safeguard note, gallery cards, form internals, consent banner, and footer use purpose-specific spacing rather than the primary-section token.
-
-Mobile behavior:
-
-- Hide desktop nav
-- Stack grid sections to one column
-- Make CTAs full width
-- Keep hero readable over the background
-- Collapse trust and credibility grids
-- Keep text from overlapping image subjects
-
-The mobile hero remains centered with three explicit headline lines so the composition stays balanced without colliding with the monument.
-
-Current implemented mobile conventions:
-
-- At `920px`, the desktop navigation is replaced by a left-aligned hamburger control while the logo remains centered.
-- The phone CTA stays right-aligned from `621px` to `920px` and is hidden at `620px`.
-- Hero trust strip becomes two columns at `920px` and is hidden at `620px`.
-- Hero proof badges are hidden at `620px`; the primary CTA remains boxed while the phone action becomes a simple text link.
-- Major layout grids stack to one column at `920px`.
-- Credibility and memorial option grids reduce to two columns at `920px`.
-- At `620px`, the logo remains centered, the hamburger remains left-aligned, and the phone CTA is hidden.
-- At `620px`, the hero uses `min-height: max(100svh, 860px)` and starts content from the top with controlled padding.
-- At `620px`, hero content remains centered, CTAs stack, and the hero image shifts to `object-position: 64% center`.
-- At `620px`, the credibility grid remains a compact two-column trust band.
-- At `620px`, memorial options stack to one column.
-- At `620px`, process steps become one-column rows.
-- At `620px`, completed memorial cards stack to one column with captions below each image.
-
-### Known Drift Between This Document And Implementation
-
-This document is now aligned with the current implementation, with the following known drift to address later:
-
-- Some colors documented as tokens are underused in CSS: `--limestone`, `--sand`, and `--olive`.
-- Many repeated hard-coded colors, borders, and text opacity values are not yet formal tokens.
-- The current CSS has strong implicit primitives, but it is not yet grouped with component comments.
-- HTML uses query-string cache busting for changed front-end assets; keep those versions current when assets change.
-- `design.md` is lowercase. Keep this file unless the repo later adopts uppercase `DESIGN.md` as convention.
-
-## Asset Policy
-
-Keep website-consumed assets inside this repo. Do not reference generated images from `.codex/generated_images` in production code.
-
-Current production assets:
-
-```text
-assets/gvg-logo-white.png
-assets/gvg-logo.png
-assets/hero-memorial-park.png
-sun-flare.js
-```
-
-## Future Improvements
-
-Next design additions should preserve the current mood:
-
-1. Expand the finished-work gallery only with approved real work and respectful cropping.
-2. Expand the FAQ section if families ask repeated questions about cemetery rules or installation.
-3. Add a short Spanish-language path or toggle if bilingual support is part of the final site.
-4. Add real testimonial snippets only with permission.
-5. Add separate service pages for flat markers, upright monuments, bronze, benches, and Conejo Mountain support.
-
-## Future Low-Risk Cleanup Path
-
-Do not redesign during cleanup. The first implementation passes should preserve the current rendered site.
-
-Recommended order:
-
-1. Add missing token names to `:root` for current hard-coded values.
-2. Replace hard-coded values with equivalent variables without changing colors.
-3. Add CSS section comments around primitives: tokens, base, header, hero, buttons, sections, grids, motion, responsive.
-4. Continue removing unnecessary `!important` overrides only when selectors can be made equivalent.
-5. Keep `index.html` static unless content growth requires a later component strategy.
-6. Keep `sun-flare.js` isolated and dependency-free.
-7. Verify desktop and 390px mobile after every CSS cleanup pass.
-8. Do not introduce React, Tailwind, Next.js, or libraries unless the project scope changes substantially.
-
-## Non-Negotiables
-
-- Do not mix this site into `GVG-WEBSITE-LIQUID-GLASS`.
-- Do not turn the homepage into a product shop above the fold.
-- Do not use readable names/dates on generated memorial assets unless the family has approved them for publication.
-- Do not exaggerate services. If installation is cemetery-specific, say so clearly.
-- Keep the tone calm, grounded, and useful for families in grief.
+# GVG Memorials Website Design
+
+The design source of truth for gvgmemorials.com, Version A (the "folder" look).
+Read this before changing `index.html`, `es/index.html` or `styles.css`. If the
+site and this file disagree, fix one of them in the same change.
+
+Last updated: 2026-10-09 (second pass: editorial cover with one photograph, pinned section links, gentle motion). Replaces the earlier direction document (WebGL sun-flare
+hero, sans-serif accents, dark espresso panels), which no longer describes the site.
+
+---
+
+## 1. Who the site is for
+
+A family member whose person has **just died**. They're tired, grieving, often on a
+phone, sometimes reading in Spanish, and usually don't know cemetery rules, stone
+types or what to bring. The site has one job: make them feel they're in the right
+place, show them it's simple, and make it easy to call or leave a number.
+
+The look and the words come from the printed "Getting Your House in Order" folder.
+The site should feel like a fine printed magazine, not a store.
+
+**Mood:** calm, warm, dignified, personal, local. Clear rather than clever.
+
+## 2. Content rules (Jerry's decisions, not up for redesign)
+
+| Rule | Detail |
+|---|---|
+| No prices | Never show a price anywhere. Say **"free written quote"**. |
+| No pre-need | No planning-ahead content, not even one line. The site is for families who have just lost someone. |
+| Contact | Phone **(805) 889-3769** (calls and texts). Email **info@gvgmemorials.com**. 623 S A Street, Oxnard, CA 93030. |
+| Bilingual | Full Spanish site at `/es/`, with matching sections and wording. Keep "También atendemos en español" on the English page. |
+| Installation | Mention it accurately: most cemeteries set the marker themselves; at Conejo Mountain Memorial Park GVG installs it. No installation price. |
+| Weekends | GVG does call back on weekends, so the "Closed now… we'll call you back" line is accurate. |
+| Photos | Only real GVG work. Removed by Jerry, do not re-add: the showroom photo, 13-upright (upright with vases), Becerra 4/5.jpg, the Sanchez slant. |
+| Voice | Short, spoken, second-person sentences. "Tell us which one, and we'll find out what's allowed." No sales talk, no happy talk. |
+| Loss of any age | Copy covers a parent, spouse or child. Single memorials are the default; companion memorials are one option. |
+
+## 3. Hard visual rules
+
+1. **No dark pages, ever.** Every section background is one of the two creams. Black
+   granite inside a photo is fine; a black or espresso panel is not.
+2. **No diamonds or ornaments.** Separate things with open space and plain hairline rules.
+3. **Gold is the only accent.** Use it for rules, frames, numerals, italic accents and
+   the primary button. No second accent color.
+4. **Serif only.** Alegreya Regular and Italic (400) for everything (Jerry's choice, 2026-10-10). No sans-serif, no bold.
+5. **Square corners.** `border-radius: 0` on buttons, inputs, cards and frames.
+6. **Few lines.** A hairline at the top of each section and plain dividers between steps, list rows and FAQ rows. Don't put a rule under every heading.
+7. **Don't repeat a trick.** No small-caps label above every heading, no gold italic in every title, no identical
+   centered opener on every section. Vary the section layouts; a repeated formula is what makes a page look generated.
+
+## 4. Color tokens
+
+Defined once on `:root` in `styles.css`. Use the variables; don't hard-code hex values.
+
+| Token | Hex | Use |
+|---|---|---|
+| `--paper` | `#f7f2e8` | Main page cream (header, hero, epigraph) |
+| `--paper-2` | `#fbf8f1` | Lighter cream for alternate sections, inputs, button text |
+| `--stone` | `#efe7d7` | Warm stone: the epigraph band, the cover photo backdrop, share image |
+| `--ink` | `#2a251d` | Body text and headings |
+| `--gold` | `#af8741` | Rules, frames and borders only (never text) |
+| `--gold-dk` / `--gold-deep` | `#86672f` | Primary button fill; small gold text (readable contrast) |
+| `--gold-press` | `#735827` | Primary button hover/press |
+| `--hair` | `#cfc1a6` | Hairline rules and dividers |
+| `--muted` | `#736b5e` | Secondary text, captions, hours |
+| `--error` | `#8f2f22` | Form errors only |
+
+**Contrast:** all gold text uses `--gold-dk` (about 4.7:1 on `--paper`). `--gold` measures about
+3:1, so it is for lines, frames and borders only.
+On the `--stone` band, `--gold-dk` and `--muted` drop to 4.3:1, so small text there is set in `--ink`.
+
+**Section rhythm:** each section opens with a hairline. The tinted sections (`--paper-2`) are
+`.completed-gallery`, `.granite` and `.faq`; the epigraph sits on `--stone`; the rest are `--paper`.
+
+## 5. Typography
+
+Fonts are self-hosted in `assets/fonts/` (no Google Fonts request).
+
+| Role | Font | Notes |
+|---|---|---|
+| Display and text (`--display`, `--text`) | Alegreya | Regular 400 and Italic 400 only (`assets/fonts/alegreya-latin-400-*.woff2`, SIL Open Font License in `OFL-Alegreya.txt`) |
+| Small-caps labels (`--caps`) | Alegreya SC | Regular 400 (`alegreya-sc-latin-400-normal.woff2`, `OFL-Alegreya-SC.txt`). Its lowercase letters are true small caps, so labels use `font-family: var(--caps)` with `text-transform: lowercase`, never `font-variant: small-caps` |
+
+Hierarchy comes from size and italic, never from bold: `font-synthesis-weight: none` stops the browser
+faking a bold. Alegreya's figures are old-style by default (good in sentences); phone numbers, the
+kicker, step numbers and the 4.8 use lining figures.
+
+Jerry first asked for **Michelangelus** (Microsoft, 2026). Its license forbids distributing the font, and a
+web font is sent to every visitor, so it can't be used as live text on the site. It is fine for his
+print pieces and for images made on his own computer.
+
+**Scale (desktop → phone via `clamp`):**
+
+| Element | Size |
+|---|---|
+| Hero h1 | `clamp(44px, 5.6vw, 84px)`, line-height 1, tracking -0.015em |
+| Section title h2 (`.section-title`) | `clamp(36px, 4.6vw, 58px)`, line-height 1.02 |
+| Step title and sub-section h3 | `clamp(28px, 3vw, 34px)` |
+| Body | 17–19px, line-height ~1.6 |
+| Small-caps labels (hero kicker, signature title, review names, epigraph credit) | 15px, letter-spacing 2.4–3px |
+| Desktop nav | 13px uppercase, letter-spacing 3px |
+| Minimum anywhere | 13px (nav); body text never under 16px |
+
+**Signature moves:**
+- **Gold italic accent in headlines, twice only:** the cover ("Headstones, made with care
+  *for the one you love.*") and the contact invitation ("Start whenever *you're ready*"). Every other
+  title is plain. Rarity is what makes it feel special.
+- **Small caps labels** (`font-variant: small-caps` + `text-transform: lowercase` + wide tracking), used sparingly:
+  nav, buttons, the hero kicker, the signature title, review names and the epigraph credit. Text links are
+  plain underlined text, not small caps.
+- **Drop cap** on the opening note.
+- **Lining figures** on phone numbers, step numbers and the 4.8; old-style figures in running text.
+- Curly quotes and apostrophes in all copy.
+
+## 6. Layout and spacing
+
+- Content width: `.section-inner` = `min(100% - 2 × gutter, 1200px)`.
+- Gutter: `--gutter` 16px on phones, 40px from 760px up.
+- Section padding: `clamp(56px, 8vw, 104px)` top and bottom, with a hairline at the top of each section.
+- Headings are left-aligned. The epigraph is the one centered moment on the page.
+- `.section-head`: the title, with a short italic note under it on phones and beside it (right-aligned) from 900px.
+- Headings sit closer to their own section than to the one above.
+- Body text measure: keep paragraphs under ~75 characters (the intro is ~70ch).
+
+## 7. Components
+
+**Header.** Logo plus "GVG Memorials" in sentence-case serif, centered, with the phone number top
+right, and the section links on a second row in letterspaced caps ending with a hairline and
+"Español". From 960px the header is sticky with a negative `top`, so the logo row scrolls away
+and the section-link row stays pinned. Once pinned (`.site-header--solid`, set by nav.js past 80px), a
+small logo fades in at the left of that row and, from 1280px, the phone number at the right; the
+links get side padding so nothing overlaps. Phones keep a 72px header with a menu button and the
+sticky bottom bar with **Call · Text · Write**.
+
+**Cover (`.hero`).** From 960px: the words on the left, inside the 1200px column, and one tall
+photograph in the right column that bleeds off the right edge of the window and fills the first
+screen (`100svh` less the header, 560 to 900px). The photograph is the carved-doves close-up on
+Blue Pearl, with a small cream museum label on it. Words: small-caps kicker "Oxnard, California ·
+Family-owned since 1998" (the second half never breaks), the headline, one sentence on what to do, Call + Ask buttons, the open/closed line,
+then under a hairline "Rated 4.8 out of 5 by families on Google" (links to the reviews) and the Spanish
+line. On phones the words come first and the photograph follows, edge to edge at 4:5. On load the
+words rise in, staggered, and the photograph settles from a 5% zoom (skipped for reduced motion).
+
+**Buttons.** `.button` 52px tall, square, small caps, 17px.
+- Primary: gold-dk fill, cream text ("Call (805) 889-3769").
+- Outline: gold border, ink text ("Ask us a question").
+- One primary per view.
+
+**Text link.** `.text-link`: gold-dk text, 18px, with a 1px underline
+("Ask about your cemetery"). 44px tap height on phones (padding, not visual size).
+
+**How it works (`.steps`).** Titled "Five steps, one at a time". Step titles are short actions, never
+starting the same way: Start with the cemetery / Choose the shape / Make it theirs / Get your quote /
+Approve the proof. Five compact rows (gold numeral, title, gold italic
+lede, body, optional text link) separated by hairlines, then two blocks side by side:
+"After you approve" with "How long does it take?" (installation and timing), and
+"What to bring, if you have it" as a checklist with empty boxes in a gold-keyline card.
+
+**Epigraph.** Full-width italic quote from the folder line, credited to "The Garcia
+family, GVG Memorials", on the warm stone band with a short gold rule above, between how it works
+and the granite. The only centered block.
+
+**Gallery (`.completed-gallery`).** Titled "Recent work" (the nav still says "Our Work"). On wide screens the lead photo spans two
+rows of a three-column grid; below 1000px the lead runs across two columns. Captions show the title only (Jerry, 2026-10-10); the kind of memorial stays in a hidden span for analytics.
+The gallery is the one home for the work (no slideshow): 20 photos, 11 visible and 9 behind
+"See more of our work". Keep the visible count at 5 + a multiple of 3
+(desktop) **and** odd (phone: the lead plus pairs), which 11 satisfies.
+Below the grid: "What we create" as a plain hairline list beside the "Already have a headstone?" card.
+
+**Granite grid.** 17 square swatches ("Seventeen granite colors"; Morning Rose dropped, China Pink renamed Rose Pink, Jerry 2026-10-10) with a thin gold frame and the name; 4 across on phones,
+6 on tablets, 9 from 1100px. No "No. 1" labels.
+
+**Album grid.** Six design examples from the 286-design album, captioned plainly.
+
+**Reviews (`#reviews`).** Large "4.8" in gold display numerals, "out of 5 from families on Google", and two
+italic quotes separated by a hairline, with small-caps first names.
+
+**FAQ.** Native `<details>` rows with hairline dividers and a gold +/× marker. Questions at 21px.
+
+**Contact.** Big phone number, text and email links, hours table with a live open/closed
+line, and "We can meet at our shop or at your home." Form in a gold-keyline card: name
+(required) and phone *or* email, then optional details and a photo. Labels are always visible
+(placeholders are examples only). Privacy note under the send button.
+
+**Footer.** Centered on phones. From 860px: left-aligned columns: the logo beside "GVG Memorials" and
+"Family owned since 1998", the caps nav in two columns reading downward, then contact and "Analytics choices".
+A closing line under a hairline: "GVG Memorials, Oxnard, California — Headstones and grave markers since 1998".
+
+## 8. Page order (English and Spanish match)
+
+1. Header
+2. Cover: words on the left, the doves photograph bleeding off the right
+3. Opening note with drop cap, signed "Jerry Garcia, Third generation, GVG Memorials"
+4. Recent work: gallery, "What we create", "Already have a headstone?"
+5. Five steps, one at a time, then "After you approve" and "What to bring"
+6. Epigraph
+7. Seventeen granite colors and the album
+8. Reviews
+9. Questions
+10. Contact
+11. Footer
+
+The nav follows the same order: Our Work, How It Works, Granite & Designs, Questions, Contact, Español.
+In Spanish "Our Work" is shortened to "Galería" so the pinned row fits.
+
+**Removed by Jerry (2026-10-10):** the "Our family" section (his father's portrait, the 1998 / Firsts /
+Today timeline, and the memorial GVG made for him). Do not re-add it.
+
+## 9. Imagery
+
+- Real GVG memorials only, photographed outdoors or close up. Compress to WebP with
+  800/1200/full `srcset`, set `width`/`height`, and lazy-load everything below the first screen.
+- Every photo gets a plain, specific alt text and caption ("Blue granite companion memorial with a color portrait").
+- No stock photos, no people grieving, no AI-generated stones.
+- Share image: `assets/gvg-share-g-clear.png`, a transparent gold "G" with "GVG Memorials · Oxnard · since 1998".
+
+## 10. Responsive
+
+- Breakpoints in use: 600, 640, 700, 760, 860, 900, 960, 1000, 1100, 1200px.
+- Phones: one column for text, a two-column gallery, a menu button and the sticky Call/Text/Write bar.
+- Tap targets at least 44px. Inline links inside sentences are the only exception.
+- No horizontal scroll at 375px.
+- Check every change at 375px and 1440px, in English and at `/es/`.
+
+## 11. Motion
+
+- Gentle and functional only: the cover's rise-in and photo settle, blocks below the first screen
+  fading up 18px as they scroll into view (`[data-reveal]`, 900ms), the pinned header's logo and
+  phone fading in, hover color shifts (160ms), FAQ open/close.
+- The scroll fade is fail-safe: everything starts visible, and the script only holds back blocks
+  that are still below the fold when it runs. No IntersectionObserver or reduced motion means no
+  fade at all, and print shows everything.
+- `prefers-reduced-motion`: no cover animation, no fades, instant scrolling.
+- Animate only `opacity`, `transform` and colors.
+
+## 12. Accessibility
+
+- Landmarks: header, nav, main, sections labelled by their headings, footer.
+- Visible focus states. Body contrast at least 4.5:1 (ink on cream is about 13:1).
+- Form errors are specific and appear next to the field.
+
+## 13. Don'ts
+
+- Dark or espresso sections, gradients, glassmorphism
+- Sans-serif type, system fonts, Inter/Roboto
+- Diamonds, ornaments, emoji, icon-in-circle feature grids
+- Rounded "bubbly" corners or drop shadows on cards
+- Prices, packages, "starting at", pre-need or planning-ahead copy
+- Stock imagery, or photos Jerry removed
+- Chat bubbles, question boxes or pop-ups that cover the page or a photo
+- The same label + rule + centered title + italic subtitle formula on every section
+
+## 14. Copy review (2026-10-10)
+
+Jerry reviewed every line of wording in https://claude.ai/artifact/TQXrMSD63LxcYuH1fNdTzc and the
+site was updated to his choices (58 lines). Photo descriptions now match the captions plus
+", by GVG Memorials". The FAQ gained "Do you install the memorial?".
+
+## 15. Open items (2026-10-09)
+
+- **Before going live:** Jerry picked Version A; `version-c/` and `version-d/` were deleted
+  (2026-10-29), and netlify.toml returns 404 for the working files (`docs/`, `scripts/`, the
+  `.md` notes). **Do not merge or push to `main` until Jerry says go.**
+- The 2026-10-09 pass needs Jerry's approval: the new cover headline and sentence, the
+  question box removed, the slideshow cut from 13 to 6 photos and moved into the cover, the
+  page order (our work before granite), and the merged "How it works" section.
+- The second pass (same day) also needs his approval: the doves close-up as the cover photograph
+  in place of the slideshow (its five other photos are back in the gallery), our work moved ahead
+  of how it works, and the shortened Spanish nav labels.
