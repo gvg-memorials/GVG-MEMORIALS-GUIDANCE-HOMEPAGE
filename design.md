@@ -256,14 +256,25 @@ Jerry reviewed every line of wording in https://claude.ai/artifact/TQXrMSD63LxcY
 site was updated to his choices (58 lines). Photo descriptions now match the captions plus
 ", by GVG Memorials". The FAQ gained "Do you install the memorial?".
 
-## 15. Open items (2026-10-09)
+## 15. Launch (2026-10-29)
 
-- **Before going live:** Jerry picked Version A; `version-c/` and `version-d/` were deleted
-  (2026-10-29), and netlify.toml returns 404 for the working files (`docs/`, `scripts/`, the
-  `.md` notes). **Do not merge or push to `main` until Jerry says go.**
-- The 2026-10-09 pass needs Jerry's approval: the new cover headline and sentence, the
-  question box removed, the slideshow cut from 13 to 6 photos and moved into the cover, the
-  page order (our work before granite), and the merged "How it works" section.
-- The second pass (same day) also needs his approval: the doves close-up as the cover photograph
-  in place of the slideshow (its five other photos are back in the gallery), our work moved ahead
-  of how it works, and the shortened Spanish nav labels.
+Jerry approved the design and said go. PR #3 merged to `main`; gvgmemorials.com serves this
+site. Rollback point: tag `live-before-redesign-2026-10-29` (the old site).
+
+- Cover headline: "Headstones, made with care *for the one you love.*" (ES "Lápidas, hechas con
+  cariño *para quien tanto ama.*").
+- Versions C and D deleted; netlify.toml answers 404 for `docs/`, `scripts/` and the `.md` notes.
+- **Forms (PR #4):** both forms are the one Netlify form `contact` and post to `/thank-you/`.
+  Netlify serves a single success page per form name, so the thank-you page forwards Spanish
+  senders to `/es/gracias/` (sessionStorage `gvg_contact_language`, else the referrer). Don't
+  rename the Spanish form: the email notification is tied to the `contact` form.
+  Alerts go to gvg.memorials@gmail.com.
+- **Hours (PR #5):** Saturday is 11 AM–3 PM. Keep `hours.js`, the hours list and the JSON-LD in
+  sync with the Google Business Profile.
+- Google: sitemap re-submitted in Search Console (property `https://www.gvgmemorials.com/`),
+  indexing requested for `/` and `/es/`.
+
+## 16. Open items
+
+- Check Search Console around 2026-11-05: `/es/` indexed, new title showing for `/`.
+- Compare form messages, calls and texts with the old site after a few weeks.
