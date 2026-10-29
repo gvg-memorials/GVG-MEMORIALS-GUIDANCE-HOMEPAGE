@@ -1,7 +1,7 @@
 (function () {
   // Shop hours in Oxnard (Pacific time). Keep in sync with the hours list and the LocalBusiness JSON-LD.
   // Index is the day of the week, Sunday = 0. Each entry is [opens, closes] in 24-hour time, or null.
-  const hours = [null, [10, 18], [10, 18], [10, 18], [10, 18], [10, 18], [12, 15]];
+  const hours = [null, [10, 18], [10, 18], [10, 18], [10, 18], [10, 18], [11, 15]];
   const spanish = (document.documentElement.lang || "").toLowerCase().startsWith("es");
 
   const words = spanish

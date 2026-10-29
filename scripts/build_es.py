@@ -326,7 +326,7 @@ PAIRS = [
      ">623 S A Street, Oxnard, CA 93030 <span>Cómo llegar</span></a>"),
     ('aria-label="Office hours"', 'aria-label="Horario"'),
     ("<dt>Monday&ndash;Friday</dt><dd>10 AM&ndash;6 PM</dd>", "<dt>Lunes a viernes</dt><dd>10 a.&nbsp;m. a 6 p.&nbsp;m.</dd>"),
-    ("<dt>Saturday</dt><dd>12&ndash;3 PM</dd>", "<dt>Sábado</dt><dd>12 a 3 p.&nbsp;m.</dd>"),
+    ("<dt>Saturday</dt><dd>11 AM&ndash;3 PM</dd>", "<dt>Sábado</dt><dd>11 a.&nbsp;m. a 3 p.&nbsp;m.</dd>"),
     ("<dt>Sunday</dt><dd>Closed</dd>", "<dt>Domingo</dt><dd>Cerrado</dd>"),
     ('<p class="contact-note">We can meet at our shop or at your home.</p>',
      '<p class="contact-note">Podemos vernos en nuestro taller o en su casa.</p>'),

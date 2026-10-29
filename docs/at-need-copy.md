@@ -157,7 +157,7 @@ every detail.
 (805) 889-3769 · info@gvgmemorials.com
 623 S A Street, Oxnard, CA 93030
 
-Office hours: Monday–Friday 10 AM–6 PM · Saturday 12–3 PM · Sunday closed
+Office hours: Monday–Friday 10 AM–6 PM · Saturday 11 AM–3 PM · Sunday closed
 We can meet at our shop or at your home.
 
 *[The contact form stays as it is, with softer wording. The "Pricing or timeline" choice becomes "A free written
