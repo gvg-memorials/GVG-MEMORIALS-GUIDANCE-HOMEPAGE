@@ -28,6 +28,19 @@
           window.sessionStorage.removeItem("gvg_contact_draft_submitted");
         }
       } catch (_) {}
+      // Netlify shows this page after every form submission, English or Spanish.
+      // Spanish senders go on to /es/gracias/ (known from the form, or else from the page they came from).
+      try {
+        var sentLanguage = window.sessionStorage.getItem("gvg_contact_language");
+        window.sessionStorage.removeItem("gvg_contact_language");
+        var cameFrom = document.referrer ? new URL(document.referrer) : null;
+        var fromSpanish = sentLanguage
+          ? sentLanguage === "Spanish"
+          : !!cameFrom && cameFrom.host === location.host && cameFrom.pathname.indexOf("/es/") === 0;
+        if (fromSpanish && location.pathname.indexOf("/es/") !== 0) {
+          location.replace("/es/gracias/");
+        }
+      } catch (_) {}
     </script>
     <script defer src="/analytics.js?v=23"></script>
     <script defer src="/hours.js?v=1"></script>
