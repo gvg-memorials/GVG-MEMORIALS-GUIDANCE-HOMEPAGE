@@ -56,7 +56,7 @@ Defined once on `:root` in `styles.css`. Use the variables; don't hard-code hex 
 |---|---|---|
 | `--paper` | `#f7f2e8` | Main page cream (header, hero, epigraph) |
 | `--paper-2` | `#fbf8f1` | Lighter cream for alternate sections, inputs, button text |
-| `--stone` | `#efe7d7` | Warm stone: the epigraph band, the cover photo backdrop, share image |
+| `--stone` | `#efe7d7` | Warm stone: the epigraph band, the cover photo backdrop |
 | `--ink` | `#2a251d` | Body text and headings |
 | `--gold` | `#af8741` | Rules, frames and borders only (never text) |
 | `--gold-dk` / `--gold-deep` | `#86672f` | Primary button fill; small gold text (readable contrast) |
@@ -212,7 +212,7 @@ Today timeline, and the memorial GVG made for him). Do not re-add it.
   800/1200/full `srcset`, set `width`/`height`, and lazy-load everything below the first screen.
 - Every photo gets a plain, specific alt text and caption ("Blue granite companion memorial with a color portrait").
 - No stock photos, no people grieving, no AI-generated stones.
-- Share image: `assets/gvg-share-g-clear.png`, a transparent gold "G" with "GVG Memorials · Oxnard · since 1998".
+- Share image (link previews in texts and social): `assets/gvg-share-stained-glass.jpg`, 1200×630, the stained-glass logo centered on cream (`--paper`) with "GVG Memorials" in Alegreya and "family-owned since 1998" in Alegreya SC, inside a thin gold frame. Centered so a square crop still shows the logo. Replaced the gold "G" on 2026-10-29 (Jerry).
 
 ## 10. Responsive
 
