@@ -170,7 +170,10 @@ Below the grid: "What we create" as a plain hairline list beside the "Already ha
 **Granite grid.** 17 square swatches ("Seventeen granite colors"; Morning Rose dropped, China Pink renamed Rose Pink, Jerry 2026-10-10) with a thin gold frame and the name; 4 across on phones,
 6 on tablets, 9 from 1100px. No "No. 1" labels.
 
-**Album grid.** Six design examples from the 286-design album, captioned plainly.
+**Album grid.** Six design examples from the 286-design album, captioned plainly, each on a different
+granite (Jerry, 2026-10-29): Sunflower FL-001 (black), Portrait with St. Francis PT-066 (gray), Our Lady of
+Guadalupe FA-300 (green), Roses FL-059 (blue-gray), Music HB-009 (red), Portrait with tulips PT-155 (tan
+brown). Keep it to six, two of them portraits; never repeat a granite.
 
 **Reviews (`#reviews`).** Large "4.8" in gold display numerals, "out of 5 from families on Google", and two
 italic quotes separated by a hairline, with small-caps first names. On the Spanish page the quotes stay in
