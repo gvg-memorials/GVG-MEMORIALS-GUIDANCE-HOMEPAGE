@@ -258,8 +258,9 @@ site was updated to his choices (58 lines). Photo descriptions now match the cap
 
 ## 15. Open items (2026-10-09)
 
-- **Before going live:** Jerry picked Version A. Delete `version-c/` and `version-d/`
-  before merging PR #3. **Do not merge or push to `main` until Jerry says go.**
+- **Before going live:** Jerry picked Version A; `version-c/` and `version-d/` were deleted
+  (2026-10-29), and netlify.toml returns 404 for the working files (`docs/`, `scripts/`, the
+  `.md` notes). **Do not merge or push to `main` until Jerry says go.**
 - The 2026-10-09 pass needs Jerry's approval: the new cover headline and sentence, the
   question box removed, the slideshow cut from 13 to 6 photos and moved into the cover, the
   page order (our work before granite), and the merged "How it works" section.
