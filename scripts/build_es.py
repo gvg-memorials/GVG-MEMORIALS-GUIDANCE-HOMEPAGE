@@ -359,7 +359,7 @@ PAIRS = [
     ('data-validation-message="Please enter your name."', 'data-validation-message="Por favor, escriba su nombre."'),
     ("""                  How should we reach you? <span class="field-required-text">Phone or email</span>""",
      """                  ¿Cómo le contactamos? <span class="field-required-text">Teléfono o correo</span>"""),
-    ('<span class="field-label">Phone</span>', '<span class="field-label">Teléfono</span>'),
+    ('<span class="field-label">Phone number</span>', '<span class="field-label">Número de teléfono</span>'),
     ('<span class="field-label">Email</span>', '<span class="field-label">Correo electrónico</span>'),
     ('data-validation-message="Please enter a complete email address."',
      'data-validation-message="Por favor, escriba un correo electrónico completo."'),
