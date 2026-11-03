@@ -800,7 +800,7 @@ body.nav-open .analytics-consent {
   font-size: 15px;
 }
 .footer-bottom span + span::before {
-  content: " \2014 ";
+  content: " \2014  ";
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1087,6 +1087,14 @@ h2 em {
 .hero-kicker span {
   white-space: nowrap;
 }
+@media (max-width: 559px), (min-width: 960px) and (max-width: 1099px) {
+  .hero-kicker .kicker-dot {
+    display: none;
+  }
+  .hero-kicker .kicker-line {
+    display: block;
+  }
+}
 .hero-kicker {
   color: var(--muted);
   font-size: 15px;
@@ -1212,20 +1220,8 @@ h2 em {
   }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .hero-copy > * {
-    animation: rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  }
-  .hero-copy > :nth-child(2) { animation-delay: 80ms; }
-  .hero-copy > :nth-child(3) { animation-delay: 160ms; }
-  .hero-copy > :nth-child(n + 4) { animation-delay: 240ms; }
   .hero-figure img {
     animation: settle 1800ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  }
-}
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
   }
 }
 @keyframes settle {
@@ -1247,7 +1243,7 @@ h2 em {
 }
 .dropcap::first-letter {
   float: left;
-  margin: 0.06em 0.1em 0 0;
+  margin: 0.06em 0.02em 0 0;
   color: var(--gold-dk);
   font-family: var(--display);
   font-size: 4.3em;

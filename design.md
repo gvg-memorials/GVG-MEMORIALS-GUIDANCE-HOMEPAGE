@@ -136,10 +136,10 @@ sticky bottom bar with **Call · Text · Write**.
 photograph in the right column that bleeds off the right edge of the window and fills the first
 screen (`100svh` less the header, 560 to 900px). The photograph is the carved-doves close-up on
 Blue Pearl, with a small cream museum label on it. Words: small-caps kicker "Oxnard, California ·
-Family-owned since 1998" (the second half never breaks), the headline, one sentence on what to do, Call + Ask buttons, the open/closed line,
+Family-owned since 1998" (on phones and small laptops the dot drops and the two halves stack), the headline, one sentence on what to do, Call + Ask buttons, the open/closed line,
 then under a hairline "Rated 4.8 out of 5 by families on Google" (links to the reviews) and the Spanish
 line. On phones the words come first and the photograph follows, edge to edge at 4:5. On load the
-words rise in, staggered, and the photograph settles from a 5% zoom (skipped for reduced motion).
+words are there right away, and the photograph settles from a 5% zoom (skipped for reduced motion).
 
 **Buttons.** `.button` 52px tall, square, small caps, 17px.
 - Primary: gold-dk fill, cream text ("Call (805) 889-3769").
@@ -229,7 +229,7 @@ Today timeline, and the memorial GVG made for him). Do not re-add it.
 
 ## 11. Motion
 
-- Gentle and functional only: the cover's rise-in and photo settle, blocks below the first screen
+- Gentle and functional only: the cover's photo settle, blocks below the first screen
   fading up 18px as they scroll into view (`[data-reveal]`, 900ms), the pinned header's logo and
   phone fading in, hover color shifts (160ms), FAQ open/close.
 - The scroll fade is fail-safe: everything starts visible, and the script only holds back blocks
