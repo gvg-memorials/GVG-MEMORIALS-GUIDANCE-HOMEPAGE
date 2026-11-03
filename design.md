@@ -42,7 +42,7 @@ The site should feel like a fine printed magazine, not a store.
 2. **No diamonds or ornaments.** Separate things with open space and plain hairline rules.
 3. **Gold is the only accent.** Use it for rules, frames, numerals, italic accents and
    the primary button. No second accent color.
-4. **Serif only.** Alegreya Regular and Italic (400) for everything (Jerry's choice, 2026-10-10). No sans-serif, no bold.
+4. **Serif only.** Alegreya Regular and Italic (400) for everything (Jerry's choice, 2026-10-10), except the two Pinyon Script touches in the opening note. No sans-serif, no bold.
 5. **Square corners.** `border-radius: 0` on buttons, inputs, cards and frames.
 6. **Few lines.** A hairline at the top of each section and plain dividers between steps, list rows and FAQ rows. Don't put a rule under every heading.
 7. **Don't repeat a trick.** No small-caps label above every heading, no gold italic in every title, no identical
@@ -79,6 +79,7 @@ Fonts are self-hosted in `assets/fonts/` (no Google Fonts request).
 | Role | Font | Notes |
 |---|---|---|
 | Display and text (`--display`, `--text`) | Alegreya | Regular 400 and Italic 400 only (`assets/fonts/alegreya-latin-400-*.woff2`, SIL Open Font License in `OFL-Alegreya.txt`) |
+| Script (`--script`) | Pinyon Script | Regular 400, only the opening note's first letter and Jerry's name in the sign-off (Jerry's choice, 2026-11-03; `pinyon-script-latin-400-normal.woff2`, `OFL-Pinyon-Script.txt`) |
 | Small-caps labels (`--caps`) | Alegreya SC | Regular 400 (`alegreya-sc-latin-400-normal.woff2`, `OFL-Alegreya-SC.txt`). Its lowercase letters are true small caps, so labels use `font-family: var(--caps)` with `text-transform: lowercase`, never `font-variant: small-caps` |
 
 Hierarchy comes from size and italic, never from bold: `font-synthesis-weight: none` stops the browser

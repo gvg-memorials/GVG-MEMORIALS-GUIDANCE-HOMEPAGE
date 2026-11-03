@@ -29,6 +29,15 @@
   font-display: swap;
 }
 
+/* Pinyon Script (SIL Open Font License): only the opening note's first letter and Jerry's name. */
+@font-face {
+  font-family: "Pinyon Script";
+  src: url("assets/fonts/pinyon-script-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --paper: #f7f2e8;
   --paper-2: #fbf8f1;
@@ -42,6 +51,7 @@
   --muted: #736b5e;
   --error: #8f2f22;
   --display: "Alegreya", Georgia, serif;
+  --script: "Pinyon Script", "Alegreya", Georgia, serif;
   --text: "Alegreya", Georgia, serif;
   --caps: "Alegreya SC", "Alegreya", Georgia, serif;
   --gutter: 16px;
@@ -1243,24 +1253,30 @@ h2 em {
 }
 .dropcap::first-letter {
   float: left;
-  margin: 0.06em 0.02em 0 0;
+  margin: 0.09em 0.21em 0 -0.1em;
   color: var(--gold-dk);
-  font-family: var(--display);
-  font-size: 4.3em;
+  font-family: var(--script);
+  font-size: 5.2em;
   font-weight: 400;
-  line-height: 0.78;
+  line-height: 0.8;
+}
+/* The Spanish note opens with an E, whose swashes reach farther than the C's. */
+html[lang="es"] .dropcap::first-letter {
+  margin: 0.09em 0.25em 0 0;
 }
 .intro-body .signoff {
   margin-top: 28px;
   color: var(--gold-dk);
-  font-family: var(--display);
-  font-size: clamp(26px, 3vw, 32px);
-  font-style: italic;
+  font-family: var(--script);
+  font-size: clamp(40px, 4.6vw, 48px);
+  font-style: normal;
   line-height: 1.1;
+  text-indent: 0.2em; /* the J's tail reaches left, so this lines the tail up with the text */
 }
 .signoff span {
   display: block;
   margin-top: 6px;
+  text-indent: 0;
   color: var(--muted);
   font-size: 15px;
   font-style: normal;
