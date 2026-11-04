@@ -24,7 +24,8 @@
     }
   };
 
-  let consentState = readConsent();
+  // On unless the visitor turned it off in the footer panel or their browser asks not to be tracked.
+  let consentState = readConsent() || (navigator.globalPrivacyControl ? "denied" : "granted");
 
   function loadGoogleAnalytics() {
     if (analyticsRequested) return;

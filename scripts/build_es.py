@@ -400,8 +400,8 @@ PAIRS = [
     ('aria-expanded="false">Analytics choices</button>', 'aria-expanded="false">Opciones de análisis</button>'),
     ('aria-label="Analytics privacy choices"', 'aria-label="Opciones de privacidad"'),
     ("<strong>Help us improve this website</strong>", "<strong>Ayúdenos a mejorar este sitio</strong>"),
-    ("<p>Privacy-focused analytics show us which pages and contact options help families. No advertising tracking.</p>",
-     "<p>Un análisis respetuoso de su privacidad nos muestra qué páginas y formas de contacto ayudan a las familias. Sin rastreo publicitario.</p>"),
+    ("<p>We use Google Analytics, with cookies, to see which pages and contact options help families. No advertising tracking.</p>",
+     "<p>Usamos Google Analytics, con cookies, para ver qué páginas y formas de contacto ayudan a las familias. Sin rastreo publicitario.</p>"),
     ("data-analytics-accept>Allow analytics</button>", "data-analytics-accept>Permitir</button>"),
     ("data-analytics-decline>Continue without</button>", "data-analytics-decline>Continuar sin análisis</button>"),
 
@@ -455,8 +455,8 @@ THANK_YOU_PAIRS = [
     (">Analytics choices</button>", ">Opciones de análisis</button>"),
     ('aria-label="Analytics privacy choices"', 'aria-label="Opciones de privacidad"'),
     ("<strong>Help us improve this website</strong>", "<strong>Ayúdenos a mejorar este sitio</strong>"),
-    ("<p>Privacy-focused analytics show us which pages and contact options help families. No advertising tracking.</p>",
-     "<p>Un análisis respetuoso de su privacidad nos muestra qué páginas y formas de contacto ayudan a las familias. Sin rastreo publicitario.</p>"),
+    ("<p>We use Google Analytics, with cookies, to see which pages and contact options help families. No advertising tracking.</p>",
+     "<p>Usamos Google Analytics, con cookies, para ver qué páginas y formas de contacto ayudan a las familias. Sin rastreo publicitario.</p>"),
     ("data-analytics-accept>Allow analytics</button>", "data-analytics-accept>Permitir</button>"),
     ("data-analytics-decline>Continue without</button>", "data-analytics-decline>Continuar sin análisis</button>"),
 ]

@@ -14,11 +14,9 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { window.dataLayer.push(arguments); }
-      var analyticsConsent = "denied";
+      var analyticsConsent = navigator.globalPrivacyControl ? "denied" : "granted";
       try {
-        if (window.localStorage.getItem("gvg_analytics_consent") === "granted") {
-          analyticsConsent = "granted";
-        }
+        analyticsConsent = window.localStorage.getItem("gvg_analytics_consent") || analyticsConsent;
       } catch (_) {}
       gtag("consent", "default", {
         ad_storage: "denied",
@@ -29,7 +27,7 @@
       });
       gtag("js", new Date());
     </script>
-    <script defer src="analytics.js?v=24"></script>
+    <script defer src="analytics.js?v=25"></script>
     <script defer src="gallery-viewer.js?v=11"></script>
     <script defer src="contact-form.js?v=23"></script>
     <script defer src="hours.js?v=2"></script>
@@ -940,7 +938,7 @@
     <section class="analytics-consent" id="analytics-consent" data-analytics-consent hidden aria-label="Analytics privacy choices">
       <div class="analytics-consent-copy">
         <strong>Help us improve this website</strong>
-        <p>Privacy-focused analytics show us which pages and contact options help families. No advertising tracking.</p>
+        <p>We use Google Analytics, with cookies, to see which pages and contact options help families. No advertising tracking.</p>
       </div>
       <div class="analytics-consent-actions">
         <button class="button button-primary" type="button" data-analytics-accept>Allow analytics</button>
