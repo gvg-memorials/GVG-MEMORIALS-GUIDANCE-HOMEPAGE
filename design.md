@@ -230,7 +230,7 @@ Today timeline, and the memorial GVG made for him). Do not re-add it.
 
 ## 11. Motion
 
-- Gentle and functional only: the cover's photo settle, blocks below the first screen
+- Gentle and functional only: the cover's photo settle, the gold headline line rolling through its wordings (every 4 seconds, two rounds, only while on screen, then it rests on the first; Jerry's request, 2026-11-03), blocks below the first screen
   fading up 18px as they scroll into view (`[data-reveal]`, 900ms), the pinned header's logo and
   phone fading in, hover color shifts (160ms), FAQ open/close.
 - The scroll fade is fail-safe: everything starts visible, and the script only holds back blocks

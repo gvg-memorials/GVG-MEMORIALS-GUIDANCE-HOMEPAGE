@@ -1124,6 +1124,33 @@ h2 em {
   margin-top: 0.06em;
   letter-spacing: -0.015em;
 }
+/* A window one line tall that the wordings roll through. The padding keeps the italic's
+   overhangs inside it, and the type shrinks on the narrowest phones so every wording stays on
+   one line (7.9em is the longest wording's width). */
+.hero h1 em.hero-flip {
+  display: grid;
+  overflow: hidden;
+  margin: -0.04em -0.12em -0.22em;
+  padding: 0.1em 0.12em 0.22em;
+  font-size: min(1em, calc((100vw - 32px) / 7.9));
+}
+.flip-row {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translateY(120%);
+  white-space: nowrap;
+}
+.flip-row.is-on,
+.flip-row.is-out {
+  transition: opacity 500ms ease, transform 800ms cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+.flip-row.is-on {
+  opacity: 1;
+  transform: none;
+}
+.flip-row.is-out {
+  transform: translateY(-120%);
+}
 .hero-sub {
   max-width: 27em;
   margin-top: 26px;
