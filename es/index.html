@@ -193,7 +193,7 @@
         <div class="hero-grid">
           <div class="hero-copy">
             <p class="hero-kicker">Oxnard, California<span class="kicker-dot"> · </span><span class="kicker-line">Negocio familiar desde 1998</span></p>
-            <h1 id="hero-title">Lápidas, hechas con cariño <em data-flip="por la vida que vivió.|para toda su familia.">para quien tanto ama.</em></h1>
+            <h1 id="hero-title">Lápidas, hechas con cariño <em data-flip="por todo lo que fue.|por una vida recordada.|para cada familia.">para quien tanto ama.</em></h1>
             <p class="hero-sub">Díganos su nombre y el cementerio, y nosotros nos encargamos del resto, al paso de su familia, con un presupuesto por escrito gratis.</p>
             <div class="hero-actions">
               <a class="button button-primary" href="tel:+18058893769">Llamar al (805) 889-3769</a>
@@ -951,7 +951,7 @@
       </div>
     </section>
     <script>
-      // The cover's gold line rolls through its other wordings twice, then rests on the first.
+      // The cover's gold line rolls through its other wordings once, then rests on the first.
       // Without this script, or with reduced motion, the first wording simply stays.
       (function () {
         var line = document.querySelector("[data-flip]");
@@ -968,7 +968,7 @@
           return row;
         });
         var shown = 0;
-        var flipsLeft = rows.length * 2;
+        var flipsLeft = rows.length;
         var timer = null;
         function flip() {
           var next = rows[(shown + 1) % rows.length];
