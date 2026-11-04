@@ -29,9 +29,9 @@
       });
       gtag("js", new Date());
     </script>
-    <script defer src="analytics.js?v=23"></script>
+    <script defer src="analytics.js?v=24"></script>
     <script defer src="gallery-viewer.js?v=11"></script>
-    <script defer src="contact-form.js?v=22"></script>
+    <script defer src="contact-form.js?v=23"></script>
     <script defer src="hours.js?v=2"></script>
     <meta name="theme-color" content="#f7f2e8" />
     <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
@@ -849,10 +849,15 @@
                 </div>
               </fieldset>
 
+              <label class="field field-full">
+                <span class="field-label">Cemetery <span class="field-optional">(if known)</span></span>
+                <input type="text" name="cemetery" autocomplete="off" maxlength="120" />
+              </label>
+
               <details class="contact-form-details" id="contact-form-details">
                 <summary>Add details or a photo, if you'd like</summary>
                 <div class="contact-form-optional-grid">
-                  <label class="field">
+                  <label class="field field-full">
                     <span class="field-label">What can we help with? <span class="field-optional">(optional)</span></span>
                     <select name="starting_point">
                       <option value="">Choose one</option>
@@ -863,10 +868,6 @@
                       <option value="A free written quote">A free written quote</option>
                       <option value="I am not sure yet">I'm not sure yet</option>
                     </select>
-                  </label>
-                  <label class="field">
-                    <span class="field-label">Cemetery <span class="field-optional">(if known)</span></span>
-                    <input type="text" name="cemetery" autocomplete="off" maxlength="120" />
                   </label>
                   <label class="field field-full">
                     <span class="field-label">Photo or document <span class="field-optional">(optional)</span></span>

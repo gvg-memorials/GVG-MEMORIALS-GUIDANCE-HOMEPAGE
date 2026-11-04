@@ -30,9 +30,9 @@
       });
       gtag("js", new Date());
     </script>
-    <script defer src="/analytics.js?v=23"></script>
+    <script defer src="/analytics.js?v=24"></script>
     <script defer src="/gallery-viewer.js?v=11"></script>
-    <script defer src="/contact-form.js?v=22"></script>
+    <script defer src="/contact-form.js?v=23"></script>
     <script defer src="/hours.js?v=2"></script>
     <meta name="theme-color" content="#f7f2e8" />
     <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
@@ -853,10 +853,15 @@
                 </div>
               </fieldset>
 
+              <label class="field field-full">
+                <span class="field-label">Cementerio <span class="field-optional">(si lo sabe)</span></span>
+                <input type="text" name="cemetery" autocomplete="off" maxlength="120" />
+              </label>
+
               <details class="contact-form-details" id="contact-form-details">
                 <summary>Agregue detalles o una foto, si quiere</summary>
                 <div class="contact-form-optional-grid">
-                  <label class="field">
+                  <label class="field field-full">
                     <span class="field-label">¿En qué le podemos ayudar? <span class="field-optional">(opcional)</span></span>
                     <select name="starting_point">
                       <option value="">Escoja una opción</option>
@@ -867,10 +872,6 @@
                       <option value="A free written quote">Un presupuesto por escrito gratis</option>
                       <option value="I am not sure yet">Todavía no sé</option>
                     </select>
-                  </label>
-                  <label class="field">
-                    <span class="field-label">Cementerio <span class="field-optional">(si lo sabe)</span></span>
-                    <input type="text" name="cemetery" autocomplete="off" maxlength="120" />
                   </label>
                   <label class="field field-full">
                     <span class="field-label">Foto o documento <span class="field-optional">(opcional)</span></span>

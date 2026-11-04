@@ -97,10 +97,6 @@
     hideConsentChoices();
   };
 
-  if (consentBanner && consentState === null) {
-    showConsentChoices();
-  }
-
   consentAccept?.addEventListener("click", () => updateConsent("granted"));
   consentDecline?.addEventListener("click", () => updateConsent("denied"));
   consentChoiceButtons.forEach((button) => {

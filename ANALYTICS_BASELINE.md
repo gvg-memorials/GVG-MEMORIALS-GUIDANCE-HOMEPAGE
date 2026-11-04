@@ -43,7 +43,9 @@ The verified form lead conversion rate is `4 / 1,856 = 0.22%`.
 - Netlify reports 749 referrals from `gvgmemorials.com`. These are same-domain
   or redirect traffic and must not be treated as an external acquisition source.
 - GA4 is consent-based, so it will intentionally count fewer visitors than
-  Netlify.
+  Netlify. Since the pop-up stopped opening by itself, GA4 only runs for
+  visitors who allow it through the footer's "Analytics choices" link, so its
+  numbers are not comparable with earlier ones.
 
 ## Conversion Definitions
 
