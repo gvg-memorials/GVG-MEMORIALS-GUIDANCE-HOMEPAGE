@@ -42,7 +42,7 @@ The site should feel like a fine printed magazine, not a store.
 2. **No diamonds or ornaments.** Separate things with open space and plain hairline rules.
 3. **Gold is the only accent.** Use it for rules, frames, numerals, italic accents and
    the primary button. No second accent color.
-4. **Serif only.** Alegreya Regular and Italic (400) for everything (Jerry's choice, 2026-10-10). No sans-serif, no bold.
+4. **Serif only.** Alegreya Regular and Italic (400) for everything (Jerry's choice, 2026-10-10), except the two Pinyon Script touches in the opening note. No sans-serif, no bold.
 5. **Square corners.** `border-radius: 0` on buttons, inputs, cards and frames.
 6. **Few lines.** A hairline at the top of each section and plain dividers between steps, list rows and FAQ rows. Don't put a rule under every heading.
 7. **Don't repeat a trick.** No small-caps label above every heading, no gold italic in every title, no identical
@@ -79,6 +79,7 @@ Fonts are self-hosted in `assets/fonts/` (no Google Fonts request).
 | Role | Font | Notes |
 |---|---|---|
 | Display and text (`--display`, `--text`) | Alegreya | Regular 400 and Italic 400 only (`assets/fonts/alegreya-latin-400-*.woff2`, SIL Open Font License in `OFL-Alegreya.txt`) |
+| Script (`--script`) | Pinyon Script | Regular 400, only the opening note's first letter and Jerry's name in the sign-off (Jerry's choice, 2026-11-03; `pinyon-script-latin-400-normal.woff2`, `OFL-Pinyon-Script.txt`) |
 | Small-caps labels (`--caps`) | Alegreya SC | Regular 400 (`alegreya-sc-latin-400-normal.woff2`, `OFL-Alegreya-SC.txt`). Its lowercase letters are true small caps, so labels use `font-family: var(--caps)` with `text-transform: lowercase`, never `font-variant: small-caps` |
 
 Hierarchy comes from size and italic, never from bold: `font-synthesis-weight: none` stops the browser
@@ -136,10 +137,10 @@ sticky bottom bar with **Call · Text · Write**.
 photograph in the right column that bleeds off the right edge of the window and fills the first
 screen (`100svh` less the header, 560 to 900px). The photograph is the carved-doves close-up on
 Blue Pearl, with a small cream museum label on it. Words: small-caps kicker "Oxnard, California ·
-Family-owned since 1998" (the second half never breaks), the headline, one sentence on what to do, Call + Ask buttons, the open/closed line,
+Family-owned since 1998" (on phones and small laptops the dot drops and the two halves stack), the headline, one sentence on what to do, Call + Ask buttons, the open/closed line,
 then under a hairline "Rated 4.8 out of 5 by families on Google" (links to the reviews) and the Spanish
 line. On phones the words come first and the photograph follows, edge to edge at 4:5. On load the
-words rise in, staggered, and the photograph settles from a 5% zoom (skipped for reduced motion).
+words are there right away, and the photograph settles from a 5% zoom (skipped for reduced motion).
 
 **Buttons.** `.button` 52px tall, square, small caps, 17px.
 - Primary: gold-dk fill, cream text ("Call (805) 889-3769").
@@ -229,7 +230,7 @@ Today timeline, and the memorial GVG made for him). Do not re-add it.
 
 ## 11. Motion
 
-- Gentle and functional only: the cover's rise-in and photo settle, blocks below the first screen
+- Gentle and functional only: the cover's photo settle, the gold headline line rolling through its wordings (every 4 seconds, one round, only while on screen, then it rests on the first; Jerry's request, 2026-11-03), blocks below the first screen
   fading up 18px as they scroll into view (`[data-reveal]`, 900ms), the pinned header's logo and
   phone fading in, hover color shifts (160ms), FAQ open/close.
 - The scroll fade is fail-safe: everything starts visible, and the script only holds back blocks

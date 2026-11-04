@@ -72,7 +72,7 @@
     <link rel="preload" href="assets/fonts/alegreya-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/alegreya-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/alegreya-sc-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=333" />
+    <link rel="stylesheet" href="styles.css?v=336" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -189,8 +189,8 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-grid">
           <div class="hero-copy">
-            <p class="hero-kicker">Oxnard, California · <span>Family-owned since 1998</span></p>
-            <h1 id="hero-title">Headstones, made with care <em>for the one you love.</em></h1>
+            <p class="hero-kicker">Oxnard, California<span class="kicker-dot"> · </span><span class="kicker-line">Family-owned since 1998</span></p>
+            <h1 id="hero-title">Headstones, made with care <em data-flip="for all they were.|for a life remembered.|for every family.">for the one you love.</em></h1>
             <p class="hero-sub">Tell us their name and the cemetery, and we'll take it from there, at your family's pace, with a free written quote.</p>
             <div class="hero-actions">
               <a class="button button-primary" href="tel:+18058893769">Call (805) 889-3769</a>
@@ -946,6 +946,47 @@
         <button class="button button-outline" type="button" data-analytics-decline>Continue without</button>
       </div>
     </section>
+    <script>
+      // The cover's gold line rolls through its other wordings once, then rests on the first.
+      // Without this script, or with reduced motion, the first wording simply stays.
+      (function () {
+        var line = document.querySelector("[data-flip]");
+        if (!line || !("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var wordings = [line.textContent].concat(line.dataset.flip.split("|"));
+        line.textContent = "";
+        line.classList.add("hero-flip");
+        var rows = wordings.map(function (text, i) {
+          var row = document.createElement("span");
+          row.className = i === 0 ? "flip-row is-on" : "flip-row";
+          if (i > 0) row.setAttribute("aria-hidden", "true");
+          row.textContent = text;
+          line.append(row);
+          return row;
+        });
+        var shown = 0;
+        var flipsLeft = rows.length;
+        var timer = null;
+        function flip() {
+          var next = rows[(shown + 1) % rows.length];
+          rows.forEach(function (row) { row.classList.remove("is-out"); });
+          void next.offsetWidth;
+          rows[shown].classList.replace("is-on", "is-out");
+          next.classList.add("is-on");
+          shown = (shown + 1) % rows.length;
+          flipsLeft -= 1;
+          if (flipsLeft === 0) {
+            clearInterval(timer);
+            io.disconnect();
+          }
+        }
+        // Rolls only while the headline is on screen.
+        var io = new IntersectionObserver(function (entries) {
+          clearInterval(timer);
+          if (entries[0].isIntersecting) timer = setInterval(flip, 4000);
+        });
+        io.observe(line);
+      })();
+    </script>
     <script>
       (function () {
         var more = document.querySelector("[data-gallery-more]");

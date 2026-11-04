@@ -29,6 +29,15 @@
   font-display: swap;
 }
 
+/* Pinyon Script (SIL Open Font License): only the opening note's first letter and Jerry's name. */
+@font-face {
+  font-family: "Pinyon Script";
+  src: url("assets/fonts/pinyon-script-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --paper: #f7f2e8;
   --paper-2: #fbf8f1;
@@ -42,6 +51,7 @@
   --muted: #736b5e;
   --error: #8f2f22;
   --display: "Alegreya", Georgia, serif;
+  --script: "Pinyon Script", "Alegreya", Georgia, serif;
   --text: "Alegreya", Georgia, serif;
   --caps: "Alegreya SC", "Alegreya", Georgia, serif;
   --gutter: 16px;
@@ -800,7 +810,7 @@ body.nav-open .analytics-consent {
   font-size: 15px;
 }
 .footer-bottom span + span::before {
-  content: " \2014 ";
+  content: " \2014  ";
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1087,6 +1097,14 @@ h2 em {
 .hero-kicker span {
   white-space: nowrap;
 }
+@media (max-width: 559px), (min-width: 960px) and (max-width: 1099px) {
+  .hero-kicker .kicker-dot {
+    display: none;
+  }
+  .hero-kicker .kicker-line {
+    display: block;
+  }
+}
 .hero-kicker {
   color: var(--muted);
   font-size: 15px;
@@ -1105,6 +1123,33 @@ h2 em {
   display: block;
   margin-top: 0.06em;
   letter-spacing: -0.015em;
+}
+/* A window one line tall that the wordings roll through. The padding keeps the italic's
+   overhangs inside it, and the type shrinks on the narrowest phones so every wording stays on
+   one line (7.9em is the longest wording's width). */
+.hero h1 em.hero-flip {
+  display: grid;
+  overflow: hidden;
+  margin: -0.04em -0.12em -0.22em;
+  padding: 0.1em 0.12em 0.22em;
+  font-size: min(1em, calc((100vw - 32px) / 7.9));
+}
+.flip-row {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translateY(120%);
+  white-space: nowrap;
+}
+.flip-row.is-on,
+.flip-row.is-out {
+  transition: opacity 500ms ease, transform 800ms cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+.flip-row.is-on {
+  opacity: 1;
+  transform: none;
+}
+.flip-row.is-out {
+  transform: translateY(-120%);
 }
 .hero-sub {
   max-width: 27em;
@@ -1212,20 +1257,8 @@ h2 em {
   }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .hero-copy > * {
-    animation: rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  }
-  .hero-copy > :nth-child(2) { animation-delay: 80ms; }
-  .hero-copy > :nth-child(3) { animation-delay: 160ms; }
-  .hero-copy > :nth-child(n + 4) { animation-delay: 240ms; }
   .hero-figure img {
     animation: settle 1800ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  }
-}
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
   }
 }
 @keyframes settle {
@@ -1247,24 +1280,30 @@ h2 em {
 }
 .dropcap::first-letter {
   float: left;
-  margin: 0.06em 0.1em 0 0;
+  margin: 0.09em 0.21em 0 -0.1em;
   color: var(--gold-dk);
-  font-family: var(--display);
-  font-size: 4.3em;
+  font-family: var(--script);
+  font-size: 5.2em;
   font-weight: 400;
-  line-height: 0.78;
+  line-height: 0.8;
+}
+/* The Spanish note opens with an E, whose swashes reach farther than the C's. */
+html[lang="es"] .dropcap::first-letter {
+  margin: 0.09em 0.25em 0 0;
 }
 .intro-body .signoff {
   margin-top: 28px;
   color: var(--gold-dk);
-  font-family: var(--display);
-  font-size: clamp(26px, 3vw, 32px);
-  font-style: italic;
+  font-family: var(--script);
+  font-size: clamp(40px, 4.6vw, 48px);
+  font-style: normal;
   line-height: 1.1;
+  text-indent: 0.2em; /* the J's tail reaches left, so this lines the tail up with the text */
 }
 .signoff span {
   display: block;
   margin-top: 6px;
+  text-indent: 0;
   color: var(--muted);
   font-size: 15px;
   font-style: normal;

@@ -83,10 +83,10 @@ PAIRS = [
     ('<a href="#contact-form">Write</a>', '<a href="#contact-form">Escribir</a>'),
 
     # --- hero -----------------------------------------------------------------------------------------
-    ('<p class="hero-kicker">Oxnard, California · <span>Family-owned since 1998</span></p>',
-     '<p class="hero-kicker">Oxnard, California · <span>Negocio familiar desde 1998</span></p>'),
-    ('<h1 id="hero-title">Headstones, made with care <em>for the one you love.</em></h1>',
-     '<h1 id="hero-title">Lápidas, hechas con cariño <em>para quien tanto ama.</em></h1>'),
+    ('<p class="hero-kicker">Oxnard, California<span class="kicker-dot"> · </span><span class="kicker-line">Family-owned since 1998</span></p>',
+     '<p class="hero-kicker">Oxnard, California<span class="kicker-dot"> · </span><span class="kicker-line">Negocio familiar desde 1998</span></p>'),
+    ('<h1 id="hero-title">Headstones, made with care <em data-flip="for all they were.|for a life remembered.|for every family.">for the one you love.</em></h1>',
+     '<h1 id="hero-title">Lápidas, hechas con cariño <em data-flip="por todo lo que fue.|en su memoria.|para cada familia.">para quien tanto ama.</em></h1>'),
     ('<p class="hero-sub">Tell us their name and the cemetery, and we\'ll take it from there, at your family\'s pace, with a free written quote.</p>',
      '<p class="hero-sub">Díganos su nombre y el cementerio, y nosotros nos encargamos del resto, al paso de su familia, con un presupuesto por escrito gratis.</p>'),
     ('<p class="hero-proof"><a href="#reviews">Rated 4.8 out of 5 by families on Google</a></p>',
