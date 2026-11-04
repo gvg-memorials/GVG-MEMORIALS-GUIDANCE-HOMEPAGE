@@ -15,11 +15,9 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { window.dataLayer.push(arguments); }
-      var analyticsConsent = "denied";
+      var analyticsConsent = navigator.globalPrivacyControl ? "denied" : "granted";
       try {
-        if (window.localStorage.getItem("gvg_analytics_consent") === "granted") {
-          analyticsConsent = "granted";
-        }
+        analyticsConsent = window.localStorage.getItem("gvg_analytics_consent") || analyticsConsent;
       } catch (_) {}
       gtag("consent", "default", {
         ad_storage: "denied",
@@ -30,9 +28,9 @@
       });
       gtag("js", new Date());
     </script>
-    <script defer src="/analytics.js?v=23"></script>
+    <script defer src="/analytics.js?v=25"></script>
     <script defer src="/gallery-viewer.js?v=11"></script>
-    <script defer src="/contact-form.js?v=22"></script>
+    <script defer src="/contact-form.js?v=23"></script>
     <script defer src="/hours.js?v=2"></script>
     <meta name="theme-color" content="#f7f2e8" />
     <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
@@ -853,10 +851,15 @@
                 </div>
               </fieldset>
 
+              <label class="field field-full">
+                <span class="field-label">Cementerio <span class="field-optional">(si lo sabe)</span></span>
+                <input type="text" name="cemetery" autocomplete="off" maxlength="120" />
+              </label>
+
               <details class="contact-form-details" id="contact-form-details">
                 <summary>Agregue detalles o una foto, si quiere</summary>
                 <div class="contact-form-optional-grid">
-                  <label class="field">
+                  <label class="field field-full">
                     <span class="field-label">¿En qué le podemos ayudar? <span class="field-optional">(opcional)</span></span>
                     <select name="starting_point">
                       <option value="">Escoja una opción</option>
@@ -867,10 +870,6 @@
                       <option value="A free written quote">Un presupuesto por escrito gratis</option>
                       <option value="I am not sure yet">Todavía no sé</option>
                     </select>
-                  </label>
-                  <label class="field">
-                    <span class="field-label">Cementerio <span class="field-optional">(si lo sabe)</span></span>
-                    <input type="text" name="cemetery" autocomplete="off" maxlength="120" />
                   </label>
                   <label class="field field-full">
                     <span class="field-label">Foto o documento <span class="field-optional">(opcional)</span></span>
@@ -943,7 +942,7 @@
     <section class="analytics-consent" id="analytics-consent" data-analytics-consent hidden aria-label="Opciones de privacidad">
       <div class="analytics-consent-copy">
         <strong>Ayúdenos a mejorar este sitio</strong>
-        <p>Un análisis respetuoso de su privacidad nos muestra qué páginas y formas de contacto ayudan a las familias. Sin rastreo publicitario.</p>
+        <p>Usamos Google Analytics, con cookies, para ver qué páginas y formas de contacto ayudan a las familias. Sin rastreo publicitario.</p>
       </div>
       <div class="analytics-consent-actions">
         <button class="button button-primary" type="button" data-analytics-accept>Permitir</button>

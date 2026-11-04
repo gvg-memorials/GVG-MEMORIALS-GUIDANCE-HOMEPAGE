@@ -7,11 +7,9 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { window.dataLayer.push(arguments); }
-      var analyticsConsent = "denied";
+      var analyticsConsent = navigator.globalPrivacyControl ? "denied" : "granted";
       try {
-        if (window.localStorage.getItem("gvg_analytics_consent") === "granted") {
-          analyticsConsent = "granted";
-        }
+        analyticsConsent = window.localStorage.getItem("gvg_analytics_consent") || analyticsConsent;
       } catch (_) {}
       gtag("consent", "default", {
         ad_storage: "denied",
@@ -43,7 +41,7 @@
         }
       } catch (_) {}
     </script>
-    <script defer src="/analytics.js?v=23"></script>
+    <script defer src="/analytics.js?v=25"></script>
     <script defer src="/hours.js?v=2"></script>
     <meta name="theme-color" content="#f7f2e8" />
     <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
@@ -151,7 +149,7 @@
     >
       <div class="analytics-consent-copy">
         <strong>Ayúdenos a mejorar este sitio</strong>
-        <p>Un análisis respetuoso de su privacidad nos muestra qué páginas y formas de contacto ayudan a las familias. Sin rastreo publicitario.</p>
+        <p>Usamos Google Analytics, con cookies, para ver qué páginas y formas de contacto ayudan a las familias. Sin rastreo publicitario.</p>
       </div>
       <div class="analytics-consent-actions">
         <button class="button button-primary" type="button" data-analytics-accept>Permitir</button>

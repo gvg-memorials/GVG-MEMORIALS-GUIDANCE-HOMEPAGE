@@ -42,8 +42,10 @@ The verified form lead conversion rate is `4 / 1,856 = 0.22%`.
   direction, but they are not the same as GA4 organic-search users.
 - Netlify reports 749 referrals from `gvgmemorials.com`. These are same-domain
   or redirect traffic and must not be treated as an external acquisition source.
-- GA4 is consent-based, so it will intentionally count fewer visitors than
-  Netlify.
+- GA4 was consent-based until the pop-up was removed, so earlier numbers are
+  far lower and not comparable. It now runs for every visitor, with cookies,
+  unless they turn it off with the footer's "Analytics choices" link or their
+  browser sends Global Privacy Control.
 
 ## Conversion Definitions
 
@@ -99,7 +101,7 @@ For the next 30 days:
 
 1. Treat Netlify totals as gross reach.
 2. Count verified Netlify submissions as confirmed form leads.
-3. Count GA4 `generate_lead` by `method` for consented form and phone intent.
+3. Count GA4 `generate_lead` by `method` for form and phone intent.
 4. Report `appointment_click` separately from leads.
 5. Do not add `phone_click` to `generate_lead`; that would double-count calls.
 6. Exclude known owner or developer tests from the verified form lead total.
@@ -119,7 +121,7 @@ At each review, report:
 - gross Netlify visitors and pageviews
 - Google referrals
 - verified form leads
-- consented GA4 phone leads
+- GA4 phone leads
 - appointment clicks
 - verified form conversion rate
 - consented key-event rate, reported separately

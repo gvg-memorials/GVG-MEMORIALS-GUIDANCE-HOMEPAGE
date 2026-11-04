@@ -59,12 +59,10 @@
   const getDraftField = (name) => contactForm.elements.namedItem(name);
 
   const hasVisitorOptionalDetails = () => {
-    const visitorTextFields = ["cemetery"];
-    const hasVisitorText = visitorTextFields.some((fieldName) => getDraftField(fieldName)?.value.trim());
     const hasEditedGuidance = [startingPoint, message].some(
       (field) => field?.value.trim() && field.value !== field.dataset.guidancePrefill,
     );
-    return hasVisitorText || hasEditedGuidance || Boolean(referenceFile?.files?.length);
+    return hasEditedGuidance || Boolean(referenceFile?.files?.length);
   };
 
   const setGuidanceContext = (value, collapseDetails = true) => {
@@ -197,7 +195,7 @@
       setGuidanceContext(draft.guidanceContext);
     } else if (
       optionalDetails &&
-      ["starting_point", "cemetery", "message"].some((name) => getDraftField(name)?.value)
+      ["starting_point", "message"].some((name) => getDraftField(name)?.value)
     ) {
       optionalDetails.open = true;
     }
